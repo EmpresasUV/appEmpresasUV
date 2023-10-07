@@ -1,0 +1,8 @@
+execSdk
+	(Parametro 0)
+	[/GET] [/POST] [/PUT] [/EXEC] [/DELETE]
+	GET es usado para recuperar un recurso.
+	POST se usa la mayoría de las veces para crear un nuevo recurso.
+	PUT es útil para crear o editar un recurso.
+	EXEC realiza la ejecución de algun proceso o recurso.
+	DELETE se usa para eliminar un recurso.	

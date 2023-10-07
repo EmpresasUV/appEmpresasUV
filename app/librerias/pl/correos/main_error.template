@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="Content-Style-Type" content="text/css" />
+	<meta name="title" content="OBRINGOLFO S.A.S.">
+	<meta name="ROBOTS" content="INDEX,FOLLOW">
+	<meta http-equiv="Content-Language" content="es-mx">
+	<meta name="description" content="Obras Informáticas del Golfo, empresa de servicios informáticos, internet y transmisión de datos electrónicos." />	
+	<meta name="abstract" content="Obras Informáticas del Golfo, empresa de servicios informáticos, internet y transmisión de datos electrónicos.">
+	<meta name="keywords" content="hospedaje, hosting, web, servidores, servers, vps, planes, multihospedaje, dedicados, paginas, desarrollo, programacion">
+	<meta name="author" content="Rixio Danilo Iguaran Chourio [OBRINGOLFO S.A.S.]">
+	<meta name="copyright" content="PAN CDE Veracruz &reg;">
+	<meta name="rating" content="General">
+	<meta name="creation_Date" content="01/07/2019">
+	<meta name="revisit-after" content="1 days">
+	<meta name="doc-rights" content="Copywritten work">
+	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+	<link rel="icon" type="image/x-icon" href="https://comprobar.panver.mx/favicon.ico" />
+	<link rel="shortcut icon" type="image/x-icon" href="https://comprobar.panver.mx/favicon.ico" />
+	<title>OBRINGOLFO S.A.S.</title>
+    <style type="text/css">
+
+        body {
+            line-height : 15px;
+        }
+        
+        .msgHeader{
+            font-family: Tahoma !important;
+            font-weight: normal;
+            font-size: 12px;
+            line-height : 15px;
+        }
+        .msgBody{
+            font-family: Tahoma !important;
+            font-weight: normal;
+            font-size: 11px;
+            text-align: justify !important;
+            line-height : 15px;
+            
+        }
+        .msgFooter{
+            font-family: Tahoma !important;
+            font-weight: normal;
+            font-size: 9px;
+            text-align: center !important;
+            line-height : 10px;
+			color: #AFAFAF;
+        }
+        
+        .mailtable{
+            width: 750px;
+            border: 0px;
+        }
+        
+        .mailContainer{
+            width: 750px !important;
+            margin-left: auto;
+            margin-right: auto;    
+        }
+    </style>
+</head>
+<body link="#FFFFFF" vlink="#FFFFFF" alink="#FFFFFF"><center>
+<div class="mailContainer">
+    <table class="mailtable">
+          <tr>
+            <td width="750px" style="background-color: #0056B8; text-align: center;">
+				<img src="https://comprobar.panver.mx/app/librerias/img/logo_cde.png" width="421" height="196" />
+			</td>
+          </tr>
+          <tr>
+            <td style="padding:15px; border:1px solid #0056B8; ">
+        	<dl>
+        		<dt class="msgHeader">
+        			    Con atención a:	<br />
+						<strong>IDS Rixio Danilo Iguarán Chourio.</strong><br />
+						<strong>OBRINGOLFO S.A.S. DE C.V.</strong><br />
+                    <br />
+        		</dt>
+                <dt class="msgBody">
+					<br />
+                    Estimado proveedor de servicios, hemos detectado un error dentro de la aplicación y le notificamos para que tome las acciones necesarias para corregir el problema; los datos del error son:<br /><br />
+
+                    <br />Tipo de error: <strong><?php echo $data['error']; ?></strong>
+                    <br />Código de error: <strong><?php echo $data['code']; ?></strong>
+                    <br />Nivel de error: <strong><?php echo $data['level']; ?></strong>
+					<br />Mensaje de error: <strong><?php echo $data['description']; ?></strong>
+					<br />Script origen: <strong><?php echo $data['file']; ?></strong>
+					<br />Línea: <strong><?php echo $data['line']; ?></strong>
+					<br /><br />Traza de seguimiento:<br /><strong><?php echo $data['context']; ?></strong>
+
+                    <br /><br /><br />
+                    Agradecemos su atención y esperamos poderle atender de la maneras más veraz y objetiva posible, recuerde que para dudas ó comentarios puede abrir un ticket de servicio en cualquier momento accediendo a nuestra área de clientes y donde uno de los integrantes de nuestro departamento de atención al cliente le atenderá.
+                </dt>
+				<dt class="msgBody">
+					<br />c.c.p. <strong>Área de tesorería</strong> | Para su conocimiento.
+					<br />c.c.p. <strong>Archivo electrónico</strong>
+				</dt>
+        	</dl>
+        	</td>
+          </tr>
+          <tr>
+            <td style="border-top: 3px solid #0056B8;  line-height : 7px;">
+                <div align="justify">
+            		<font face="Tahoma" style="font-size: 5pt;">Aviso de privacidad de
+            		acuerdo con la Ley Federal de Protección de Datos Personales en Posesión 
+            		de los Particulares y su Reglamento, le notificamos que sus datos 
+            		personales están salvaguardados por nuestros sistemas, en una base de 
+            		datos propiedad de CDE VERACRUZ®.; Por lo que ponemos a su 
+            		disposición las políticas relativas al cuidado y manejo de sus datos 
+            		personales que podrá encontrar en nuestra sección de privacidad. Usted 
+            		podrá ejercer en cualquier momento los derechos de acceso, 
+            		rectificación, cancelación y oposición a dichos datos (Derechos ARCO), 
+            		para lo cual deberá enviar un correo a la dirección electrónica 
+            		sistema@cde.panver.com.mx, misma que se indica dentro del aviso 
+            		de privacidad correspondiente; además, le informamos que sus datos 
+            		personales sólo serán utilizados para proveerle los productos y 
+            		servicios de CDE VERACRUZ®, informarle sobre nuevos productos o 
+            		servicios, cambios en los mismos, mensajes promociónales, 
+            		mercadológicos, publicitarios o de prospección comercial y evaluar la 
+            		calidad del servicio brindado. Adicionalmente le informamos que toda la 
+            		información personal en nuestras bases de datos no está a la venta ni 
+            		disponible para su comercialización con terceros. En caso de que desee 
+            		dejar de recibir estos correos, escribanos a nuestra dirección de correo 
+            		y será un gusto atender a sus solicitudes.</font>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td width="750px" height="20" style="background-color: #0056B8;">
+				<dl>
+					<dt class="msgFooter">
+						Notificaciones del sistema de comprobaciones fiscales del C.D.E. Veracruz. 
+						<br />Diseño: OBRINGOLFO S.A.S. DE C.V.
+					</dt>
+				</dl>
+			</td>
+          </tr>
+    </table>
+</div></center>
+</body>
+</html>

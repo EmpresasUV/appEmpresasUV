@@ -1,0 +1,33 @@
+<?php
+/**
+ * @autor Rixio Danilo Iguarán Chourio.
+ * @cédula-profesional 12196442
+ * @correo-eletrónico atencion.clientes@obringolfo.com
+ * @denominacion OBRAS INFORMÁTICAS DEL GOLFO
+ * @empresa OBRINGOLFO S.A.S. DE C.V.
+ * @proyecto  goPAC.
+ * @copyright 2021
+ */
+
+    define('LNG_ERRORES_0000', '¡Houston!, tenemos un problema');
+    define('LNG_ERRORES_0001', 'El código de confirmación proporcionado no es válido');
+    define('LNG_ERRORES_0002', 'El tiempo de validéz para ésta solicitud se encuentra agotado');
+    define('LNG_ERRORES_0003', 'No se pudo guardar la información<br>Deshaciendo los cambios generados');
+    define('LNG_ERRORES_0004', '');
+    define('LNG_ERRORES_0005', '');
+    define('LNG_ERRORES_0006', '');
+    define('LNG_ERRORES_0007', '');
+    define('LNG_ERRORES_0008', '');
+    define('LNG_ERRORES_0009', '');
+    define('LNG_ERRORES_0010', '');
+    define('LNG_ERRORES_0011', '');
+    define('LNG_ERRORES_0012', '');
+    define('LNG_ERRORES_0013', '');
+    define('LNG_ERRORES_0014', '');
+    define('LNG_ERRORES_0015', '');
+    define('LNG_ERRORES_0016', '');
+    define('LNG_ERRORES_0017', '');
+    define('LNG_ERRORES_0018', '');
+    define('LNG_ERRORES_0019', '');
+
+?>

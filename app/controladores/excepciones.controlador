@@ -1,0 +1,52 @@
+<?php
+/**
+ * @autor Rixio Danilo Iguarán Chourio.
+ * @cédula-profesional 12196442
+ * @correo-eletrónico atencion.clientes@obringolfo.com
+ * @denominacion OBRAS INFORMÁTICAS DEL GOLFO
+ * @empresa OBRINGOLFO S.A.S. DE C.V.
+ * @proyecto  goPAC.
+ * @copyright 2021
+ */
+
+
+class ExcepcionesControlador extends ControladorBase{
+    public $conectar;
+    public $adapter;
+    /** ****************************************************** **/
+    public function __construct() {
+        try {
+
+            parent::__construct();
+            $this->conectar = new Conectar();
+            $this->adapter  = $this->conectar->conexion();
+
+        } catch (Exception $e) {
+            mostrar_error($e);
+        }
+    }
+    /** ****************************************************** **/
+    public function index(){
+        chkSesion();
+        //Cargamos la vista index y le pasamos valores
+        $this->view("index", null);
+    }
+    /** ****************************************************** **/
+    /**
+     * CONTROL DE INTERFACES PARA EL USUARIO (Carga dinamica de interfaces)
+     *  **/
+    /** ****************************************************** **/
+    public function show_error(){
+        try {
+
+            $this->view("_header_login", null);
+            $this->view("_excepcion", null);
+            $this->view("_footer_login", null);
+
+        } catch (Exception $e) {
+            mostrar_error($e);
+        }
+    }
+
+}
+?>

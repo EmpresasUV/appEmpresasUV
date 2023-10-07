@@ -1,0 +1,230 @@
+<?php
+/**
+ * @autor Rixio Danilo Iguarán Chourio.
+ * @cédula-profesional 12196442
+ * @correo-eletrónico atencion.clientes@obringolfo.com
+ * @denominacion OBRAS INFORMÁTICAS DEL GOLFO
+ * @empresa OBRINGOLFO S.A.S. DE C.V.
+ * @proyecto  goPAC.
+ * @copyright 2021
+ */
+
+
+?>
+<!-- Download SVG icon from http://tabler-icons.io/i/home -->
+<script src="<?php echo PATH_JS; ?>/go_master.js"></script>
+<!-- ## ********************************************* ## -->
+    <body  class=" d-flex flex-column">
+        <div class="page-body">
+            <div class="container container-xl">
+                <div class="text-center mb-4">
+                    <img src="<?php echo PATH_IMAGENES; ?>/logo_login.gif" height="100" alt="">
+                </div>
+                <div class="row row-cards">
+                    <div class="col-lg-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <ul class="steps steps-counter steps-vertical">
+                                    <li class="step-item"><?= LNG_SEGURIDAD_0067 ?></li>
+                                    <li class="step-item active"><?= LNG_SEGURIDAD_0068 ?></li>
+                                    <li class="step-item"><?= LNG_SEGURIDAD_0069 ?></li>
+                                    <li class="step-item"><?= LNG_SEGURIDAD_0070 ?></li>
+                                    <li class="step-item"><?= LNG_SEGURIDAD_0071 ?></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-9">
+                        <form id="FrmDATAREG02" name="FrmDATAREG02" class="card" method="post" autocomplete="off">
+                            <input id="step" name="step" type="hidden" value="2" />
+                            <input id="txt_MAIL" name="txt_MAIL" type="hidden" value="<?php echo $txt_MAIL; ?>" />
+                            <input id="txt_PLAN" name="txt_PLAN" type="hidden" value="0"/>
+                            <input id="txt_UID" name="txt_UID" type="hidden" value="<?php echo $txt_UID; ?>"/>
+                            <div class="card-header">
+                                <h3 class="card-title"><?= LNG_SEGURIDAD_0073 ?></h3>
+                            </div>
+                            <div class="card-body">
+
+                                <div class="row row-cards">
+                                    <div class="col-sm-6 col-lg-4">
+                                        <div class="card card-md">
+                                            <div class="card-body text-center">
+                                                <div class="text-uppercase text-muted font-weight-medium"><?php echo LNG_NUCLEO_0051; ?></div>
+                                                <div class="display-5 fw-bold my-3">$49</div>
+                                                <ul class="list-unstyled lh-lg">
+                                                    <li><strong>1</strong> Usuario</li>
+                                                    <li>
+                                                        <!-- Download SVG icon from http://tabler-icons.io/i/check -->
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon me-1 text-success" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M5 12l5 5l10 -10"></path></svg>
+                                                        Otra característica
+                                                    </li>
+                                                    <li>
+                                                        <!-- Download SVG icon from http://tabler-icons.io/i/check -->
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon me-1 text-success" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M5 12l5 5l10 -10"></path></svg>
+                                                        Otra característica
+                                                    </li>
+                                                    <li>
+                                                        <!-- Download SVG icon from http://tabler-icons.io/i/x -->
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon me-1 text-danger" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M18 6l-12 12"></path><path d="M6 6l12 12"></path></svg>
+                                                        Otra característica
+                                                    </li>
+                                                    <li>
+                                                        <!-- Download SVG icon from http://tabler-icons.io/i/x -->
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon me-1 text-danger" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M18 6l-12 12"></path><path d="M6 6l12 12"></path></svg>
+                                                        Otra característica
+                                                    </li>
+                                                </ul>
+                                                <div class="text-center mt-4">
+                                                    <button id="cmdP1" name="cmdP1" class="btn plan w-100"><?php echo LNG_NUCLEO_0054; ?></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-lg-4">
+                                        <div class="card card-md">
+                                            <div class="ribbon ribbon-top ribbon-bookmark bg-green">
+                                                <!-- Download SVG icon from http://tabler-icons.io/i/star -->
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-filled" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z"></path></svg>
+                                            </div>
+
+                                            <div class="card-body text-center">
+                                                <div class="text-uppercase text-muted font-weight-medium"><?php echo LNG_NUCLEO_0052; ?></div>
+                                                <div class="display-5 fw-bold my-3">$99</div>
+                                                <ul class="list-unstyled lh-lg">
+                                                    <li><strong>5</strong> Usuarios</li>
+                                                    <li>
+                                                        <!-- Download SVG icon from http://tabler-icons.io/i/check -->
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon me-1 text-success" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M5 12l5 5l10 -10"></path></svg>
+                                                        Otra característica
+                                                    </li>
+                                                    <li>
+                                                        <!-- Download SVG icon from http://tabler-icons.io/i/check -->
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon me-1 text-success" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M5 12l5 5l10 -10"></path></svg>
+                                                        Otra característica
+                                                    </li>
+                                                    <li>
+                                                        <!-- Download SVG icon from http://tabler-icons.io/i/check -->
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon me-1 text-success" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M5 12l5 5l10 -10"></path></svg>
+                                                        Otra característica
+                                                    </li>
+                                                    <li>
+                                                        <!-- Download SVG icon from http://tabler-icons.io/i/x -->
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon me-1 text-danger" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M18 6l-12 12"></path><path d="M6 6l12 12"></path></svg>
+                                                        Otra característica
+                                                    </li>
+                                                </ul>
+                                                <div class="text-center mt-4">
+                                                    <button id="cmdP2" name="cmdP2" class="btn plan btn-green w-100"><?php echo LNG_NUCLEO_0054; ?></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-lg-4">
+                                        <div class="card card-md">
+                                            <div class="card-body text-center">
+                                                <div class="text-uppercase text-muted font-weight-medium"><?php echo LNG_NUCLEO_0053; ?></div>
+                                                <div class="display-5 fw-bold my-3">$139</div>
+                                                <ul class="list-unstyled lh-lg">
+                                                    <li><strong>15</strong> Usuarios</li>
+                                                    <li>
+                                                        <!-- Download SVG icon from http://tabler-icons.io/i/check -->
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon me-1 text-success" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M5 12l5 5l10 -10"></path></svg>
+                                                        Otra característica
+                                                    </li>
+                                                    <li>
+                                                        <!-- Download SVG icon from http://tabler-icons.io/i/check -->
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon me-1 text-success" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M5 12l5 5l10 -10"></path></svg>
+                                                        Otra característica
+                                                    </li>
+                                                    <li>
+                                                        <!-- Download SVG icon from http://tabler-icons.io/i/check -->
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon me-1 text-success" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M5 12l5 5l10 -10"></path></svg>
+                                                        Otra característica
+                                                    </li>
+                                                    <li>
+                                                        <!-- Download SVG icon from http://tabler-icons.io/i/check -->
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon me-1 text-success" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M5 12l5 5l10 -10"></path></svg>
+                                                        Otra característica
+                                                    </li>
+                                                </ul>
+                                                <div class="text-center mt-4">
+                                                    <button id="cmdP3" name="cmdP3" class="btn plan w-100"><?php echo LNG_NUCLEO_0054; ?></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="card card-md">
+                                            <div class="card-body">
+                                                <div class="row align-items-center">
+                                                    <div class="col">
+                                                        <h2 class="h3"><?php echo LNG_NUCLEO_0056; ?>.</h2>
+                                                        <p class="m-0 text-muted"><small><?php echo LNG_NUCLEO_0057; ?>.</small></p>
+                                                    </div>
+                                                    <div class="col-auto">
+                                                        <button id="cmdDEMO" name="cmdDEMO" class="btn plan">
+                                                            <?php echo LNG_NUCLEO_0055; ?>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <div class="card-footer text-end">
+                                <button id="cmdREG02" name="cmdREG02" type="button" class="btn btn-primary" disabled>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                        <path d="M12 9v-3.586a1 1 0 0 1 1.707 -.707l6.586 6.586a1 1 0 0 1 0 1.414l-6.586 6.586a1 1 0 0 1 -1.707 -.707v-3.586h-3v-6h3z"></path>
+                                        <path d="M3 9v6"></path>
+                                        <path d="M6 9v6"></path>
+                                    </svg><?php echo LNG_NUCLEO_0034; ?>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+
+<!-- ## ********************************************* ## -->
+<script type="text/javascript">
+    //# **************************************************** #
+    $("#cmdREG02").click(function() { });
+    //# **************************************************** #
+    $(".plan").click(function() {
+        switch (this.id) {
+            case "cmdP1":
+                $("#txt_PLAN").val("1");
+            break
+            case "cmdP2":
+                $("#txt_PLAN").val("2");
+            break
+            case "cmdP3":
+                $("#txt_PLAN").val("3");
+            break
+            case "cmdDEMO":
+                $("#txt_PLAN").val("0");
+            break
+        }
+        show_progress("<?php echo LNG_NUCLEO_0015; ?>");
+        var isValid = true;
+        $('#FrmDATAREG02').find(':input').each(function() {
+            isValid = chk_valid(this);
+        });
+        if (isValid){
+            document.getElementById("FrmDATAREG02").action = "<?php echo $helper->url("Usuarios", "reg_step"); ?>";
+            document.getElementById("FrmDATAREG02").submit();
+        }else{
+            $.messager.progress('close');
+            $.messager.alert('<?php echo LNG_NUCLEO_0037; ?>','<?php echo LNG_NUCLEO_0036; ?>');
+        }
+    });
+    //# **************************************************** #
+</script>
+<!-- ## ********************************************* ## -->

@@ -1,0 +1,22 @@
+<?php
+/**
+ * @autor Rixio Danilo Iguarán Chourio.
+ * @cédula-profesional 12196442
+ * @correo-eletrónico atencion.clientes@obringolfo.com
+ * @denominacion OBRAS INFORMÁTICAS DEL GOLFO
+ * @empresa OBRINGOLFO S.A.S. DE C.V.
+ * @proyecto  goPAC.
+ * @copyright 2021
+ */
+
+
+class AyudaVistas{
+
+    public function url($controlador = CONTROLADOR_DEFECTO, $accion = ACCION_DEFECTO){
+        $urlString = "index.php?goExec=".$controlador."&goAcc=".$accion;
+        return $urlString;
+    }
+
+    //Helpers para las vistas
+}
+?>

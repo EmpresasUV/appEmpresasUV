@@ -1,0 +1,120 @@
+<?php
+/**
+ * @autor Rixio Danilo Iguarán Chourio.
+ * @cédula-profesional 12196442
+ * @correo-eletrónico atencion.clientes@obringolfo.com
+ * @denominacion OBRAS INFORMÁTICAS DEL GOLFO
+ * @empresa OBRINGOLFO S.A.S. DE C.V.
+ * @proyecto  goPAC.
+ * @copyright 2021
+ */
+
+    define('LNG_SEGURIDAD_0001', 'Property Appraisals');
+    define('LNG_SEGURIDAD_0002', 'E-Mail | Account user');
+    define('LNG_SEGURIDAD_0003', 'Password');
+    define('LNG_SEGURIDAD_0004', 'Sign in');
+    define('LNG_SEGURIDAD_0005', 'Create an account');
+    define('LNG_SEGURIDAD_0006', 'Access recovery?');
+    define('LNG_SEGURIDAD_0007', 'Email');
+    define('LNG_SEGURIDAD_0008', 'Cancel');
+    define('LNG_SEGURIDAD_0009', 'System security');
+    define('LNG_SEGURIDAD_0010', 'A message has been sent to your email account.<br>Follow the instructions described in it.');
+    define('LNG_SEGURIDAD_0011', 'Access validation failed.<br>Please check your access credentials.');
+    define('LNG_SEGURIDAD_0012', 'Please sign-in to your account and start the adventure');
+    define('LNG_SEGURIDAD_0013', 'New on our platform?');
+    define('LNG_SEGURIDAD_0014', 'Remember me on this device');
+    define('LNG_SEGURIDAD_0015', 'Enter your username');
+    define('LNG_SEGURIDAD_0016', 'Enter your password');
+    define('LNG_SEGURIDAD_0017', ' OR ');
+    define('LNG_SEGURIDAD_0018', 'Use Github');
+    define('LNG_SEGURIDAD_0019', 'Use Twitter');
+    define('LNG_SEGURIDAD_0020', 'Show/Hide password');
+    define('LNG_SEGURIDAD_0021', '<p>A username is a name that uniquely identifies our autorized users within the system.</p>');
+    define('LNG_SEGURIDAD_0022', '<p>It is a key that provides access to the system, without said code, it is inaccessible to the user. It is an authentication method that appeals to the secret data necessary to overcome a security barrier.</p>');
+    //Forgot passwords
+    define('LNG_SEGURIDAD_0023', 'Forgot password');
+    define('LNG_SEGURIDAD_0024', 'Enter your email address and your password will be reset and emailed to you');
+    define('LNG_SEGURIDAD_0025', 'Email address');
+    define('LNG_SEGURIDAD_0026', 'Enter your email address');
+    define('LNG_SEGURIDAD_0027', 'Send me new password');
+    define('LNG_SEGURIDAD_0028', 'Forget it');
+    define('LNG_SEGURIDAD_0029', 'send me back');
+    define('LNG_SEGURIDAD_0030', 'to the sign in screen');
+    //Multiples dispositivos conectados
+    define('LNG_SEGURIDAD_0031', 'Connection on multiple devices');
+    define('LNG_SEGURIDAD_0032', 'Our system has detected that you are connected on different devices or that you have left some sessions open in previous accesses');
+    define('LNG_SEGURIDAD_0033', 'We will close all open connections');
+    define('LNG_SEGURIDAD_0034', 'This is how we improve the performance of your connection');
+    define('LNG_SEGURIDAD_0035', 'We\'ll check the places');
+    define('LNG_SEGURIDAD_0036', 'To rule out any risk or plagiarism');
+    define('LNG_SEGURIDAD_0037', 'We will analyze the access logs');
+    define('LNG_SEGURIDAD_0038', 'To verify that it is not an error');
+    define('LNG_SEGURIDAD_0039', 'I understand!, continue');
+    //Registro de nueva cuenta
+    define('LNG_SEGURIDAD_0040', 'We will create a new account for you');
+    define('LNG_SEGURIDAD_0041', 'It is necessary that you tell us which email account you will use for your registration; remember that our system will validate and confirm it');
+    define('LNG_SEGURIDAD_0042', 'Go to registration');
+    define('LNG_SEGURIDAD_0043', 'Check your inbox');
+    define('LNG_SEGURIDAD_0044', 'We\'ve sent you a magic link to');
+    define('LNG_SEGURIDAD_0045', 'Please click the link to confirm your address');
+    define('LNG_SEGURIDAD_0046', 'Can\'t see the email? Please check the spam folder');
+    define('LNG_SEGURIDAD_0047', 'Wrong email? Please');
+    define('LNG_SEGURIDAD_0048', 're-enter your address');
+    define('LNG_SEGURIDAD_0049', 'The passwords are not identical, please check');
+
+    define('LNG_SEGURIDAD_0050', 'We can\'t register you multiple times');
+    define('LNG_SEGURIDAD_0051', 'We have detected that your email account');
+    define('LNG_SEGURIDAD_0052', 'already registered');
+    define('LNG_SEGURIDAD_0053', 'If you are the owner of this email account, we invite you');
+    define('LNG_SEGURIDAD_0054', 'to start the process of recovering the access credentials');
+    define('LNG_SEGURIDAD_0055', 'You must have an active user to use this application');
+    define('LNG_SEGURIDAD_0056', 'The data provided is not correct for this process');
+    define('LNG_SEGURIDAD_0057', 'Some errors were generated in the process');
+    define('LNG_SEGURIDAD_0058', 'We couldn\'t find your account');
+    define('LNG_SEGURIDAD_0059', 'It seems that you have not registered in the system yet');
+
+    define('LNG_SEGURIDAD_0060', 'not found');
+    define('LNG_SEGURIDAD_0061', 'to register as a user of our platform');
+    define('LNG_SEGURIDAD_0062', 'Confirm the password');
+    define('LNG_SEGURIDAD_0063', 'Change password');
+    define('LNG_SEGURIDAD_0064', 'The entered passwords are not the same');
+    define('LNG_SEGURIDAD_0065', 'Delete avatar');
+    define('LNG_SEGURIDAD_0066', 'Are you sure you want to delete your profile picture?');
+    define('LNG_SEGURIDAD_0067', 'User data');
+    define('LNG_SEGURIDAD_0068', 'Service plan');
+    define('LNG_SEGURIDAD_0069', 'Business data');
+
+    define('LNG_SEGURIDAD_0070', 'Location');
+    define('LNG_SEGURIDAD_0071', 'Documentation');
+    define('LNG_SEGURIDAD_0072', 'Let\'s configure your general data');
+    define('LNG_SEGURIDAD_0073', 'Select your service plan');
+    define('LNG_SEGURIDAD_0074', 'Upload the documents of your electronic file');
+    define('LNG_SEGURIDAD_0075', 'We will not share it with any other user');
+    define('LNG_SEGURIDAD_0076', 'Assign security');
+    define('LNG_SEGURIDAD_0077', 'Confirmation');
+    define('LNG_SEGURIDAD_0078', 'Your business profile');
+    define('LNG_SEGURIDAD_0079', 'Valuation unit');
+
+    define('LNG_SEGURIDAD_0080', 'Real estate');
+    define('LNG_SEGURIDAD_0081', 'Professional appraiser');
+    define('LNG_SEGURIDAD_0082', 'Real estate advisor');
+    define('LNG_SEGURIDAD_0083', 'Guest user');
+    define('LNG_SEGURIDAD_0084', 'Profile photo');
+    define('LNG_SEGURIDAD_0085', 'Professional certificate');
+    define('LNG_SEGURIDAD_0086', '<strong>Valuation unit</strong>: Profile in which multiple users are assigned with a hierarchy in the specialization of real estate appraisals.<br><br><strong>Real Estate </strong>: Profile in which multiple users are assigned users with hierarchy in the specialization of real estate management and treatment. <br><br><strong>Professional appraiser</strong>: Individual profile, whose main objective is the continuous development of real estate appraisals. <br><br><strong>Real estate advisor</strong>: Individual profile, who manages and assists in the appraisal process. <br><br><strong>Guest user</strong>: Individual and special profile, which is used for other aspects of the appraisal process not considered.');
+    define('LNG_SEGURIDAD_0087', '');
+    define('LNG_SEGURIDAD_0088', '');
+    define('LNG_SEGURIDAD_0089', '');
+
+    define('LNG_SEGURIDAD_0090', '');
+    define('LNG_SEGURIDAD_0091', '');
+    define('LNG_SEGURIDAD_0092', '');
+    define('LNG_SEGURIDAD_0093', '');
+    define('LNG_SEGURIDAD_0094', '');
+    define('LNG_SEGURIDAD_0095', '');
+    define('LNG_SEGURIDAD_0096', '');
+    define('LNG_SEGURIDAD_0097', '');
+    define('LNG_SEGURIDAD_0098', '');
+    define('LNG_SEGURIDAD_0099', '');
+
+?>

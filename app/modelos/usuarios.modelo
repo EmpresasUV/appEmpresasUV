@@ -1,0 +1,107 @@
+<?php
+/**
+* @autor Rixio Danilo Iguarán Chourio.
+* @cédula-profesional 12196442
+* @correo-eletrónico atencion.clientes@obringolfo.com
+* @denominacion OBRAS INFORMÁTICAS DEL GOLFO
+* @empresa OBRINGOLFO S.A.S. DE C.V.
+* @proyecto  OBRINGOLFO.
+* @copyright 2023
+*/
+
+class Usuarios extends ModeloBase{
+    /* ***************************************************************************
+    * Registrando las variables de la clase
+    *************************************************************************** */
+    private $id;
+    private $correo;
+    private $paterno;
+    private $materno;
+    private $nombre;
+    private $tel_movil;
+    private $usuario;
+    private $secreto;
+    private $ua_time;
+    private $ua_ip;
+    private $ua_host;
+    private $estado;
+    private $table;
+
+    /* ***************************************************************************
+    * Generando los metodos SET y GET para las variables
+    *************************************************************************** */
+    /* Setters y Getters para la propiedad [ Id ] */
+    public function getId(){ return $this->id; }
+    public function setId($id){ $this->id = $id; }
+
+    /* Setters y Getters para la propiedad [ Correo ] */
+    public function getCorreo(){ return $this->correo; }
+    public function setCorreo($correo){ $this->correo = $correo; }
+
+    /* Setters y Getters para la propiedad [ Paterno ] */
+    public function getPaterno(){ return $this->paterno; }
+    public function setPaterno($paterno){ $this->paterno = $paterno; }
+
+    /* Setters y Getters para la propiedad [ Materno ] */
+    public function getMaterno(){ return $this->materno; }
+    public function setMaterno($materno){ $this->materno = $materno; }
+
+    /* Setters y Getters para la propiedad [ Nombre ] */
+    public function getNombre(){ return $this->nombre; }
+    public function setNombre($nombre){ $this->nombre = $nombre; }
+
+    /* Setters y Getters para la propiedad [ Tel_movil ] */
+    public function getTel_movil(){ return $this->tel_movil; }
+    public function setTel_movil($tel_movil){ $this->tel_movil = $tel_movil; }
+
+    /* Setters y Getters para la propiedad [ Usuario ] */
+    public function getUsuario(){ return $this->usuario; }
+    public function setUsuario($usuario){ $this->usuario = $usuario; }
+
+    /* Setters y Getters para la propiedad [ Secreto ] */
+    public function getSecreto(){ return $this->secreto; }
+    public function setSecreto($secreto){ $this->secreto = $secreto; }
+
+    /* Setters y Getters para la propiedad [ Ua_time ] */
+    public function getUa_time(){ return $this->ua_time; }
+    public function setUa_time($ua_time){ $this->ua_time = $ua_time; }
+
+    /* Setters y Getters para la propiedad [ Ua_ip ] */
+    public function getUa_ip(){ return $this->ua_ip; }
+    public function setUa_ip($ua_ip){ $this->ua_ip = $ua_ip; }
+
+    /* Setters y Getters para la propiedad [ Ua_host ] */
+    public function getUa_host(){ return $this->ua_host; }
+    public function setUa_host($ua_host){ $this->ua_host = $ua_host; }
+
+    /* Setters y Getters para la propiedad [ Estado ] */
+    public function getEstado(){ return $this->estado; }
+    public function setEstado($estado){ $this->estado = $estado; }
+
+
+    /* ***************************************************************************
+    * @FUNCTION constructor de clase
+    * @Param $adapter
+    * Inicializa y registra la clase dentro de la aplicación
+    *************************************************************************** */
+    public function __construct($adapter) {
+        try {
+
+            $this->table = 'usuarios';
+            parent::__construct($this->table, $adapter);
+
+        } catch (Exception $e) {
+            mostrar_error($e);
+        }
+    }
+
+    /* ***************************************************************************
+    * OTROS MÉTODOS Y FUNCIONES PARA ÉSTE MODELO EN ESPECÍFICO
+    *************************************************************************** */
+
+    /** *********************************************************************** */
+    /** *********************************************************************** */
+    /** *********************************************************************** */
+    /** *********************************************************************** */
+}
+?>

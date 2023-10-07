@@ -1,0 +1,105 @@
+<?php
+/**
+ * @autor Rixio Danilo Iguarán Chourio.
+ * @cédula-profesional 12196442
+ * @correo-eletrónico atencion.clientes@obringolfo.com
+ * @denominacion OBRAS INFORMÁTICAS DEL GOLFO
+ * @empresa OBRINGOLFO S.A.S. DE C.V.
+ * @proyecto  WINDOWS PAQUETE ADMINISTRATIVO CONTABLE (WinPAC).
+ * @copyright 2023
+ */
+
+    require_once PATH_AYUDANTES . '/vistas.ayudante';
+    $helper = new AyudaVistas();
+    chkSesion();
+?>
+
+    <!-- Download SVG icon from http://tabler-icons.io/i/home -->
+    <!-- *********************************************************************************************** -->
+    <!-- [BEGIN][MENU INMUEBLES] -->
+
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#navbar-extra" data-bs-toggle="dropdown" data-bs-auto-close="outside" role="button" aria-expanded="false" >
+            <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/star -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" /></svg>
+            </span>
+            <span class="nav-link-title">
+                <?php echo LNG_MENU_0030; ?>
+            </span>
+        </a>
+        <div class="dropdown-menu">
+            <div class="dropdown-menu-columns">
+                <div class="dropdown-menu-column" style="min-width: 290px;">
+                    <a id="cmdREGISTRAR_I" class="dropdown-item cursor-pointer">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler me-1" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                            <path d="M19 12h2l-9 -9l-9 9h2v7a2 2 0 0 0 2 2h5.5"></path>
+                            <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2"></path>
+                            <path d="M16 19h6"></path>
+                            <path d="M19 16v6"></path>
+                        </svg>
+                        <?= LNG_MENU_0031 ?>
+                    </a>
+                    <a id="cmdBUSCAR_I" class="dropdown-item cursor-pointer">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler me-1" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                            <path d="M19 12h2l-9 -9l-9 9h2v7a2 2 0 0 0 2 2h5"></path>
+                            <path d="M19 19m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"></path>
+                            <path d="M9 21v-6a2 2 0 0 1 2 -2h2c.641 0 1.212 .302 1.578 .771"></path>
+                        </svg>
+                        <?= LNG_MENU_0032 ?>
+                    </a>
+                </div>
+                <div class="dropdown-menu-column" style="min-width: 290px;">
+                    <a id="cmdREGISTRAR_C" class="dropdown-item cursor-pointer">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler me-1" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                            <path d="M8 9l5 5v7h-5v-4m0 4h-5v-7l5 -5m1 1v-6a1 1 0 0 1 1 -1h10a1 1 0 0 1 1 1v17h-8"></path>
+                            <path d="M13 7l0 .01"></path>
+                            <path d="M17 7l0 .01"></path>
+                            <path d="M17 11l0 .01"></path>
+                            <path d="M17 15l0 .01"></path>
+                        </svg>
+                        <?= LNG_MENU_0033 ?>
+                        <span class="badge badge-sm bg-green-lt text-uppercase ms-auto"><?= LNG_MENU_0009 ?></span>
+                    </a>
+                    <a id="cmdBUSCAR_C" class="dropdown-item cursor-pointer">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler me-1" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                            <path d="M12 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"></path>
+                            <path d="M16.616 13.924a5 5 0 1 0 -9.23 0"></path>
+                            <path d="M20.307 15.469a9 9 0 1 0 -16.615 0"></path>
+                            <path d="M9 21l3 -9l3 9"></path>
+                            <path d="M10 19h4"></path>
+                        </svg>
+                        <?= LNG_MENU_0034 ?>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </li>
+
+
+    <!-- [END][MENU INMUEBLES] -->
+    <!-- *********************************************************************************************** -->
+
+<script type="text/javascript">
+    //# **************************************************** #
+    $(".dropdown-item").click(function() {
+        switch (this.id) {
+            case "cmdREGISTRAR_I":
+                goRedirect("Inmuebles","iface_registrar");
+            break
+            case "cmdBUSCAR_I":
+                goRedirect("Inmuebles","iface_buscar");
+            break
+            case "cmdREGISTRAR_C":
+                goRedirect("Inmuebles","iface_registrarC");
+            break
+            case "cmdBUSCAR_C":
+                goRedirect("Inmuebles","iface_buscarC");
+            break
+        }
+    });
+    //# **************************************************** #
+</script>

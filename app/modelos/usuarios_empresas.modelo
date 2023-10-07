@@ -1,0 +1,62 @@
+<?php
+/**
+* @autor Rixio Danilo Iguarán Chourio.
+* @cédula-profesional 12196442
+* @correo-eletrónico atencion.clientes@obringolfo.com
+* @denominacion OBRAS INFORMÁTICAS DEL GOLFO
+* @empresa OBRINGOLFO S.A.S. DE C.V.
+* @proyecto  OBRINGOLFO.
+* @copyright 2023
+*/
+
+class Usuarios_empresas extends ModeloBase{
+    /* ***************************************************************************
+    * Registrando las variables de la clase
+    *************************************************************************** */
+    private $id;
+    private $id_usuario;
+    private $op_empresas;
+    private $table;
+
+    /* ***************************************************************************
+    * Generando los metodos SET y GET para las variables
+    *************************************************************************** */
+    /* Setters y Getters para la propiedad [ Id ] */
+    public function getId(){ return $this->id; }
+    public function setId($id){ $this->id = $id; }
+
+    /* Setters y Getters para la propiedad [ Id_usuario ] */
+    public function getId_usuario(){ return $this->id_usuario; }
+    public function setId_usuario($id_usuario){ $this->id_usuario = $id_usuario; }
+
+    /* Setters y Getters para la propiedad [ Op_empresas ] */
+    public function getOp_empresas(){ return $this->op_empresas; }
+    public function setOp_empresas($op_empresas){ $this->op_empresas = $op_empresas; }
+
+
+    /* ***************************************************************************
+    * @FUNCTION constructor de clase
+    * @Param $adapter
+    * Inicializa y registra la clase dentro de la aplicación
+    *************************************************************************** */
+    public function __construct($adapter) {
+        try {
+
+            $this->table = 'usuarios_empresas';
+            parent::__construct($this->table, $adapter);
+
+        } catch (Exception $e) {
+            mostrar_error($e);
+        }
+    }
+
+    /* ***************************************************************************
+    * OTROS MÉTODOS Y FUNCIONES PARA ÉSTE MODELO EN ESPECÍFICO
+    *************************************************************************** */
+
+    /** *********************************************************************** */
+    /** *********************************************************************** */
+    /** *********************************************************************** */
+    /** *********************************************************************** */
+}
+?>

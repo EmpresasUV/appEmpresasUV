@@ -1,0 +1,103 @@
+<?php
+/**
+ * @autor Rixio Danilo Iguarán Chourio.
+ * @cédula-profesional 12196442
+ * @correo-eletrónico atencion.clientes@obringolfo.com
+ * @denominacion OBRAS INFORMÁTICAS DEL GOLFO
+ * @empresa OBRINGOLFO S.A.S. DE C.V.
+ * @proyecto  goPAC.
+ * @copyright 2021
+ */
+
+class ControladorBase{
+ 
+    public function __construct() {
+        require_once PATH_DATOS  . '/conectar.dato';
+        require_once PATH_NUCLEO . '/entidad.nucleo';
+        require_once PATH_NUCLEO . '/modelo.nucleo';
+
+        // Incluir todas las clases
+        foreach(glob(PATH_CLASES."/*.clase") as $file){
+            require_once $file;
+        }
+         
+        //Incluir todos los modelos
+        foreach(glob(PATH_MODELOS."/*.modelo") as $file){
+            require_once $file;
+        }
+
+        $errores = new obError();
+    }
+     
+    //Plugins y funcionalidades
+     
+    /**
+    * Este método lo que hace es recibir los datos del controlador en forma de array
+    * los recorre y crea una variable dinámica con el indice asociativo y le da el
+    * valor que contiene dicha posición del array, luego carga los helpers para las
+    * vistas y carga la vista que le llega como parámetro. En resumen un método para
+    * renderizar vistas.
+    * 
+    * NOTA: todos los archivos de vistas deben tener extensión .vista
+    */
+    public function view($vista, $datos){
+        if(!empty($datos)){
+            foreach ($datos as $id_assoc => $valor) {
+                ${$id_assoc}=$valor;
+            }
+        }
+        require_once PATH_AYUDANTES . '/vistas.ayudante';
+        $helper = new AyudaVistas();
+
+        require_once PATH_VISTAS . "/" . $vista . '.vista';
+    }
+
+    public function redirect($controlador = CONTROLADOR_DEFECTO, $accion = ACCION_DEFECTO){
+        header("Location: /index.php?goExec=" . $controlador . "&goAcc=" . $accion);
+    }
+
+
+    //Métodos para los controladores
+
+    public function auditar($texto){
+        if(AUDITAR_LOG){
+            $strLOG = '';
+            $filename = "auditoria [".date('d.m.Y')."].log";
+            $dataFile = fopen(PATH_REGISTROS."/".$filename, "a+");
+            $dia = date("d");
+            $mes = date("m");
+            $anno = date("Y");
+            $hora = date("H");
+            $minuto = date("i");
+            $segundo = date("s");
+            $tiempo = "\n".$dia."/".$mes."/".$anno." ".$hora.":".$minuto.":".$segundo;
+            if($dataFile){
+                $ex = new Exception();
+                $trace = $ex->getTrace();
+                $f_name = $trace[1]["function"];
+
+                if(isset($_SESSION["usuario"]["usuario"]) && $_SESSION["usuario"]["usuario"] != ""){
+                    $xUSUARIO = $_SESSION["usuario"]["usuario"];
+                }else{
+                    $xUSUARIO = "Usuario anonimo";
+                }
+
+                $strLOG =   str_pad($tiempo, 19, " ", STR_PAD_BOTH)." | ".
+                            str_pad(get_cliente_ip(), 15, " ", STR_PAD_BOTH)." | ".
+                            str_pad($xUSUARIO, 20, " ", STR_PAD_BOTH)." | ".
+                            str_pad($f_name, 20, " ", STR_PAD_BOTH)." | ".
+                            str_pad(get_class($this), 20, " ", STR_PAD_RIGHT)." | ".
+                            utf8_decode($texto);
+
+                fwrite($dataFile, $strLOG);
+                fclose($dataFile);
+                $f_name = null; $trace = null; $ex = null;
+            }
+
+        }
+    }
+
+
+}
+
+?>

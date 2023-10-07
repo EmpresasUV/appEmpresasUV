@@ -1,0 +1,190 @@
+<?php
+/**
+ * @autor Rixio Danilo Iguarán Chourio.
+ * @cédula-profesional 12196442
+ * @correo-eletrónico atencion.clientes@obringolfo.com
+ * @denominacion OBRAS INFORMÁTICAS DEL GOLFO
+ * @empresa OBRINGOLFO S.A.S. DE C.V.
+ * @proyecto  goPAC.
+ * @copyright 2021
+ *
+    1. Used to output a debug_backtrace when an error occurs
+    2. It registers a shutdown function that is meant to output fatal errors nicely
+    3. Parse errors are NOT handled. Actually they can't be handled :)
+*/
+require_once $_SERVER['DOCUMENT_ROOT'].'/appEmpresasUV/app/configuraciones/globales.configuracion';
+class obError
+{
+    private $startTime = 0;
+
+    function __construct()
+    {
+        $this->startTime = microtime(true);
+        ob_start();
+            ini_set("display_errors", "on");
+            error_reporting(E_ALL);
+            set_error_handler(array($this, 'scriptError'));
+            register_shutdown_function(array($this, 'shutdown'));
+    }
+
+    function scriptError($errno, $errstr, $errfile, $errline)
+    {
+        if(!headers_sent())
+            header("HTTP/1.1 500 Internal Server Error");
+        if(ob_get_contents() !== false)
+            ob_end_clean();
+
+        switch($errno)
+        {
+            case E_ERROR:               $errseverity = "Error";             break;
+            case E_WARNING:             $errseverity = "Warning";           break;
+            case E_NOTICE:              $errseverity = "Notice";            break;
+            case E_CORE_ERROR:          $errseverity = "Core Error";        break;
+            case E_CORE_WARNING:        $errseverity = "Core Warning";      break;
+            case E_COMPILE_ERROR:       $errseverity = "Compile Error";     break;
+            case E_COMPILE_WARNING:     $errseverity = "Compile Warning";   break;
+            case E_USER_ERROR:          $errseverity = "User Error";        break;
+            case E_USER_WARNING:        $errseverity = "User Warning";      break;
+            case E_USER_NOTICE:         $errseverity = "User Notice";       break;
+            case E_STRICT:              $errseverity = "Strict Standards";  break;
+            case E_RECOVERABLE_ERROR:   $errseverity = "Recoverable Error"; break;
+            case E_DEPRECATED:          $errseverity = "Deprecated";        break;
+            case E_USER_DEPRECATED:     $errseverity = "User Deprecated";   break;
+            default:                    $errseverity = "Error";             break;
+        }
+
+        $lang = substr(locale_accept_from_http($_SERVER['HTTP_ACCEPT_LANGUAGE']), 0, 2);
+        require_once $_SERVER['DOCUMENT_ROOT'].'/appEmpresasUV/app/idiomas/'.$lang.'_ERRORES.idioma';
+        $v = debug_backtrace();
+        date_default_timezone_set("America/Mexico_City");
+        $Date = date("d M Y H:i:s");
+        $out = '<!DOCTYPE HTML>
+                <html lang="'.$lang.'">
+                    <head>
+                        <!-- [ META-ETIQUETAS ] -->
+                        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+                        <meta charset="utf-8"/>
+                        <meta http-equiv="Content-Style-Type" content="text/css" />
+                        <meta name="title" content="CENTRO INTEGRAL INMOBILIARIO EME ®">
+                        <meta name="ROBOTS" content="INDEX,FOLLOW">
+                        <meta http-equiv="Content-Language" content="es-mx">
+                        <meta name="description" content="Paquete Administrativo Contable" />
+                        <meta name="abstract" content="Paquete Administrativo Contable">
+                        <meta name="keywords" content="presupuestos, administración, gastos, ingresos, conciliación, facturación, bancos, nominas">
+                        <meta name="author" content="[12196442] Rixio Danilo Iguaran Chourio">
+                        <meta name="copyright" content="OBRINGOLFO S.A.S. DE C.V.">
+                        <meta name="rating" content="General">
+                        <meta name="creation_Date" content="01/04/2021">
+                        <meta name="revisit-after" content="1 days">
+                        <meta name="doc-rights" content="Copywritten work">
+                        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+                        <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+                        <meta http-equiv="Content-Security-Policy" content="default-src *; img-src * \'self\' data: https: http:; script-src \'self\' \'unsafe-inline\' \'unsafe-eval\' *; style-src  \'self\' \'unsafe-inline\' *">
+                        <!-- [ TITULO INICIAL ] -->
+                        <title>Error :: '.$errseverity.'</title>
+
+                        <!-- [ ICONO PRIMARIO DE LA APP ] -->
+                      	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+                       	<link rel="icon" type="image/png" href="/favicon-large.png">
+
+                        <!-- UI Helper  -->
+                        <link rel="stylesheet" type="text/css" href="/app/librerias/js/ui/themes/bootstrap/easyui.css">
+                        <link rel="stylesheet" type="text/css" href="/app/librerias/js/ui/themes/icon.css">
+                        <script type="text/javascript" src="/app/librerias/js/ui/jquery.min.js"></script>
+                        <script type="text/javascript" src="/app/librerias/js/ui/jquery.easyui.min.js"></script>
+                        <script type="text/javascript" src="/app/librerias/js/ui/locale/easyui-lang-'.$lang.'.js"></script>
+                        <script type="text/javascript" src="/app/librerias/js/jquery.tooltip.min.js"></script>
+
+                        <!-- CSS files -->
+                        <link href="/app/librerias/css/tabler.min.css?1669759017" rel="stylesheet"/>
+                        <link href="/app/librerias/css/tabler-flags.min.css?1669759017" rel="stylesheet"/>
+                        <link href="/app/librerias/css/tabler-payments.min.css?1669759017" rel="stylesheet"/>
+                        <link href="/app/librerias/css/tabler-vendors.min.css?1669759017" rel="stylesheet"/>
+                        <link href="/app/librerias/js/dropzone/dropzone.css?1674944800" rel="stylesheet">
+                        <script src="/app/librerias/js/dropzone/dropzone-min.js?1669759017"></script>
+
+                        <link href="/app/librerias/css/go_master.css" rel="stylesheet"/>
+                        <style>
+                            @import url(\'https://rsms.me/inter/inter.css\');
+                            :root {
+                            	--tblr-font-sans-serif: \'Inter Var\', -apple-system, BlinkMacSystemFont, San Francisco, Segoe UI, Roboto, Helvetica Neue, sans-serif;
+                            }
+                            body {
+                            	font-feature-settings: "cv03", "cv04", "cv11";
+                            }
+                        </style>
+
+                        <!-- <script src="/app/librerias/js/demo-theme.min.js?1669759017"></script> -->
+                        <script src="/app/librerias/js/go_master.js"></script>
+                    </head>
+
+                    <script src="/app/librerias/js/go_master.js"></script>
+                    <!-- ## ********************************************* ## -->
+                        <body  class=" border-top-wide border-primary d-flex flex-column">
+                            <div class="page page-center">
+                                <div class="container-tight py-4">
+                                    <div class="empty">
+                                        <div class="empty-header">'.$errno.' | '.$errseverity.'</div>
+                                        <p class="empty-title">'.LNG_ERRORES_0000.'</p>
+                                        <p class="empty-subtitle text-muted">
+                                            '.$errstr.' on line '.$errline.' of script '.$errfile.'
+                                        </p>
+                                        <div class="empty-action">
+                                            <button id="cmdHOME" name="cmdHOME" class="btn btn-primary">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12l14 0" /><path d="M5 12l6 6" /><path d="M5 12l6 -6" /></svg>
+                                                '.LNG_NUCLEO_0018.'
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </body>
+
+                    <!-- ## ********************************************* ## -->
+                    <script type="text/javascript">
+                        //# **************************************************** #
+                        $("#cmdHOME").click(function() {
+                            goRedirect("Index", "index");
+                        });
+                        //# **************************************************** #
+                    </script>
+                    <!-- ## ********************************************* ## -->
+
+                    <!-- Tabler Core -->
+                    <script src="/app/librerias/js/tabler.js?1669759017" defer></script>
+
+                </html>
+        ';
+
+        $tiempo = date("d")."/".date("m")."/".date("Y")." ".date("H").":".date("i").":".date("s");
+        $strLOG = PHP_EOL . str_pad($tiempo, 19, " ", STR_PAD_BOTH) . " | " .
+                  str_pad(get_cliente_ip(), 15, " ", STR_PAD_BOTH) . " | " .
+                  str_pad(basename($_SERVER['PHP_SELF'], ".php"), 10, " ", STR_PAD_BOTH) . " | " .
+                  str_pad(__FUNCTION__, 17, " ", STR_PAD_BOTH) . " | " .
+                  str_pad('Libreria G', 17, " ", STR_PAD_BOTH) . " | " .
+                  $errstr . PHP_EOL;
+        error_log($strLOG, 3, ROOT_DIR.PATH_REGISTROS."/error_logs.log");
+        echo $out;
+    }
+
+    function shutdown()
+    {
+        $isError = false;
+        if ($error = error_get_last())
+        {
+            switch($error['type'])
+            {
+                case E_ERROR:
+                case E_CORE_ERROR:
+                case E_COMPILE_ERROR:
+                case E_USER_ERROR:
+                case E_RECOVERABLE_ERROR:
+                case E_CORE_WARNING:
+                case E_COMPILE_WARNING:
+                    $isError = true;
+                    $this->scriptError($error['type'], $error['message'], $error['file'], $error['line']);
+                    break;
+            }
+        }
+    }
+}

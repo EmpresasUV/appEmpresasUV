@@ -1,0 +1,73 @@
+<?php
+/**
+ * @autor Rixio Danilo Iguarán Chourio.
+ * @cédula-profesional 12196442
+ * @correo-eletrónico atencion.clientes@obringolfo.com
+ * @denominacion OBRAS INFORMÁTICAS DEL GOLFO
+ * @empresa OBRINGOLFO S.A.S. DE C.V.
+ * @proyecto  goPAC.
+ * @copyright 2021
+ */
+
+
+?>
+<!DOCTYPE HTML>
+<html lang="<?php echo LANG; ?>">
+    <head>
+        <!-- [ META-ETIQUETAS ] -->
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8"/>
+        <meta http-equiv="Content-Style-Type" content="text/css" />
+        <meta name="title" content="CENTRO INTEGRAL INMOBILIARIO EME ®">
+        <meta name="ROBOTS" content="INDEX,FOLLOW">
+        <meta http-equiv="Content-Language" content="es-mx">
+        <meta name="description" content="Paquete Administrativo Contable" />
+        <meta name="abstract" content="Paquete Administrativo Contable">
+        <meta name="keywords" content="presupuestos, administración, gastos, ingresos, conciliación, facturación, bancos, nominas">
+        <meta name="author" content="[12196442] Rixio Danilo Iguaran Chourio">
+        <meta name="copyright" content="OBRINGOLFO S.A.S. DE C.V.">
+        <meta name="rating" content="General">
+        <meta name="creation_Date" content="01/04/2021">
+        <meta name="revisit-after" content="1 days">
+        <meta name="doc-rights" content="Copywritten work">
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+        <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+        <meta http-equiv="Content-Security-Policy" content="default-src *; img-src * 'self' data: https: http:; script-src 'self' 'unsafe-inline' 'unsafe-eval' *; style-src  'self' 'unsafe-inline' *">
+        <!-- [ TITULO INICIAL ] -->
+        <title>EmpresasUV ® :: <?php echo LNG_SEGURIDAD_0001; ?></title>
+
+        <!-- [ ICONO PRIMARIO DE LA APP ] -->
+      	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+       	<link rel="icon" type="image/png" href="favicon-large.png">
+
+        <!-- UI Helper  -->
+        <link rel="stylesheet" type="text/css" href="<?php echo PATH_JS; ?>/ui/themes/bootstrap/easyui.css">
+        <link rel="stylesheet" type="text/css" href="<?php echo PATH_JS; ?>/ui/themes/icon.css">
+        <script type="text/javascript" src="<?php echo PATH_JS; ?>/ui/jquery.min.js"></script>
+        <script type="text/javascript" src="<?php echo PATH_JS; ?>/ui/jquery.easyui.min.js"></script>
+        <script type="text/javascript" src="<?php echo PATH_JS; ?>/ui/locale/easyui-lang-<?php echo LANG; ?>.js"></script>
+        <script type="text/javascript" src="<?php echo PATH_JS; ?>/jquery.tooltip.min.js"></script>
+
+        <!-- CSS files -->
+        <link href="<?php echo PATH_CSS; ?>/tabler.min.css?<?= time(); ?>" rel="stylesheet"/>
+        <link href="<?php echo PATH_CSS; ?>/tabler-flags.min.css?<?= time(); ?>" rel="stylesheet"/>
+        <link href="<?php echo PATH_CSS; ?>/tabler-payments.min.css?<?= time(); ?>" rel="stylesheet"/>
+        <link href="<?php echo PATH_CSS; ?>/tabler-vendors.min.css?<?= time(); ?>" rel="stylesheet"/>
+        <link href="<?php echo PATH_JS; ?>/dropzone/dropzone.css?<?= time(); ?>" rel="stylesheet">
+        <script src="<?php echo PATH_JS; ?>/dropzone/dropzone-min.js?<?= time(); ?>"></script>
+
+        <link href="<?php echo PATH_CSS; ?>/go_master.css" rel="stylesheet"/>
+        <style>
+            @import url('https://rsms.me/inter/inter.css');
+            :root {
+            	--tblr-font-sans-serif: 'Inter Var', -apple-system, BlinkMacSystemFont, San Francisco, Segoe UI, Roboto, Helvetica Neue, sans-serif;
+            }
+            body {
+            	font-feature-settings: "cv03", "cv04", "cv11";
+            }
+        </style>
+
+        <!-- <script src="<?php echo PATH_JS; ?>/demo-theme.min.js?1669759017"></script> -->
+        <script src="<?php echo PATH_JS; ?>/go_master.js?<?= time(); ?>"></script>
+    </head>
+

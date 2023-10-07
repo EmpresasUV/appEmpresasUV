@@ -1,0 +1,48 @@
+<?php
+/**
+ * @autor Rixio Danilo Iguarán Chourio.
+ * @cédula-profesional 12196442
+ * @correo-eletrónico atencion.clientes@obringolfo.com
+ * @denominacion OBRAS INFORMÁTICAS DEL GOLFO
+ * @empresa OBRINGOLFO S.A.S. DE C.V.
+ * @proyecto  goPAC.
+ * @copyright 2021
+ */
+
+
+?>
+
+<script src="<?php echo PATH_JS; ?>/go_master.js"></script>
+<!-- ## ********************************************* ## -->
+    <body  class=" d-flex flex-column">
+        <div class="page page-center">
+            <div class="container container-tight py-4">
+                <div class="text-center mb-4">
+                    <a href="#" class="navbar-brand navbar-brand-autodark"><img src="<?php echo PATH_IMAGENES; ?>/logo_login.gif" height="100" alt="100"></a>
+                </div>
+                <div class="text-center">
+                    <div class="my-5">
+                        <h2 class="h1"><?php echo LNG_SEGURIDAD_0058; ?></h2>
+                        <p class="fs-h3 text-muted">
+                            <?php echo LNG_SEGURIDAD_0059; ?> <br>
+                            <strong><?php echo $txt_MAIL; ?></strong> <?php echo LNG_SEGURIDAD_0060; ?>.
+                        </p>
+                    </div>
+                    <div class="text-center text-muted mt-3">
+                        <?php echo LNG_SEGURIDAD_0053; ?><br />
+                        <?php echo LNG_SEGURIDAD_0061; ?>.<br><br><a id="cmdBACK" name="cmdBACK" class="cursor-pointer" tabindex="-1"><?php echo LNG_SEGURIDAD_0008; ?></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+
+<!-- ## ********************************************* ## -->
+<script type="text/javascript">
+    //# **************************************************** #
+    $("#cmdBACK").click(function() {
+        goRedirect("Index", "index");
+    });
+    //# **************************************************** #
+</script>
+<!-- ## ********************************************* ## -->

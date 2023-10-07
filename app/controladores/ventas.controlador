@@ -1,0 +1,330 @@
+<?php
+/**
+ * @autor Rixio Danilo Iguarán Chourio.
+ * @cédula-profesional 12196442
+ * @correo-eletrónico atencion.clientes@obringolfo.com
+ * @denominacion OBRAS INFORMÁTICAS DEL GOLFO
+ * @empresa OBRINGOLFO S.A.S. DE C.V.
+ * @proyecto  goPAC.
+ * @copyright 2021
+ */
+
+
+class VentasControlador extends ControladorBase{
+    public $conector;
+    public $adaptador;
+    /** ****************************************************** **/
+    public function __construct() {
+        try {
+
+            parent::__construct();
+            $this->conector = new Conectar();
+            $this->adaptador  = $this->conector->conexion();
+
+        } catch (Exception $e) {
+            mostrar_error($e);
+        }
+    }
+    /** ****************************************************** **/
+    public function index(){
+        try {
+
+            $caja = new Tpv_cajas($this->adaptador);
+            $corte = new Tpv_cajas_cortes($this->adaptador);
+            //Verificando si el usuario tiene una caja asignada para ventas
+            $MyCaja = $caja->execSQL("SELECT * FROM tpv_cajas WHERE id_usuario = '".$_SESSION["usuario"]["id"]."' AND empresa_SDK = '".$_SESSION["Empresa"]["DBName"]."'");
+            if($MyCaja){ //Hay una o varias cajas asignadas
+
+                //Comprobamos si existe algun corte activo
+                $MyCorte = $corte->execSQL("SELECT * FROM tpv_cajas_cortes WHERE id_caja=".$MyCaja[0]->id." AND estado='A'");
+                if($MyCorte){ //Hay un corte activo y debemos de abrirlo
+
+                    $_SESSION["caja"]["id"]             = $MyCaja[0]->id;
+                    $_SESSION["caja"]["id_usuario"]     = $MyCaja[0]->id_usuario;
+                    $_SESSION["caja"]["nombre"]         = $MyCaja[0]->nombre;
+                    $_SESSION["caja"]["empresa_SDK"]    = $MyCaja[0]->empresa_SDK;
+                    $_SESSION["caja"]["concepto_SDK"]   = $MyCaja[0]->concepto_SDK;
+                    $_SESSION["caja"]["corte"]          = array(
+                        "id" => $MyCorte[0]->id,
+                        "fecha_inicio" => $MyCorte[0]->fecha_inicio,
+                        "estado" => $MyCorte[0]->estado
+                    );
+                    $this->view("_header_app", array(null));
+                    echo '<script type="text/javascript">
+                        $.messager.alert({
+                            title: "Corte de cajas activo",
+                            msg: "Retomaremos tu corte de cajas [ '.$_SESSION["caja"]["corte"]["id"].' ].",
+                            fn: function(){
+                                goRedirect("Ventas", "open_tpv");
+                            }
+                        });
+                    </script>';
+                    $this->view("_footer_app", array(null));
+
+                }else{ //No existen cortes activos
+                    $_SESSION["caja"]["corte"]          = array(
+                        "id" => 0,
+                        "fecha_inicio" => time(),
+                        "estado" => 'X'
+                    );
+                    if(count((array)$MyCaja) > 1){ //Varias cajas asignadas al usuario
+                        $this->view("_header_app", array(null));
+                        $this->view("tpv/tpv_seleccionar_caja", array("MyCajas" => $MyCaja));
+                        $this->view("_footer_app", array(null));
+                    }else{ //Solo tiene una caja
+                        $_SESSION["caja"]["id"]             = $MyCaja[0]->id;
+                        $_SESSION["caja"]["id_usuario"]     = $MyCaja[0]->id_usuario;
+                        $_SESSION["caja"]["nombre"]         = $MyCaja[0]->nombre;
+                        $_SESSION["caja"]["empresa_SDK"]    = $MyCaja[0]->empresa_SDK;
+                        $_SESSION["caja"]["concepto_SDK"]   = $MyCaja[0]->concepto_SDK;
+                        $this->view("_header_app", array(null));
+                        $this->view("tpv/tpv_dinero_apertura", array(null));
+                        $this->view("_footer_app", array(null));
+                    }
+
+                }
+
+            }else{
+
+                $this->view("_header_app", array(null));
+                echo '<script type="text/javascript">
+                    $.messager.alert({
+                        title: "Sin autorización",
+                        msg: "No tienes una caja asignada a tu usuario para ésta empresa.",
+                        fn: function(){
+                            goRedirect("Escritorio", "index");
+                        }
+                    });
+                </script>';
+                $this->view("_footer_app", array(null));
+
+            }
+
+        } catch (Exception $e) {
+            mostrar_error($e);
+        }
+    }
+    /** ****************************************************** **/
+    public function open_tpv(){
+        try {
+
+            //Verificamos corte activo
+            if(isset($_SESSION["caja"]["corte"]["estado"]) && ($_SESSION["caja"]["corte"]["estado"] == 'X')){ //No encontramos corte activo
+
+                $corte = new Tpv_cajas_cortes($this->adaptador);
+                $corte->setId_caja($_SESSION["caja"]["id"]);
+                $corte->setFecha_inicio(time());
+                if(isset($_POST["txt_M10C"])){ $corte->setM10c( $_POST["txt_M10C"] > 0 ? $_POST["txt_M10C"] : 0 ); }
+                if(isset($_POST["txt_M20C"])){ $corte->setM20c( $_POST["txt_M20C"] > 0 ? $_POST["txt_M20C"] : 0 ); }
+                if(isset($_POST["txt_M50C"])){ $corte->setM50c( $_POST["txt_M50C"] > 0 ? $_POST["txt_M50C"] : 0 ); }
+                if(isset($_POST["txt_M1P"])){ $corte->setM1p( $_POST["txt_M1P"] > 0 ? $_POST["txt_M1P"] : 0 ); }
+                if(isset($_POST["txt_M2P"])){ $corte->setM2p( $_POST["txt_M2P"] > 0 ? $_POST["txt_M2P"] : 0 ); }
+                if(isset($_POST["txt_M5P"])){ $corte->setM5p( $_POST["txt_M5P"] > 0 ? $_POST["txt_M5P"] : 0 ); }
+                if(isset($_POST["txt_M10P"])){ $corte->setM10p( $_POST["txt_M10P"] > 0 ? $_POST["txt_M10P"] : 0 ); }
+                if(isset($_POST["txt_M20P"])){ $corte->setM20p( $_POST["txt_M20P"] > 0 ? $_POST["txt_M20P"] : 0 ); }
+                if(isset($_POST["txt_B20P"])){ $corte->setB20p( $_POST["txt_B20P"] > 0 ? $_POST["txt_B20P"] : 0 ); }
+                if(isset($_POST["txt_B50P"])){ $corte->setB50p( $_POST["txt_B50P"] > 0 ? $_POST["txt_B50P"] : 0 ); }
+                if(isset($_POST["txt_B100P"])){ $corte->setB100p( $_POST["txt_B100P"] > 0 ? $_POST["txt_B100P"] : 0 ); }
+                if(isset($_POST["txt_B200P"])){ $corte->setB200p( $_POST["txt_B200P"] > 0 ? $_POST["txt_B200P"] : 0 ); }
+                if(isset($_POST["txt_B500P"])){ $corte->setB500p( $_POST["txt_B500P"] > 0 ? $_POST["txt_B500P"] : 0 ); }
+                if(isset($_POST["txt_B1000P"])){ $corte->setB1000p( $_POST["txt_B1000P"] > 0 ? $_POST["txt_B1000P"] : 0 ); }
+                if(isset($_POST["total_monedas"])){ $corte->setDinero_monedas($_POST["total_monedas"] > 0 ? $_POST["total_monedas"] : 0); }
+                if(isset($_POST["total_billetes"])){ $corte->setDinero_billetes($_POST["total_billetes"] > 0 ? $_POST["total_billetes"] : 0); }
+                if(isset($_POST["total_dinero"])){ $corte->setDinero_inicio($_POST["total_dinero"] > 0 ? $_POST["total_dinero"] : 0); }
+                $corte->setEstado("A");
+                $corte->SaveData();
+
+            }
+            //Conectamos la interface
+            $this->view("_header_app", array(null));
+            $this->view("tpv/tpv_terminal", array(null));
+            $this->view("_footer_app", array(null));
+
+        } catch (Exception $e) {
+            mostrar_error($e);
+        }
+    }
+
+    /** ****************************************************** **/
+    public function open_Caja(){
+        try{
+            chkSesion();
+            header('Content-Type: application/json; charset=UTF8');
+            $MyRESPONSE = array();
+
+            if(isset($_POST["caja"]) && !$_POST["caja"] == ""){
+                $MyComercial = new COM("ContPAQi.CiComercialSdk");
+                $MyRESPONSE["error"] = 0;
+                $MyRESPONSE["json"] = $MyComercial->OpenCaja($_POST["caja"]);
+            }else{
+                $MyRESPONSE["error"] = 200;
+            }
+
+            echo json_encode($MyRESPONSE);
+
+
+        } catch (Exception $e) {
+            mostrar_error($e);
+        }
+    }
+
+    /** ****************************************************** **/
+    public function new_Venta(){
+        try{
+            chkSesion();
+            header('Content-Type: application/json; charset=UTF8');
+
+            $cajas = new Tpv_cajas($this->adaptador);
+            $venta = new Tpv_ventas($this->adaptador);
+            //Realizo la apertura de la caja en el Middleware
+            //$MyComercial = new COM("ContPAQi.CiComercialSdk");
+            //$jsonSTR = $MyComercial->OpenCaja($_POST['caja']);
+            $MyCaja = $cajas->execSQL("SELECT * FROM tpv_cajas WHERE id = " + $_SESSION["caja"]["id"] + ";");
+            //$ClienteSdk = new COM("ContPAQi.ClienteSdk");
+            //$cPublicoG = json_decode($ClienteSdk->BuscarClientePorCodigo("XAXX010101000", "1"));
+            //$DocumentoSdk = new COM("ContPAQi.DocumentoSdk");
+            //$cSerieFolio = json_decode($DocumentoSdk->BuscarSiguienteSerieYFolio($_SESSION["caja"]["id"]));
+
+            $existe = $venta->execSQL("SELECT * FROM tpv_ventas WHERE folio='".$cSerieFolio->Folio."' AND serie='".$cSerieFolio->Serie."';");
+            if($existe){
+                //Cargar la venta desde la DB
+                $_SESSION["caja"]["venta"] = array(
+                    "Serie"         => $existe[0]->serie,
+                    "Folio"         => $existe[0]->folio,
+                    "Fecha"         => $existe[0]->fecha,
+                    "Cliente"       => $existe[0]->cliente,
+                    "Descuentos"    => $existe[0]->descuentos,
+                    "Total"         => $existe[0]->total,
+                    "Tipopago"      => $existe[0]->tipopago,
+                    "Tipoventa"     => $existe[0]->tipoventa,
+                    "Estado"        => $existe[0]->estado
+                );
+
+            }else{
+                //Registrar venta en la DB
+                $MyTiempo = time();
+                $venta->setId_corte($_SESSION["caja"]["corte"]["id"]);
+                $venta->setSerie($cSerieFolio->Serie);
+                $venta->setFolio($cSerieFolio->Folio);
+                $venta->setFecha($MyTiempo);
+                $venta->setCliente($cPublicoG->Rfc);
+                $venta->setDescuentos(0);
+                $venta->setTotal(0);
+                $venta->setTipopago('');
+                $venta->setTipoventa('');
+                $venta->setEstado('A');
+                $venta->saveData();
+
+                $_SESSION["caja"]["venta"] = array(
+                    "Serie"         => $cSerieFolio->Serie,
+                    "Folio"         => $cSerieFolio->Folio,
+                    "Fecha"         => $MyTiempo,
+                    "Cliente"       => $cPublicoG->Rfc,
+                    "Descuentos"    => 0,
+                    "Total"         => 0,
+                    "Tipopago"      => '',
+                    "Tipoventa"     => '',
+                    "Estado"        => 'A',
+                );
+            }
+
+            echo $jsonSTR;
+
+        } catch (Exception $e) {
+            mostrar_error($e);
+        }
+    }
+    /** ****************************************************** **/
+    public function get_Producto(){
+        try {
+            chkSesion();
+            header('Content-Type: application/json; charset=UTF8');
+            $MyRESP = array();
+
+            if( isset($_POST['codigo']) && ($_POST['codigo'] != '') &&
+                isset( $_POST['cantidad']) && ( $_POST['cantidad'] != '') &&
+                isset($_SESSION["caja"]["id"]) && ($_SESSION["caja"]["id"] != '')
+            ){
+                //Busco los datos del producto en el Middleware
+                $MyComercial = new COM("ContPAQi.CiComercialSdk");
+                //Buscando el producto
+                $jsonSTR = $MyComercial->get_Producto($_POST['codigo'], $_POST['cantidad'], $_SESSION["caja"]["id"]);
+                $json_OBJ = json_decode($jsonSTR); //Json a Objeto
+                $MyRESP["Codigo"] = $json_OBJ->Code;
+                $MyRESP["Producto"] = array();
+                $MyRESP["Producto"]["Codigo"] = $json_OBJ->Codigo;
+                $MyRESP["Producto"]["Nombre"] = $json_OBJ->Nombre;
+                $MyRESP["Producto"]["Precio"] = $json_OBJ->Precio;
+                $MyRESP["Producto"]["Caracteristicas"]  = boolval($json_OBJ->Caracteristicas);
+                $MyRESP["Producto"]["C1_NAME"]          = Utf8_ansi($json_OBJ->C1_NAME);
+                $MyRESP["Producto"]["C1_VALUES"]        = Utf8_ansi($json_OBJ->C1_VALUES);
+                $MyRESP["Producto"]["C2_NAME"]          = Utf8_ansi($json_OBJ->C2_NAME);
+                $MyRESP["Producto"]["C2_VALUES"]        = Utf8_ansi($json_OBJ->C2_VALUES);
+                $MyRESP["Producto"]["C3_NAME"]          = Utf8_ansi($json_OBJ->C3_NAME);
+                $MyRESP["Producto"]["C3_VALUES"]        = Utf8_ansi($json_OBJ->C3_VALUES);
+
+/*
+                $MyRESP["Producto"]["Descuento"] = "";
+                $MyRESP["Producto"]["Total"] = "";
+                $MyRESP["Producto"]["Almacen"] = "";
+                $MyRESP["Producto"]["IVA"] = "";
+                $MyRESP["Codigo"] = 0;
+*/
+            }else{
+                $MyRESP["Codigo"] = 403;
+            }
+
+            echo json_encode($MyRESP);
+
+        } catch (Exception $e) {
+            mostrar_error($e);
+        }
+    }
+    /** ****************************************************** **/
+     public function get_Caracteristicas(){
+        try {
+            chkSesion();
+            header('Content-Type: application/json; charset=UTF8');
+            $MyRESP = array();
+
+            if( isset($_POST['codigo']) && ($_POST['codigo'] != '')){
+                //Busco los datos del producto en el Middleware
+                $MyComercial = new COM("ContPAQi.CiComercialSdk");
+                //Buscando el producto
+                $jsonSTR = $MyComercial->get_Caracteristicas($_POST['codigo'], $_SESSION["caja"]["id"]);
+                $json_OBJ = json_decode($jsonSTR); //Json a Objeto
+
+            }else{
+                $MyRESP["Codigo"] = 403;
+            }
+
+            echo json_encode($MyRESP);
+
+        } catch (Exception $e) {
+            mostrar_error($e);
+        }
+
+     }
+    /** ****************************************************** **/
+
+   /**
+     * CONTROL DE INTERFACES PARA EL USUARIO (Carga dinamica de interfaces)
+     *  **/
+    /** ****************************************************** **/
+    public function iface_dinero_apertura(){
+        try {
+
+            $this->view("_header_app", array(null));
+            $this->view("tpv/tpv_dinero_apertura", array(null));
+            $this->view("_footer_app", array(null));
+
+        } catch (Exception $e) {
+            mostrar_error($e);
+        }
+    }
+    /** ****************************************************** **/
+    /** ****************************************************** **/
+    /** ****************************************************** **/
+
+}
+?>

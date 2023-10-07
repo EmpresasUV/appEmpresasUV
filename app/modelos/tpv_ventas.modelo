@@ -1,0 +1,102 @@
+<?php
+/**
+* @autor Rixio Danilo Iguarán Chourio.
+* @cédula-profesional 12196442
+* @correo-eletrónico atencion.clientes@obringolfo.com
+* @denominacion OBRAS INFORMÁTICAS DEL GOLFO
+* @empresa OBRINGOLFO S.A.S. DE C.V.
+* @proyecto  OBRINGOLFO.
+* @copyright 2023
+*/
+
+class Tpv_ventas extends ModeloBase{
+    /* ***************************************************************************
+    * Registrando las variables de la clase
+    *************************************************************************** */
+    private $id;
+    private $id_corte;
+    private $serie;
+    private $folio;
+    private $fecha;
+    private $cliente;
+    private $descuentos;
+    private $total;
+    private $tipopago;
+    private $tipoventa;
+    private $estado;
+    private $table;
+
+    /* ***************************************************************************
+    * Generando los metodos SET y GET para las variables
+    *************************************************************************** */
+    /* Setters y Getters para la propiedad [ Id ] */
+    public function getId(){ return $this->id; }
+    public function setId($id){ $this->id = $id; }
+
+    /* Setters y Getters para la propiedad [ Id_corte ] */
+    public function getId_corte(){ return $this->id_corte; }
+    public function setId_corte($id_corte){ $this->id_corte = $id_corte; }
+
+    /* Setters y Getters para la propiedad [ Serie ] */
+    public function getSerie(){ return $this->serie; }
+    public function setSerie($serie){ $this->serie = $serie; }
+
+    /* Setters y Getters para la propiedad [ Folio ] */
+    public function getFolio(){ return $this->folio; }
+    public function setFolio($folio){ $this->folio = $folio; }
+
+    /* Setters y Getters para la propiedad [ Fecha ] */
+    public function getFecha(){ return $this->fecha; }
+    public function setFecha($fecha){ $this->fecha = $fecha; }
+
+    /* Setters y Getters para la propiedad [ Cliente ] */
+    public function getCliente(){ return $this->cliente; }
+    public function setCliente($cliente){ $this->cliente = $cliente; }
+
+    /* Setters y Getters para la propiedad [ Descuentos ] */
+    public function getDescuentos(){ return $this->descuentos; }
+    public function setDescuentos($descuentos){ $this->descuentos = $descuentos; }
+
+    /* Setters y Getters para la propiedad [ Total ] */
+    public function getTotal(){ return $this->total; }
+    public function setTotal($total){ $this->total = $total; }
+
+    /* Setters y Getters para la propiedad [ Tipopago ] */
+    public function getTipopago(){ return $this->tipopago; }
+    public function setTipopago($tipopago){ $this->tipopago = $tipopago; }
+
+    /* Setters y Getters para la propiedad [ Tipoventa ] */
+    public function getTipoventa(){ return $this->tipoventa; }
+    public function setTipoventa($tipoventa){ $this->tipoventa = $tipoventa; }
+
+    /* Setters y Getters para la propiedad [ Estado ] */
+    public function getEstado(){ return $this->estado; }
+    public function setEstado($estado){ $this->estado = $estado; }
+
+
+    /* ***************************************************************************
+    * @FUNCTION constructor de clase
+    * @Param $adapter
+    * Inicializa y registra la clase dentro de la aplicación
+    *************************************************************************** */
+    public function __construct($adapter) {
+        try {
+
+            $this->table = 'tpv_ventas';
+            parent::__construct($this->table, $adapter);
+
+        } catch (Exception $e) {
+            mostrar_error($e);
+        }
+    }
+
+    /* ***************************************************************************
+    * OTROS MÉTODOS Y FUNCIONES PARA ÉSTE MODELO EN ESPECÍFICO
+    *************************************************************************** */
+
+    /** *********************************************************************** */
+    /** *********************************************************************** */
+    /** *********************************************************************** */
+    /** *********************************************************************** */
+}
+?>

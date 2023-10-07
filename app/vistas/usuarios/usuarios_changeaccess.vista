@@ -1,0 +1,119 @@
+<?php
+/**
+ * @autor Rixio Danilo Iguarán Chourio.
+ * @cédula-profesional 12196442
+ * @correo-eletrónico atencion.clientes@obringolfo.com
+ * @denominacion OBRAS INFORMÁTICAS DEL GOLFO
+ * @empresa OBRINGOLFO S.A.S. DE C.V.
+ * @proyecto  goPAC.
+ * @copyright 2021
+ */
+
+?>
+
+    <!-- Page body TYPE -->
+    <body class="border-top-wide border-primary d-flex flex-column">
+    <script src="<?php echo PATH_JS; ?>/go_master.js"></script>
+    <!-- ## ********************************************* ## -->
+        <!-- Content -->
+        <div class="page page-center">
+            <div class="container container-tight py-4">
+                <div class="text-center mb-4">
+                    <a href="/" class="navbar-brand navbar-brand-autodark" style="margin-top: 50px;"><img src="<?php echo PATH_IMAGENES; ?>/logo_login.gif" height="100" alt="100"></a>
+                </div>
+                <div class="card card-md">
+                    <div class="card-body">
+                        <h2 class="h2 text-center mb-4"><?php echo LNG_SEGURIDAD_0063; ?></h2>
+                        <form name="FrmCHANGE" id="FrmCHANGE" method="post" autocomplete="off">
+                            <input id="txt_MAIL" name="txt_MAIL" type="hidden" value="<?php echo $txt_MAIL; ?>" />
+                            <div class="mb-3">
+                                <label class="form-label required">
+                                    <?php echo LNG_SEGURIDAD_0003; ?>
+                                    <span class="form-help" data-bs-toggle="popover" data-bs-placement="top" data-bs-html="true"
+                                        data-bs-content="<?php echo LNG_SEGURIDAD_0022; ?> <p class='mb-0'><a href='#'><?php echo LNG_NUCLEO_0005; ?></a></p>">?</span>
+                                </label>
+                                <div class="input-group input-group-flat">
+                                    <input
+                                        id="txtSECRETO"
+                                        name="txtSECRETO"
+                                        type="password"
+                                        class="form-control"
+                                        placeholder="<?php echo LNG_SEGURIDAD_0016; ?>"
+                                        autocomplete="off"
+                                        onkeyup="chk_valid(this);" onfocus="chk_valid(this);" onchange="chk_valid(this);"
+                                        required
+                                    >
+                                    <span class="input-group-text">
+                                        <a id="cmdPASSWORD" name="cmdPASSWORD"  class="link-secondary cursor_pointer" title="<?php echo LNG_SEGURIDAD_0020; ?>" data-bs-toggle="tooltip" onclick="show_password('txtSECRETO', this);">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><circle cx="12" cy="12" r="2" /><path d="M22 12c-2.667 4.667 -6 7 -10 7s-7.333 -2.333 -10 -7c2.667 -4.667 6 -7 10 -7s7.333 2.333 10 7" /></svg>
+                                        </a>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="mb-2">
+                                <label class="form-label required">
+                                    <?php echo LNG_SEGURIDAD_0062; ?>
+                                    <span class="form-help" data-bs-toggle="popover" data-bs-placement="top" data-bs-html="true"
+                                        data-bs-content="<?php echo LNG_SEGURIDAD_0022; ?> <p class='mb-0'><a href='#'><?php echo LNG_NUCLEO_0005; ?></a></p>">?</span>
+                                </label>
+                                <div class="input-group input-group-flat">
+                                    <input
+                                        id="txtSECRETO2"
+                                        name="txtSECRETO2"
+                                        type="password"
+                                        class="form-control"
+                                        placeholder="<?php echo LNG_SEGURIDAD_0016; ?>"
+                                        autocomplete="off"
+                                        onkeydown="chk_valid(this);" onfocus="chk_valid(this);" onchange="chk_valid(this);"
+                                        required
+                                    >
+                                    <span class="input-group-text">
+                                        <a id="cmdPASSWORD2" name="cmdPASSWORD2"  class="link-secondary cursor_pointer" title="<?php echo LNG_SEGURIDAD_0020; ?>" data-bs-toggle="tooltip" onclick="show_password('txtSECRETO2', this);">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><circle cx="12" cy="12" r="2" /><path d="M22 12c-2.667 4.667 -6 7 -10 7s-7.333 -2.333 -10 -7c2.667 -4.667 6 -7 10 -7s7.333 2.333 10 7" /></svg>
+                                        </a>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-footer">
+                                <input type="button" id="cmdCHANGE" name="cmdCHANGE" class="btn btn-primary w-100" value="<?php echo LNG_SEGURIDAD_0063; ?>">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="text-center text-muted mt-3">
+                    <?php echo LNG_SEGURIDAD_0028; ?> <a id="cmdBACK" name="cmdBACK" class="cursor-pointer" tabindex="-1"><?php echo LNG_NUCLEO_0018; ?></a>
+                </div>
+            </div>
+        </div>
+        <!-- Content -->
+    <!-- ## ********************************************* ## -->
+
+
+<script type="text/javascript">
+    //# ************************************************ #
+    $("#cmdCHANGE").click(function() {
+        if($("#txtSECRETO").val() == $("#txtSECRETO2").val()){
+            show_progress("<?php echo LNG_NUCLEO_0015; ?>");
+            var isValid = true;
+            $('#FrmCHANGE').find(':input').each(function() {
+                isValid = chk_valid(this);
+            });
+            if (isValid){
+                document.getElementById("FrmCHANGE").action = "<?php echo $helper->url("Usuarios", "recovery_change"); ?>";
+                document.getElementById("FrmCHANGE").submit();
+            }else{
+                $.messager.progress('close');
+            }
+        }else{
+            $.messager.alert('<?php echo LNG_NUCLEO_0039; ?>','<?php echo LNG_SEGURIDAD_0064; ?>','error');
+        }
+    });
+    //# ************************************************ #
+    $("#cmdNUEVO").click(function() {
+        goRedirect("Index", "index");
+    });
+    //# ************************************************ #
+    //# ************************************************ #
+    //# ************************************************ #
+</script>
+<!-- ## ********************************************* ## -->

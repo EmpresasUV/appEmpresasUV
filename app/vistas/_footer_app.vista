@@ -1,0 +1,80 @@
+<?php
+/**
+ * @autor Rixio Danilo Iguarán Chourio.
+ * @cédula-profesional 12196442
+ * @correo-eletrónico atencion.clientes@obringolfo.com
+ * @denominacion OBRAS INFORMÁTICAS DEL GOLFO
+ * @empresa OBRINGOLFO S.A.S. DE C.V.
+ * @proyecto  goPAC.
+ * @copyright 2021
+ */
+
+
+?>
+
+
+<!-- ## ********************************************* ## -->
+                <!-- Page footer -->
+                <footer class="footer footer-transparent d-print-none">
+                    <div class="container-xl">
+                        <div class="row text-center align-items-center flex-row-reverse">
+                            <div class="col-lg-auto ms-lg-auto">
+                                <ul class="list-inline list-inline-dots mb-0">
+                                    <li class="list-inline-item"><a href="#" class="link-secondary"><?php echo LNG_NUCLEO_0008; ?></a></li>
+                                    <li class="list-inline-item"><a href="#" class="link-secondary"><?php echo LNG_NUCLEO_0009; ?></a></li>
+                                    <li class="list-inline-item"><a href="#" target="_blank" class="link-secondary" rel="noopener"><?php echo LNG_NUCLEO_0010; ?></a></li>
+                                    <li class="list-inline-item">
+                                        <a href="https://obringolfo.com/" target="_blank" class="link-secondary" rel="noopener">
+                                            <!-- Download SVG icon from http://tabler-icons.io/i/heart -->
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon text-pink icon-filled icon-inline" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                                <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428m0 0a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
+                                            </svg>
+                                            OBRINGOLFO &reg;
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-12 col-lg-auto mt-3 mt-lg-0">
+                                <ul class="list-inline list-inline-dots mb-0">
+                                    <li class="list-inline-item">
+                                        Copyright &copy; <?php echo date("Y"); ?>
+                                        <a href="https://centrointegralinmobiliarioeme.com/" class="link-secondary"><?php echo LNG_NUCLEO_0006; ?></a>.
+                                        <?php echo LNG_NUCLEO_0007; ?>.
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+        <!-- Libs JS -->
+        <!-- Tabler Core -->
+        <script src="<?php echo PATH_JS; ?>/tabler.min.js?<?= time(); ?>" defer></script>
+        <!-- ********************************************* -->
+        <script type="text/javascript">
+            !function(e) {
+                "function" == typeof define && define.amd ? define(e) : e()
+            }
+            ((function() {
+                "use strict";
+                var e, t = "tablerTheme",
+                    n = new Proxy(new URLSearchParams(window.location.search), {
+                        get: function(e, t) {
+                            return e.get(t)
+                        }
+                    });
+                if (n.theme) localStorage.setItem(t, n.theme), e = n.theme;
+                else {
+                    var o = localStorage.getItem(t);
+                    e = o || "light"
+                }
+                document.body.classList.remove("theme-dark", "theme-light"), document.body.classList.add("theme-".concat(e))
+            }));
+        </script>
+        <!-- ********************************************* -->
+        <!-- ********************************************* -->
+
+    </body>
+</html>

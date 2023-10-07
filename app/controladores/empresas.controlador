@@ -1,0 +1,69 @@
+<?php
+/**
+ * @autor Rixio Danilo Iguarán Chourio.
+ * @cédula-profesional 12196442
+ * @correo-eletrónico atencion.clientes@obringolfo.com
+ * @denominacion OBRAS INFORMÁTICAS DEL GOLFO
+ * @empresa OBRINGOLFO S.A.S. DE C.V.
+ * @proyecto  goPAC.
+ * @copyright 2021
+ */
+
+
+class EmpresasControlador extends ControladorBase{
+    public $conectar;
+    public $adapter;
+    public $adapter_empresa;
+
+    /** ****************************************************** **/
+    public function __construct() {
+        try {
+
+            parent::__construct();
+            $this->conectar = new Conectar();
+            $this->adapter  = $this->conectar->conexion();
+
+        } catch (Exception $e) {
+            mostrar_error($e);
+        }
+    }
+    /** ****************************************************** **/
+    public function index(){
+        try { chkSesion();
+
+            $this->view("_header_empresas", null); //Cargamos el header del sistema
+            $this->view("empresas", null); //Cargamos la vista del escritorio
+            $this->view("_footer_empresas", null); //Cargamos el footer del sistema
+
+        } catch (Exception $e) {
+            mostrar_error($e);
+        }
+    }
+    /** ****************************************************** **/
+    function permiso_a_empresa($id_empresa){
+        try {
+
+            $usuarios_empresas = new Usuarios_empresas($this->adapter);
+            $usuario = $usuarios_empresas->getBy('id_usuario', $_SESSION["usuario"]["id"]);
+            //auditar("Usuario: " . print_r($usuario, true));
+            $Autorizadas = explode(":", $usuario[0]->op_empresas);
+            if(in_array(0, $Autorizadas)){ //Tiene acceso a todas las empresas [0]
+                return true;
+            }else{
+                if(in_array($id_empresa, $Autorizadas)){  //La empresa está autorizada
+                    return true;
+                }else{ //No esta autorizada la empresa
+                    return false;
+                }
+            }
+
+        } catch (Exception $e) {
+            mostrar_error($e);
+        }
+    }
+
+    /** ****************************************************** **/
+    /** ****************************************************** **/
+    /** ****************************************************** **/
+}
+?>

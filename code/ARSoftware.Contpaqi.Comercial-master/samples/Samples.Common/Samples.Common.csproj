@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\ARSoftware.Contpaqi.Comercial.Sdk.Abstractions\ARSoftware.Contpaqi.Comercial.Sdk.Abstractions.csproj" />
+  </ItemGroup>
+
+</Project>

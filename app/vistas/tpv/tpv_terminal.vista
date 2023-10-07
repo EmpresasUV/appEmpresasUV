@@ -1,0 +1,528 @@
+<?php
+/**
+ * @autor Rixio Danilo Iguarán Chourio.
+ * @cédula-profesional 12196442
+ * @correo-eletrónico atencion.clientes@obringolfo.com
+ * @denominacion OBRAS INFORMÁTICAS DEL GOLFO
+ * @empresa OBRINGOLFO S.A.S. DE C.V.
+ * @proyecto  goPAC.
+ * @copyright 2021
+ */
+
+    chkSesion();
+?>
+
+<!-- Download SVG icon from http://tabler-icons.io/i/check -->
+<script src="<?php echo PATH_JS; ?>/go_master.js?<?= time() ?>"></script>
+<script src="<?php echo PATH_JS; ?>/libs/apexcharts/dist/apexcharts.min.js?<?= time() ?>"></script>
+<!-- ## ********************************************* ## -->
+<style>
+    .datagrid-cell{ font-size: 9px; }
+</style>
+<!-- ## ********************************************* ## -->
+
+    <div class="page-body">
+        <div class="container-xl">
+
+            <!-- [BEGIN][FORMULARIO] -->
+            <form id="FrmDATOS" name="FrmDATOS" method="post" autocomplete="off">
+
+                <div class="row row-cards">
+
+
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="card mb-1">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center">
+                                    <div class="subheader">FOLIO DE VENTAS</div>
+                                </div>
+                                <div class="row mb-1">
+                                    <div class="col-7 m-0">
+                                        <div id="txt_Serie" class="h4 m-0 text-red" style="text-align: center;">-</div>
+                                    </div>
+                                    <div class="col-5 m-0">
+                                        <div id="txt_Folio" class="h4 m-0 text-red" style="text-align: center;">0</div>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex align-items-center">
+                                    <div class="subheader">OPERADOR DE CAJA</div>
+                                </div>
+                                <div class="h5 mb-1 text-green"><?= $_SESSION["usuario"]["nombre"]." ".$_SESSION["usuario"]["paterno"]." ".$_SESSION["usuario"]["materno"] ?></div>
+
+
+
+
+
+
+                                <div class="d-flex mb-2">
+                                    <div>Operaciones de ventas</div>
+                                    <div class="ms-auto">
+                                        <span class="text-green d-inline-flex align-items-center lh-1">
+                                            7%
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon ms-1" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M3 17l6 -6l4 4l8 -8"></path><path d="M14 7l7 0l0 7"></path></svg>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="progress progress-sm">
+                                    <div class="progress-bar bg-primary" style="width: 75%" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" aria-label="75% Complete">
+                                        <span class="visually-hidden">75% Complete</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center">
+                                    <div class="subheader">FOLIO DE VENTAS</div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-sm-6 col-lg-9">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Terminal de ventas [<?= $_SESSION["caja"]["nombre"] ?>]</h3>
+                                <div class="card-actions btn-actions">
+                                    <a href="#" class="btn-action"><!-- Download SVG icon from http://tabler-icons.io/i/refresh -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M20 11a8.1 8.1 0 0 0 -15.5 -2m-.5 -4v4h4"></path><path d="M4 13a8.1 8.1 0 0 0 15.5 2m.5 4v-4h-4"></path></svg>
+                                    </a>
+                                    <a href="#" class="btn-action"><!-- Download SVG icon from http://tabler-icons.io/i/chevron-up -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M6 15l6 -6l6 6"></path></svg>
+                                    </a>
+                                    <a href="#" class="btn-action"><!-- Download SVG icon from http://tabler-icons.io/i/dots-vertical -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M12 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"></path><path d="M12 19m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"></path><path d="M12 5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"></path></svg>
+                                    </a>
+                                    <a href="#" class="btn-action"><!-- Download SVG icon from http://tabler-icons.io/i/x -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M18 6l-12 12"></path><path d="M6 6l12 12"></path></svg>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="card-body">
+
+                                <div class="row row-cards">
+                                    <div class="col-auto mb-2">
+                                            <input
+                                                id="txt_CANTIDAD" name="txt_CANTIDAD"
+                                                class="easyui-numberbox"
+                                                style="height: 25px; text-align: center;"
+                                                required="true"
+                                            >
+                                            <input
+                                                id="txt_CODIGO" name="txt_CODIGO"
+                                                class="easyui-textbox"
+                                                style="height: 25px; text-align: center;"
+                                                required="true"
+                                            >
+                                    </div>
+                                    <div class="col-auto ms-auto mb-2">
+                                        <input
+                                            id="txt_RAZON" name="txt_RAZON"
+                                            class="easyui-textbox"
+                                            style="height: 25px; text-align: center;"
+                                            required="true"
+                                        >
+
+                                        <input
+                                            id="txt_RFC" name="txt_RFC"
+                                            class="easyui-textbox"
+                                            style="height: 25px; text-align: center;"
+                                            required="true"
+                                        >
+                                        <a href="#" class="btn btn-warning" style="height: 25px;">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user-search" width="24" height="24" viewBox="0 0 28 28" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                                <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0"></path>
+                                                <path d="M6 21v-2a4 4 0 0 1 4 -4h1.5"></path>
+                                                <path d="M18 18m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"></path>
+                                                <path d="M20.2 20.2l1.8 1.8"></path>
+                                            </svg>
+                                            Clientes
+                                        </a>
+
+                                    </div>
+                                </div>
+
+                                 <div class"row">
+                                    <table id="grid_VENTAS" class="easyui-datagrid">
+                                    </table>
+                                </div>
+
+                                <div class"row">
+                                    
+                                </div>
+
+                            </div>
+
+                            <div class="card-footer">
+
+                                <div class="row align-items-center">
+                                    <div class="col-auto">
+                                        <a href="#" class="btn btn-danger">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shopping-cart-off" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                                <path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"></path>
+                                                <path d="M17 17a2 2 0 1 0 2 2"></path>
+                                                <path d="M17 17h-11v-11"></path>
+                                                <path d="M9.239 5.231l10.761 .769l-1 7h-2m-4 0h-7"></path>
+                                                <path d="M3 3l18 18"></path>
+                                            </svg>
+                                            Cancelar
+                                        </a>
+                                    </div>
+                                    <div class="col-auto ms-auto">
+                                        <a href="#" class="btn btn-warning">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shopping-cart-dollar" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                                <path d="M4 19a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"></path>
+                                                <path d="M13 17h-7v-14h-2"></path>
+                                                <path d="M6 5l14 1l-.575 4.022m-4.925 2.978h-8.5"></path>
+                                                <path d="M21 15h-2.5a1.5 1.5 0 0 0 0 3h1a1.5 1.5 0 0 1 0 3h-2.5"></path>
+                                                <path d="M19 21v1m0 -8v1"></path>
+                                            </svg>
+                                            Descuento
+                                        </a>
+                                        <a href="#" class="btn btn-success">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shopping-cart-check" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                                <path d="M4 19a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"></path>
+                                                <path d="M11.5 17h-5.5v-14h-2"></path>
+                                                <path d="M6 5l14 1l-1 7h-13"></path>
+                                                <path d="M15 19l2 2l4 -4"></path>
+                                            </svg>
+                                            Pagar
+                                        </a>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </form>
+            <!-- [END][FORMULARIO] -->
+
+        </div>
+    </div>
+
+    <a id="cmdCARACTERISTICAS" href="#" class="btn" data-bs-toggle="modal" data-bs-target="#modal-CARACTERISTICAS" style="display: none;">.</a>
+    <div class="modal modal-blur fade" id="modal-CARACTERISTICAS" tabindex="-2" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document" style="width: 300px;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Características</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row mb-3">
+                        <label id="C1_LABEL" class="form-label" style="font-size: 70%;margin-bottom: 7px;">Característica 1</label>
+                        <select id="txt_CARACTERISTICA1" class="easyui-combobox" name="txt_CARACTERISTICA1" style=" height: 30px;font-size: 85%;" data-options="
+                                required: true,
+                                prompt: 'Características 1',
+                                valueField: 'value',
+                                textField: 'text'
+                                ">
+                        </select>
+                    </div>
+                    <div class="row mb-3">
+                        <label id="C2_LABEL" class="form-label" style="font-size: 70%;margin-bottom: 7px;">Característica 2</label>
+                        <select id="txt_CARACTERISTICA2" class="easyui-combobox" name="txt_CARACTERISTICA2" style="height: 30px;font-size: 85%;" data-options="
+                                required: true,
+                                prompt: 'Características 2',
+                                valueField: 'value',
+                                textField: 'text'
+                                ">
+                        </select>
+                    </div>
+                    <div class="row mb-3">
+                        <label id="C3_LABEL" class="form-label" style="font-size: 70%;margin-bottom: 7px;">Característica 3</label>
+                        <select id="txt_CARACTERISTICA3" class="easyui-combobox" name="txt_CARACTERISTICA3" style="height: 30px;font-size: 85%;" data-options="
+                                required: true,
+                                prompt: 'Características 3',
+                                valueField: 'value',
+                                textField: 'text'
+                                ">
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Asignar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <a id="cmdERROR" href="#" class="btn" data-bs-toggle="modal" data-bs-target="#modal-danger" style="display: none;">.</a>
+    <div class="modal modal-blur fade" id="modal-danger" tabindex="-1" style="display: none;" aria-hidden="true">
+            <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <div class="modal-status bg-danger"></div>
+                    <div class="modal-body text-center py-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon mb-2 text-danger icon-lg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M10.24 3.957l-8.422 14.06a1.989 1.989 0 0 0 1.7 2.983h16.845a1.989 1.989 0 0 0 1.7 -2.983l-8.423 -14.06a1.989 1.989 0 0 0 -3.4 0z"></path><path d="M12 9v4"></path><path d="M12 17h.01"></path></svg>
+                        <h3 id="titulo">.</h3>
+                        <div id="mensaje" class="text-secondary">.</div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="w-50">
+                            <div class="row">
+                                <div class="col"><a href="#" class="btn btn-danger w-100" data-bs-dismiss="modal">
+                                        Continuar
+                                    </a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+<!-- ## ********************************************* ## -->
+<script type="text/javascript">
+    //# **************************************************** #
+    $(document).ready(function(){
+        var txt_CANTIDAD = $('#txt_CANTIDAD');
+        var txt_CODIGO = $('#txt_CODIGO');
+        txt_CODIGO.textbox('textbox').focus();
+        let PesoMXN = new Intl.NumberFormat('es-MX', {
+            style: 'currency',
+            currency: 'MXN',
+        });
+        //# **************************************************** #
+        show_progress("Configurando tu terminal en ContPAQi...");
+        $.ajax({
+            method: "POST",
+            url: "<?php echo $helper->url("Ventas", "open_Caja"); ?>",
+            data: { //Parametros para el SDK
+                caja: "<?= $_SESSION["caja"]["id"] ?>"
+            }
+        }).done(function(respuesta) {
+            $.messager.progress('close');
+            console.log(respuesta);
+/*
+            if(!ExisteError(respuesta)){
+                var jsonRCP = read_json(respuesta);
+                $("#txt_Serie").html(jsonRCP.Serie);
+                $("#txt_Folio").html(jsonRCP.Folio);
+                $('#txt_RFC').textbox('setValue', jsonRCP.cliente_RFC);
+                $('#txt_RAZON').textbox('setValue', jsonRCP.cliente_RAZON);
+            }
+*/
+        });
+        //# **************************************************** #
+        txt_CANTIDAD.textbox('textbox').bind('keypress', function(e){
+            if (e.keyCode == 13){   // Se presionó ENTER
+                txt_CODIGO.textbox('textbox').focus();
+            }
+        });
+        //# **************************************************** #
+        txt_CODIGO.textbox('textbox').bind('keypress', function(e){
+            if (e.keyCode == 13){   // Se presionó ENTER
+
+                show_progress("Validando almacenes y existencias en ContPAQi...");
+                $.ajax({
+                    method: "POST",
+                    url: "<?php echo $helper->url("Ventas", "get_Producto"); ?>",
+                    data: { //Parametros para el SDK
+                        codigo: $('#txt_CODIGO').textbox('getValue'),
+                        cantidad: $('#txt_CANTIDAD').textbox('getValue')
+                    }
+                }).done(function(respuesta) {
+                    console.log(respuesta);
+                    if(!ExisteError(respuesta)){
+                        var jsonRCP = read_json(respuesta);
+                        //Procesar las caracteristicas del producto
+                        if(jsonRCP.Producto.Caracteristicas){ //El producto tiene caracteristicas
+                            $('#txt_CARACTERISTICA1').combobox('clear');
+                            $('#txt_CARACTERISTICA2').combobox('clear');
+                            $('#txt_CARACTERISTICA3').combobox('clear');
+                            if(jsonRCP.Producto.C1_NAME != ""){
+                                //Tenemos Caracteristica 1
+                                $("#C1_LABEL").html(jsonRCP.Producto.C1_NAME);
+                                var C1obj = read_json(jsonRCP.Producto.C1_VALUES);
+                                Object.entries(C1obj).forEach(([key, value]) => {
+                                    var data = $('#txt_CARACTERISTICA1').combobox('getData');
+                                    data.push({value: value, text: key});
+                                    $('#txt_CARACTERISTICA1').combobox('loadData', data);
+                                });
+                            }else{ //No hay característica 1
+                                $('#txt_CARACTERISTICA1').hide();
+                            }
+                            if(jsonRCP.Producto.C2_NAME != ""){
+                                //Tenemos Caracteristica 2
+                                $("#C2_LABEL").html(jsonRCP.Producto.C2_NAME);
+                                var C2obj = read_json(jsonRCP.Producto.C2_VALUES);
+                                Object.entries(C2obj).forEach(([key, value]) => {
+                                    var data = $('#txt_CARACTERISTICA2').combobox('getData');
+                                    data.push({value: value, text: key});
+                                    $('#txt_CARACTERISTICA2').combobox('loadData', data);
+                                });
+                            }else{ //No hay característica 2
+                                $('#txt_CARACTERISTICA2').hide();
+                            }
+                            if(jsonRCP.Producto.C3_NAME != ""){
+                                //Tenemos Caracteristica 3
+                                $("#C3_LABEL").html(jsonRCP.Producto.C3_NAME);
+                                var C3obj = read_json(jsonRCP.Producto.C3_VALUES);
+                                Object.entries(C3obj).forEach(([key, value]) => {
+                                    var data = $('#txt_CARACTERISTICA3').combobox('getData');
+                                    data.push({value: value, text: key});
+                                    $('#txt_CARACTERISTICA3').combobox('loadData', data);
+                                });
+                            }else{ //No hay característica 3
+                                $('#txt_CARACTERISTICA3').hide();
+                            }
+                            $("#cmdCARACTERISTICAS")[0].click();
+                        }else{
+                            var nRows = $('#grid_VENTAS').datagrid('getRows');
+                            //console.log((nRows.length));
+                            $('#grid_VENTAS').datagrid('insertRow',{
+                                index: (nRows.length),	// index start with 0
+                                row: {
+                                    cantidad: $('#txt_CANTIDAD').textbox('getValue'),
+                                    codigo: jsonRCP.Producto.Codigo,
+                                    producto: jsonRCP.Producto.Nombre,
+                                    caracteristicas: '-- | N/A | --',
+                                    almacen: '000',
+                                    precio: PesoMXN.format(jsonRCP.Producto.Precio),
+                                    descuento: '00%',
+                                    total: PesoMXN.format(jsonRCP.Producto.Precio * $('#txt_CANTIDAD').textbox('getValue')),
+                                    opciones: formatOptions((nRows.length))
+                                }
+                            });
+                        }
+                        txt_CODIGO.textbox('setValue','');
+                        txt_CODIGO.textbox('textbox').focus();
+                    }
+                    $.messager.progress('close');
+                });
+            }
+        });
+    });
+    //# **************************************************** #
+    function formatOptions(index){
+        return  '<a href="#" class="cmdOpciones" onclick="execOP(this)" action="D" row-id="'+index+'">'+
+                '<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-basket-discount" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">'+
+                '    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>'+
+                '    <path d="M17 10l-2 -6"></path>'+
+                '    <path d="M7 10l2 -6"></path>'+
+                '    <path d="M12.5 20h-5.256a3 3 0 0 1 -2.965 -2.544l-1.255 -7.152a2 2 0 0 1 1.977 -2.304h13.999a2 2 0 0 1 1.977 2.304l-.394 2.248"></path>'+
+                '    <path d="M13.856 13.254a2 2 0 1 0 -1.856 2.746"></path>'+
+                '    <path d="M16 21l5 -5"></path>'+
+                '    <path d="M21 21v.01"></path>'+
+                '    <path d="M16 16v.01"></path>'+
+                '</svg>'+
+                '</a>'+
+                '<a href="#" class="cmdOpciones" style="margin-left: 10px;" onclick="execOP(this)"  action="E" row-id="'+index+'">'+
+                '<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash-x" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">'+
+                '    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>'+
+                '    <path d="M4 7h16"></path>'+
+                '    <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12"></path>'+
+                '    <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3"></path>'+
+                '    <path d="M10 12l4 4m0 -4l-4 4"></path>'+
+                '</svg>'+
+                '</a>';
+
+    }
+    //# **************************************************** #
+    function execOP(cmd) {
+        switch ($(cmd).attr('action')) {
+            case 'D': //Descuentos
+                alert('Decuento a row: '+$(cmd).attr('row-id'));
+
+            break
+            case 'E': //Eliminar
+                console.log($(cmd).attr('row-id'));
+                $.messager.confirm({
+                    title: 'Módulo de punto de ventas',
+                    msg: '¿Quieres eliminar este producto de tu venta?',
+                    fn: function(r){
+                        if (r){
+                            //Eliminando el producto del grid
+                            $('#grid_VENTAS').datagrid('deleteRow', $(cmd).attr('row-id'));
+                            $('#grid_VENTAS').datagrid('reload');
+                            $('#txt_CODIGO').textbox('textbox').focus();
+                        }
+                    }
+                });
+            break
+        }
+
+    };
+    //# **************************************************** #
+    $('#grid_VENTAS').datagrid({
+        pagination: true,
+        singleSelect: true,
+        columns: [[
+            {field:'cantidad', align:'center', resizable:false, width:"5%", title:'Cant.'},
+            {field:'codigo', align:'center', resizable:false, width:"10%", title:'Código'},
+            {field:'producto', align:'center', resizable:false, width:"22%", title:'Producto / Servicio'},
+            {field:'caracteristicas', align:'center', resizable:false, width:"22%", title:'Características'},
+            {field:'almacen', align:'center', resizable:false, width:"8%", title:'Almacén'},
+            {field:'precio', align:'center', resizable:false, width:"10%", title:'Precio'},
+            {field:'descuento', align:'center', resizable:false, width:"5%", title:'Desc.'},
+            {field:'total', align:'right', resizable:false, width:"10%", title:'Total'},
+            {field:'opciones', align:'center', resizable:false, width:"10.7%", title:'Opción'},
+        ]]
+    });
+
+    //# **************************************************** #
+    $('#txt_CANTIDAD').numberbox({
+        prompt: 'CANT',
+        value: 1,
+        width: 50,
+        min: 1
+    });
+    //# **************************************************** #
+    $('#txt_CODIGO').textbox({
+        width: 150,
+        prompt: 'CÓDIGO'
+    });
+    //# **************************************************** #
+    $('#txt_RFC').textbox({
+        prompt: 'RFC',
+        value: '---',
+        width: 130,
+        min: 1
+    });
+    //# **************************************************** #
+    $('#txt_RAZON').textbox({
+        prompt: 'RAZÓN SOCIAL',
+        value: '---',
+        width: 260,
+        min: 1
+    });
+
+
+    //# **************************************************** #
+    function get_Venta(){
+        $.ajax({
+            method: "POST",
+            url: "<?php echo $helper->url("Ventas", "get_Venta"); ?>",
+            data: { cp: $("#txt_CP").val() }
+        }).done(function(response) {
+            console.log(response);
+            var jsonRCP = read_json(response);
+        });
+    }
+    //# **************************************************** #
+    //# **************************************************** #
+    //# **************************************************** #
+    //# **************************************************** #
+    //# **************************************************** #
+    //# **************************************************** #
+    //# **************************************************** #
+    //# **************************************************** #
+    //# **************************************************** #
+</script>
+<!-- ## ********************************************* ## -->

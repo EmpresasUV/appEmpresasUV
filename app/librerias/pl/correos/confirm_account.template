@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="Content-Style-Type" content="text/css" />
+	<meta name="title" content="Sistema EME">
+	<meta name="ROBOTS" content="INDEX,FOLLOW">
+	<meta http-equiv="Content-Language" content="es-mx">
+	<meta name="description" content="Obras Informáticas del Golfo, empresa de servicios informáticos, internet y transmisión de datos electrónicos." />	
+	<meta name="abstract" content="Obras Informáticas del Golfo, empresa de servicios informáticos, internet y transmisión de datos electrónicos.">
+	<meta name="keywords" content="hospedaje, hosting, web, servidores, servers, vps, planes, multihospedaje, dedicados, paginas, desarrollo, programacion">
+	<meta name="author" content="Rixio Danilo Iguaran Chourio [OBRINGOLFO S.A.S.]">
+	<meta name="copyright" content="PAN CDE Veracruz &reg;">
+	<meta name="rating" content="General">
+	<meta name="creation_Date" content="01/07/2019">
+	<meta name="revisit-after" content="1 days">
+	<meta name="doc-rights" content="Copywritten work">
+	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+	<link rel="icon" type="image/x-icon" href="https://comprobar.panver.mx/favicon.ico" />
+	<link rel="shortcut icon" type="image/x-icon" href="https://comprobar.panver.mx/favicon.ico" />
+	<title>Sistema EME</title>
+    <style type="text/css">
+        @import url('https://fonts.googleapis.com/css?family=Cairo');
+    </style>
+</head>
+<body link="#0200FF" vlink="#0200FF" alink="#0200FF" style="line-height : 15px; font-weight: normal;">
+<div style="width: 750px !important; margin-left: auto; margin-right: auto;">
+    <table style="width: 100%; border: 0px;">
+          <tr>
+            <td width="100%" style="background-color: #FFF; text-align: center;">
+				<img src="https://leezar.obringolfo.com/app/librerias/pl/correos/logo_cde.png" width="421" height="196" />
+			</td>
+          </tr>
+          <tr>
+            <td style="padding:15px; border:1px solid #961E00; ">
+        	<dl>
+        		<dt style="font-family: Tahoma !important; font-size: 15px; font-weight: normal; line-height : 15px;">
+        			    Con atención a:	<br /><br />
+						<strong><?php echo $array_vars['NOMBRE'] ?></strong>.<br />
+						<?php echo $array_vars['DIRECCION'] ?>.<br />
+						<?php echo $array_vars['CORREO'] ?>, <?php echo $array_vars['TELEFONO'] ?>.<br />
+                    <br />
+        		</dt>
+                <dt style="font-family: Tahoma !important; font-size: 14px; text-align: justify !important; line-height : 15px; font-weight: normal;">
+					<br />
+                    Estimado asesor,<br /><br />
+					Estamos muy alegres por su interes en formar parte de nuestra red inmobiliaria, actualmente tu cuenta de acceso se encuentra inactiva, por lo que debes de activarla haciendo clic en el enlace que hemos generado para tí, solo sigue las intrucciones.
+					<br /><br />
+					Usuario autorizado: <?php echo $array_vars['USUARIO'] ?><br />
+					Su contraseña: <strong><?php echo $array_vars['SECRETO'] ?></strong><br />
+					Correo electrónico: <?php echo $array_vars['CORREO'] ?><br /><br /><br />
+					Para confirmar y activar su cuenta de acceso a nuestro sistema, haga clic en el vinculo inferior:<br />
+					<a href="<?php echo $array_vars['LINK'] ?>" target="_blank"><?php echo $array_vars['LINK'] ?></a>
+                    <br /><br /><br />
+                    Esperamos poderle atender de la maneras más eficiente y objetiva posible, recuerde que para dudas ó comentarios puede comunicarse a nuestra área de clientes y donde uno de los integrantes de nuestro departamento de atención al cliente le atenderá.
+                </dt>
+				<dt class="msgBody">
+					<br />c.c.p. <strong>Archivo electrónico</strong>
+				</dt>
+        	</dl>
+        	</td>
+          </tr>
+          <tr>
+            <td style="border-top: 3px solid #961E00;  line-height : 7px;">
+                <div align="justify">
+            		<font face="Tahoma" style="font-size: 5pt;">Aviso de privacidad de
+            		acuerdo con la Ley Federal de Protección de Datos Personales en Posesión
+            		de los Particulares y su Reglamento, le notificamos que sus datos 
+            		personales están salvaguardados por nuestros sistemas, en una base de 
+            		datos propiedad de Sistemas EME®.; Por lo que ponemos a su
+            		disposición las políticas relativas al cuidado y manejo de sus datos 
+            		personales que podrá encontrar en nuestra sección de privacidad. Usted 
+            		podrá ejercer en cualquier momento los derechos de acceso, 
+            		rectificación, cancelación y oposición a dichos datos (Derechos ARCO), 
+            		para lo cual deberá enviar un correo a nuestra dirección electrónica 
+            		, misma que se indica dentro del aviso
+            		de privacidad correspondiente; además, le informamos que sus datos 
+            		personales sólo serán utilizados para proveerle los productos y 
+            		servicios de Sistemas EME®, informarle sobre nuevos productos o
+            		servicios, cambios en los mismos, mensajes promociónales, 
+            		mercadológicos, publicitarios o de prospección comercial y evaluar la 
+            		calidad del servicio brindado. Adicionalmente le informamos que toda la 
+            		información personal en nuestras bases de datos no está a la venta ni 
+            		disponible para su comercialización con terceros. En caso de que desee 
+            		dejar de recibir estos correos, escribanos a nuestra dirección de correo 
+            		y será un gusto atender a sus solicitudes.</font>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td width="100%" height="20" style="background-color: #961E00;">
+				<dl>
+					<dt style="font-family: Tahoma !important; font-size: 12px; text-align: center !important; line-height : 15px; color: #AFAFAF;">
+						Notificaciones electrónicas del sistema.
+						<br />Diseño: OBRINGOLFO S.A.S. DE C.V.
+					</dt>
+				</dl>
+			</td>
+          </tr>
+    </table>
+</div>
+</body>
+</html>

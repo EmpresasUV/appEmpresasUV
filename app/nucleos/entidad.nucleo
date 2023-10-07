@@ -1,0 +1,282 @@
+<?php
+/**
+ * @autor Rixio Danilo Iguarán Chourio.
+ * @cédula-profesional 12196442
+ * @correo-eletrónico atencion.clientes@obringolfo.com
+ * @denominacion OBRAS INFORMÁTICAS DEL GOLFO
+ * @empresa OBRINGOLFO S.A.S. DE C.V.
+ * @proyecto  goPAC.
+ * @copyright 2021
+ */
+
+class EntidadBase{
+    private $table;
+    private $db;
+    private $conectar;
+    /* ********************************************************************** */
+    public function __construct($table, $adapter) {
+        $this->table = (string) $table;
+        $this->conectar = null;
+        $this->db = $adapter;
+        $errores = new obError();
+    }
+    /* ********************************************************************** */
+    public function getConetar(){
+        return $this->conectar;
+    }
+    /* ********************************************************************** */
+    public function db(){
+        return $this->db;
+    }
+    /* ********************************************************************** */
+    public function getAll(){
+        #SOBRECARGANDO EL METODO
+        # getAll(Campoa ordenar, Tipo Ordenamiento, Limite de consulta)  --> ORDEN DETERMINADO y LIMITE DE CONSULTA
+        # getAll(Campoa ordenar, Tipo Ordenamiento)  --> ORDEN DETERMINADO
+        # getAll(Campo a ordenar) --> ORDEN ASENDENTE
+        # getAll() --> SIN ORDEN
+
+        $args = func_get_args();
+        if(count(func_get_args()) == 3){ //TENEMOS EL CAMPO, ORDEN Y LIMITE
+            $queryORDERBY = " ORDER BY ".$args[0]." ".$args[1]." LIMIT ".$args[2];
+        }else if(count(func_get_args()) == 2){ //TENEMOS EL CAMPO Y ORDEN
+            $queryORDERBY = " ORDER BY ".$args[0]." ".$args[1];
+        }else if(count(func_get_args()) == 1){ //SOLO TENEMOS EL CAMPO
+            $queryORDERBY = " ORDER BY ".$args[0]." ASC";
+        }else{ //NO TENEMOS NADA
+            $queryORDERBY = "";
+        }
+
+        $sql_command = "SELECT * FROM $this->table".$queryORDERBY;
+        //Directiva de logeo y depuración
+        if(AUDITAR_LOG == true){
+            $this->auditar($sql_command);
+        }
+
+        $query = $this->db->query($sql_command);
+        if($query){
+            while ($row = $query->fetch_object()) { //Devolvemos el resultset en forma de objetos
+               $resultSet[] = $row;
+            }
+            return $resultSet;
+        }else{ return false; }
+    }
+    /* ********************************************************************** */
+    public function getById($uid){
+        $sql_command = "SELECT * FROM $this->table WHERE uid=$uid";
+        //Directiva de logeo y depuración
+        if(AUDITAR_LOG == true){
+            $this->auditar($sql_command);
+        }
+
+        $query = $this->db->query($sql_command);
+        if($query){
+            if($row = $query->fetch_object()) {
+               $resultSet = $row;
+            }
+            return $resultSet;
+        }else{ return false; }
+    }
+    /* ********************************************************************** */
+    public function getBy($column, $value){
+        $resultSet = null;
+        $sql_command = "SELECT * FROM $this->table WHERE $column='$value'";
+
+        //Directiva de logeo y depuración
+        if(AUDITAR_LOG == true){
+            $this->auditar($sql_command);
+        }
+
+        $query = $this->db->query($sql_command);
+        if($query){
+            while($row = $query->fetch_object()) {
+               $resultSet[] = $row;
+            }
+            return $resultSet;
+        }else{ return false; }
+
+    }
+    /* ********************************************************************** */
+    public function deleteById($uid){
+        $sql_command = "DELETE FROM $this->table WHERE uid=$uid";
+        //Directiva de logeo y depuración
+        if(AUDITAR_LOG == true){
+            $this->auditar($sql_command);
+        }
+
+        $query = $this->db->query("DELETE FROM $this->table WHERE uid=$uid");
+        if($query){
+            return $query;
+        }else{ return false; }
+
+    }
+    /* ********************************************************************** */
+    public function deleteBy($column, $value){
+        $sql_command = "DELETE FROM $this->table WHERE $column='$value'";
+        //Directiva de logeo y depuración
+        if(AUDITAR_LOG == true){
+            $this->auditar($sql_command);
+        }
+
+        $query = $this->db->query($sql_command);
+        if($query){
+            return $query;
+        }else{ return false; }
+
+    }
+    /* ********************************************************************** */
+    public function saveData($return_ID = false){
+        $fields_names = "";
+        $fields_values = "";
+        $this_methods = get_class_methods($this);
+        $this_vars = get_object_vars($this);
+        foreach($this_methods as $method_name){
+            if(substr($method_name, 0, 3) == 'set'){
+                $get_method = str_replace("set", "get", $method_name);
+                if(($this->$get_method() != '') && ($this->$get_method() != null)){
+                    $field_name = strtolower(substr($method_name, 3, strlen($method_name)));
+                    $fields_names .= "$field_name, ";
+                    //$this->auditar("field_name: ".$field_name." | type: ".gettype($this->$get_method()));
+                    if(gettype($this->$get_method()) == 'string'){
+                        $data_field = mysqli_real_escape_string($this->db, $this->$get_method());
+                        $fields_values .= "'".$data_field."', ";
+                    }else{
+                        $fields_values .= $this->$get_method().", ";
+                    }
+
+                }
+            }
+        }
+        $fields_names = substr($fields_names, 0, strlen($fields_names)-2);
+        $fields_values = substr($fields_values, 0, strlen($fields_values)-2);
+        $sql_command = "INSERT INTO $this->table($fields_names) VALUES($fields_values);";
+
+        //Directiva de logeo y depuración
+        if(AUDITAR_LOG == true){
+            $this->auditar($sql_command);
+        }
+
+        $query = $this->db->query($sql_command);
+        if($query){
+            if($return_ID){
+                $id = $this->db->insert_id;
+                return array("query" => $query, "id" => $id);
+            }else{
+                return $query;
+            }
+        }else{ throw new Exception('MySQL: ['.$this->db->errno.'] '.$this->db->error); }
+
+    }
+    /* ********************************************************************** */
+    public function updateBy($column, $value){
+        $fields_names = "";
+        $fields_values = "";
+        $this_methods = get_class_methods($this);
+        $this_vars = get_object_vars($this);
+        foreach($this_methods as $method_name){
+            if(substr($method_name, 0, 3) == 'set'){
+                $get_method = str_replace("set", "get", $method_name);
+                if(($this->$get_method() != '') && ($this->$get_method() != null)){
+                    $field_name = strtolower(substr($method_name, 3, strlen($method_name)));
+                    if(gettype($this->$get_method()) == 'string'){
+                        $fields_values .= "$field_name = '".$this->$get_method()."', ";
+                    }else{
+                        $fields_values .= "$field_name = ".$this->$get_method().", ";
+                    }
+                }
+            }
+        }
+        $fields_values = substr($fields_values, 0, strlen($fields_values)-2);
+        if(gettype($value) == 'string'){
+            $sql_command = "UPDATE $this->table SET $fields_values WHERE $column = '$value';";
+        }else{
+            $sql_command = "UPDATE $this->table SET $fields_values WHERE $column = $value;";
+        }
+
+        //Directiva de logeo y depuración
+        if(AUDITAR_LOG == true){
+            $this->auditar($sql_command);
+        }
+
+        $query = $this->db->query($sql_command);
+        if($query){
+            return $query;
+        }else{ throw new Exception('MySQL: ['.$this->db->errno.'] '.$this->db->error); }
+
+    }
+    /* ********************************************************************** */
+    public function execSQL($sql_COMMAND){
+        //$resultSet[] = null;
+        //Directiva de logeo y depuración
+        if(AUDITAR_LOG == true){
+            $this->auditar($sql_COMMAND);
+        }
+
+        $query = $this->db->query($sql_COMMAND);
+        if($query){
+            if(substr(mb_strtoupper(trim($sql_COMMAND), 'utf8'), 0, 6) == 'SELECT'){
+                $this->auditar("Filas: ".$query->num_rows);
+                if($query->num_rows > 0){ //Hay filas que regresar
+                    while ($row = $query->fetch_object()) { //Devolvemos el resultset en forma de objetos
+                       $resultSet[] = $row;
+                    }
+                    return $resultSet;
+                }else{ //No hay filas
+                    return false;
+                }
+            }else{
+                return true;
+            }
+        }else{ throw new Exception('MySQL: ['.$this->db->errno.'] '.$this->db->error); }
+
+    }
+    /* ********************************************************************** */
+    /* ********************************************************************** */
+    /* ********************************************************************** */
+    /* ********************************************************************** */
+    /*
+     * Aquí podemos montarnos un montón de métodos que nos ayuden
+     * a hacer operaciones con la base de datos de la entidad
+     */
+
+    public function auditar($texto){
+        if(AUDITAR_LOG){
+            $strLOG = '';
+            $filename = "auditoria [".date('d.m.Y')."].log";
+            $dataFile = fopen(PATH_REGISTROS."/".$filename, "a+");
+            $dia = date("d");
+            $mes = date("m");
+            $anno = date("Y");
+            $hora = date("H");
+            $minuto = date("i");
+            $segundo = date("s");
+            $tiempo = "\n".$dia."/".$mes."/".$anno." ".$hora.":".$minuto.":".$segundo;
+            if($dataFile){
+                $ex = new Exception();
+                $trace = $ex->getTrace();
+                $f_name = $trace[1]["function"];
+
+                if(isset($_SESSION["usuario"]["usuario"]) && $_SESSION["usuario"]["usuario"] != ""){
+                    $xUSUARIO = $_SESSION["usuario"]["usuario"];
+                }else{
+                    $xUSUARIO = "Usuario anonimo";
+                }
+
+                $strLOG =   str_pad($tiempo, 19, " ", STR_PAD_BOTH)." | ".
+                            str_pad(get_cliente_ip(), 15, " ", STR_PAD_BOTH)." | ".
+                            str_pad($xUSUARIO, 20, " ", STR_PAD_BOTH)." | ".
+                            str_pad($f_name, 20, " ", STR_PAD_BOTH)." | ".
+                            str_pad(get_class($this), 20, " ", STR_PAD_RIGHT)." | ".
+                            utf8_decode($texto);
+
+                fwrite($dataFile, $strLOG);
+                fclose($dataFile);
+                $f_name = null; $trace = null; $ex = null;
+            }
+
+        }
+    }
+    /* ********************************************************************** */
+
+}
+?>

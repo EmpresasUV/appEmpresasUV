@@ -1,0 +1,71 @@
+<?php
+/**
+ * @autor Rixio Danilo Iguarán Chourio.
+ * @cédula-profesional 12196442
+ * @correo-eletrónico atencion.clientes@obringolfo.com
+ * @denominacion OBRAS INFORMÁTICAS DEL GOLFO
+ * @empresa OBRINGOLFO S.A.S. DE C.V.
+ * @proyecto  goPAC.
+ * @copyright 2021
+ */
+
+
+class DireccionesControlador extends ControladorBase{
+    public $conectar;
+    public $adapter;
+    public $adapter_empresa;
+
+    /** ****************************************************** **/
+    public function __construct() {
+        parent::__construct();
+        $this->conectar = new Conectar();
+        $this->adapter  = $this->conectar->conexion();
+    }
+    /** ****************************************************** **/
+    public function index(){
+        chkSesion();
+    }
+    /** ****************************************************** **/
+    public function get_postal(){
+        //chkSesion();
+        header('Content-Type: application/json; charset=UTF8');
+        $CP_Code = $_POST['cp'];
+        $xRespuesta = array();
+        if(($CP_Code != "") && ($CP_Code < 99999)){
+            $xCodigoPostal = new C_postal($this->adapter);
+            $MyCODE = $xCodigoPostal->getBy("cp", $CP_Code);
+            if($MyCODE){
+                $xRespuesta["error"] = 0;
+                $xRespuesta["data"] = $MyCODE;
+                //array_push($xRespuesta["data"], $MyCODE);
+            }else{
+                $xRespuesta["error"] = 300;
+            }
+        }else{
+            $xRespuesta["error"] = 400;
+        }
+        echo json_encode($xRespuesta);
+    }
+    /** ****************************************************** **/
+    /** ****************************************************** **/
+    /** ****************************************************** **/
+    /** ****************************************************** **/
+    /** ****************************************************** **/
+    /** ****************************************************** **/
+    /** ****************************************************** **/
+    /** ****************************************************** **/
+    /** ****************************************************** **/
+
+    /** ****************************************************** **/
+    public function iface_asistente(){
+        try {  chkSesion();
+
+            $this->view("vehiculos_asistente", array(null));
+
+        } catch (Exception $e) {
+            mostrar_error($e);
+        }
+    }
+    /** ****************************************************** **/
+}
+?>

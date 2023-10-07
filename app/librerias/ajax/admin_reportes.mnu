@@ -1,0 +1,23 @@
+<?php
+/**
+ * @autor Rixio Danilo Iguarán Chourio.
+ * @cédula-profesional 12196442
+ * @correo-eletrónico atencion.clientes@obringolfo.com
+ * @denominacion OBRAS INFORMÁTICAS DEL GOLFO
+ * @empresa OBRINGOLFO S.A.S. DE C.V.
+ * @proyecto  WINDOWS PAQUETE ADMINISTRATIVO CONTABLE (WinPAC).
+ * @copyright 2023
+ */
+
+    require_once PATH_AYUDANTES . '/vistas.ayudante';
+    $helper = new AyudaVistas();
+    chkSesion();
+?>
+
+    <!-- Download SVG icon from http://tabler-icons.io/i/home -->
+    <!-- *********************************************************************************************** -->
+    <!-- [BEGIN][MENU REPORTES] -->
+
+
+    <!-- [END][MENU REPORTES] -->
+    <!-- *********************************************************************************************** -->

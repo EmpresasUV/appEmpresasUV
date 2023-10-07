@@ -1,0 +1,67 @@
+<?php
+/**
+* @autor Rixio Danilo Iguarán Chourio.
+* @cédula-profesional 12196442
+* @correo-eletrónico atencion.clientes@obringolfo.com
+* @denominacion OBRAS INFORMÁTICAS DEL GOLFO
+* @empresa OBRINGOLFO S.A.S. DE C.V.
+* @proyecto  OBRINGOLFO.
+* @copyright 2023
+*/
+
+class Folios extends ModeloBase{
+    /* ***************************************************************************
+    * Registrando las variables de la clase
+    *************************************************************************** */
+    private $id;
+    private $concepto;
+    private $serie;
+    private $folio;
+    private $table;
+
+    /* ***************************************************************************
+    * Generando los metodos SET y GET para las variables
+    *************************************************************************** */
+    /* Setters y Getters para la propiedad [ Id ] */
+    public function getId(){ return $this->id; }
+    public function setId($id){ $this->id = $id; }
+
+    /* Setters y Getters para la propiedad [ Concepto ] */
+    public function getConcepto(){ return $this->concepto; }
+    public function setConcepto($concepto){ $this->concepto = $concepto; }
+
+    /* Setters y Getters para la propiedad [ Serie ] */
+    public function getSerie(){ return $this->serie; }
+    public function setSerie($serie){ $this->serie = $serie; }
+
+    /* Setters y Getters para la propiedad [ Folio ] */
+    public function getFolio(){ return $this->folio; }
+    public function setFolio($folio){ $this->folio = $folio; }
+
+
+    /* ***************************************************************************
+    * @FUNCTION constructor de clase
+    * @Param $adapter
+    * Inicializa y registra la clase dentro de la aplicación
+    *************************************************************************** */
+    public function __construct($adapter) {
+        try {
+
+            $this->table = 'folios';
+            parent::__construct($this->table, $adapter);
+
+        } catch (Exception $e) {
+            mostrar_error($e);
+        }
+    }
+
+    /* ***************************************************************************
+    * OTROS MÉTODOS Y FUNCIONES PARA ÉSTE MODELO EN ESPECÍFICO
+    *************************************************************************** */
+
+    /** *********************************************************************** */
+    /** *********************************************************************** */
+    /** *********************************************************************** */
+    /** *********************************************************************** */
+}
+?>

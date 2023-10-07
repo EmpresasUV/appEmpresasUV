@@ -1,0 +1,249 @@
+<?php
+/**
+ * @autor Rixio Danilo Iguarán Chourio.
+ * @cédula-profesional 12196442
+ * @correo-eletrónico atencion.clientes@obringolfo.com
+ * @denominacion OBRAS INFORMÁTICAS DEL GOLFO
+ * @empresa OBRINGOLFO S.A.S. DE C.V.
+ * @proyecto  goPAC.
+ * @copyright 2021
+ */
+
+
+class InmueblesControlador extends ControladorBase{
+    public $conector;
+    public $adapter;
+    /** ****************************************************** **/
+    public function __construct() {
+        parent::__construct();
+        $this->conector = new Conectar();
+        $this->adapter  = $this->conector->conexion();
+
+    }
+    /** ****************************************************** **/
+    public function index(){
+        goRedirect("Escritorio", "index");
+    }
+    /** ****************************************************** **/
+    public function reg_step(){
+        if(isset($_POST['step']) && ($_POST['step'] != '')){ //El usuario está en un paso
+            $inmuebles = new Inmuebles($this->adapter);
+            $direcciones = new Inmuebles_direcciones($this->adapter);
+            if(isset($_POST['class']) && ($_POST['class'] == 'I')){ //El usuario está en un inmueble
+                switch ($_POST['step']) {
+                    case 1: //Dirección
+                        $Addr = array(
+                            "calle_tipo"    => $_POST['txt_DIR-TIPOVIAL'],
+                            "calle"         => $_POST['txt_DIR-NOMBREVIAL'],
+                            "num_ext"       => $_POST['txt_DIR-EXT'],
+                            "num_int"       => $_POST['txt_DIR-INT'],
+                            "ciudad"        => $_POST['txt_DIR-CIUDAD'],
+                            "colonia"       => $_POST['txt_DIR-COLONIA'],
+                            "municipio"     => $_POST['txt_DIR-MUNICIPIO'],
+                            "estado"        => $_POST['txt_DIR-ESTADO'],
+                            "pais"          => $_POST['txt_DIR-PAIS'],
+                            "postal"        => $_POST['txt_CP']
+                        );
+                        $this->view("_header_app", array());
+                        $this->view("inmuebles/inmuebles_registro_02", array("Addr" => $Addr));
+                        $this->view("_footer_app", array());
+                    break;
+                    case 2: //Geolocalización
+                        $this->view("_header_app", array());
+                        $this->view("inmuebles/inmuebles_registro_03", array());
+                        $this->view("_footer_app", array());
+                    break;
+                    case 3: //Tipo o clase
+                        $this->view("_header_app", array());
+                        $this->view("inmuebles/inmuebles_registro_04", array());
+                        $this->view("_footer_app", array());
+                    break;
+                    case 4: //Características
+                        $this->view("_header_app", array());
+                        $this->view("inmuebles/inmuebles_registro_05", array());
+                        $this->view("_footer_app", array());
+                    break;
+                    case 5: //Acabados de obra
+                        $this->view("_header_app", array());
+                        $this->view("inmuebles/inmuebles_registro_06", array());
+                        $this->view("_footer_app", array());
+                    break;
+                    case 6: //Acabados en espacios
+                        $this->view("_header_app", array());
+                        $this->view("inmuebles/inmuebles_registro_07", array());
+                        $this->view("_footer_app", array());
+                    break;
+                    case 7: //Acabados en detalles
+                        $this->view("_header_app", array());
+                        $this->view("inmuebles/inmuebles_registro_08", array());
+                        $this->view("_footer_app", array());
+                    break;
+                    case 8: //Acabados en carpintería
+                        $this->view("_header_app", array());
+                        $this->view("inmuebles/inmuebles_registro_09", array());
+                        $this->view("_footer_app", array());
+                    break;
+                    case 9: //Acabados en H&S
+                        $this->view("_header_app", array());
+                        $this->view("inmuebles/inmuebles_registro_10", array());
+                        $this->view("_footer_app", array());
+                    break;
+                    case 10: //Acabados en herrería
+                        $this->view("_header_app", array());
+                        $this->view("inmuebles/inmuebles_registro_11", array());
+                        $this->view("_footer_app", array());
+                    break;
+                    case 11: //Otros Acabados
+                        $this->view("_header_app", array());
+                        $this->view("inmuebles/inmuebles_registro_12", array());
+                        $this->view("_footer_app", array());
+                    break;
+                    case 12: //Instalaciones especiales
+                        $this->view("_header_app", array());
+                        $this->view("inmuebles/inmuebles_registro_13", array());
+                        $this->view("_footer_app", array());
+                    break;
+                    case 13: //Expediente
+                        $this->view("_header_app", array());
+                        $this->view("inmuebles/inmuebles_registro_14", array());
+                        $this->view("_footer_app", array());
+                    break;
+                    case 14: //Fotografías bádicas
+                        $this->view("_header_app", array());
+                        $this->view("inmuebles/inmuebles_registro_15", array());
+                        $this->view("_footer_app", array());
+                    break;
+                    case 15: //Fotografías avanzadas
+                        $this->view("_header_app", array());
+                        $this->view("inmuebles/inmuebles_registro_16", array());
+                        $this->view("_footer_app", array());
+                    break;
+                    case 16: //Otras fotografías
+                        $this->view("_header_app", array());
+                        $this->view("inmuebles/inmuebles_registro_17", array());
+                        $this->view("_footer_app", array());
+                    break;
+                    case 17: //Resumen general
+                        $this->view("_header_app", array());
+                        $this->view("escritorio", array());
+                        $this->view("_footer_app", array());
+                    break;
+                }
+            }else{ //El usuario está en un comparable
+                switch ($_POST['step']) {
+                    case 1: //Tipo
+                        $this->view("_header_app", array());
+                        $this->view("inmuebles/comparables_registro_02", array());
+                        $this->view("_footer_app", array());
+                    break;
+                    case 2: //Dirección
+                        $Addr = array(
+                            "calle_tipo"    => $_POST['txt_DIR-TIPOVIAL'],
+                            "calle"         => $_POST['txt_DIR-NOMBREVIAL'],
+                            "num_ext"       => $_POST['txt_DIR-EXT'],
+                            "num_int"       => $_POST['txt_DIR-INT'],
+                            "ciudad"        => $_POST['txt_DIR-CIUDAD'],
+                            "colonia"       => $_POST['txt_DIR-COLONIA'],
+                            "municipio"     => $_POST['txt_DIR-MUNICIPIO'],
+                            "estado"        => $_POST['txt_DIR-ESTADO'],
+                            "pais"          => $_POST['txt_DIR-PAIS'],
+                            "postal"        => $_POST['txt_CP']
+                        );
+                        $this->view("_header_app", array());
+                        $this->view("inmuebles/comparables_registro_03", array("Addr" => $Addr));
+                        $this->view("_footer_app", array());
+                    break;
+                    case 3: //Geolocalizacion
+                        $this->view("_header_app", array());
+                        $this->view("inmuebles/comparables_registro_04", array());
+                        $this->view("_footer_app", array());
+                    break;
+                    case 4: //Características
+                        $this->view("_header_app", array());
+                        $this->view("inmuebles/comparables_registro_05", array());
+                        $this->view("_footer_app", array());
+                    break;
+                    case 5: //Fotografías
+                        $this->view("_header_app", array());
+                        $this->view("inmuebles/comparables_registro_06", array());
+                        $this->view("_footer_app", array());
+                    break;
+                    case 6: //Resumen general
+                        $this->view("_header_app", array());
+                        $this->view("escritorio", array());
+                        $this->view("_footer_app", array());
+                    break;
+                }
+            }
+        }
+    }
+    /** ****************************************************** **/
+    public function get_t_suelo(){
+        chkSesion();
+        header('Content-Type: application/json; charset=UTF8');
+        $xRespuesta = array();
+        if(isset($_GET['ts'])){  //Buscamos las caracteríasticas del suelo
+            $str_Query = '
+                SELECT
+                    c_tipo_suelo.clasificacion
+                FROM
+                    c_tipo_suelo
+                WHERE
+                    c_tipo_suelo.tipo = "'.$_GET['ts'].'";
+            ';
+            $MyCSuelo = new C_tipo_suelo($this->adapter);
+            $xRespuesta['data'] = $MyCSuelo->execSQL($str_Query);
+        }else{ //Buscamos los tipos de suelo
+            $str_Query = 'SELECT DISTINCT tipo FROM c_tipo_suelo;';
+            $MyTSuelo = new C_tipo_suelo($this->adapter);
+            $xRespuesta['data'] = $MyTSuelo->execSQL($str_Query);
+        }
+
+        echo json_encode($xRespuesta['data']);
+    }
+    /** ****************************************************** **/
+    /** ****************************************************** **/
+    /** ****************************************************** **/
+    /** ****************************************************** **/
+    /** ****************************************************** **/
+    /** ****************************************************** **/
+    /** ****************************************************** **/
+    /** ****************************************************** **/
+
+   /**
+     * CONTROL DE INTERFACES PARA EL USUARIO (Carga dinamica de interfaces)
+     *  **/
+    /** ****************************************************** **/
+    public function iface_registrar(){
+        $this->view("_header_app", array());
+        $this->view("inmuebles/inmuebles_registro_01", array());
+        $this->view("_footer_app", array());
+    }
+    /** ****************************************************** **/
+    public function iface_buscar(){
+        $this->view("_header_app", array());
+        $this->view("inmuebles/inmuebles_buscar", array());
+        $this->view("_footer_app", array());
+    }
+    /** ****************************************************** **/
+    public function iface_registrarC(){
+        $this->view("_header_app", array());
+        $this->view("inmuebles/comparables_registro_01", array());
+        $this->view("_footer_app", array());
+    }
+    /** ****************************************************** **/
+    public function iface_buscarC(){
+        $this->view("_header_app", array());
+        //$this->view("inmuebles/comparables_buscar", array());
+        $this->view("_footer_app", array());
+    }
+    /** ****************************************************** **/
+    /** ****************************************************** **/
+    /** ****************************************************** **/
+    /** ****************************************************** **/
+    /** ****************************************************** **/
+    /** ****************************************************** **/
+    /** ****************************************************** **/
+    /** ****************************************************** **/
+}
+?>

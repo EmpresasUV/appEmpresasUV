@@ -1,0 +1,54 @@
+<?php
+/**
+ * @autor Rixio Danilo Iguarán Chourio.
+ * @cédula-profesional 12196442
+ * @correo-eletrónico atencion.clientes@obringolfo.com
+ * @denominacion OBRAS INFORMÁTICAS DEL GOLFO
+ * @empresa OBRINGOLFO S.A.S. DE C.V.
+ * @proyecto  goPAC.
+ * @copyright 2021
+ */
+
+
+?>
+
+<script src="<?php echo PATH_JS; ?>/go_master.js"></script>
+<!-- ## ********************************************* ## -->
+    <body  class=" d-flex flex-column">
+        <div class="page page-center">
+            <div class="container container-tight py-4">
+                <div class="text-center mb-4">
+                    <a href="#" class="navbar-brand navbar-brand-autodark"><img src="<?php echo PATH_IMAGENES; ?>/logo_login.gif" height="100" alt="100"></a>
+                </div>
+                <div class="text-center">
+                    <div class="my-5">
+                        <h2 class="h1"><?php echo LNG_SEGURIDAD_0043; ?></h2>
+                        <p class="fs-h3 text-muted">
+                            <?php echo LNG_SEGURIDAD_0044; ?> <strong><?php echo $txt_MAIL; ?></strong>.<br />
+                            <?php echo LNG_SEGURIDAD_0045; ?>.
+                        </p>
+                    </div>
+                    <div class="text-center text-muted mt-3">
+                        <?php echo LNG_SEGURIDAD_0046; ?>.<br />
+                        <?php echo LNG_SEGURIDAD_0047; ?> <a id="cmdBACK" name="cmdBACK" class="cursor-pointer" tabindex="-1"><?php echo LNG_SEGURIDAD_0048; ?></a>.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+
+<!-- ## ********************************************* ## -->
+<script type="text/javascript">
+    //# **************************************************** #
+    $("#cmdBACK").click(function() {
+        <?php
+            if(isset($from_IFACE) && $from_IFACE == "recovery"){
+                echo 'goRedirect("Usuarios", "iface_recovery");';
+            }else{
+                echo 'goRedirect("Usuarios", "iface_registrar");';
+            }
+        ?>
+    });
+    //# **************************************************** #
+</script>
+<!-- ## ********************************************* ## -->

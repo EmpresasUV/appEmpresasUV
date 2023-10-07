@@ -1,0 +1,85 @@
+<?php
+/**
+ * @autor Rixio Danilo Iguarán Chourio.
+ * @cédula-profesional 12196442
+ * @correo-eletrónico atencion.clientes@obringolfo.com
+ * @denominacion OBRAS INFORMÁTICAS DEL GOLFO
+ * @empresa OBRINGOLFO S.A.S. DE C.V.
+ * @proyecto  goPAC.
+ * @copyright 2021
+ */
+
+class ModeloBase extends EntidadBase{
+    private $table;
+    private $fluent;
+     
+    public function __construct($table, $adapter) {
+        $this->table=(string) $table;
+        parent::__construct($table, $adapter);
+        $errores = new obError();
+    }
+
+    public function ejecutarSql($query){
+        $query=$this->db()->query($query);
+        if($query==true){
+            if($query->num_rows>1){
+                while($row = $query->fetch_object()) {
+                   $resultSet[]=$row;
+                }
+            }elseif($query->num_rows==1){
+                if($row = $query->fetch_object()) {
+                    $resultSet=$row;
+                }
+            }else{
+                $resultSet=true;
+            }
+        }else{
+            $resultSet=false;
+        }
+         
+        return $resultSet;
+    }
+     
+    //Aqui podemos montarnos métodos para los modelos de consulta
+
+    public function auditar($texto){
+        if(AUDITAR_LOG){
+            $strLOG = '';
+            $filename = "auditoria [".date('d.m.Y')."].log";
+            $dataFile = fopen(PATH_REGISTROS."/".$filename, "a+");
+            $dia = date("d");
+            $mes = date("m");
+            $anno = date("Y");
+            $hora = date("H");
+            $minuto = date("i");
+            $segundo = date("s");
+            $tiempo = "\n".$dia."/".$mes."/".$anno." ".$hora.":".$minuto.":".$segundo;
+            if($dataFile){
+                $ex = new Exception();
+                $trace = $ex->getTrace();
+                $f_name = $trace[1]["function"];
+
+                if(isset($_SESSION["usuario"]["usuario"]) && $_SESSION["usuario"]["usuario"] != ""){
+                    $xUSUARIO = $_SESSION["usuario"]["usuario"];
+                }else{
+                    $xUSUARIO = "Usuario anonimo";
+                }
+
+                $strLOG =   str_pad($tiempo, 19, " ", STR_PAD_BOTH)." | ".
+                            str_pad(get_cliente_ip(), 15, " ", STR_PAD_BOTH)." | ".
+                            str_pad($xUSUARIO, 20, " ", STR_PAD_BOTH)." | ".
+                            str_pad($f_name, 20, " ", STR_PAD_BOTH)." | ".
+                            str_pad(get_class($this), 20, " ", STR_PAD_RIGHT)." | ".
+                            utf8_decode($texto);
+
+                fwrite($dataFile, $strLOG);
+                fclose($dataFile);
+                $f_name = null; $trace = null; $ex = null;
+            }
+
+        }
+    }
+    
+
+}
+?>

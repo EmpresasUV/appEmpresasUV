@@ -1,0 +1,28 @@
+<?php
+/**
+ * @autor Rixio Danilo Iguarán Chourio.
+ * @cédula-profesional 12196442
+ * @correo-eletrónico atencion.clientes@obringolfo.com
+ * @denominacion OBRAS INFORMÁTICAS DEL GOLFO
+ * @empresa OBRINGOLFO S.A.S. DE C.V.
+ * @proyecto  WINDOWS PAQUETE ADMINISTRATIVO CONTABLE (WinPAC).
+ * @copyright 2021
+ */
+
+    date_default_timezone_set(APP_TIMEZONE);
+    ini_set('date.timezone', APP_TIMEZONE);
+
+    //Configuro los limites de tiempo para las sesiones abandonadas
+    ini_set("session.cookie_lifetime", "0"); //1 horas maximo
+    ini_set("session.gc_maxlifetime", "28800"); //1 horas maximo
+
+    //Constante de máxima duración de sesión activa
+    define('MAX_SESSION_TIEMPO', SESSION_INACTIVIDAD * 60); 
+
+    //Configuro las variables de comportamiento
+    session_name('paqOBRINGOLFO');
+    //session_save_path(PATH_SESIONES);
+    //session_set_cookie_params(['samesite' => 'Strict']);
+    session_start();
+
+?>

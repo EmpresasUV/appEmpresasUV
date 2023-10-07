@@ -1,0 +1,56 @@
+<?php
+/**
+ * @autor Rixio Danilo Iguarán Chourio.
+ * @cédula-profesional 12196442
+ * @correo-eletrónico atencion.clientes@obringolfo.com
+ * @denominacion OBRAS INFORMÁTICAS DEL GOLFO
+ * @empresa OBRINGOLFO S.A.S. DE C.V.
+ * @proyecto  goPAC.
+ * @copyright 2021
+ */
+
+    define('LNG_CORREOS_0000', 'Correo electrónico');
+    define('LNG_CORREOS_0001', 'Solicitud de registro en el sistema');
+    define('LNG_CORREOS_0002', 'Nuestro sistema ha recibido una solicitud de registro para un nuevo usuario con la dirección de correo electrónico');
+    define('LNG_CORREOS_0003', 'En caso de error, si usted no ha solicitado el registro; lo invitamos, a hacer caso omiso de este mensaje y reportar en nuestro portal cualquier incidencia recurrente');
+    define('LNG_CORREOS_0004', 'Por el contrario, si efectivamente usted solicitó el registro de un nuevo usuario con esta dirección de correo, le invitamos a confirmarla haciendo clic en el botón que se encuentra al final de este mensaje y proseguir con los pasos necesarios para completar su registro');
+    define('LNG_CORREOS_0005', 'Confirmar el registro');
+    define('LNG_CORREOS_0006', 'Muchas gracias por su preferencia');
+    define('LNG_CORREOS_0007', 'Registro de cuenta exitoso');
+    define('LNG_CORREOS_0008', 'Ahora puede disfrutar de los beneficios inmobiliarios de nuestros sistemas');
+    define('LNG_CORREOS_0009', 'Solicitud de cambio de contraseña');
+
+    define('LNG_CORREOS_0010', 'Atención');
+    define('LNG_CORREOS_0011', 'Si tiene problemas para acceder a nuestra plataforma siga estos pasos');
+    define('LNG_CORREOS_0012', 'Hemos recibido una solicitud para realizar el cambio de contraseña dentro de su cuenta de usuario');
+    define('LNG_CORREOS_0013', 'Este paso es muy delicado e importante porque podría dejar su cuenta de usuario inaccesible, por lo que le pedimos que sea cauteloso y preste especial atención al proceso');
+    define('LNG_CORREOS_0014', 'Cambiar contraseña');
+    define('LNG_CORREOS_0015', 'Correo autorizado');
+    define('LNG_CORREOS_0016', 'Caso contrario, si usted no ha solicitado realizar este proceso, NO abra el enlace, ya que puede ser otra persona intentando acceder a su cuenta de usuario');
+    define('LNG_CORREOS_0017', 'Agradecemos su atención y esperamos poderle atender de la maneras más veraz y objetiva posible, recuerde que para dudas o comentarios puede abrir un ticket de servicio en cualquier momento accediendo a nuestra área de clientes y donde uno de los integrantes de nuestro departamento de atención al cliente le atenderá');
+    define('LNG_CORREOS_0018', 'Aviso de privacidad de acuerdo con la Ley Federal de Protección de Datos Personales en Posesión de los Particulares y su Reglamento, le notificamos que sus datos personales están salvaguardados por nuestros sistemas, en una base de datos propiedad de INGENIERIA LEEZAR S.A. DE C.V.&#174;.; Por lo que ponemos a su disposición las políticas relativas al cuidado y manejo de sus datos personales que podrá encontrar en nuestra sección de privacidad. Usted podrá ejercer en cualquier momento los derechos de acceso, rectificación, cancelación y oposición a dichos datos (Derechos ARCO), para lo cual deberá enviar un correo a nuestra dirección de correo electrónico, misma que se indica dentro del aviso de privacidad correspondiente; además, le informamos que sus datos personales sólo serán utilizados para proveerle los productos y servicios de INGENIERIA LEEZAR S.A. DE C.V.&#174;, informarle sobre nuevos productos o servicios, cambios en los mismos, mensajes promocionales, mercadológicos, publicitarios o de prospección comercial y evaluar la calidad del servicio brindado. Adicionalmente le informamos que toda la información personal en nuestras bases de datos no está a la venta ni disponible para su comercialización con terceros. En caso de que desee dejar de recibir estos correos, escribanos a nuestra dirección de correo y será un gusto atender a sus solicitudes');
+    define('LNG_CORREOS_0019', 'Solicitud de cambio de correo electrónico');
+
+    define('LNG_CORREOS_0020', 'Si tiene problemas para acceder a su correo siga estos pasos');
+    define('LNG_CORREOS_0021', 'Hemos recibido una solicitud para realizar el cambio de correo electrónico dentro de su cuenta de usuario');
+    define('LNG_CORREOS_0022', 'Cambiar correo electrónico');
+    define('LNG_CORREOS_0023', 'Cuenta');
+    define('LNG_CORREOS_0024', 'Estimado usuario');
+    define('LNG_CORREOS_0025', '');
+    define('LNG_CORREOS_0026', '');
+    define('LNG_CORREOS_0027', '');
+    define('LNG_CORREOS_0028', '');
+    define('LNG_CORREOS_0029', '');
+
+    define('LNG_CORREOS_0030', '');
+    define('LNG_CORREOS_0031', '');
+    define('LNG_CORREOS_0032', '');
+    define('LNG_CORREOS_0033', '');
+    define('LNG_CORREOS_0034', '');
+    define('LNG_CORREOS_0035', '');
+    define('LNG_CORREOS_0036', '');
+    define('LNG_CORREOS_0037', '');
+    define('LNG_CORREOS_0038', '');
+    define('LNG_CORREOS_0039', '');
+
+?>

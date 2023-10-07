@@ -1,0 +1,117 @@
+<?php
+/**
+ * @autor Rixio Danilo Iguarán Chourio.
+ * @cédula-profesional 12196442
+ * @correo-eletrónico atencion.clientes@obringolfo.com
+ * @denominacion OBRAS INFORMÁTICAS DEL GOLFO
+ * @empresa OBRINGOLFO S.A.S. DE C.V.
+ * @proyecto  goPAC.
+ * @copyright 2021
+ */
+
+    chkSesion();
+?>
+
+<!-- Download SVG icon from http://tabler-icons.io/i/check -->
+<script src="<?php echo PATH_JS; ?>/go_master.js"></script>
+<script src="<?php echo PATH_JS; ?>/libs/apexcharts/dist/apexcharts.min.js?<?= time() ?>"></script>
+<!-- ## ********************************************* ## -->
+
+    <div class="page-body">
+        <div class="container-xl d-flex justify-content-center">
+
+            <div class="row-cards col-sm-12 col-md-6">
+                <div class="card" style="height: 80vh">
+                    <div class="card-header">
+                        <h3 class="card-title">Empresas <span class="card-subtitle">(Selecciona tu empresa de trabajo)</span></h3>
+                    </div>
+                    <div class="card-body card-body-scrollable card-body-scrollable-shadow">
+                        <div class="divide-y">
+
+                            <?php
+                            $serverName = "DC-CONTABLE\COMPAC"; //serverName\instanceName
+                            // Puesto que no se han especificado UID ni PWD en el array  $connectionInfo,
+                            // La conexión se intentará utilizando la autenticación Windows.
+                            $connectionInfo = array("UID"=>"sa", "PWD"=>"Promo1002##", "Database"=>"CompacWAdmin");
+                            $conn = sqlsrv_connect( $serverName, $connectionInfo);
+                            $conn = sqlsrv_connect( $serverName, $connectionInfo );
+                            if( $conn === false ) {
+                                    die( print_r( sqlsrv_errors(), true));
+                            }
+
+                            $sql = "SELECT [CIDEMPRESA]
+                                        ,[CNOMBREEMPRESA]
+                                        ,[CRUTADATOS]
+                                        ,[CRUTARESPALDOS]
+                                FROM [CompacWAdmin].[dbo].[Empresas] ORDER BY [CNOMBREEMPRESA] ASC";
+
+                            $stmt = sqlsrv_query( $conn, $sql );
+
+                            if( $stmt === false) {
+                                    die( print_r( sqlsrv_errors(), true) );
+                            }
+
+                            while( $row = sqlsrv_fetch_array( $stmt, SQLSRV_FETCH_ASSOC) ) {
+
+                                if($this->permiso_a_empresa($row['CIDEMPRESA'])){
+
+                                    if($row['CIDEMPRESA'] != 1){ //Excluyendo la empresa predeterminada
+                                        echo '
+                                            <div>
+                                                <div id="'.$row['CIDEMPRESA'].'" name="'.utf8_encode($row['CNOMBREEMPRESA']).'" class="row" style="cursor: pointer;">
+                                                    <div class="col-auto">
+                                                        <span class="avatar" style="background-image: url('.PATH_IMAGENES.'/logos/'.$row['CIDEMPRESA'].'.svg)"></span>
+                                                    </div>
+                                                    <div class="col">
+                                                        <div class="text-truncate">
+                                                            <strong>'.utf8_encode($row['CNOMBREEMPRESA']).'</strong>
+                                                        </div>
+                                                        <div class="text-secondary small">'.$row['CRUTADATOS'].'</div>
+                                                    </div>
+                                                    <div class="col-auto align-self-center">
+                                                        <div class="badge bg-primary"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        ';
+                                    }
+
+
+                                }
+
+
+
+                            }
+
+                            sqlsrv_free_stmt( $stmt);
+
+                            ?>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+<!-- ## ********************************************* ## -->
+<script type="text/javascript">
+    //# **************************************************** #
+    $(".row").on("click", function() {
+        goRedirect("Escritorio", "index&id="+this.id);
+    });
+    //# **************************************************** #
+    //# **************************************************** #
+    //# **************************************************** #
+    //# **************************************************** #
+    //# **************************************************** #
+    //# **************************************************** #
+    //# **************************************************** #
+    //# **************************************************** #
+    //# **************************************************** #
+</script>
+<!-- ## ********************************************* ## -->

@@ -1,0 +1,79 @@
+<?php
+/**
+ * @autor Rixio Danilo Iguarán Chourio.
+ * @cédula-profesional 12196442
+ * @correo-eletrónico atencion.clientes@obringolfo.com
+ * @denominacion OBRAS INFORMÁTICAS DEL GOLFO
+ * @empresa OBRINGOLFO S.A.S. DE C.V.
+ * @proyecto  goPAC.
+ * @copyright 2021
+ */
+
+
+?>
+
+<script src="<?php echo PATH_JS; ?>/go_master.js"></script>
+<!-- ## ********************************************* ## -->
+    <body  class=" border-top-wide border-primary d-flex flex-column">
+        <div class="page page-center">
+            <div class="container container-tight py-4">
+                <div class="text-center mb-4">
+                    <a href="." class="navbar-brand navbar-brand-autodark"><img src="<?php echo PATH_IMAGENES; ?>/logo_login.gif" height="100" alt="100"></a>
+                </div>
+                <form id="FrmRECOVERY" name="FrmRECOVERY" class="card card-md" method="post" autocomplete="off">
+                    <div class="card-body">
+                        <h2 class="card-title text-center mb-4"><?php echo LNG_SEGURIDAD_0023; ?></h2>
+                        <p class="text-muted text-justify mb-4"><?php echo LNG_SEGURIDAD_0024; ?>.</p>
+                        <div class="mb-3">
+                            <label class="form-label"><?php echo LNG_SEGURIDAD_0025; ?></label>
+                            <input id="txt_MAIL" name="txt_MAIL"
+                                type="email"
+                                class="form-control"
+                                autocomplete="off"
+                                placeholder="<?php echo LNG_SEGURIDAD_0026; ?>"
+                                onkeyup="chk_valid(this);" onfocus="chk_valid(this);" onchange="chk_valid(this);"
+                                required
+                            >
+                        </div>
+                        <div class="form-footer">
+                            <button id="cmdRECOVERY" name="cmdRECOVERY" class="btn btn-primary w-100">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><rect x="3" y="5" width="18" height="14" rx="2" /><polyline points="3 7 12 13 21 7" /></svg>
+                                <?php echo LNG_SEGURIDAD_0027; ?>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                <div class="text-center text-muted mt-3">
+                    <?php echo LNG_SEGURIDAD_0028; ?>, <a id="cmdBACK" name="cmdBACK" class="cursor-pointer" tabindex="-1"><?php echo LNG_SEGURIDAD_0029; ?></a> <?php echo LNG_SEGURIDAD_0030; ?>.
+                </div>
+            </div>
+        </div>
+    </body>
+
+<!-- ## ********************************************* ## -->
+<script type="text/javascript">
+    //# **************************************************** #
+    $("#cmdRECOVERY").click(function() {
+        show_progress("<?php echo LNG_NUCLEO_0015; ?>");
+        var isValid = true;
+        $('#FrmRECOVERY').find(':input').each(function() {
+            isValid = chk_valid(this);
+        });
+        if (isValid){
+            $('#FrmRECOVERY').form('submit', {
+                url: '<?php echo $helper->url("Usuarios", "recovery_code"); ?>',
+                success: function(datos){
+                    $.messager.progress('close');
+                }
+            });
+        }else{
+            $.messager.progress('close');
+        }
+    });
+    //# **************************************************** #
+    $("#cmdBACK").click(function() {
+        goRedirect("Index", "index");
+    });
+    //# **************************************************** #
+</script>
+<!-- ## ********************************************* ## -->

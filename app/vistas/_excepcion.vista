@@ -1,0 +1,61 @@
+
+
+<?php
+/**
+ * @autor Rixio Danilo Iguarán Chourio.
+ * @cédula-profesional 12196442
+ * @correo-eletrónico atencion.clientes@obringolfo.com
+ * @denominacion OBRAS INFORMÁTICAS DEL GOLFO
+ * @empresa OBRINGOLFO S.A.S. DE C.V.
+ * @proyecto  goPAC.
+ * @copyright 2021
+ */
+
+ //print_r($_SESSION['Exception']);
+
+?>
+
+
+<body >
+    <div class="page">
+        <!-- Button trigger modal -->
+        <button type="button" id="cmdError" name="cmdError" data-bs-toggle="modal" data-bs-target="#modal-danger" style="display:none;"></button>
+        <!-- Modal -->
+    </div>
+    <div class="modal modal-blur fade" id="modal-danger" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+            <div class="modal-content">
+
+                <div class="modal-status bg-danger"></div>
+                <div class="modal-body text-center py-4">
+                    <!-- Download SVG icon from http://tabler-icons.io/i/alert-triangle -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon mb-2 text-danger icon-lg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 9v2m0 4v.01" /><path d="M5 19h14a2 2 0 0 0 1.84 -2.75l-7.1 -12.25a2 2 0 0 0 -3.5 0l-7.1 12.25a2 2 0 0 0 1.75 2.75" /></svg>
+                    <h3>[<?php echo $_POST['code']; ?>] Fallo detectado en sistema.</h3><br>
+                    <div class="text-muted">
+                        Código de falla: <strong><?php echo $_POST['code']; ?></strong><br>
+                        Nivel de la falla: <strong><?php echo $_POST['level']; ?></strong><br>
+                        Línea del código: <strong><?php echo $_POST['line']; ?></strong><br>
+                        Archivo: <strong><?php echo basename($_POST['file']); ?></strong><br>
+                        <br><p><?php echo $_POST['description']; ?></p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="w-100">
+                        <div class="row">
+                            <div class="col"><a id="cmdClose0" href="#" class="btn btn-danger w-100" data-bs-dismiss="modal">
+                                    Regresar a inicio
+                                </a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script>
+    $(document).ready(function() {
+        $("#cmdError").click();
+    });
+    $("#cmdClose0").click(function() { goRedirect("Index", "index"); });
+</script>
+

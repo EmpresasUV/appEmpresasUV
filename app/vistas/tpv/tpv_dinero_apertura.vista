@@ -1,0 +1,752 @@
+<?php
+/**
+ * @autor Rixio Danilo Iguarán Chourio.
+ * @cédula-profesional 12196442
+ * @correo-eletrónico atencion.clientes@obringolfo.com
+ * @denominacion OBRAS INFORMÁTICAS DEL GOLFO
+ * @empresa OBRINGOLFO S.A.S. DE C.V.
+ * @proyecto  goPAC.
+ * @copyright 2021
+ */
+
+    chkSesion();
+    if(isset($_GET["id"])){
+        $_SESSION["caja"]["id"] = $_GET["id"];
+    }
+?>
+
+<!-- Download SVG icon from http://tabler-icons.io/i/check -->
+<script src="<?php echo PATH_JS; ?>/go_master.js"></script>
+<script src="<?php echo PATH_JS; ?>/libs/apexcharts/dist/apexcharts.min.js?<?= time() ?>"></script>
+<!-- ## ********************************************* ## -->
+
+    <div class="page-body">
+        <div class="container-xl">
+
+            <!-- [BEGIN][FORMULARIO] -->
+            <form id="FrmDATOS" name="FrmDATOS" method="post" autocomplete="off">
+                <input id="total_monedas" name="total_monedas" type="hidden" />
+                <input id="total_billetes" name="total_billetes" type="hidden" />
+                <input id="total_dinero" name="total_dinero" type="hidden" />
+
+                <div class="col-12">
+                    <div class="row row-cards row-deck">
+                        <div class="col-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3 class="card-title">Monedas</h3>
+                                </div>
+                                <div class="card-body">
+
+                                    <div class="row g-2">
+                                        <div class="col-3 col-sm-3">
+                                            <label class="form-imagecheck">
+                                                <input id="chk_M10C" name="chk_M10C" type="checkbox" class="form-imagecheck-input">
+                                                <span class="form-imagecheck-figure">
+                                                    <img src="<?= PATH_IMAGENES ?>/dinero/M10C.png" class="form-imagecheck-image">
+                                                </span>
+                                            </label>
+                                            <div class="row justify-content-center">
+                                                <input id="txt_M10C" name="txt_M10C"
+                                                    class="easyui-numberspinner"
+                                                    style="width:80%; text-align: right;"
+                                                    data-options="
+                                                        disabled: true,
+                                                        min: 1,
+                                                        editable: false,
+                                                    "
+                                                >
+                                            </div>
+                                        </div>
+                                        <div class="col-3 col-sm-3">
+                                            <label class="form-imagecheck">
+                                                <input id="chk_M20C" name="chk_M20C" type="checkbox" class="form-imagecheck-input">
+                                                <span class="form-imagecheck-figure">
+                                                    <img src="<?= PATH_IMAGENES ?>/dinero/M20C.png" class="form-imagecheck-image">
+                                                </span>
+                                            </label>
+                                            <div class="row justify-content-center">
+                                                <input id="txt_M20C" name="txt_M20C"
+                                                    class="easyui-numberspinner"
+                                                    style="width:80%; text-align: right;"
+                                                    data-options="
+                                                        disabled: true,
+                                                        min: 1,
+                                                        editable: false,
+                                                    "
+                                                >
+                                            </div>
+                                        </div>
+                                        <div class="col-3 col-sm-3">
+                                            <label class="form-imagecheck">
+                                                <input id="chk_M50C" name="chk_M50C" type="checkbox" class="form-imagecheck-input">
+                                                <span class="form-imagecheck-figure">
+                                                    <img src="<?= PATH_IMAGENES ?>/dinero/M50C.png" class="form-imagecheck-image">
+                                                </span>
+                                            </label>
+                                            <div class="row justify-content-center">
+                                                <input id="txt_M50C" name="txt_M50C"
+                                                    class="easyui-numberspinner"
+                                                    style="width:80%; text-align: right;"
+                                                    data-options="
+                                                        disabled: true,
+                                                        min: 1,
+                                                        editable: false,
+                                                    "
+                                                >
+                                            </div>
+                                        </div>
+                                        <div class="col-3 col-sm-3">
+                                            <label class="form-imagecheck">
+                                                <input id="chk_M1P" name="chk_M1P" type="checkbox" class="form-imagecheck-input">
+                                                <span class="form-imagecheck-figure">
+                                                    <img src="<?= PATH_IMAGENES ?>/dinero/M1.png" class="form-imagecheck-image">
+                                                </span>
+                                            </label>
+                                            <div class="row justify-content-center">
+                                                <input id="txt_M1P" name="txt_M1P"
+                                                    class="easyui-numberspinner"
+                                                    style="width:80%; text-align: right;"
+                                                    data-options="
+                                                        disabled: true,
+                                                        min: 1,
+                                                        editable: false,
+                                                    "
+                                                >
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="hr-text" style="margin: 10px 0px 10px 0px !important;">-</div>
+
+                                    <div class="row g-2">
+                                        <div class="col-3 col-sm-3">
+                                            <label class="form-imagecheck">
+                                                <input id="chk_M2P" name="chk_M2P" type="checkbox" class="form-imagecheck-input">
+                                                <span class="form-imagecheck-figure">
+                                                    <img src="<?= PATH_IMAGENES ?>/dinero/M2.png" class="form-imagecheck-image">
+                                                </span>
+                                            </label>
+                                            <div class="row justify-content-center">
+                                                <input id="txt_M2P" name="txt_M2P"
+                                                    class="easyui-numberspinner"
+                                                    style="width:80%; text-align: right;"
+                                                    data-options="
+                                                        disabled: true,
+                                                        min: 1,
+                                                        editable: false,
+                                                    "
+                                                >
+                                            </div>
+                                        </div>
+                                        <div class="col-3 col-sm-3">
+                                            <label class="form-imagecheck">
+                                                <input id="chk_M5P" name="chk_M5P" type="checkbox" class="form-imagecheck-input">
+                                                <span class="form-imagecheck-figure">
+                                                    <img src="<?= PATH_IMAGENES ?>/dinero/M5.png" class="form-imagecheck-image">
+                                                </span>
+                                            </label>
+                                            <div class="row justify-content-center">
+                                                <input id="txt_M5P" name="txt_M5P"
+                                                    class="easyui-numberspinner"
+                                                    style="width:80%; text-align: right;"
+                                                    data-options="
+                                                        disabled: true,
+                                                        min: 1,
+                                                        editable: false,
+                                                    "
+                                                >
+                                            </div>
+                                        </div>
+                                        <div class="col-3 col-sm-3">
+                                            <label class="form-imagecheck">
+                                                <input id="chk_M10P" name="chk_M10P" type="checkbox" class="form-imagecheck-input">
+                                                <span class="form-imagecheck-figure">
+                                                    <img src="<?= PATH_IMAGENES ?>/dinero/M10.png" class="form-imagecheck-image">
+                                                </span>
+                                            </label>
+                                            <div class="row justify-content-center">
+                                                <input id="txt_M10P" name="txt_M10P"
+                                                    class="easyui-numberspinner"
+                                                    style="width:80%; text-align: right;"
+                                                    data-options="
+                                                        disabled: true,
+                                                        min: 1,
+                                                        editable: false,
+                                                    "
+                                                >
+                                            </div>
+                                        </div>
+                                        <div class="col-3 col-sm-3">
+                                            <label class="form-imagecheck">
+                                                <input id="chk_M20P" name="chk_M20P" type="checkbox" class="form-imagecheck-input">
+                                                <span class="form-imagecheck-figure">
+                                                    <img src="<?= PATH_IMAGENES ?>/dinero/M20.png" class="form-imagecheck-image">
+                                                </span>
+                                            </label>
+                                            <div class="row justify-content-center">
+                                                <input id="txt_M20P" name="txt_M20P"
+                                                    class="easyui-numberspinner"
+                                                    style="width:80%; text-align: right;"
+                                                    data-options="
+                                                        disabled: true,
+                                                        min: 1,
+                                                        editable: false,
+                                                    "
+                                                >
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+
+
+                                </div>
+                                <div class="card-footer">
+                                    <div class="row align-items-center">
+                                        <div class="col-auto">Total de dinero en monedas:</div>
+                                        <div class="col-auto ms-auto">
+                                            <label id="txt_TMonedas" class="h3 form-check form-switch m-0">0.00</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3 class="card-title">Billetes</h3>
+                                </div>
+                                <div class="card-body">
+
+
+                                    <div class="row g-2">
+                                        <div class="col-3 col-sm-3">
+                                            <label class="form-imagecheck">
+                                                <input id="chk_B20P" name="chk_B20P" type="checkbox" class="form-imagecheck-input">
+                                                <span class="form-imagecheck-figure">
+                                                    <img src="<?= PATH_IMAGENES ?>/dinero/B20.png" class="form-imagecheck-image">
+                                                </span>
+                                            </label>
+                                            <div class="row justify-content-center">
+                                                <input id="txt_B20P" name="txt_B20P"
+                                                    class="easyui-numberspinner"
+                                                    style="width:80%; text-align: right;"
+                                                    data-options="
+                                                        disabled: true,
+                                                        min: 1,
+                                                        editable: false,
+                                                    "
+                                                >
+                                            </div>
+                                        </div>
+                                        <div class="col-3 col-sm-3">
+                                            <label class="form-imagecheck">
+                                                <input id="chk_B50P" name="chk_B50P" type="checkbox" class="form-imagecheck-input">
+                                                <span class="form-imagecheck-figure">
+                                                    <img src="<?= PATH_IMAGENES ?>/dinero/B50.png" class="form-imagecheck-image">
+                                                </span>
+                                            </label>
+                                            <div class="row justify-content-center">
+                                                <input id="txt_B50P" name="txt_B50P"
+                                                    class="easyui-numberspinner"
+                                                    style="width:80%; text-align: right;"
+                                                    data-options="
+                                                        disabled: true,
+                                                        min: 1,
+                                                        editable: false,
+                                                    "
+                                                >
+                                            </div>
+                                        </div>
+                                        <div class="col-3 col-sm-3">
+                                            <label class="form-imagecheck">
+                                                <input id="chk_B100P" name="chk_B100P" type="checkbox" class="form-imagecheck-input">
+                                                <span class="form-imagecheck-figure">
+                                                    <img src="<?= PATH_IMAGENES ?>/dinero/B100.png" class="form-imagecheck-image">
+                                                </span>
+                                            </label>
+                                            <div class="row justify-content-center">
+                                                <input id="txt_B100P" name="txt_B100P"
+                                                    class="easyui-numberspinner"
+                                                    style="width:80%; text-align: right;"
+                                                    data-options="
+                                                        disabled: true,
+                                                        min: 1,
+                                                        editable: false,
+                                                    "
+                                                >
+                                            </div>
+                                        </div>
+                                        <div class="col-3 col-sm-3">
+                                            <label class="form-imagecheck">
+                                                <input id="chk_B200P" name="chk_B200P" type="checkbox" class="form-imagecheck-input">
+                                                <span class="form-imagecheck-figure">
+                                                    <img src="<?= PATH_IMAGENES ?>/dinero/B200.png" class="form-imagecheck-image">
+                                                </span>
+                                            </label>
+                                            <div class="row justify-content-center">
+                                                <input id="txt_B200P" name="txt_B200P"
+                                                    class="easyui-numberspinner"
+                                                    style="width:80%; text-align: right;"
+                                                    data-options="
+                                                        disabled: true,
+                                                        min: 1,
+                                                        editable: false,
+                                                    "
+                                                >
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="hr-text" style="margin: 10px 0px 10px 0px !important;">-</div>
+
+                                    <div class="row g-2">
+                                        <div class="col-3 col-sm-3">
+                                            <label class="form-imagecheck">
+                                                <input id="chk_B500P" name="chk_B500P" type="checkbox" class="form-imagecheck-input">
+                                                <span class="form-imagecheck-figure">
+                                                    <img src="<?= PATH_IMAGENES ?>/dinero/B500.png" class="form-imagecheck-image">
+                                                </span>
+                                            </label>
+                                            <div class="row justify-content-center">
+                                                <input id="txt_B500P" name="txt_B500P"
+                                                    class="easyui-numberspinner"
+                                                    style="width:80%; text-align: right;"
+                                                    data-options="
+                                                        disabled: true,
+                                                        min: 1,
+                                                        editable: false,
+                                                    "
+                                                >
+                                            </div>
+                                        </div>
+                                        <div class="col-3 col-sm-3">
+                                            <label class="form-imagecheck">
+                                                <input id="chk_B1000P" name="chk_B1000P" type="checkbox" class="form-imagecheck-input">
+                                                <span class="form-imagecheck-figure">
+                                                    <img src="<?= PATH_IMAGENES ?>/dinero/B1000.png" class="form-imagecheck-image">
+                                                </span>
+                                            </label>
+                                            <div class="row justify-content-center">
+                                                <input id="txt_B1000P" name="txt_B1000P"
+                                                    class="easyui-numberspinner"
+                                                    style="width:80%; text-align: right;"
+                                                    data-options="
+                                                        disabled: true,
+                                                        min: 1,
+                                                        editable: false,
+                                                    "
+                                                >
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+
+                                </div>
+                                <div class="card-footer">
+                                    <div class="row align-items-center">
+                                        <div class="col-auto">Total de dinero en billetes:</div>
+                                        <div class="col-auto ms-auto">
+                                            <label id="txt_TBilletes" class="h3 form-check form-switch m-0">0.00</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 mt-3">
+                    <div class="row row-cards row-deck">
+                        <div class="col">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3 class="card-title">Dinero de apertura para la caja</h3>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row align-items-center">
+                                        <div class="h2 col-auto">Total de dinero en la caja:</div>
+                                        <div class="col-auto ms-auto">
+                                            <label id="txt_TDinero" class="h1 form-check form-switch m-0">0.00</label>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="card-footer">
+                                    <div class="row align-items-right">
+                                        <div class="col-auto ms-auto">
+                                            <a id="cmd_INICIAR" href="#" class="btn btn-primary">Iniciar caja</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+            <!-- [END][FORMULARIO] -->
+
+
+
+
+
+        </div>
+    </div>
+
+<!-- ## ********************************************* ## -->
+<script type="text/javascript">
+    var tMonedas = 0.00;
+    var tBilletes = 0.00;
+    //# **************************************************** #
+    $("#chk_M10C").click(function() {
+        if($("#txt_M10C").is(':disabled')){
+            $("#txt_M10C").numberspinner({ disabled: false, required: true });
+        }else{
+            $("#txt_M10C").numberspinner({ min: 0 })
+            $("#txt_M10C").numberspinner("setValue", 0);
+            calc_DineroApertura();
+            $("#txt_M10C").numberspinner({ min: 1 })
+            $("#txt_M10C").numberspinner({ disabled: true, required: false, });
+        }
+    });
+    //# **************************************************** #
+    $("#chk_M20C").click(function() {
+        if($("#txt_M20C").is(':disabled')){
+            $("#txt_M20C").numberspinner({ disabled: false, required: true });
+        }else{
+            $("#txt_M20C").numberspinner({ min: 0 })
+            $("#txt_M20C").numberspinner("setValue", 0);
+            calc_DineroApertura();
+            $("#txt_M20C").numberspinner({ min: 1 })
+            $("#txt_M20C").numberspinner({ disabled: true, required: false, });
+        }
+    });
+    //# **************************************************** #
+    $("#chk_M50C").click(function() {
+        if($("#txt_M50C").is(':disabled')){
+            $("#txt_M50C").numberspinner({ disabled: false, required: true });
+        }else{
+            $("#txt_M50C").numberspinner({ min: 0 })
+            $("#txt_M50C").numberspinner("setValue", 0);
+            calc_DineroApertura();
+            $("#txt_M50C").numberspinner({ min: 1 })
+            $("#txt_M50C").numberspinner({ disabled: true, required: false, });
+        }
+    });
+    //# **************************************************** #
+    $("#chk_M1P").click(function() {
+        if($("#txt_M1P").is(':disabled')){
+            $("#txt_M1P").numberspinner({ disabled: false, required: true });
+        }else{
+            $("#txt_M1P").numberspinner({ min: 0 })
+            $("#txt_M1P").numberspinner("setValue", 0);
+            calc_DineroApertura();
+            $("#txt_M1P").numberspinner({ min: 1 })
+            $("#txt_M1P").numberspinner({ disabled: true, required: false, });
+        }
+    });
+    //# **************************************************** #
+    $("#chk_M2P").click(function() {
+        if($("#txt_M2P").is(':disabled')){
+            $("#txt_M2P").numberspinner({ disabled: false, required: true });
+        }else{
+            $("#txt_M2P").numberspinner({ min: 0 })
+            $("#txt_M2P").numberspinner("setValue", 0);
+            calc_DineroApertura();
+            $("#txt_M2P").numberspinner({ min: 1 })
+            $("#txt_M2P").numberspinner({ disabled: true, required: false, });
+        }
+    });
+    //# **************************************************** #
+    $("#chk_M5P").click(function() {
+        if($("#txt_M5P").is(':disabled')){
+            $("#txt_M5P").numberspinner({ disabled: false, required: true });
+        }else{
+            $("#txt_M5P").numberspinner({ min: 0 })
+            $("#txt_M5P").numberspinner("setValue", 0);
+            calc_DineroApertura();
+            $("#txt_M5P").numberspinner({ min: 1 })
+            $("#txt_M5P").numberspinner({ disabled: true, required: false, });
+        }
+    });
+    //# **************************************************** #
+    $("#chk_M10P").click(function() {
+        if($("#txt_M10P").is(':disabled')){
+            $("#txt_M10P").numberspinner({ disabled: false, required: true });
+        }else{
+            $("#txt_M10P").numberspinner({ min: 0 })
+            $("#txt_M10P").numberspinner("setValue", 0);
+            calc_DineroApertura();
+            $("#txt_M10P").numberspinner({ min: 1 })
+            $("#txt_M10P").numberspinner({ disabled: true, required: false, });
+        }
+    });
+    //# **************************************************** #
+    $("#chk_M20P").click(function() {
+        if($("#txt_M20P").is(':disabled')){
+            $("#txt_M20P").numberspinner({ disabled: false, required: true });
+        }else{
+            $("#txt_M20P").numberspinner({ min: 0 })
+            $("#txt_M20P").numberspinner("setValue", 0);
+            calc_DineroApertura();
+            $("#txt_M20P").numberspinner({ min: 1 })
+            $("#txt_M20P").numberspinner({ disabled: true, required: false, });
+        }
+    });
+    //# **************************************************** #
+    $("#chk_B20P").click(function() {
+        if($("#txt_B20P").is(':disabled')){
+            $("#txt_B20P").numberspinner({ disabled: false, required: true });
+        }else{
+            $("#txt_B20P").numberspinner({ min: 0 })
+            $("#txt_B20P").numberspinner("setValue", 0);
+            calc_DineroApertura();
+            $("#txt_B20P").numberspinner({ min: 1 })
+            $("#txt_B20P").numberspinner({ disabled: true, required: false, });
+        }
+    });
+    //# **************************************************** #
+    $("#chk_B50P").click(function() {
+        if($("#txt_B50P").is(':disabled')){
+            $("#txt_B50P").numberspinner({ disabled: false, required: true });
+        }else{
+            $("#txt_B50P").numberspinner({ min: 0 })
+            $("#txt_B50P").numberspinner("setValue", 0);
+            calc_DineroApertura();
+            $("#txt_B50P").numberspinner({ min: 1 })
+            $("#txt_B50P").numberspinner({ disabled: true, required: false, });
+        }
+    });
+    //# **************************************************** #
+    $("#chk_B100P").click(function() {
+        if($("#txt_B100P").is(':disabled')){
+            $("#txt_B100P").numberspinner({ disabled: false, required: true });
+        }else{
+            $("#txt_B100P").numberspinner({ min: 0 })
+            $("#txt_B100P").numberspinner("setValue", 0);
+            calc_DineroApertura();
+            $("#txt_B100P").numberspinner({ min: 1 })
+            $("#txt_B100P").numberspinner({ disabled: true, required: false, });
+        }
+    });
+    //# **************************************************** #
+    $("#chk_B200P").click(function() {
+        if($("#txt_B200P").is(':disabled')){
+            $("#txt_B200P").numberspinner({ disabled: false, required: true });
+        }else{
+            $("#txt_B200P").numberspinner({ min: 0 })
+            $("#txt_B200P").numberspinner("setValue", 0);
+            calc_DineroApertura();
+            $("#txt_B200P").numberspinner({ min: 1 })
+            $("#txt_B200P").numberspinner({ disabled: true, required: false, });
+        }
+    });
+    //# **************************************************** #
+    $("#chk_B500P").click(function() {
+        if($("#txt_B500P").is(':disabled')){
+            $("#txt_B500P").numberspinner({ disabled: false, required: true });
+        }else{
+            $("#txt_B500P").numberspinner({ min: 0 })
+            $("#txt_B500P").numberspinner("setValue", 0);
+            calc_DineroApertura();
+            $("#txt_B500P").numberspinner({ min: 1 })
+            $("#txt_B500P").numberspinner({ disabled: true, required: false, });
+        }
+    });
+    //# **************************************************** #
+    $("#chk_B1000P").click(function() {
+        if($("#txt_B1000P").is(':disabled')){
+            $("#txt_B1000P").numberspinner({ disabled: false, required: true });
+        }else{
+            $("#txt_B1000P").numberspinner({ min: 0 })
+            $("#txt_B1000P").numberspinner("setValue", 0);
+            calc_DineroApertura();
+            $("#txt_B1000P").numberspinner({ min: 1 })
+            $("#txt_B1000P").numberspinner({ disabled: true, required: false, });
+        }
+    });
+    //# **************************************************** #
+
+    $("#txt_M10C").numberspinner({
+        onSpinUp: function(){
+            calc_DineroApertura();
+        },
+        onSpinDown: function(){
+            calc_DineroApertura();
+        }
+    });
+    //# **************************************************** #
+    $("#txt_M20C").numberspinner({
+        onSpinUp: function(){
+            calc_DineroApertura();
+        },
+        onSpinDown: function(){
+            calc_DineroApertura();
+        }
+    });
+    //# **************************************************** #
+    $("#txt_M50C").numberspinner({
+        onSpinUp: function(){
+            calc_DineroApertura();
+        },
+        onSpinDown: function(){
+            calc_DineroApertura();
+        }
+    });
+    //# **************************************************** #
+    $("#txt_M1P").numberspinner({
+        onSpinUp: function(){
+            calc_DineroApertura();
+        },
+        onSpinDown: function(){
+            calc_DineroApertura();
+        }
+    });
+    //# **************************************************** #
+    $("#txt_M2P").numberspinner({
+        onSpinUp: function(){
+            calc_DineroApertura();
+        },
+        onSpinDown: function(){
+            calc_DineroApertura();
+        }
+    });
+    //# **************************************************** #
+    $("#txt_M5P").numberspinner({
+        onSpinUp: function(){
+            calc_DineroApertura();
+        },
+        onSpinDown: function(){
+            calc_DineroApertura();
+        }
+    });
+    //# **************************************************** #
+    $("#txt_M10P").numberspinner({
+        onSpinUp: function(){
+            calc_DineroApertura();
+        },
+        onSpinDown: function(){
+            calc_DineroApertura();
+        }
+    });
+    //# **************************************************** #
+    $("#txt_M20P").numberspinner({
+        onSpinUp: function(){
+            calc_DineroApertura();
+        },
+        onSpinDown: function(){
+            calc_DineroApertura();
+        }
+    });
+    //# **************************************************** #
+    $("#txt_B20P").numberspinner({
+        onSpinUp: function(){
+            calc_DineroApertura();
+        },
+        onSpinDown: function(){
+            calc_DineroApertura();
+        }
+    });
+    //# **************************************************** #
+    $("#txt_B50P").numberspinner({
+        onSpinUp: function(){
+            calc_DineroApertura();
+        },
+        onSpinDown: function(){
+            calc_DineroApertura();
+        }
+    });
+    //# **************************************************** #
+    $("#txt_B100P").numberspinner({
+        onSpinUp: function(){
+            calc_DineroApertura();
+        },
+        onSpinDown: function(){
+            calc_DineroApertura();
+        }
+    });
+    //# **************************************************** #
+    $("#txt_B200P").numberspinner({
+        onSpinUp: function(){
+            calc_DineroApertura();
+        },
+        onSpinDown: function(){
+            calc_DineroApertura();
+        }
+    });
+    //# **************************************************** #
+    $("#txt_B500P").numberspinner({
+        onSpinUp: function(){
+            calc_DineroApertura();
+        },
+        onSpinDown: function(){
+            calc_DineroApertura();
+        }
+    });
+    //# **************************************************** #
+    $("#txt_B1000P").numberspinner({
+        onSpinUp: function(){
+            calc_DineroApertura();
+        },
+        onSpinDown: function(){
+            calc_DineroApertura();
+        }
+    });
+    //# **************************************************** #
+    $("#cmd_INICIAR").click(function() {
+        show_progress("<?php echo LNG_NUCLEO_0019; ?>");
+        var isValid = true;
+        $('#FrmDATOS').find(':input').each(function() {
+            if(this.className.substr(0, 6) == "easyui"){ //es un componente de easyui
+                isValid = $('#FrmDATOS').form('validate');
+            }else{ //es un elemento HTML5
+                if(!chk_valid(this)){
+                    isValid = false;
+                }
+            }
+        });
+        if (isValid){
+            console.clear();
+            document.getElementById("FrmDATOS").action = "<?php echo $helper->url("Ventas", "open_tpv"); ?>";
+            document.getElementById("FrmDATOS").submit();
+        }else{
+            $.messager.progress('close');
+        }
+    });
+    //# **************************************************** #
+    //# **************************************************** #
+    //# **************************************************** #
+    //# **************************************************** #
+    function calc_DineroApertura(){
+        var M10C = 0.00; var M20C = 0.00; var M50C = 0.00; var M1P  = 0.00; var M2P  = 0.00; var M5P  = 0.00; var M10P = 0.00; var M20P = 0.00;
+        if(!$("#txt_M10C").is(':disabled')){    M10C = parseInt($("#txt_M10C").numberspinner("getValue")) * 0.10; }
+        if(!$("#txt_M20C").is(':disabled')){    M20C = parseInt($("#txt_M20C").numberspinner("getValue")) * 0.20; }
+        if(!$("#txt_M50C").is(':disabled')){    M50C = parseInt($("#txt_M50C").numberspinner("getValue")) * 0.50; }
+        if(!$("#txt_M1P").is(':disabled')){     M1P = parseInt($("#txt_M1P").numberspinner("getValue")) * 1; }
+        if(!$("#txt_M2P").is(':disabled')){     M2P = parseInt($("#txt_M2P").numberspinner("getValue")) * 2; }
+        if(!$("#txt_M5P").is(':disabled')){     M5P = parseInt($("#txt_M5P").numberspinner("getValue")) * 5; }
+        if(!$("#txt_M10P").is(':disabled')){    M10P = parseInt($("#txt_M10P").numberspinner("getValue")) * 10; }
+        if(!$("#txt_M20P").is(':disabled')){    M20P = parseInt($("#txt_M20P").numberspinner("getValue")) * 20; }
+        var suma_Monedas = M10C + M20C + M50C + M1P + M2P + M5P + M10P + M20P;
+        var B20P = 0.00; var B50P = 0.00; var B100P = 0.00; var B200P  = 0.00; var B500P  = 0.00; var B1000P  = 0.00;
+        if(!$("#txt_B20P").is(':disabled')){    B20P = parseInt($("#txt_B20P").numberspinner("getValue")) * 20; }
+        if(!$("#txt_B50P").is(':disabled')){    B50P = parseInt($("#txt_B50P").numberspinner("getValue")) * 50; }
+        if(!$("#txt_B100P").is(':disabled')){    B100P = parseInt($("#txt_B100P").numberspinner("getValue")) * 100; }
+        if(!$("#txt_B200P").is(':disabled')){    B200P = parseInt($("#txt_B200P").numberspinner("getValue")) * 200; }
+        if(!$("#txt_B500P").is(':disabled')){    B500P = parseInt($("#txt_B500P").numberspinner("getValue")) * 500; }
+        if(!$("#txt_B1000P").is(':disabled')){    B1000P = parseInt($("#txt_B1000P").numberspinner("getValue")) * 1000; }
+        var suma_Billetes = B20P + B50P + B100P + B200P  + B500P + B1000P;
+        $("#txt_TMonedas").html(suma_Monedas.toFixed(2));
+        $("#txt_TBilletes").html(suma_Billetes.toFixed(2));
+        var suma_Dinero = suma_Monedas + suma_Billetes;
+        $("#txt_TDinero").html(suma_Dinero.toFixed(2));
+        $("#total_monedas").val(suma_Monedas.toFixed(2)); $("#total_billetes").val(suma_Billetes.toFixed(2)); $("#total_dinero").val(suma_Dinero.toFixed(2));
+    }
+    //# **************************************************** #
+</script>
+<!-- ## ********************************************* ## -->

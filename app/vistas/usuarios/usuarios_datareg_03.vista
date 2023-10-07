@@ -1,0 +1,188 @@
+<?php
+/**
+ * @autor Rixio Danilo Iguarán Chourio.
+ * @cédula-profesional 12196442
+ * @correo-eletrónico atencion.clientes@obringolfo.com
+ * @denominacion OBRAS INFORMÁTICAS DEL GOLFO
+ * @empresa OBRINGOLFO S.A.S. DE C.V.
+ * @proyecto  goPAC.
+ * @copyright 2021
+ */
+
+
+?>
+<!-- Download SVG icon from http://tabler-icons.io/i/home -->
+<script src="<?php echo PATH_JS; ?>/go_master.js"></script>
+<!-- ## ********************************************* ## -->
+    <body  class=" d-flex flex-column">
+        <div class="page-body">
+            <div class="container container-xl">
+                <div class="text-center mb-4">
+                    <img src="<?php echo PATH_IMAGENES; ?>/logo_login.gif" height="100" alt="">
+                </div>
+                <div class="row row-cards">
+                    <div class="col-lg-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <ul class="steps steps-counter steps-vertical">
+                                    <li class="step-item"><?= LNG_SEGURIDAD_0067 ?></li>
+                                    <li class="step-item"><?= LNG_SEGURIDAD_0068 ?></li>
+                                    <li class="step-item active"><?= LNG_SEGURIDAD_0069 ?></li>
+                                    <li class="step-item"><?= LNG_SEGURIDAD_0070 ?></li>
+                                    <li class="step-item"><?= LNG_SEGURIDAD_0071 ?></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-9">
+                        <form id="FrmDATAREG03" name="FrmDATAREG03" class="card" method="post" autocomplete="off">
+                            <input id="step" name="step" type="hidden" value="3" />
+                            <input id="txt_MAIL" name="txt_MAIL" type="hidden" value="<?php echo $txt_MAIL; ?>" />
+                            <input id="txt_UID" name="txt_UID" type="hidden" value="<?php echo $txt_UID; ?>"/>
+                            <div class="card-header">
+                                <h3 class="card-title"><?= LNG_NUCLEO_0096 ?></h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="mb-3 row">
+                                    <label class="col-3 col-form-label required"><?= LNG_NUCLEO_0094 ?></label>
+                                    <div class="col">
+                                        <input
+                                            id="txt_RAZON" name="txt_RAZON"
+                                            type="text"
+                                            patron="nombres"
+                                            class="form-control"
+                                            aria-describedby="emailHelp"
+                                            placeholder="<?= LNG_NUCLEO_0094 ?>"
+                                            onkeyup="chk_valid(this);" onfocus="chk_valid(this);" onchange="chk_valid(this);"
+                                        >
+                                        <small class="form-hint"><?= LNG_NUCLEO_0095 ?> (ej. "S.A. DE C.V.").</small>
+                                    </div>
+                                </div>
+                                <div class="mb-3 row">
+                                    <label class="col-3 col-form-label required"><?= LNG_NUCLEO_0097 ?></label>
+                                    <div class="col-3">
+                                        <input
+                                            id="txt_RFC" name="txt_RFC"
+                                            type="text"
+                                            patron="rfc"
+                                            class="form-control"
+                                            aria-describedby="emailHelp"
+                                            placeholder="<?= LNG_NUCLEO_0097 ?>"
+                                            onkeyup="chk_valid(this);" onfocus="chk_valid(this);" onchange="chk_valid(this);"
+                                        >
+                                        <small class="form-hint"><?= LNG_NUCLEO_0098 ?>.</small>
+                                    </div>
+
+                                    <label class="col-3 col-form-label required"><?= LNG_NUCLEO_0099 ?></label>
+                                    <div class="col-3">
+                                        <input
+                                            id="txt_TELEFONO" name="txt_TELEFONO"
+                                            type="text"
+                                            patron="telefono"
+                                            class="form-control"
+                                            aria-describedby="emailHelp"
+                                            placeholder="<?= LNG_NUCLEO_0099 ?>"
+                                            onkeyup="chk_valid(this);" onfocus="chk_valid(this);" onchange="chk_valid(this);"
+                                        >
+                                        <small class="form-hint"><?= LNG_NUCLEO_0099 ?>.</small>
+                                    </div>
+                                </div>
+                                <div class="mb-3 row">
+                                    <label class="col-3 col-form-label required"><?= LNG_NUCLEO_0100 ?></label>
+                                    <div class="col">
+                                        <input
+                                            id="txt_FMAIL" name="txt_FMAIL"
+                                            type="email"
+                                            class="form-control"
+                                            aria-describedby="emailHelp"
+                                            placeholder="<?= LNG_NUCLEO_0100 ?>"
+                                            onkeyup="chk_valid(this);" onfocus="chk_valid(this);" onchange="chk_valid(this);"
+                                        >
+                                        <small class="form-hint"><?= LNG_NUCLEO_0101 ?>.</small>
+                                    </div>
+                                </div>
+                                <div class="mb-3 row">
+                                    <label class="col-3 col-form-label required"><?= LNG_NUCLEO_0102 ?></label>
+                                    <div class="col">
+                                        <select
+                                            id="txt_REGIMEN"
+                                            name="txt_REGIMEN"
+                                            class="form-select"
+                                            onkeyup="chk_valid(this);" onfocus="chk_valid(this);" onchange="chk_valid(this);"
+                                        >
+                                            <?php
+                                                $get_regimen = new C_RegimenFiscal($this->adapter);
+                                                $MyRegimen = $get_regimen->getAll();
+                                                if($MyRegimen){
+                                                    foreach($MyRegimen as $Regimen){
+                                                        echo '<option value="'.$Regimen->c_RegimenFiscal.'">'.$Regimen->Descripcion.'</option>';
+                                                    }
+                                                }
+                                            ?>
+                                        </select>
+                                        <small class="form-hint"><?= LNG_NUCLEO_0103 ?>.</small>
+                                    </div>
+                                </div>
+                                <div class="mb-3 row">
+                                    <label class="col-3 col-form-label required"><?= LNG_NUCLEO_0104 ?></label>
+                                    <div class="col">
+                                        <select
+                                            id="txt_USO"
+                                            name="txt_USO"
+                                            class="form-select"
+                                            onkeyup="chk_valid(this);" onfocus="chk_valid(this);" onchange="chk_valid(this);"
+                                        >
+                                            <?php
+                                                $get_uso = new C_UsoCFDI($this->adapter);
+                                                $MyUso = $get_uso->getAll();
+                                                if($MyUso){
+                                                    foreach($MyUso as $Uso){
+                                                        echo '<option value="'.$Uso->c_UsoCFDI.'">'.$Uso->Descripcion.'</option>';
+                                                    }
+                                                }
+                                            ?>
+                                        </select>
+                                        <small class="form-hint"><?= LNG_NUCLEO_0105 ?>.</small>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <div class="card-footer text-end">
+                                <button id="cmdREG03" name="cmdREG03" type="button" class="btn btn-primary">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                        <path d="M12 9v-3.586a1 1 0 0 1 1.707 -.707l6.586 6.586a1 1 0 0 1 0 1.414l-6.586 6.586a1 1 0 0 1 -1.707 -.707v-3.586h-3v-6h3z"></path>
+                                        <path d="M3 9v6"></path>
+                                        <path d="M6 9v6"></path>
+                                    </svg><?php echo LNG_NUCLEO_0034; ?>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+
+<!-- ## ********************************************* ## -->
+<script type="text/javascript">
+    //# **************************************************** #
+    $("#cmdREG03").click(function() {
+        show_progress("<?php echo LNG_NUCLEO_0015; ?>");
+        var isValid = true;
+        $('#FrmDATAREG03').find(':input').each(function() {
+            isValid = chk_valid(this);
+        });
+        if (isValid){
+            document.getElementById("FrmDATAREG03").action = "<?php echo $helper->url("Usuarios", "reg_step"); ?>";
+            document.getElementById("FrmDATAREG03").submit();
+        }else{
+            $.messager.progress('close');
+            $.messager.alert('<?php echo LNG_NUCLEO_0037; ?>','<?php echo LNG_NUCLEO_0036; ?>');
+        }
+    });
+    //# **************************************************** #
+</script>
+<!-- ## ********************************************* ## -->

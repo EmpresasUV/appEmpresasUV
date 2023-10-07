@@ -1,0 +1,72 @@
+<?php
+/**
+* @autor Rixio Danilo Iguarán Chourio.
+* @cédula-profesional 12196442
+* @correo-eletrónico atencion.clientes@obringolfo.com
+* @denominacion OBRAS INFORMÁTICAS DEL GOLFO
+* @empresa OBRINGOLFO S.A.S. DE C.V.
+* @proyecto  OBRINGOLFO.
+* @copyright 2023
+*/
+
+class Tpv_cajas extends ModeloBase{
+    /* ***************************************************************************
+    * Registrando las variables de la clase
+    *************************************************************************** */
+    private $id;
+    private $id_usuario;
+    private $nombre;
+    private $empresa_SDK;
+    private $concepto_SDK;
+    private $table;
+
+    /* ***************************************************************************
+    * Generando los metodos SET y GET para las variables
+    *************************************************************************** */
+    /* Setters y Getters para la propiedad [ Id ] */
+    public function getId(){ return $this->id; }
+    public function setId($id){ $this->id = $id; }
+
+    /* Setters y Getters para la propiedad [ Id_usuario ] */
+    public function getId_usuario(){ return $this->id_usuario; }
+    public function setId_usuario($id_usuario){ $this->id_usuario = $id_usuario; }
+
+    /* Setters y Getters para la propiedad [ Nombre ] */
+    public function getNombre(){ return $this->nombre; }
+    public function setNombre($nombre){ $this->nombre = $nombre; }
+
+    /* Setters y Getters para la propiedad [ Empresa_SDK ] */
+    public function getEmpresa_SDK(){ return $this->empresa_SDK; }
+    public function setEmpresa_SDK($empresa_SDK){ $this->empresa_SDK = $empresa_SDK; }
+
+    /* Setters y Getters para la propiedad [ Concepto_SDK ] */
+    public function getConcepto_SDK(){ return $this->concepto_SDK; }
+    public function setConcepto_SDK($concepto_SDK){ $this->concepto_SDK = $concepto_SDK; }
+
+
+    /* ***************************************************************************
+    * @FUNCTION constructor de clase
+    * @Param $adapter
+    * Inicializa y registra la clase dentro de la aplicación
+    *************************************************************************** */
+    public function __construct($adapter) {
+        try {
+
+            $this->table = 'tpv_cajas';
+            parent::__construct($this->table, $adapter);
+
+        } catch (Exception $e) {
+            mostrar_error($e);
+        }
+    }
+
+    /* ***************************************************************************
+    * OTROS MÉTODOS Y FUNCIONES PARA ÉSTE MODELO EN ESPECÍFICO
+    *************************************************************************** */
+
+    /** *********************************************************************** */
+    /** *********************************************************************** */
+    /** *********************************************************************** */
+    /** *********************************************************************** */
+}
+?>

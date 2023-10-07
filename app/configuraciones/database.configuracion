@@ -1,0 +1,22 @@
+<?php
+/**
+ * @autor Rixio Danilo Iguarán Chourio.
+ * @cédula-profesional 12196442
+ * @correo-eletrónico atencion.clientes@obringolfo.com
+ * @denominacion OBRAS INFORMÁTICAS DEL GOLFO
+ * @empresa OBRINGOLFO S.A.S. DE C.V.
+ * @proyecto  goPAC.
+ * @copyright 2021
+ */
+
+
+    return array(
+        "driver"    =>  DB_DRIVER,
+        "host"      =>  DB_HOST,
+        "user"      =>  DB_USUARIO,
+        "pass"      =>  DB_SECRETO,
+        "database"  =>  DB_NOMBRE,
+        "prefix"    =>  DB_PREFIJO,
+        "charset"   =>  DB_CHARSET
+    );
+?>

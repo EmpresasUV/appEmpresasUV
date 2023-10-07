@@ -1,0 +1,803 @@
+<?php
+/**
+ * @autor Rixio Danilo Iguarán Chourio.
+ * @cédula-profesional 12196442
+ * @correo-eletrónico atencion.clientes@obringolfo.com
+ * @denominacion OBRAS INFORMÁTICAS DEL GOLFO
+ * @empresa OBRINGOLFO S.A.S. DE C.V.
+ * @proyecto  goPAC.
+ * @copyright 2021
+ */
+
+
+class UsuariosControlador extends ControladorBase{
+    public $conectar;
+    public $adapter;
+    /** ****************************************************** **/
+    public function __construct() {
+        parent::__construct();
+        $this->conectar = new Conectar();
+        $this->adapter  = $this->conectar->conexion();
+
+    }
+    /** ****************************************************** **/
+    public function index(){
+         chkSesion();
+        //Creamos el objeto usuario
+        $usuario = new Usuario($this->adapter);
+        //Conseguimos todos los usuarios
+        $allusers = $usuario->getAll();
+        //Cargamos la vista index y le pasamos valores
+        $this->view("index",array(
+            "allusers" => $allusers
+        ));
+    }
+    /** ****************************************************** **/
+    public function logedout(){
+        // Destruir todas las variables de sesión.
+        $_SESSION = array();
+        // Destruir la session activa
+        if (ini_get("session.use_cookies")) {
+            $params = session_get_cookie_params();
+            setcookie(session_name(), '', time() - 42000,
+                $params["path"], $params["domain"],
+                $params["secure"], $params["httponly"]
+            );
+        }
+        session_destroy();
+        session_commit();
+        goRedirect("Index", "index");
+
+    }
+
+    /** ****************************************************** **/
+    public function logedin(){
+        header('Content-Type: application/json; charset=UTF8');
+        $xLogin = array();
+        $xLogin["estado"] = null;
+        if(isset($_POST["txtUSUARIO"]) && isset($_POST["txtSECRETO"])){ //Validamos campos principales
+            //Creamos el objeto << Usuario >>
+            $usuario = new Usuarios($this->adapter);
+            //Buscamos el usuario por el numero de cuenta
+            $MyUser = $usuario->getBy('usuario', $_POST["txtUSUARIO"]);
+            if(empty($MyUser)){ //No encontrado
+                //Buscamos el usuario por el correo electrónico
+                $MyUser = $usuario->getBy('correo', $_POST["txtUSUARIO"]);
+            }
+            if(!empty($MyUser)){ //tenemos un usuario valido
+                if($MyUser[0]->estado == "A"){ //Usuario activo
+                    $pwd_peppered = hash_hmac("sha256", $_POST["txtSECRETO"], SECURITY_PEPPER);
+                    $pwd_hashed = $MyUser[0]->secreto;
+                    if (password_verify($pwd_peppered, $pwd_hashed)) {
+                        //Cargamos las variables de sesion del usuario
+
+                        $_SESSION["usuario"] = array(
+                            'logined'       => true,
+                            'id'            => $MyUser[0]->id,
+                            'paterno'       => $MyUser[0]->paterno,
+                            'materno'       => $MyUser[0]->materno,
+                            'nombre'        => $MyUser[0]->nombre,
+                            'usuario'       => $MyUser[0]->usuario,
+                            'correo'        => $MyUser[0]->correo,
+                            'ua_time'       => $MyUser[0]->ua_time,
+                            'ua_ip'         => $MyUser[0]->ua_ip,
+                            'ua_host'       => $MyUser[0]->ua_host
+                        );
+
+                        if(!check_user_conections($MyUser[0]->usuario)){
+                            $_SESSION['LAST_ACTIVITY'] = time();
+                            $usuario->setUa_time(time());
+                            $usuario->setUa_ip(get_cliente_ip());
+                            $usuario->setUa_host(gethostbyaddr($_SERVER["REMOTE_ADDR"]));
+                            $save = $usuario->updateBy('usuario', $MyUser[0]->usuario);
+                            if($save){
+                                $xLogin["estado"] = 0;
+                            }else{
+                                $this->auditar("[1409] No se pudo actualizar la info de acceso del usuario ".$_POST["txtUSUARIO"]);
+                                $xLogin["estado"] = 1409;
+                            }
+                        }else{
+                            $this->auditar("[1410] Intento de acceso del usuario ".$_POST["txtUSUARIO"]." con sesiones abiertas.");
+                            $xLogin["estado"] = 1410;
+                        }
+                    }
+                    else {
+                        $this->auditar("[1403] Intento de acceso del usuario ".$_POST["txtUSUARIO"]." con credenciales incorrectas.");
+                        $xLogin["estado"] = 1403;
+                    }
+                }else{ //Usuario inactivo
+                    $this->auditar("[1402] Intento de acceso del usuario ".$_POST["txtUSUARIO"]." pero se encuentra inactivo.");
+                    $xLogin["estado"] = 1402;
+                }
+            }else{
+                $this->auditar("[1401] Intento de acceso del usuario ".$_POST["txtUSUARIO"]." pero no existe.");
+                $xLogin["estado"] = 1401;
+            }
+        }
+
+        echo json_encode($xLogin);
+
+    }
+    /** ****************************************************** **/
+    public function recovery_code(){
+        if(isset($_POST["txt_MAIL"])){ //Validamos campos principales
+            //Creamos el objeto << usuario >>
+            $usuario = new Usuarios($this->adapter);
+            $MyUser = $usuario->getBy('correo', $_POST["txt_MAIL"]);
+            if(!empty($MyUser)){ //tenemos un usuario valido
+                $xTime = time();
+                $hash_base64 = base64_encode((string) $xTime);
+                $array_send = array(
+                    'to' => $_POST["txt_MAIL"],
+                    'subject' => LNG_CORREOS_0009,
+                    'nombre_completo' => $MyUser[0]->nombre." ".$MyUser[0]->paterno." ".$MyUser[0]->materno,
+                    'cuenta' => $MyUser[0]->usuario,
+                    'correo' => $MyUser[0]->correo,
+                    'url_password' => DOMAIN_URL.'/index.php?goExec=Usuarios&goAcc=recovery_access&hash='.$hash_base64
+                );
+
+                //Registramos la solicitud dentro de la base de datos
+                $up_solicitud = new Claves_solicitud($this->adapter);
+                $up_solicitud->deleteBy("mail_user", $MyUser[0]->correo);
+                $up_solicitud->setTime_request($xTime);
+                $up_solicitud->setHash($hash_base64);
+                $up_solicitud->setMail_user($MyUser[0]->correo);
+                $save = $up_solicitud->saveData();
+                //Enviamos el correo de notificación al usuario
+                $mail = send_email("access_restore", $array_send);
+                $this->auditar("Solicitud de cambio de contraseña para: ".$MyUser[0]->correo." con hash: ".$hash_base64);
+                $this->view("_header_login", array());
+                $this->view("usuarios/usuarios_checkmail", array("from_IFACE" => "recovery", "txt_MAIL" => $MyUser[0]->correo));
+                $this->view("_footer_login", array());
+            }else{ //usuario no existe
+                $this->auditar("[1410] No se reconoce la cuenta de correo ".$_POST["txt_MAIL"]." para recuperación");
+                $this->view("_header_login", array());
+                $this->view("usuarios/usuarios_nofoundmail", array("from_IFACE" => "recovery", "txt_MAIL" => $_POST["txt_MAIL"]));
+                $this->view("_footer_login", array());
+            }
+        }
+    }
+    /** ****************************************************** **/
+    public function recovery_access(){
+        if(isset($_GET["hash"]) && ($_GET["hash"] != '')){
+            $array_send = array();
+            $get_solicitud = new Claves_solicitud($this->adapter);
+            $MySolicitud = $get_solicitud->getBy('hash', $_GET["hash"]);
+
+            if(!empty($MySolicitud)){ //La solicitud existe
+                $ts1 = $MySolicitud[0]->time_request;
+                $ts2 = time();
+                $seconds_diff = round($ts2 - $ts1);
+                $minutes_diff = round($seconds_diff / 60);
+                if($minutes_diff < 720){ //En tiempo para cambiar acceso (12H)
+                    $array_send['txt_MAIL'] = $MySolicitud[0]->mail_user;
+                    $this->view("_header_login", array());
+                    $this->view("usuarios/usuarios_changeaccess", array("txt_MAIL" => $MySolicitud[0]->mail_user));
+                    $this->view("_footer_login", array());
+                }else{ //Fuera de las 12 horas de tolerancia
+                    $this->auditar("[1411] El tiempo de validéz de ".$MySolicitud[0]->mail_user." para la solicitud ".$_GET["hash"]." se encuentra agotado");
+                    $this->view("_header_login", array());
+                    $this->view("_errores", array("errorCODE" => "1411", "errorMSAG" => LNG_ERRORES_0002));
+                    $this->view("_footer_login", array());
+                }
+            }else{ //La solicitud no existe
+                $this->auditar("[1410] No se reconoce el código proporcionado para registro");
+                $this->view("_header_login", array());
+                $this->view("_errores", array("errorCODE" => "1410", "errorMSAG" => LNG_ERRORES_0001));
+                $this->view("_footer_login", array());
+            }
+        }else{ //hash no existe
+            $this->auditar("[1410] No se reconoce el código proporcionado para registro");
+            $this->view("_header_login", array());
+            $this->view("_errores", array("errorCODE" => "1410", "errorMSAG" => LNG_ERRORES_0001));
+            $this->view("_footer_login", array());
+        }
+
+    }
+    /** ****************************************************** **/
+    public function recovery_change(){
+        if(isset($_POST["txt_MAIL"]) && ($_POST["txt_MAIL"] != '')){
+            if(isset($_POST["txtSECRETO"]) && ($_POST["txtSECRETO"] != '')){ //tengo la nueva contraseña
+                $usuario = new Usuarios($this->adapter);
+                //Creamos el hash de la contraseña cifrada
+                $pwd_peppered = hash_hmac("sha256", $_POST["txtSECRETO"], SECURITY_PEPPER);
+                $pwd_hashed = password_hash($pwd_peppered, PASSWORD_DEFAULT);
+                $usuario->setSecreto($pwd_hashed);
+                $usuario->updateBy("correo", $_POST['txt_MAIL']);
+                goRedirect("Index", "index");
+            }else{
+                $this->auditar("[1199] No se pudo guardar la información 1");
+                $usuario->deleteBy("correo", $_POST['txt_MAIL']);
+                $this->view("_header_login", array());
+                $this->view("_errores", array("errorCODE" => "1199", "errorMSAG" => LNG_ERRORES_0003));
+                $this->view("_footer_login", array());
+            }
+        }else{
+            $this->auditar("[1199] No se pudo guardar la información 1");
+            $usuario->deleteBy("correo", $_POST['txt_MAIL']);
+            $this->view("_header_login", array());
+            $this->view("_errores", array("errorCODE" => "1199", "errorMSAG" => LNG_ERRORES_0003));
+            $this->view("_footer_login", array());
+        }
+    }
+    /** ****************************************************** **/
+    public function register_code(){
+        if(isset($_POST["txt_MAIL"]) && ($_POST["txt_MAIL"] != '')){
+            $usuarios = new Usuarios($this->adapter);
+            $MyUser = $usuarios->getBy("correo", $_POST["txt_MAIL"]);
+            if(!$MyUser){
+                $xTime = time();
+                $hash_base64 = base64_encode((string) $xTime);
+                $array_send = array(
+                    'to' => $_POST["txt_MAIL"],
+                    'subject' => LNG_CORREOS_0001,
+                    'url_password' => DOMAIN_URL.'/index.php?goExec=Usuarios&goAcc=register_access&hash='.$hash_base64
+                );
+
+                //Registramos la solicitud dentro de la base de datos
+                $up_solicitud = new Claves_solicitud($this->adapter);
+                $up_solicitud->deleteBy("mail_user", $_POST["txt_MAIL"]);
+                $up_solicitud->setTime_request($xTime);
+                $up_solicitud->setHash($hash_base64);
+                $up_solicitud->setMail_user($_POST["txt_MAIL"]);
+                $save = $up_solicitud->saveData();
+                //Enviamos el correo de notificación al usuario
+                $mail = send_email("access_register", $array_send);
+                $this->auditar("Solicitud de registro para: ".$_POST["txt_MAIL"]." con hash: ".$hash_base64);
+                $this->view("_header_login", array());
+                $this->view("usuarios/usuarios_checkmail", array("txt_MAIL" => $_POST["txt_MAIL"]));
+                $this->view("_footer_login", array());
+            }else{
+                $this->auditar("Solicitud de registro para: ".$_POST["txt_MAIL"]." pero ya está registrado");
+                $this->view("_header_login", array());
+                $this->view("usuarios/usuarios_existmail", array("txt_MAIL" => $_POST["txt_MAIL"]));
+                $this->view("_footer_login", array());
+            }
+        }else{ //correo no existe
+            $this->auditar("[1410] No se reconoce la cuenta de correo ".$_POST["txt_MAIL"]." para recuperación");
+            goRedirect("Index", "index");
+        }
+
+    }
+    /** ****************************************************** **/
+    public function register_access(){
+        if(isset($_GET["hash"]) && ($_GET["hash"] != '')){
+            $array_send = array();
+            $get_solicitud = new Claves_solicitud($this->adapter);
+            $MySolicitud = $get_solicitud->getBy('hash', $_GET["hash"]);
+
+            if(!empty($MySolicitud)){ //La solicitud existe
+                $ts1 = $MySolicitud[0]->time_request;
+                $ts2 = time();
+                $seconds_diff = round($ts2 - $ts1);
+                $minutes_diff = round($seconds_diff / 60);
+                if($minutes_diff < 720){ //En tiempo para cambiar acceso (12H)
+                    $array_send['txt_MAIL'] = $MySolicitud[0]->mail_user;
+                    $this->view("_header_login", array());
+                    $this->view("usuarios/usuarios_datareg_01", array("txt_MAIL" => $MySolicitud[0]->mail_user));
+                    $this->view("_footer_login", array());
+                }else{ //Fuera de las 12 horas de tolerancia
+                    $this->auditar("[1411] El tiempo de validéz de ".$MySolicitud[0]->mail_user." para la solicitud ".$_GET["hash"]." se encuentra agotado");
+                    $this->view("_header_login", array());
+                    $this->view("_errores", array("errorCODE" => "1411", "errorMSAG" => LNG_ERRORES_0002));
+                    $this->view("_footer_login", array());
+                }
+            }else{ //La solicitud no existe
+                $this->auditar("[1410] No se reconoce el código proporcionado para registro");
+                $this->view("_header_login", array());
+                $this->view("_errores", array("errorCODE" => "1410", "errorMSAG" => LNG_ERRORES_0001));
+                $this->view("_footer_login", array());
+            }
+        }else{ //hash no existe
+            $this->auditar("[1410] No se reconoce el código proporcionado para registro");
+            $this->view("_header_login", array());
+            $this->view("_errores", array("errorCODE" => "1410", "errorMSAG" => LNG_ERRORES_0001));
+            $this->view("_footer_login", array());
+        }
+
+    }
+    /** ****************************************************** **/
+    function reg_step(){
+
+        if(isset($_POST['step']) && ($_POST['step'] != '')){ //El usuario está en un paso
+            //$this->auditar("STEP: ".print_r($_POST, true));
+            $usuario = new Usuarios($this->adapter);
+            if($_POST['step'] == 1){
+                $find = $usuario->getBy("correo", $_POST['txt_MAIL']);
+                if($find){ $_POST['step'] = 2; }
+            }
+            switch ($_POST['step']) {
+                case 1:
+                    $usuario->setCorreo($_POST['txt_MAIL']);
+                    $usuario->setPaterno(mb_convert_case($_POST['txt_PATERNO'], MB_CASE_TITLE, "UTF-8"));
+                    $usuario->setMaterno(mb_convert_case($_POST['txt_MATERNO'], MB_CASE_TITLE, "UTF-8"));
+                    $usuario->setNombre(mb_convert_case($_POST['txt_NOMBRE'], MB_CASE_TITLE, "UTF-8"));
+                    $usuario->setUsuario(time());
+                    //Creamos el hash de la contraseña cifrada
+                    $pwd_peppered = hash_hmac("sha256", $_POST["txt_PASSW1"], SECURITY_PEPPER);
+                    $pwd_hashed = password_hash($pwd_peppered, PASSWORD_DEFAULT);
+                    $usuario->setSecreto($pwd_hashed);
+                    $usuario->setId_tipo($_POST['txt_PERFIL']);
+                    $usuario->setEstado("I");
+                    $save = $usuario->saveData(true);
+                    if(isset($save['id']) && $save['id'] != ''){
+                        $this->view("_header_login", array());
+                        $this->view("usuarios/usuarios_datareg_02", array("txt_UID" => $save['id'], "txt_MAIL" => $_POST['txt_MAIL']));
+                        $this->view("_footer_login", array());
+                    }else{
+                        $this->auditar("[1099] No se pudo guardar la información 1");
+                        $usuario->deleteBy("correo", $_POST['txt_MAIL']);
+                        $this->view("_header_login", array());
+                        $this->view("_errores", array("errorCODE" => "1099", "errorMSAG" => LNG_ERRORES_0003));
+                        $this->view("_footer_login", array());
+                    }
+                break;
+                case 2:
+                    if(isset($_POST['txt_PLAN']) && $_POST['txt_PLAN'] != ''){
+                        $usuario->setId_plan($_POST['txt_PLAN']);
+                        $save = $usuario->updateBy("correo", $_POST['txt_MAIL']);
+                        if($save){
+                            $this->view("_header_login", array());
+                            $this->view("usuarios/usuarios_datareg_03", array("txt_UID" => $_POST['txt_UID'], "txt_MAIL" => $_POST['txt_MAIL']));
+                            $this->view("_footer_login", array());
+                        }else{
+                            $this->auditar("[1099] No se pudo guardar la información 2");
+                            $usuario->deleteBy("correo", $_POST['txt_MAIL']);
+                            $this->view("_header_login", array());
+                            $this->view("_errores", array("errorCODE" => "1099", "errorMSAG" => LNG_ERRORES_0003));
+                            $this->view("_footer_login", array());
+                        }
+                    }else{
+                        $this->auditar("[1099] No se pudo guardar la información 3");
+                        $usuario->deleteBy("correo", $_POST['txt_MAIL']);
+                        $this->view("_header_login", array());
+                        $this->view("_errores", array("errorCODE" => "1099", "errorMSAG" => LNG_ERRORES_0003));
+                        $this->view("_footer_login", array());
+                    }
+                break;
+                case 3:
+                    $usuario->setRazon(mb_convert_case($_POST['txt_RAZON'], MB_CASE_UPPER, "UTF-8"));
+                    $usuario->setRfc(mb_convert_case($_POST['txt_RFC'], MB_CASE_UPPER, "UTF-8"));
+                    $usuario->setTel_fijo(intval($_POST['txt_TELEFONO']));
+                    $usuario->setCorreo_fiscal($_POST['txt_FMAIL']);
+                    $usuario->setRegimen($_POST['txt_REGIMEN']);
+                    $usuario->setUso_cfdi($_POST['txt_USO']);
+                    $save = $usuario->updateBy("correo", $_POST['txt_MAIL']);
+                    if($save){
+                        $this->view("_header_login", array());
+                        $this->view("usuarios/usuarios_datareg_04", array("txt_UID" => $_POST['txt_UID'], "txt_MAIL" => $_POST['txt_MAIL']));
+                        $this->view("_footer_login", array());
+                    }else{
+                        $this->auditar("[1099] No se pudo guardar la información 4");
+                        $usuario->deleteBy("correo", $_POST['txt_MAIL']);
+                        $this->view("_header_login", array());
+                        $this->view("_errores", array("errorCODE" => "1099", "errorMSAG" => LNG_ERRORES_0003));
+                        $this->view("_footer_login", array());
+                    }
+                break;
+                case 4:
+                    $direccion = new Usuarios_direcciones($this->adapter);
+                    $direccion->setId_usuario(intval($_POST['txt_UID']));
+                    $direccion->setCp(intval($_POST['txt_CP']));
+                    if(isset($_POST['txt_DIR-TIPOVIAL']) && $_POST['txt_DIR-TIPOVIAL'] != ''){ $direccion->setTipo_vialidad($_POST['txt_DIR-TIPOVIAL']); }else{ $direccion->setTipo_vialidad(''); }
+                    if(isset($_POST['txt_DIR-NOMBREVIAL']) && $_POST['txt_DIR-NOMBREVIAL'] != ''){ $direccion->setNombre_vialidad($_POST['txt_DIR-NOMBREVIAL']); }else{ $direccion->setNombre_vialidad(''); }
+                    if(isset($_POST['txt_DIR-INT']) && $_POST['txt_DIR-INT'] != ''){ $direccion->setN_interior($_POST['txt_DIR-INT']); }else{ $direccion->setN_interior(''); }
+                    if(isset($_POST['txt_DIR-EXT']) && $_POST['txt_DIR-EXT'] != ''){ $direccion->setN_exterior($_POST['txt_DIR-EXT']); }else{ $direccion->setN_exterior(''); }
+                    $direccion->setColonia(mb_convert_case($_POST['txt_DIR-COLONIA'], MB_CASE_TITLE, "UTF-8"));
+                    $direccion->setLocalidad(mb_convert_case($_POST['txt_DIR-CIUDAD'], MB_CASE_TITLE, "UTF-8"));
+                    $direccion->setMunicipio(mb_convert_case($_POST['txt_DIR-MUNICIPIO'], MB_CASE_TITLE, "UTF-8"));
+                    $direccion->setE_federativa(mb_convert_case($_POST['txt_DIR-ESTADO'], MB_CASE_TITLE, "UTF-8"));
+                    $direccion->setReferencias('');
+                    $direccion->setPais(mb_convert_case($_POST['txt_DIR-PAIS'], MB_CASE_TITLE, "UTF-8"));
+                    $direccion->setLatitud(0);
+                    $direccion->setLongitud(0);
+                    $save = $direccion->saveData();
+                    if($save){
+                        $usuario->setEstado("A");
+                        $usuario->updateBy("correo", $_POST['txt_MAIL']);
+                        $this->view("_header_login", array());
+                        $this->view("usuarios/usuarios_datareg_05", array("txt_UID" => $_POST['txt_UID'], "txt_MAIL" => $_POST['txt_MAIL']));
+                        $this->view("_footer_login", array());
+                    }else{
+                        $this->auditar("[1099] No se pudo guardar la información 5");
+                        $usuario->deleteBy("correo", $_POST['txt_MAIL']);
+                        $this->view("_header_login", array());
+                        $this->view("_errores", array("errorCODE" => "1099", "errorMSAG" => LNG_ERRORES_0003));
+                        $this->view("_footer_login", array());
+                    }
+                break;
+                case 5:
+                    //Verificamos las carpetas destino
+                    if(!(file_exists(PATH_DOCS) && is_dir(PATH_DOCS))){ //no existe la carpeta docs
+                        mkdir(PATH_DOCS);
+                    }
+                    if(!(file_exists(PATH_DOCS."/expedientes") && is_dir(PATH_DOCS."/expedientes"))){   //no existe la carpeta expedientes
+                        mkdir(PATH_DOCS."/expedientes");
+                    }
+                    //Buscamos el numero de cuenta del usuario
+                    $MyUser = $usuario->getBy("correo", $_POST['txt_MAIL']);
+                    if($MyUser){ //Tenemos el numero de cuenta
+                        if(!(file_exists(PATH_DOCS."/expedientes/".$MyUser[0]->usuario) && is_dir(PATH_DOCS."/expedientes/".$MyUser[0]->usuario))){   //no existe la carpeta expedientes
+                            mkdir(PATH_DOCS."/expedientes/".$MyUser[0]->usuario);
+                        }
+                        //PROCESANDO EL ARCHIVO
+                        $targetDIR = PATH_DOCS."/expedientes/".$MyUser[0]->usuario;
+                        $txt_IMG_PERFIL = (isset($_FILES['txt_IMG_PERFIL'])) ? $_FILES['txt_IMG_PERFIL'] : null;
+                        if ($txt_IMG_PERFIL) {  //El usuario cargó el archivo
+                            $xFile = $_FILES['txt_IMG_PERFIL']['name'];
+                            //$xExt = pathinfo($xFile, PATHINFO_EXTENSION);
+                            $path_txt_IMG_PERFIL = $targetDIR."/avatar.jpg";
+                            move_uploaded_file($txt_IMG_PERFIL['tmp_name'], $path_txt_IMG_PERFIL);
+                        }else{ //el usuario no cargó nada
+                            copy(PATH_DOCS."/user.png", $targetDIR."/avatar.jpg");
+                        }
+                        //PROCESANDO EL ARCHIVO
+                        $targetDIR = PATH_DOCS."/expedientes/".$MyUser[0]->usuario;
+                        $txt_DOC_CEDULA = (isset($_FILES['txt_DOC_CEDULA'])) ? $_FILES['txt_DOC_CEDULA'] : null;
+                        if ($txt_DOC_CEDULA) {  //El usuario cargó el archivo
+                            $xFile = $_FILES['txt_DOC_CEDULA']['name'];
+                            //$xExt = pathinfo($xFile, PATHINFO_EXTENSION);
+                            $path_txt_DOC_CEDULA = $targetDIR."/cédula_profesional.pdf";
+                            move_uploaded_file($txt_DOC_CEDULA['tmp_name'], $path_txt_DOC_CEDULA);
+                        }
+
+                        //Cargamos las variables de sesion del usuario
+                        $usuario_tipos = new Usuarios_tipos($this->adapter);
+                        $MyTipo = $usuario_tipos->getBy('id', $MyUser[0]->id_tipo);
+                        $planes = new Planes($this->adapter);
+                        $MyPlan = $planes->getBy('id', $MyUser[0]->id_plan);
+
+                        $_SESSION["usuario"] = array(
+                            'logined'       => true,
+                            'id'            => $MyUser[0]->id,
+                            'paterno'       => $MyUser[0]->paterno,
+                            'materno'       => $MyUser[0]->materno,
+                            'nombre'        => $MyUser[0]->nombre,
+                            'usuario'       => $MyUser[0]->usuario,
+                            'correo'       => $MyUser[0]->correo,
+                            'tipo'          => $MyTipo[0]->nombre,
+                            'ua_time'       => $MyUser[0]->ua_time,
+                            'ua_ip'         => $MyUser[0]->ua_ip,
+                            'ua_host'       => $MyUser[0]->ua_host,
+                            'plan_id'       => $MyPlan[0]->id,
+                            'plan_name'     => $MyPlan[0]->nombre
+                        );
+
+                        $array_send = array(
+                            'to' => $_POST['txt_MAIL'],
+                            'subject' => LNG_CORREOS_0007,
+                            'nombre_completo' => $_SESSION["usuario"]['nombre']." ".$_SESSION["usuario"]['paterno']." ".$_SESSION["usuario"]['materno'],
+                            'cuenta' => $_SESSION["usuario"]['usuario'],
+                            'correo' => $_POST['txt_MAIL'],
+                            'plan_id' => $_SESSION["usuario"]['plan_id'],
+                            'plan_name' => $_SESSION["usuario"]['plan_name']
+                        );
+                        $mail = send_email("registro_exitoso", $array_send);
+
+
+                        $_SESSION['LAST_ACTIVITY'] = time();
+                        $usuario->setUa_time(time());
+                        $usuario->setUa_ip(get_cliente_ip());
+                        $usuario->setUa_host(gethostbyaddr($_SERVER["REMOTE_ADDR"]));
+                        $save = $usuario->updateBy('usuario', $MyUser[0]->usuario);
+                        if($save){
+                            goRedirect("Escritorio", "index");
+                        }else{
+                            $this->auditar("[1099] No se pudo guardar la información 8");
+                            $usuario->deleteBy("correo", $_POST['txt_MAIL']);
+                            $this->view("_header_login", array());
+                            $this->view("_errores", array("errorCODE" => "1099", "errorMSAG" => LNG_ERRORES_0003));
+                            $this->view("_footer_login", array());
+                        }
+
+                    }else{
+                        $this->auditar("[1099] No se pudo guardar la información 7");
+                        $usuario->deleteBy("correo", $_POST['txt_MAIL']);
+                        $this->view("_header_login", array());
+                        $this->view("_errores", array("errorCODE" => "1099", "errorMSAG" => LNG_ERRORES_0003));
+                        $this->view("_footer_login", array());
+                    }
+                break;
+            }
+        }else{
+
+        }
+
+    }
+    /** ****************************************************** **/
+    public function change_avatar(){
+        chkSesion();
+        //Verificamos las carpetas destino
+        if(!(file_exists(PATH_DOCS) && is_dir(PATH_DOCS))){ //no existe la carpeta docs
+            mkdir(PATH_DOCS);
+        }
+        if(!(file_exists(PATH_DOCS."/expedientes") && is_dir(PATH_DOCS."/expedientes"))){   //no existe la carpeta expedientes
+            mkdir(PATH_DOCS."/expedientes");
+        }
+        //Buscamos el numero de cuenta del usuario
+        $usuario = new Usuarios($this->adapter);
+        $MyUser = $usuario->getBy("correo", $_SESSION["usuario"]["correo"]);
+        if($MyUser){ //Tenemos el numero de cuenta
+            if(!(file_exists(PATH_DOCS."/expedientes/".$MyUser[0]->usuario) && is_dir(PATH_DOCS."/expedientes/".$MyUser[0]->usuario))){   //no existe la carpeta expedientes
+                mkdir(PATH_DOCS."/expedientes/".$MyUser[0]->usuario);
+            }
+            //PROCESANDO EL ARCHIVO
+            $targetDIR = PATH_DOCS."/expedientes/".$MyUser[0]->usuario;
+            $txt_IMG_PERFIL = (isset($_FILES['txt_IMG_PERFIL'])) ? $_FILES['txt_IMG_PERFIL'] : null;
+            if ($txt_IMG_PERFIL) {  //El usuario cargó el archivo
+                $xFile = $_FILES['txt_IMG_PERFIL']['name'];
+                //$xExt = pathinfo($xFile, PATHINFO_EXTENSION);
+                $path_txt_IMG_PERFIL = $targetDIR."/avatar.jpg";
+                move_uploaded_file($txt_IMG_PERFIL['tmp_name'], $path_txt_IMG_PERFIL);
+            }else{ //el usuario no cargó nada
+                copy(PATH_DOCS."/user.png", $targetDIR."/avatar.jpg");
+            }
+            goRedirect("Usuarios", "iface_perfil");
+        }
+    }
+    /** ****************************************************** **/
+    public function delete_avatar(){
+        chkSesion();
+        //Verificamos las carpetas destino
+        if(!(file_exists(PATH_DOCS) && is_dir(PATH_DOCS))){ //no existe la carpeta docs
+            mkdir(PATH_DOCS);
+        }
+        if(!(file_exists(PATH_DOCS."/expedientes") && is_dir(PATH_DOCS."/expedientes"))){   //no existe la carpeta expedientes
+            mkdir(PATH_DOCS."/expedientes");
+        }
+        //Buscamos el numero de cuenta del usuario
+        $usuario = new Usuarios($this->adapter);
+        $MyUser = $usuario->getBy("correo", $_SESSION["usuario"]["correo"]);
+        if($MyUser){ //Tenemos el numero de cuenta
+            if(!(file_exists(PATH_DOCS."/expedientes/".$MyUser[0]->usuario) && is_dir(PATH_DOCS."/expedientes/".$MyUser[0]->usuario))){   //no existe la carpeta expedientes
+                mkdir(PATH_DOCS."/expedientes/".$MyUser[0]->usuario);
+            }
+            //PROCESANDO EL ARCHIVO
+            $targetDIR = PATH_DOCS."/expedientes/".$MyUser[0]->usuario;
+            if(file_exists($targetDIR."/avatar.jpg")){
+                unlink($targetDIR."/avatar.jpg");
+            }
+            copy(PATH_DOCS."/user.png", $targetDIR."/avatar.jpg");
+            goRedirect("Usuarios", "iface_perfil");
+        }
+
+    }
+    /** ****************************************************** **/
+    public function change_mail(){
+        chkSesion();
+        if(isset($_POST["txt_MAIL"]) && ($_POST["txt_MAIL"] != '')){
+            $usuarios = new Usuarios($this->adapter);
+            $MyUser = $usuarios->getBy("correo", $_SESSION["usuario"]["correo"]);
+            if($MyUser){
+                $xTime = time();
+                $hash_base64 = base64_encode((string) $xTime);
+                //Registramos la solicitud dentro de la base de datos
+                $up_solicitud = new Claves_solicitud($this->adapter);
+                $up_solicitud->deleteBy("mail_user", $_POST["txt_MAIL"]);
+                $up_solicitud->setTime_request($xTime);
+                $up_solicitud->setHash($hash_base64);
+                $up_solicitud->setMail_user($MyUser[0]->correo);
+                $up_solicitud->setNew_mail($_POST["txt_MAIL"]);
+                $save = $up_solicitud->saveData();
+                //Enviamos el correo de notificación al usuario
+                $array_send = array(
+                    'to' => $_POST["txt_MAIL"],
+                    'subject' => LNG_CORREOS_0019,
+                    'nombre_completo' => $_SESSION["usuario"]['nombre']." ".$_SESSION["usuario"]['paterno']." ".$_SESSION["usuario"]['materno'],
+                    'cuenta' => $_SESSION["usuario"]['usuario'],
+                    'correo' => $_POST['txt_MAIL'],
+                    'url_mail' => DOMAIN_URL.'/index.php?goExec=Usuarios&goAcc=register_mail&hash='.$hash_base64
+                );
+                $mail = send_email("change_mail", $array_send);
+                $this->auditar("Solicitud de cambio de mail: ".$_POST["txt_MAIL"]." con hash: ".$hash_base64);
+                $this->view("_header_login", array());
+                $this->view("usuarios/usuarios_checkmail", array("txt_MAIL" => $_POST["txt_MAIL"]));
+                $this->view("_footer_login", array());
+            }else{
+                $this->auditar("Solicitud de cambio de mail: ".$_POST["txt_MAIL"]." pero ya está registrado");
+                $this->view("_header_login", array());
+                $this->view("usuarios/usuarios_nofoundmail", array("txt_MAIL" => $_POST["txt_MAIL"]));
+                $this->view("_footer_login", array());
+            }
+        }else{ //correo no existe
+            $this->auditar("[1410] No se reconoce la cuenta de correo ".$_POST["txt_MAIL"]." para recuperación");
+            goRedirect("Index", "index");
+        }
+    }
+    /** ****************************************************** **/
+    public function register_mail(){
+        //chkSesion();
+        if(isset($_GET["hash"]) && ($_GET["hash"] != '')){
+            $array_send = array();
+            $get_solicitud = new Claves_solicitud($this->adapter);
+            $MySolicitud = $get_solicitud->getBy('hash', $_GET["hash"]);
+
+            if(!empty($MySolicitud)){ //La solicitud existe
+                $ts1 = $MySolicitud[0]->time_request;
+                $ts2 = time();
+                $seconds_diff = round($ts2 - $ts1);
+                $minutes_diff = round($seconds_diff / 60);
+                if($minutes_diff < 720){ //En tiempo para cambiar acceso (12H)
+                    $usuarios = new Usuarios($this->adapter);
+                    $MyUser = $usuarios->getBy("correo", $MySolicitud[0]->mail_user);
+                    if($MyUser){ //encontramos al usuario
+                        $usuarios->setCorreo($MySolicitud[0]->new_mail);
+                        $usuarios->updateBy("usuario", $MyUser[0]->usuario);
+                        goRedirect("Index", "index");
+                    }else{ //no existe el usuario
+                        $this->auditar("[1410] No se reconoce el código proporcionado para registro");
+                        $this->view("_header_login", array());
+                        $this->view("_errores", array("errorCODE" => "1410", "errorMSAG" => LNG_ERRORES_0001));
+                        $this->view("_footer_login", array());
+                    }
+                }else{ //Fuera de las 12 horas de tolerancia
+                    $this->auditar("[1411] El tiempo de validéz de ".$MySolicitud[0]->mail_user." para la solicitud ".$_GET["hash"]." se encuentra agotado");
+                    $this->view("_header_login", array());
+                    $this->view("_errores", array("errorCODE" => "1411", "errorMSAG" => LNG_ERRORES_0002));
+                    $this->view("_footer_login", array());
+                }
+            }else{ //La solicitud no existe
+                $this->auditar("[1410] No se reconoce el código proporcionado para registro");
+                $this->view("_header_login", array());
+                $this->view("_errores", array("errorCODE" => "1410", "errorMSAG" => LNG_ERRORES_0001));
+                $this->view("_footer_login", array());
+            }
+        }else{ //hash no existe
+            $this->auditar("[1410] No se reconoce el código proporcionado para registro");
+            $this->view("_header_login", array());
+            $this->view("_errores", array("errorCODE" => "1410", "errorMSAG" => LNG_ERRORES_0001));
+            $this->view("_footer_login", array());
+        }
+
+    }
+    /** ****************************************************** **/
+    public function remove_mconn(){
+        chkSesion();
+        if(isset($_SESSION["usuario"])){
+            remove_user_conections($_SESSION["usuario"]["usuario"]);
+        }
+        $this->logedout();
+
+    }
+
+
+    /**
+     * CONTROL DE INTERFACES PARA EL USUARIO (Carga dinamica de interfaces)
+     *  **/
+    /** ****************************************************** **/
+    public function iface_nuevo(){
+        //chkSesion();
+        //Cargando catálogo de [TIPOS DE VIALIDAD]
+        $xTipo_Vialidad = new C_tipo_vialidad($this->adapter);
+
+        $this->view("_header", array());
+        $this->view("usuarios/usuarios_nuevo", array(
+            "TipoVialidad"  => $xTipo_Vialidad->getAll()
+        ));
+        $this->view("_footer", array());
+
+    }
+    /** ****************************************************** **/
+    public function iface_registrar(){
+        //chkSesion();
+        $this->view("_header_login", array());
+        $this->view("usuarios/usuarios_registrar", array());
+        $this->view("_footer_login", array());
+
+    }
+    /** ****************************************************** **/
+    public function iface_chkmail(){
+        //chkSesion();
+        $this->view("_header_login", array());
+        $this->view("usuarios/usuarios_checkmail", array());
+        $this->view("_footer_login", array());
+
+    }
+    /** ****************************************************** **/
+    public function iface_recovery(){
+        //chkSesion();
+        $this->view("_header_login", array());
+        $this->view("usuarios/usuarios_recovery", array());
+        $this->view("_footer_login", array());
+
+    }
+    /** ****************************************************** **/
+    public function iface_perfil(){
+        chkSesion();
+        $this->view("_header_app", array());
+        $this->view("usuarios/usuarios_conf_cuenta", array());
+        $this->view("_footer_app", array());
+
+    }
+    /** ****************************************************** **/
+    public function iface_notificaciones(){
+        chkSesion();
+        $this->view("_header_app", array());
+        $this->view("usuarios/usuarios_conf_notificaciones", array());
+        $this->view("_footer_app", array());
+
+    }
+    /** ****************************************************** **/
+    public function iface_fiscales(){
+        chkSesion();
+        $this->view("_header_app", array());
+        $this->view("usuarios/usuarios_conf_fiscales", array());
+        $this->view("_footer_app", array());
+
+    }
+    /** ****************************************************** **/
+    public function iface_direccion(){
+        chkSesion();
+        $this->view("_header_app", array());
+        $this->view("usuarios/usuarios_conf_direccion", array());
+        $this->view("_footer_app", array());
+
+    }
+    /** ****************************************************** **/
+    public function iface_expediente(){
+        chkSesion();
+        $this->view("_header_app", array());
+        $this->view("usuarios/usuarios_conf_expediente", array());
+        $this->view("_footer_app", array());
+
+    }
+    /** ****************************************************** **/
+    public function iface_imagen(){
+        chkSesion();
+        $this->view("_header_app", array());
+        $this->view("usuarios/usuarios_conf_imagen", array());
+        $this->view("_footer_app", array());
+
+    }
+    /** ****************************************************** **/
+    public function iface_planes(){
+        chkSesion();
+        $this->view("_header_app", array());
+        $this->view("usuarios/usuarios_conf_planes", array());
+        $this->view("_footer_app", array());
+
+    }
+    /** ****************************************************** **/
+    public function iface_facturas(){
+        chkSesion();
+        $this->view("_header_app", array());
+        $this->view("usuarios/usuarios_conf_facturas", array());
+        $this->view("_footer_app", array());
+
+    }
+    /** ****************************************************** **/
+    public function iface_ayuda(){
+        chkSesion();
+        $this->view("_header_app", array());
+        $this->view("usuarios/usuarios_conf_ayuda", array());
+        $this->view("_footer_app", array());
+
+    }
+    /** ****************************************************** **/
+    public function iface_comunidad(){
+        chkSesion();
+        $this->view("_header_app", array());
+        $this->view("usuarios/usuarios_conf_foros", array());
+        $this->view("_footer_app", array());
+
+    }
+    /** ****************************************************** **/
+    public function iface_mconn(){
+        chkSesion();
+        $this->view("_header_login", array());
+        $this->view("usuarios/usuarios_mconn", array());
+        $this->view("_footer_login", array());
+
+    }
+    /** ****************************************************** **/
+    public function iface_about(){
+        chkSesion();
+        $this->view("_header_app", array());
+        $this->view("usuarios/usuarios_about", array());
+        $this->view("_footer_app", array());
+
+    }
+    /** ****************************************************** **/
+
+}
+?>

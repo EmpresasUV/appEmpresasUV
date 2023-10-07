@@ -1,0 +1,14 @@
+\\DC-CONTABLE\htdocs\appEmpresasUV\SdkContPAQi\bin\Debug\SdkContPAQi.dll
+\\DC-CONTABLE\htdocs\appEmpresasUV\SdkContPAQi\bin\Debug\SdkContPAQi.pdb
+\\DC-CONTABLE\htdocs\appEmpresasUV\SdkContPAQi\bin\Debug\SdkContPAQi.tlb
+\\DC-CONTABLE\htdocs\appEmpresasUV\SdkContPAQi\obj\Debug\SdkContPAQi.csproj.AssemblyReference.cache
+\\DC-CONTABLE\htdocs\appEmpresasUV\SdkContPAQi\obj\Debug\SdkContPAQi.csproj.CoreCompileInputs.cache
+\\DC-CONTABLE\htdocs\appEmpresasUV\SdkContPAQi\obj\Debug\SdkContPAQi.dll
+\\DC-CONTABLE\htdocs\appEmpresasUV\SdkContPAQi\obj\Debug\SdkContPAQi.pdb
+C:\xampp\htdocs\appEmpresasUV\SdkContPAQi\obj\Debug\SdkContPAQi.csproj.AssemblyReference.cache
+C:\xampp\htdocs\appEmpresasUV\SdkContPAQi\obj\Debug\SdkContPAQi.dll
+C:\xampp\htdocs\appEmpresasUV\SdkContPAQi\obj\Debug\SdkContPAQi.pdb
+C:\xampp\htdocs\appEmpresasUV\SdkContPAQi\bin\Debug\SdkContPAQi.dll
+C:\xampp\htdocs\appEmpresasUV\SdkContPAQi\bin\Debug\SdkContPAQi.pdb
+C:\xampp\htdocs\appEmpresasUV\SdkContPAQi\bin\Debug\SdkContPAQi.tlb
+C:\xampp\htdocs\appEmpresasUV\SdkContPAQi\obj\Debug\SdkContPAQi.csproj.CoreCompileInputs.cache

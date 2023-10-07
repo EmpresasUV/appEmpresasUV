@@ -1,0 +1,120 @@
+<?php
+/**
+ * @autor Rixio Danilo Iguarán Chourio.
+ * @cédula-profesional 12196442
+ * @correo-eletrónico atencion.clientes@obringolfo.com
+ * @denominacion OBRAS INFORMÁTICAS DEL GOLFO
+ * @empresa OBRINGOLFO S.A.S. DE C.V.
+ * @proyecto  goPAC.
+ * @copyright 2021
+ */
+
+    define('LNG_SEGURIDAD_0001', 'Sistema administrativo.');
+    define('LNG_SEGURIDAD_0002', 'Correo electrónico | Nombre de usuario');
+    define('LNG_SEGURIDAD_0003', 'Contraseña');
+    define('LNG_SEGURIDAD_0004', 'Acceder');
+    define('LNG_SEGURIDAD_0005', 'Crea una cuenta');
+    define('LNG_SEGURIDAD_0006', '¿Recuperación de acceso?');
+    define('LNG_SEGURIDAD_0007', 'Correo electrónico');
+    define('LNG_SEGURIDAD_0008', 'Cancelar');
+    define('LNG_SEGURIDAD_0009', 'Seguridad del sistema');
+    define('LNG_SEGURIDAD_0010', 'Se ha enviado un mensaje a su cuenta de correo.<br>Siga las instrucciones descritas en éste.');
+    define('LNG_SEGURIDAD_0011', 'Error en la  validación de acceso.<br>Compruebe sus credenciales de acceso.');
+    define('LNG_SEGURIDAD_0012', '¡Por favor, accede a tu cuenta e inicia la aventura!');
+    define('LNG_SEGURIDAD_0013', '¿Nuevo en nuestra plataforma?');
+    define('LNG_SEGURIDAD_0014', 'Recordarme en éste dispositivo');
+    define('LNG_SEGURIDAD_0015', 'Escriba su nombre de usuario');
+    define('LNG_SEGURIDAD_0016', 'Escriba su contraseña');
+    define('LNG_SEGURIDAD_0017', ' Ó ');
+    define('LNG_SEGURIDAD_0018', 'Usar Github');
+    define('LNG_SEGURIDAD_0019', 'Usar Twitter');
+    define('LNG_SEGURIDAD_0020', 'Mostrar/Ocultar contraseña');
+    define('LNG_SEGURIDAD_0021', '<p>Un nombre de usuario es un nombre que identifica de manera exclusiva a nuestros usuarios autorizados dentro del sistema.</p>');
+    define('LNG_SEGURIDAD_0022', '<p>Es una clave que brinda acceso al sistema, sin dicho código, resulta inaccesible para el usuario. Se trata de un método de autentificación que apela a los datos secretos necesarios para superar una barrera de seguridad.</p>');
+    //Recuperación de credenciales
+    define('LNG_SEGURIDAD_0023', '¿Se te olvidó tu contraseña?');
+    define('LNG_SEGURIDAD_0024', 'Ingrese su dirección de correo electrónico, su contraseña se restablecerá y se le enviará por correo electrónico');
+    define('LNG_SEGURIDAD_0025', 'Dirección de correo electrónico');
+    define('LNG_SEGURIDAD_0026', 'Ingrese su dirección de correo electrónico');
+    define('LNG_SEGURIDAD_0027', 'Enviarme una nueva contraseña');
+    define('LNG_SEGURIDAD_0028', 'Olvídalo');
+    define('LNG_SEGURIDAD_0029', 'regresame');
+    define('LNG_SEGURIDAD_0030', 'a la pantalla de inicio de sesión');
+    //Multiples dispositivos conectados
+    define('LNG_SEGURIDAD_0031', 'Conexión en multiples dispositivos');
+    define('LNG_SEGURIDAD_0032', 'Nuestro sistema ha detectado que te encuentras conectado en diferentes dispositivos o que has dejado algunas sesiones abiertas en accesos anteriores');
+    define('LNG_SEGURIDAD_0033', 'Cerraremos todas las conexiones abiertas');
+    define('LNG_SEGURIDAD_0034', 'Así mejoramos el rendimiento de tu conexión');
+    define('LNG_SEGURIDAD_0035', 'Verificaremos los lugares');
+    define('LNG_SEGURIDAD_0036', 'Para descartar algún riesgo o plagio');
+    define('LNG_SEGURIDAD_0037', 'Analizaremos los registros de acceso');
+    define('LNG_SEGURIDAD_0038', 'Para comprobar que no se trata de algún error');
+    define('LNG_SEGURIDAD_0039', '¡Entiendo!, continuar');
+    //Registro de nueva cuenta
+    define('LNG_SEGURIDAD_0040', 'Generemos una nueva cuenta para tí');
+    define('LNG_SEGURIDAD_0041', 'Es necesario que nos digas cual será la cuenta de correo que usarás para tu registro; recuerda que nuestro sistema la validará y confirmará');
+    define('LNG_SEGURIDAD_0042', 'Iniciar el registro');
+    define('LNG_SEGURIDAD_0043', 'Revisa tu cuenta de correo');
+    define('LNG_SEGURIDAD_0044', 'Le enviamos un enlace mágico a');
+    define('LNG_SEGURIDAD_0045', 'Haga clic en el enlace para confirmar y continuar con el proceso');
+    define('LNG_SEGURIDAD_0046', '¿No llega? Por favor revise la carpeta de correo no deseado');
+    define('LNG_SEGURIDAD_0047', '¿Correo incorrecto? Por favor');
+    define('LNG_SEGURIDAD_0048', 'vuelve a introducir tu dirección');
+    define('LNG_SEGURIDAD_0049', 'Las contraseñas no son idénticas, verifique por favor');
+
+    define('LNG_SEGURIDAD_0050', 'No podemos registrarte varias veces');
+    define('LNG_SEGURIDAD_0051', 'Hemos detectado que tu cuenta de correo electrónico');
+    define('LNG_SEGURIDAD_0052', 'ya se encuentra registrada');
+    define('LNG_SEGURIDAD_0053', 'Si eres el propietario de esta cuenta de correo, te invitamos');
+    define('LNG_SEGURIDAD_0054', 'a iniciar el proceso de recuperación de las credenciales de acceso');
+    define('LNG_SEGURIDAD_0055', 'Debes de tener un usuario activo para usar esta aplicación');
+    define('LNG_SEGURIDAD_0056', 'Los datos proporcionados no son los correctos para este proceso');
+    define('LNG_SEGURIDAD_0057', 'Se generaron algunos errores en el proceso');
+    define('LNG_SEGURIDAD_0058', 'No hemos podido encontrar tu cuenta');
+    define('LNG_SEGURIDAD_0059', 'Parece que aún no te has registrado dentro del sistema');
+
+    define('LNG_SEGURIDAD_0060', 'no encontrado');
+    define('LNG_SEGURIDAD_0061', 'a registrarte como usuario de nuestra plataforma');
+    define('LNG_SEGURIDAD_0062', 'Confirma la contraseña');
+    define('LNG_SEGURIDAD_0063', 'Cambiar la contraseña');
+    define('LNG_SEGURIDAD_0064', 'Las contraseñas introducidas no son iguales');
+    define('LNG_SEGURIDAD_0065', 'Eliminar avatar');
+    define('LNG_SEGURIDAD_0066', '¿Seguro que deseas eliminar tu imagen de perfil?');
+    define('LNG_SEGURIDAD_0067', 'Datos del usuario');
+    define('LNG_SEGURIDAD_0068', 'Plan de servicios');
+    define('LNG_SEGURIDAD_0069', 'Datos empresariales');
+
+    define('LNG_SEGURIDAD_0070', 'Ubicación');
+    define('LNG_SEGURIDAD_0071', 'Documentación');
+    define('LNG_SEGURIDAD_0072', 'Configuremos tus datos generales');
+    define('LNG_SEGURIDAD_0073', 'Selecciona tu plan de servicios');
+    define('LNG_SEGURIDAD_0074', 'Sube los documentos de tu expediente electrónico');
+    define('LNG_SEGURIDAD_0075', 'No lo compatiremos con ningún otro usuario');
+    define('LNG_SEGURIDAD_0076', 'Asigna la seguridad');
+    define('LNG_SEGURIDAD_0077', 'Confirmación');
+    define('LNG_SEGURIDAD_0078', 'Tú perfil empresarial');
+    define('LNG_SEGURIDAD_0079', 'Unidad de valuación');
+
+    define('LNG_SEGURIDAD_0080', 'Inmobiliaria');
+    define('LNG_SEGURIDAD_0081', 'Valuador profesional');
+    define('LNG_SEGURIDAD_0082', 'Asesor inmobiliario');
+    define('LNG_SEGURIDAD_0083', 'Usuario invitado');
+    define('LNG_SEGURIDAD_0084', 'Fotografía de perfil');
+    define('LNG_SEGURIDAD_0085', 'Cédula profesional');
+    define('LNG_SEGURIDAD_0086', '<strong>Unidad de valuación</strong>: Perfil en el cual se asignan múltiples usuarios con jerarquía en la especialización de avalúos inmobiliarios.<br><br><strong>Inmobiliaria</strong>: Perfil en el cual se asignan múltiples usuarios con jerarquía en la especialización de gestión y tratamiento inmobiliario. <br><br><strong>Valuador profesional</strong>: Perfil individual, que tiene como objetivo principal el desarrollo continuo de avalúos inmobiliarios. <br><br><strong>Asesor inmobiliario</strong>: Perfil individual, que gestiona y auxilia dentro del proceso de avalúos. <br><br><strong>Usuario invitado</strong>: Perfil individual y especial, que se usa para otros aspectos del proceso de avalúo no considerados.');
+    define('LNG_SEGURIDAD_0087', '');
+    define('LNG_SEGURIDAD_0088', '');
+    define('LNG_SEGURIDAD_0089', '');
+
+    define('LNG_SEGURIDAD_0090', '');
+    define('LNG_SEGURIDAD_0091', '');
+    define('LNG_SEGURIDAD_0092', '');
+    define('LNG_SEGURIDAD_0093', '');
+    define('LNG_SEGURIDAD_0094', '');
+    define('LNG_SEGURIDAD_0095', '');
+    define('LNG_SEGURIDAD_0096', '');
+    define('LNG_SEGURIDAD_0097', '');
+    define('LNG_SEGURIDAD_0098', '');
+    define('LNG_SEGURIDAD_0099', '');
+
+?>

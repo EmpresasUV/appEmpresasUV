@@ -1,0 +1,263 @@
+<?php
+/**
+ * @autor Rixio Danilo Iguarán Chourio.
+ * @cédula-profesional 12196442
+ * @correo-eletrónico atencion.clientes@obringolfo.com
+ * @denominacion OBRAS INFORMÁTICAS DEL GOLFO
+ * @empresa OBRINGOLFO S.A.S. DE C.V.
+ * @proyecto  goPAC.
+ * @copyright 2021
+ */
+
+
+?>
+<!-- Download SVG icon from http://tabler-icons.io/i/home -->
+<script src="<?php echo PATH_JS; ?>/go_master.js"></script>
+<!-- ## ********************************************* ## -->
+    <body  class=" d-flex flex-column">
+        <div class="page-body">
+            <div class="container container-xl">
+                <div class="text-center mb-4">
+                    <img src="<?php echo PATH_IMAGENES; ?>/logo_login.gif" height="100" alt="">
+                </div>
+                <div class="row row-cards">
+                    <div class="col-lg-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <ul class="steps steps-counter steps-vertical">
+                                    <li class="step-item"><?= LNG_SEGURIDAD_0067 ?></li>
+                                    <li class="step-item"><?= LNG_SEGURIDAD_0068 ?></li>
+                                    <li class="step-item"><?= LNG_SEGURIDAD_0069 ?></li>
+                                    <li class="step-item active"><?= LNG_SEGURIDAD_0070 ?></li>
+                                    <li class="step-item"><?= LNG_SEGURIDAD_0071 ?></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-9">
+                        <form id="FrmDATAREG04" name="FrmDATAREG04" class="card" method="post" autocomplete="off">
+                            <input id="step" name="step" type="hidden" value="4" />
+                            <input id="txt_MAIL" name="txt_MAIL" type="hidden" value="<?php echo $txt_MAIL; ?>" />
+                            <input id="txt_UID" name="txt_UID" type="hidden" value="<?php echo $txt_UID; ?>"/>
+                            <input id="txt_DIR-COLONIA" name="txt_DIR-COLONIA" type="hidden" value="" />
+                            <div class="card-header">
+                                <h3 class="card-title"><?= LNG_NUCLEO_0107 ?></h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="mb-3 row">
+                                    <label class="col-2 col-form-label required"><?= LNG_NUCLEO_0108 ?></label>
+                                    <div class="col-2">
+                                        <input
+                                            id="txt_CP" name="txt_CP"
+                                            type="text"
+                                            patron="cp"
+                                            class="form-control"
+                                            aria-describedby="emailHelp"
+                                            placeholder="<?= LNG_NUCLEO_0108 ?>"
+                                            onkeyup="chk_valid(this); get_cp();" onfocus="chk_valid(this);" onchange="chk_valid(this); get_cp();"
+                                        >
+                                        <small class="form-hint"><?= LNG_NUCLEO_0108 ?>.</small>
+                                    </div>
+
+                                    <label class="col-2 col-form-label required"><?= LNG_NUCLEO_0109 ?></label>
+                                    <div class="col-6">
+                                        <select
+                                            id="txt_COLONIA"
+                                            name="txt_COLONIA"
+                                            class="form-select"
+                                            onkeyup="chk_valid(this);" onfocus="chk_valid(this);" onchange="chk_valid(this); set_coldatas();"  onclick="chk_valid(this); set_coldatas();"
+                                        >
+                                            <option selected="selected" value="0"><?= LNG_NUCLEO_0110 ?></option>
+                                        </select>
+                                        <small class="form-hint"><?= LNG_NUCLEO_0111 ?>.</small>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3 row">
+                                    <label class="col-2 col-form-label"><?= LNG_NUCLEO_0112 ?></label>
+                                    <div class="col">
+                                        <input
+                                            id="txt_DIR-CIUDAD" name="txt_DIR-CIUDAD"
+                                            type="text"
+                                            class="form-control"
+                                            patron="nombres"
+                                            aria-describedby="emailHelp"
+                                            placeholder="<?= LNG_NUCLEO_0112 ?>"
+                                            onkeyup="chk_valid(this);" onfocus="chk_valid(this);" onchange="chk_valid(this);"
+                                        >
+                                        <small class="form-hint"><?= LNG_NUCLEO_0113 ?>.</small>
+                                    </div>
+                                    <label class="col-2 col-form-label"><?= LNG_NUCLEO_0114 ?></label>
+                                    <div class="col">
+                                        <input
+                                            id="txt_DIR-MUNICIPIO" name="txt_DIR-MUNICIPIO"
+                                            type="text"
+                                            class="form-control"
+                                            aria-describedby="emailHelp"
+                                            placeholder="<?= LNG_NUCLEO_0114 ?>"
+                                            onkeyup="chk_valid(this);" onfocus="chk_valid(this);" onchange="chk_valid(this);"
+                                        >
+                                        <small class="form-hint"><?= LNG_NUCLEO_0114 ?>.</small>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3 row">
+                                    <label class="col-2 col-form-label"><?= LNG_NUCLEO_0115 ?></label>
+                                    <div class="col">
+                                        <input
+                                            id="txt_DIR-ESTADO" name="txt_DIR-ESTADO"
+                                            type="text"
+                                            class="form-control"
+                                            patron="nombres"
+                                            aria-describedby="emailHelp"
+                                            placeholder="<?= LNG_NUCLEO_0115 ?>"
+                                            onkeyup="chk_valid(this);" onfocus="chk_valid(this);" onchange="chk_valid(this);"
+                                        >
+                                        <small class="form-hint"><?= LNG_NUCLEO_0116 ?>.</small>
+                                    </div>
+                                    <label class="col-2 col-form-label"><?= LNG_NUCLEO_0117 ?></label>
+                                    <div class="col">
+                                        <input
+                                            id="txt_DIR-PAIS" name="txt_DIR-PAIS"
+                                            type="text"
+                                            class="form-control"
+                                            patron="nombres"
+                                            aria-describedby="emailHelp"
+                                            placeholder="<?= LNG_NUCLEO_0117 ?>"
+                                            onkeyup="chk_valid(this);" onfocus="chk_valid(this);" onchange="chk_valid(this);"
+                                        >
+                                        <small class="form-hint"><?= LNG_NUCLEO_0117 ?>.</small>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3 row">
+                                    <label class="col-2 col-form-label required"><?= LNG_NUCLEO_0118 ?></label>
+                                    <div class="col-3">
+                                        <select
+                                            id="txt_DIR-TIPOVIAL" name="txt_DIR-TIPOVIAL"
+                                            class="form-select"
+                                            onkeyup="chk_valid(this);" onfocus="chk_valid(this);" onchange="chk_valid(this);"
+                                        >
+                                            <?php
+                                                $get_TipoVial = new C_tipo_vialidad($this->adapter);
+                                                $MyTipoVial = $get_TipoVial->getAll();
+                                                if($MyTipoVial){
+                                                    foreach($MyTipoVial as $TipoVial){
+                                                        echo '<option value="'.$TipoVial->id.'">'.$TipoVial->tipo.'</option>';
+                                                    }
+                                                }
+                                            ?>
+                                        </select>
+                                        <small class="form-hint"><?= LNG_NUCLEO_0119 ?>.</small>
+                                    </div>
+                                    <label class="col-2 col-form-label"><?= LNG_NUCLEO_0120 ?></label>
+                                    <div class="col-5">
+                                        <input
+                                            id="txt_DIR-NOMBREVIAL" name="txt_DIR-NOMBREVIAL"
+                                            type="text"
+                                            class="form-control"
+                                            aria-describedby="emailHelp"
+                                            placeholder="<?= LNG_NUCLEO_0120 ?>"
+                                            onkeyup="chk_valid(this);" onfocus="chk_valid(this);" onchange="chk_valid(this);"
+                                        >
+                                        <small class="form-hint"><?= LNG_NUCLEO_0120 ?>.</small>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3 row">
+                                    <label class="col-2 col-form-label"># <?= LNG_NUCLEO_0121 ?></label>
+                                    <div class="col-2">
+                                        <input
+                                            id="txt_DIR-EXT" name="txt_DIR-EXT"
+                                            type="text"
+                                            class="form-control"
+                                            patron="num_calle"
+                                            aria-describedby="emailHelp"
+                                            placeholder="<?= LNG_NUCLEO_0121 ?>"
+                                            onkeyup="chk_valid(this);" onfocus="chk_valid(this);" onchange="chk_valid(this);"
+                                        >
+                                        <small class="form-hint"><?= LNG_NUCLEO_0121 ?>.</small>
+                                    </div>
+                                    <label class="col-2 col-form-label"># <?= LNG_NUCLEO_0122 ?></label>
+                                    <div class="col-2">
+                                        <input
+                                            id="txt_DIR-INT" name="txt_DIR-INT"
+                                            type="text"
+                                            class="form-control"
+                                            patron="num_calle"
+                                            aria-describedby="emailHelp"
+                                            placeholder="<?= LNG_NUCLEO_0122 ?>"
+                                            onkeyup="chk_valid(this);" onfocus="chk_valid(this);" onchange="chk_valid(this);"
+                                        >
+                                        <small class="form-hint"><?= LNG_NUCLEO_0122 ?>.</small>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="card-footer text-end">
+                                <button id="cmdREG04" name="cmdREG04" type="button" class="btn btn-primary">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                        <path d="M12 9v-3.586a1 1 0 0 1 1.707 -.707l6.586 6.586a1 1 0 0 1 0 1.414l-6.586 6.586a1 1 0 0 1 -1.707 -.707v-3.586h-3v-6h3z"></path>
+                                        <path d="M3 9v6"></path>
+                                        <path d="M6 9v6"></path>
+                                    </svg><?php echo LNG_NUCLEO_0034; ?>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+
+<!-- ## ********************************************* ## -->
+<script type="text/javascript">
+    var ColDATAS = null;
+    //# **************************************************** #
+    $("#cmdREG04").click(function() {
+        show_progress("<?php echo LNG_NUCLEO_0015; ?>");
+        var isValid = true;
+        $('#FrmDATAREG04').find(':input').each(function() {
+            isValid = chk_valid(this);
+        });
+        if (isValid){
+            document.getElementById("FrmDATAREG04").action = "<?php echo $helper->url("Usuarios", "reg_step"); ?>";
+            document.getElementById("FrmDATAREG04").submit();
+        }else{
+            $.messager.progress('close');
+            $.messager.alert('<?php echo LNG_NUCLEO_0037; ?>','<?php echo LNG_NUCLEO_0036; ?>');
+        }
+    });
+    //# **************************************************** #
+    function get_cp(){
+        $.ajax({
+            method: "POST",
+            url: "<?php echo $helper->url("Direcciones", "get_postal"); ?>",
+            data: { cp: $("#txt_CP").val() }
+        }).done(function(response) {
+            //console.log(response);
+            var jsonRCP = read_json(response);
+            if(jsonRCP.error == 0){
+                $('#txt_COLONIA').empty();
+                ColDATAS = jsonRCP.data;
+                $.each(jsonRCP.data, function( index, value ) {
+                    $('#txt_COLONIA').append('<option value="'+index+'">'+value.asentamiento+'</option>');
+                });
+            }
+        });
+    }
+    //# **************************************************** #
+    function set_coldatas(){
+        $('#txt_DIR-COLONIA').val(ColDATAS[$('#txt_COLONIA').val()].asentamiento);
+        $('#txt_DIR-CIUDAD').val(ColDATAS[$('#txt_COLONIA').val()].ciudad);
+        $('#txt_DIR-MUNICIPIO').val(ColDATAS[$('#txt_COLONIA').val()].municipio);
+        $('#txt_DIR-ESTADO').val(ColDATAS[$('#txt_COLONIA').val()].estado);
+        $('#txt_DIR-PAIS').val('México');
+    }
+    //# **************************************************** #
+    //# **************************************************** #
+    //# **************************************************** #
+</script>
+<!-- ## ********************************************* ## -->

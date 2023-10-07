@@ -1,0 +1,95 @@
+<?php
+/**
+ * @autor Rixio Danilo Iguarán Chourio.
+ * @cédula-profesional 12196442
+ * @correo-eletrónico atencion.clientes@obringolfo.com
+ * @denominacion OBRAS INFORMÁTICAS DEL GOLFO
+ * @empresa OBRINGOLFO S.A.S. DE C.V.
+ * @proyecto  goPAC.
+ * @copyright 2021
+ */
+
+
+class IndexControlador extends ControladorBase{
+    public $conector;
+    public $adaptador;
+    /** ****************************************************** **/
+    public function __construct() {
+        try {
+
+            parent::__construct();
+            $this->conector = new Conectar();
+            $this->adaptador  = $this->conector->conexion();
+
+        } catch (Exception $e) {
+            mostrar_error($e);
+        }
+    }
+    /** ****************************************************** **/
+    public function index(){
+        try {
+
+            if((isset($_SESSION["usuario"]["logined"])) && ($_SESSION["usuario"]["logined"] == true)){
+                goRedirect("Escritorio", "index");
+            }else{
+                //Cargamos el header del sistema
+                $this->view("_header_login", array());
+                # **************** #
+                //Cargamos la vista index
+                $this->view("index", array());
+                # **************** #
+                //Cargamos el footer del sistema
+                $this->view("_footer_login", array());
+            }
+
+        } catch (Exception $e) {
+            mostrar_error($e);
+        }
+    }
+    /** ****************************************************** **/
+    function get_sesionTIME(){
+        header('Content-Type: application/json; charset=UTF8');
+        $sEXPIRA = (SESSION_INACTIVIDAD * 60);
+        $xResponse = array();
+        if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] < $sEXPIRA)) {
+            $xResponse["restante"] = ($sEXPIRA - (time() - $_SESSION['LAST_ACTIVITY']));
+        }else{
+            $xResponse["restante"] = 0;
+        }
+        echo json_encode($xResponse);
+    }
+    /** ****************************************************** **/
+    function set_sesionTIME(){
+        header('Content-Type: application/json; charset=UTF8');
+        $xResponse = array();
+        chkSesion();
+        $xResponse["restante"] = (SESSION_INACTIVIDAD * 60);
+        echo json_encode($xResponse);
+    }
+    /** ****************************************************** **/
+    public function test(){
+
+        echo php_uname();
+
+    }
+    /** ****************************************************** **/
+
+   /**
+     * CONTROL DE INTERFACES PARA EL USUARIO (Carga dinamica de interfaces)
+     *  **/
+    /** ****************************************************** **/
+    public function iface_SESSION_EXPIRE(){
+        try {
+
+            $this->view("index_session_expire", array(null));
+
+        } catch (Exception $e) {
+            mostrar_error($e);
+        }
+    }
+    /** ****************************************************** **/
+    /** ****************************************************** **/
+    /** ****************************************************** **/
+
+}
+?>

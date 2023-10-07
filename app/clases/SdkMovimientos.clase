@@ -1,0 +1,31 @@
+<?php
+/**
+ * @autor Rixio Danilo Iguarán Chourio.
+ * @cédula-profesional 12196442
+ * @correo-eletrónico atencion.clientes@obringolfo.com
+ * @denominacion OBRAS INFORMÁTICAS DEL GOLFO
+ * @empresa OBRINGOLFO S.A.S. DE C.V.
+ * @proyecto  goPAC.
+ * @copyright 2021
+ */
+
+
+class SdkMovimientos extends ControladorBase{
+    public $conector;
+    public $adapter;
+    /** ****************************************************** **/
+    public function __construct() {
+        parent::__construct();
+        $this->conector = new Conectar();
+        $this->adapter  = $this->conector->conexion();
+
+    }
+   /** ****************************************************** **/
+    public function index(){
+        goRedirect("Escritorio", "index");
+    }
+    /** ****************************************************** **/
+
+
+
+}

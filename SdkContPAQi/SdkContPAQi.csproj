@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AF93518A-2C1E-48BF-BD24-0A8B27066246}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SdkContPAQi</RootNamespace>
+    <AssemblyName>SdkContPAQi</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RegisterForComInterop>true</RegisterForComInterop>
+    <PlatformTarget>x86</PlatformTarget>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>SdkContPAQi.pfx</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>favicon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Comercial.cs" />
+    <Compile Include="Constantes\AdminpaqSdkConstants.cs" />
+    <Compile Include="Constantes\ComercialSdkConstants.cs" />
+    <Compile Include="Constantes\ExtensionesPlantillaPdfSdk.cs" />
+    <Compile Include="Constantes\FacturaElectronicaSdkConstants.cs" />
+    <Compile Include="Constantes\FormatosFechaSdk.cs" />
+    <Compile Include="Constantes\LicenseInfoSdk.cs" />
+    <Compile Include="Constantes\LlavesRegistroWindowsSdk.cs" />
+    <Compile Include="Constantes\NombresPaqSdk.cs" />
+    <Compile Include="Constantes\SdkConstantes.cs" />
+    <Compile Include="Constantes\SdkErrorConstants.cs" />
+    <Compile Include="Constantes\SdkResultConstants.cs" />
+    <Compile Include="DatosAbstractos\tCaracteristicas.cs" />
+    <Compile Include="DatosAbstractos\tCteProv.cs" />
+    <Compile Include="DatosAbstractos\tDireccion.cs" />
+    <Compile Include="DatosAbstractos\tDocumento.cs" />
+    <Compile Include="DatosAbstractos\tLlaveAper.cs" />
+    <Compile Include="DatosAbstractos\tLlaveDoc.cs" />
+    <Compile Include="DatosAbstractos\tMovimiento.cs" />
+    <Compile Include="DatosAbstractos\tMovimientoDesc.cs" />
+    <Compile Include="DatosAbstractos\tProducto.cs" />
+    <Compile Include="DatosAbstractos\tSeriesCapas.cs" />
+    <Compile Include="DatosAbstractos\tTipoProducto.cs" />
+    <Compile Include="DatosAbstractos\tUnidad.cs" />
+    <Compile Include="DatosAbstractos\tValorClasificacion.cs" />
+    <Compile Include="Dtos\AgenteDto.cs" />
+    <Compile Include="Dtos\AlmacenDto.cs" />
+    <Compile Include="Dtos\ClienteProveedorDto.cs" />
+    <Compile Include="Dtos\ConceptoDocumentoDto.cs" />
+    <Compile Include="Dtos\DireccionDto.cs" />
+    <Compile Include="Dtos\DocumentoDto.cs" />
+    <Compile Include="Dtos\DocumentoModeloDto.cs" />
+    <Compile Include="Dtos\EmpresaDto.cs" />
+    <Compile Include="Dtos\FolioDigitalDto.cs" />
+    <Compile Include="Dtos\MonedaDto.cs" />
+    <Compile Include="Dtos\MovimientoDto.cs" />
+    <Compile Include="Dtos\ParametrosDto.cs" />
+    <Compile Include="Dtos\ProductoDto.cs" />
+    <Compile Include="Dtos\UnidadMedidaDto.cs" />
+    <Compile Include="Excepciones\ContpaqiSdkException.cs" />
+    <Compile Include="Excepciones\ContpaqiSdkInvalidOperationException.cs" />
+    <Compile Include="Helpers\RegistryHelper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="SdkContPAQi.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="favicon.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

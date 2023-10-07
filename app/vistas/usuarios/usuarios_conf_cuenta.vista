@@ -1,0 +1,506 @@
+<?php
+/**
+ * @autor Rixio Danilo Iguarán Chourio.
+ * @cédula-profesional 12196442
+ * @correo-eletrónico atencion.clientes@obringolfo.com
+ * @denominacion OBRAS INFORMÁTICAS DEL GOLFO
+ * @empresa OBRINGOLFO S.A.S. DE C.V.
+ * @proyecto  goPAC.
+ * @copyright 2021
+ */
+
+    header("Expires: Tue, 01 Jan 2000 00:00:00 GMT");
+    header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
+    header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+    header("Cache-Control: post-check=0, pre-check=0", false);
+    header("Pragma: no-cache");
+    chkSesion();
+?>
+<style>
+    .drop-zone {
+        padding: 3px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        cursor: pointer;
+        color: #000;
+        border: 2px dashed #545454;
+        border-radius: 10px;
+    }
+
+    .drop-zone--over {
+        border-style: solid;
+    }
+
+    .drop-zone__input {
+        display: none;
+    }
+
+    .drop-zone__thumb {
+        width: 100%;
+        height: 100%;
+        border-radius: 5px;
+        overflow: hidden;
+        background-color: #cccccc;
+        background-size: cover;
+        background-position: center;
+        position: relative;
+    }
+
+    .drop-zone__thumb::after {
+        content: attr(data-label);
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 5px 0;
+        color: #ffffff;
+        background: rgba(0, 0, 0, 0.75);
+        font-size: 10px;
+        text-align: center;
+    }
+
+    .drop-zone__prompt{
+        font-size: 10px;
+    }
+</style>
+
+<script src="<?php echo PATH_JS; ?>/go_master.js"></script>
+<script src="<?php echo PATH_JS; ?>/dropzone/dropzone-min.js?1669759017"></script>
+<!-- ## ********************************************* ## -->
+    <div class="page-header d-print-none">
+        <div class="container-xl">
+            <div class="row g-2 align-items-center">
+                <div class="col">
+                    <h2 class="page-title">
+                        <?php echo LNG_NUCLEO_0050; ?>
+                    </h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Page body -->
+    <div class="page-body">
+        <div class="container-xl">
+            <div class="card">
+                <div class="row g-0">
+                    <div class="col-3 d-none d-md-block border-end">
+                        <div class="card-body">
+                            <h4 class="subheader"><?php echo LNG_NUCLEO_0043; ?> ( <?php echo $_SESSION["usuario"]['usuario'] ?> )</h4>
+                            <div class="list-group list-group-transparent">
+                                <a href="<?= $helper->url("Usuarios", "iface_perfil"); ?>" class="list-group-item list-group-item-action d-flex align-items-center active">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler me-2" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                        <path d="M9 7m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path>
+                                        <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path>
+                                        <path d="M16 11l2 2l4 -4"></path>
+                                    </svg>
+                                    <?php echo LNG_NUCLEO_0060; ?>
+                                </a>
+                                <a href="<?= $helper->url("Usuarios", "iface_notificaciones"); ?>" class="list-group-item list-group-item-action d-flex align-items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler me-2" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                        <path d="M10 5a2 2 0 0 1 4 0a7 7 0 0 1 4 6v3a4 4 0 0 0 2 3h-16a4 4 0 0 0 2 -3v-3a7 7 0 0 1 4 -6"></path>
+                                        <path d="M9 17v1a3 3 0 0 0 6 0v-1"></path>
+                                        <path d="M21 6.727a11.05 11.05 0 0 0 -2.794 -3.727"></path>
+                                        <path d="M3 6.727a11.05 11.05 0 0 1 2.792 -3.727"></path>
+                                    </svg>
+                                    <?php echo LNG_NUCLEO_0061; ?>
+                                </a>
+                            </div>
+                            <h4 class="subheader mt-4"><?php echo LNG_NUCLEO_0042; ?></h4>
+                            <div class="list-group list-group-transparent">
+                                <a href="<?= $helper->url("Usuarios", "iface_fiscales"); ?>" class="list-group-item list-group-item-action d-flex align-items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler me-2" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                        <path d="M14 3v4a1 1 0 0 0 1 1h4"></path>
+                                        <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z"></path>
+                                        <path d="M14 11h-2.5a1.5 1.5 0 0 0 0 3h1a1.5 1.5 0 0 1 0 3h-2.5"></path>
+                                        <path d="M12 17v1m0 -8v1"></path>
+                                    </svg>
+                                    <?php echo LNG_NUCLEO_0066; ?>
+                                </a>
+                                <a href="<?= $helper->url("Usuarios", "iface_direccion"); ?>" class="list-group-item list-group-item-action d-flex align-items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler me-2" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                        <path d="M20.085 11.085l-8.085 -8.085l-9 9h2v7a2 2 0 0 0 2 2h4.5"></path>
+                                        <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 1.807 1.143"></path>
+                                        <path d="M21 21m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"></path>
+                                        <path d="M21 16m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"></path>
+                                        <path d="M16 19m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"></path>
+                                        <path d="M21 16l-5 3l5 2"></path>
+                                    </svg>
+                                    <?php echo LNG_NUCLEO_0067; ?>
+                                </a>
+                                <a href="<?= $helper->url("Usuarios", "iface_expediente"); ?>" class="list-group-item list-group-item-action d-flex align-items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler me-2" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                        <path d="M3 4m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z"></path>
+                                        <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10"></path>
+                                        <path d="M10 12l4 0"></path>
+                                    </svg>
+                                    <?php echo LNG_NUCLEO_0068; ?>
+                                </a>
+                                <a href="<?= $helper->url("Usuarios", "iface_imagen"); ?>" class="list-group-item list-group-item-action d-flex align-items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler me-2" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                        <path d="M15 8h.01"></path>
+                                        <path d="M11 20h-4a3 3 0 0 1 -3 -3v-10a3 3 0 0 1 3 -3h10a3 3 0 0 1 3 3v3.5"></path>
+                                        <path d="M4 15l4 -4c.928 -.893 2.072 -.893 3 0l2 2"></path>
+                                        <path d="M17.8 20.817l-2.172 1.138a.392 .392 0 0 1 -.568 -.41l.415 -2.411l-1.757 -1.707a.389 .389 0 0 1 .217 -.665l2.428 -.352l1.086 -2.193a.392 .392 0 0 1 .702 0l1.086 2.193l2.428 .352a.39 .39 0 0 1 .217 .665l-1.757 1.707l.414 2.41a.39 .39 0 0 1 -.567 .411l-2.172 -1.138z"></path>
+                                    </svg>
+                                    <?php echo LNG_NUCLEO_0089; ?>
+                                </a>
+                            </div>
+                            <h4 class="subheader mt-4"><?php echo LNG_NUCLEO_0044; ?></h4>
+                            <div class="list-group list-group-transparent">
+                                <a href="<?= $helper->url("Usuarios", "iface_planes"); ?>" class="list-group-item list-group-item-action d-flex align-items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler me-2" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                        <path d="M5 7.2a2.2 2.2 0 0 1 2.2 -2.2h1a2.2 2.2 0 0 0 1.55 -.64l.7 -.7a2.2 2.2 0 0 1 3.12 0l.7 .7c.412 .41 .97 .64 1.55 .64h1a2.2 2.2 0 0 1 2.2 2.2v1c0 .58 .23 1.138 .64 1.55l.7 .7a2.2 2.2 0 0 1 0 3.12l-.7 .7a2.2 2.2 0 0 0 -.64 1.55v1a2.2 2.2 0 0 1 -2.2 2.2h-1a2.2 2.2 0 0 0 -1.55 .64l-.7 .7a2.2 2.2 0 0 1 -3.12 0l-.7 -.7a2.2 2.2 0 0 0 -1.55 -.64h-1a2.2 2.2 0 0 1 -2.2 -2.2v-1a2.2 2.2 0 0 0 -.64 -1.55l-.7 -.7a2.2 2.2 0 0 1 0 -3.12l.7 -.7a2.2 2.2 0 0 0 .64 -1.55v-1"></path>
+                                        <path d="M9 12l2 2l4 -4"></path>
+                                    </svg>
+                                    <?php echo LNG_NUCLEO_0062; ?>
+                                </a>
+                                <a href="<?= $helper->url("Usuarios", "iface_facturas"); ?>" class="list-group-item list-group-item-action d-flex align-items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler me-2" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                        <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path>
+                                        <path d="M14.8 9a2 2 0 0 0 -1.8 -1h-2a2 2 0 1 0 0 4h2a2 2 0 1 1 0 4h-2a2 2 0 0 1 -1.8 -1"></path>
+                                        <path d="M12 7v10"></path>
+                                    </svg>
+                                    <?php echo LNG_NUCLEO_0063; ?>
+                                </a>
+                            </div>
+                            <h4 class="subheader mt-4"><?php echo LNG_NUCLEO_0045; ?></h4>
+                            <div class="list-group list-group-transparent">
+                                <a href="<?= $helper->url("Usuarios", "iface_ayuda"); ?>" class="list-group-item list-group-item-action d-flex align-items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler me-2" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                        <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path>
+                                        <path d="M12 17l0 .01"></path>
+                                        <path d="M12 13.5a1.5 1.5 0 0 1 1 -1.5a2.6 2.6 0 1 0 -3 -4"></path>
+                                    </svg>
+                                    <?php echo LNG_NUCLEO_0064; ?>
+                                </a>
+                                <a href="<?= $helper->url("Usuarios", "iface_comunidad"); ?>" class="list-group-item list-group-item-action d-flex align-items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler me-2" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                        <path d="M21 14l-3 -3h-7a1 1 0 0 1 -1 -1v-6a1 1 0 0 1 1 -1h9a1 1 0 0 1 1 1v10"></path>
+                                        <path d="M14 15v2a1 1 0 0 1 -1 1h-7l-3 3v-10a1 1 0 0 1 1 -1h2"></path>
+                                    </svg>
+                                    <?php echo LNG_NUCLEO_0065; ?>
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col d-flex flex-column">
+                        <div class="card-body">
+                            <h2 class="mb-4"><?php echo LNG_NUCLEO_0060; ?></h2>
+                            <h3 class="card-title">&#187; <?php echo LNG_NUCLEO_0069; ?> &#171;</h3>
+                            <div class="row align-items-center">
+                                <div class="col-auto"><span class="avatar avatar-xl" style="background-image: url(<?php echo PATH_EXPEDIENTES."/".$_SESSION["usuario"]["usuario"]; ?>/avatar.jpg?time=<?= time(); ?>);"></span>
+                                </div>
+                                <div class="col-auto" style="width: 160px;">
+                                    <button id="cmdCHA" class="btn btn-ghost-warning w-100" data-bs-toggle="modal" data-bs-target="#modal-avatar"><?php echo LNG_NUCLEO_0046; ?> avatar</button>
+                                    <button id="cmdDEA" class="btn btn-ghost-danger w-100"><?php echo LNG_NUCLEO_0047; ?> avatar</button>
+                                </div>
+                            </div>
+                            <div class="hr-text">&#166;</div>
+                            <h3 class="card-title mt-4">&#187; <?= LNG_NUCLEO_0070; ?> &#171;</h3>
+                                <div class="mb-3 row">
+                                    <label class="col-3 col-form-label required"><?= LNG_NUCLEO_0048; ?></label>
+                                    <div class="col-3">
+                                        <input
+                                            id="txt_USUARIO" name="txt_USUARIO"
+                                            type="text"
+                                            value="<?php echo $_SESSION["usuario"]["usuario"]; ?>"
+                                            class="form-control is-valid"
+                                            aria-describedby="emailHelp"
+                                            placeholder="Correo electrónico"
+                                            readonly
+                                        >
+                                        <small class="form-hint"><?= LNG_NUCLEO_0049; ?>.</small>
+                                    </div>
+                                    <div class="col">
+                                        <input
+                                            id="txt_MAIL" name="txt_MAIL"
+                                            type="email"
+                                            value="<?php echo $_SESSION["usuario"]["correo"]; ?>"
+                                            class="form-control is-valid"
+                                            aria-describedby="emailHelp"
+                                            placeholder="Correo electrónico"
+                                            readonly
+                                        >
+                                        <small class="form-hint"><?= LNG_NUCLEO_0058; ?>.</small>
+                                    </div>
+                                    <div class="col-6 col-sm-4 col-md-2 col-xl-auto">
+                                        <button href="#" class="btn btn-rss w-100 btn-icon" data-bs-toggle="modal" data-bs-target="#modal-mail" aria-label="RSS">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                                <path d="M8 2h-4a2 2 0 0 0 -2 2v4a2 2 0 0 0 2 2h4a2 2 0 0 0 2 -2v-4a2 2 0 0 0 -2 -2z" stroke-width="0" fill="currentColor"></path>
+                                                <path d="M20 14h-4a2 2 0 0 0 -2 2v4a2 2 0 0 0 2 2h4a2 2 0 0 0 2 -2v-4a2 2 0 0 0 -2 -2z" stroke-width="0" fill="currentColor"></path>
+                                                <path d="M16.707 2.293a1 1 0 0 1 .083 1.32l-.083 .094l-1.293 1.293h3.586a3 3 0 0 1 2.995 2.824l.005 .176v3a1 1 0 0 1 -1.993 .117l-.007 -.117v-3a1 1 0 0 0 -.883 -.993l-.117 -.007h-3.585l1.292 1.293a1 1 0 0 1 -1.32 1.497l-.094 -.083l-3 -3a.98 .98 0 0 1 -.28 -.872l.036 -.146l.04 -.104c.058 -.126 .14 -.24 .245 -.334l2.959 -2.958a1 1 0 0 1 1.414 0z" stroke-width="0" fill="currentColor"></path>
+                                                <path d="M3 12a1 1 0 0 1 .993 .883l.007 .117v3a1 1 0 0 0 .883 .993l.117 .007h3.585l-1.292 -1.293a1 1 0 0 1 -.083 -1.32l.083 -.094a1 1 0 0 1 1.32 -.083l.094 .083l3 3a.98 .98 0 0 1 .28 .872l-.036 .146l-.04 .104a1.02 1.02 0 0 1 -.245 .334l-2.959 2.958a1 1 0 0 1 -1.497 -1.32l.083 -.094l1.291 -1.293h-3.584a3 3 0 0 1 -2.995 -2.824l-.005 -.176v-3a1 1 0 0 1 1 -1z" stroke-width="0" fill="currentColor"></path>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="mb-3 row">
+                                    <label class="col-3 col-form-label required"><?= LNG_NUCLEO_0059; ?></label>
+                                    <div class="col">
+                                        <input
+                                            id="txt_NOMBRE" name="txt_NOMBRE"
+                                            type="text"
+                                            patron="nombres"
+                                            class="form-control is-valid"
+                                            placeholder="Nombres"
+                                            onkeyup="chk_valid(this);" onfocus="chk_valid(this);" onchange="chk_valid(this);"
+                                            value="<?php echo $_SESSION["usuario"]["nombre"]; ?>"
+                                        >
+                                        <small class="form-hint"><?= LNG_NUCLEO_0073; ?>.</small>
+                                    </div>
+                                    <div class="col">
+                                        <input
+                                            id="txt_PATERNO" name="txt_PATERNO"
+                                            type="text"
+                                            patron="apellidos"
+                                            class="form-control is-valid"
+                                            placeholder="Paterno"
+                                            onkeyup="chk_valid(this);" onfocus="chk_valid(this);" onchange="chk_valid(this);"
+                                            value="<?php echo $_SESSION["usuario"]["paterno"]; ?>"
+                                        >
+                                        <small class="form-hint"><?= LNG_NUCLEO_0074; ?>.</small>
+                                    </div>
+                                    <div class="col">
+                                        <input
+                                            id="txt_MATERNO" name="txt_MATERNO"
+                                            type="text"
+                                            patron="apellidos"
+                                            class="form-control is-valid"
+                                            placeholder="Materno"
+                                            onkeyup="chk_valid(this);" onfocus="chk_valid(this);" onchange="chk_valid(this);"
+                                            value="<?php echo $_SESSION["usuario"]["materno"]; ?>"
+                                        >
+                                        <small class="form-hint"><?= LNG_NUCLEO_0075; ?>.</small>
+                                    </div>
+                                </div>
+                            <div class="hr-text">&#166;</div>
+                            <h3 class="card-title mt-4">&#187; <?= LNG_NUCLEO_0071; ?> &#171;</h3>
+                            <div>
+                                <a href="#" class="btn">
+                                    <?= LNG_NUCLEO_0076; ?>
+                                </a>
+                            </div>
+                            <div class="hr-text">&#166;</div>
+                            <h3 class="card-title mt-4">&#187; <?= LNG_NUCLEO_0072; ?> &#171;</h3>
+                            <div>
+                                <label class="form-check form-switch form-switch-lg">
+                                    <input class="form-check-input" type="checkbox" >
+                                    <span class="form-check-label form-check-label-on"><?= LNG_NUCLEO_0077; ?></span>
+                                    <span class="form-check-label form-check-label-off"><?= LNG_NUCLEO_0078; ?></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-transparent mt-auto">
+                            <div class="btn-list justify-content-end">
+                                <a href="#" class="btn btn-primary">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                        <path d="M6 4h10l4 4v10a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2"></path>
+                                        <path d="M12 14m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"></path>
+                                        <path d="M14 4l0 4l-6 0l0 -4"></path>
+                                    </svg>
+                                    <?= LNG_NUCLEO_0081; ?>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL CORREO -->
+    <div class="modal modal-blur fade" id="modal-mail" tabindex="-1" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog  modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><?= LNG_SEGURIDAD_0026; ?></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <div class="col">
+                            <form id="FrmCONFIRMATION" name="FrmCONFIRMATION" class="card card-md" method="post" autocomplete="off">
+                                <input
+                                    id="txt_MAIL" name="txt_MAIL"
+                                    type="email"
+                                    class="form-control"
+                                    aria-describedby="emailHelp"
+                                    placeholder="<?= LNG_SEGURIDAD_0026; ?>"
+                                    onkeyup="chk_valid(this);" onfocus="chk_valid(this);" onchange="chk_valid(this);"
+                                    required
+                                >
+                            </form>
+                            <small class="form-hint"><?= LNG_NUCLEO_0079; ?>.</small>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="cmdCONFIRMATION" name="cmdCONFIRMATION" class="btn btn-primary w-30" data-bs-dismiss="modal">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                            <path d="M12 18h-7a2 2 0 0 1 -2 -2v-10a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v7.5"></path>
+                            <path d="M3 6l9 6l9 -6"></path>
+                            <path d="M15 18h6"></path>
+                            <path d="M18 15l3 3l-3 3"></path>
+                        </svg>
+                        <?= LNG_NUCLEO_0086; ?>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- MODAL CORREO -->
+    <!-- MODAL AVATAR -->
+    <div class="modal modal-blur fade" id="modal-avatar" tabindex="-1" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog  modal-dialog-centered" style="width: 185px;" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Avatar</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <form id="FrmAVATAR" name="FrmAVATAR" enctype="multipart/form-data" method="post" autocomplete="off">
+                            <!-- Drop zone -->
+                            <div class="drop-zone" style="height: 170px;">
+                                <span class="drop-zone__prompt">Arrastre o click.<br>
+                                <p style="font-size: 16px; color: green;">Fotografía<br><strong>500 × 620</strong></p>(píxeles)</span>
+                                <input type="file" id="txt_IMG_PERFIL" name="txt_IMG_PERFIL" class="drop-zone__input" accept="image/*">
+                            </div>
+                            <!-- Drop zone -->
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="cmdSAVE" name="cmdSAVE" class="btn btn-primary w-100" data-bs-dismiss="modal">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                            <path d="M6 4h10l4 4v10a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2"></path>
+                            <path d="M12 14m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"></path>
+                            <path d="M14 4l0 4l-6 0l0 -4"></path>
+                        </svg>
+                        <?= LNG_NUCLEO_0081; ?>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- MODAL AVATAR -->
+
+<!-- ## ********************************************* ## -->
+<script type="text/javascript">
+    //# **************************************************** #
+    $("#cmdSAVE").click(function() {
+        show_progress("<?php echo LNG_NUCLEO_0017; ?>");
+        document.getElementById("FrmAVATAR").action = "<?php echo $helper->url("Usuarios", "change_avatar"); ?>";
+        document.getElementById("FrmAVATAR").submit();
+    });
+    //# **************************************************** #
+    $("#cmdDEA").click(function() {
+        $.messager.confirm({
+            title: '<?= LNG_SEGURIDAD_0065; ?>',
+            msg: '<?= LNG_SEGURIDAD_0066; ?>',
+            fn: function(r){
+                if (r){
+                    goRedirect("Usuarios", "delete_avatar")
+                }
+            }
+        });
+    });
+    //** ********************************************************************* **/
+    $("#cmdCONFIRMATION").click(function() {
+        show_progress("<?php echo LNG_NUCLEO_0017; ?>");
+        document.getElementById("FrmCONFIRMATION").action = "<?php echo $helper->url("Usuarios", "change_mail"); ?>";
+        document.getElementById("FrmCONFIRMATION").submit();
+    });
+    //** ********************************************************************* **/
+    document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
+        const dropZoneElement = inputElement.closest(".drop-zone");
+
+        dropZoneElement.addEventListener("click", (e) => {
+            inputElement.click();
+        });
+
+        inputElement.addEventListener("change", (e) => {
+            if(e.dataTransfer.files[0].size > 4194304){
+                $.messager.alert('Excedido','El tamaño del archivo supera los 4MB');
+            }else if (inputElement.files.length) {
+                updateThumbnail(dropZoneElement, inputElement.files[0]);
+            }
+        });
+
+        dropZoneElement.addEventListener("dragover", (e) => {
+            e.preventDefault();
+            dropZoneElement.classList.add("drop-zone--over");
+        });
+
+        ["dragleave", "dragend"].forEach((type) => {
+            dropZoneElement.addEventListener(type, (e) => {
+                dropZoneElement.classList.remove("drop-zone--over");
+            });
+        });
+
+        dropZoneElement.addEventListener("drop", (e) => {
+            e.preventDefault();
+            if(e.dataTransfer.files[0].size > 4194304){
+                $.messager.alert('Excedido','El tamaño del archivo supera los 4MB');
+            }else if (e.dataTransfer.files.length) {
+                inputElement.files = e.dataTransfer.files;
+                updateThumbnail(dropZoneElement, e.dataTransfer.files[0]);
+            }
+
+            dropZoneElement.classList.remove("drop-zone--over");
+        });
+    });
+
+    //** ********************************************************************* **/
+    function updateThumbnail(dropZoneElement, file) {
+        let thumbnailElement = dropZoneElement.querySelector(".drop-zone__thumb");
+
+        // First time - remove the prompt
+        if (dropZoneElement.querySelector(".drop-zone__prompt")) {
+            dropZoneElement.querySelector(".drop-zone__prompt").remove();
+        }
+
+        // First time - there is no thumbnail element, so lets create it
+        if (!thumbnailElement) {
+            thumbnailElement = document.createElement("div");
+            thumbnailElement.classList.add("drop-zone__thumb");
+            dropZoneElement.appendChild(thumbnailElement);
+        }
+
+        thumbnailElement.dataset.label = file.name;
+
+        // Show thumbnail for image files
+        if (file.type.startsWith("image/")) {
+            const reader = new FileReader();
+
+            reader.readAsDataURL(file);
+            reader.onload = () => {
+                thumbnailElement.style.backgroundImage = `url('${reader.result}')`;
+            };
+        } else {
+            thumbnailElement.style.backgroundImage = null;
+        }
+    }
+    //# **************************************************** #
+    //# **************************************************** #
+    //# **************************************************** #
+</script>
+<!-- ## ********************************************* ## -->

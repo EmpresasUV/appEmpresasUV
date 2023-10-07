@@ -1,0 +1,80 @@
+<?php
+/**
+ * @autor Rixio Danilo Iguarán Chourio.
+ * @cédula-profesional 12196442
+ * @correo-eletrónico atencion.clientes@obringolfo.com
+ * @denominacion OBRAS INFORMÁTICAS DEL GOLFO
+ * @empresa OBRINGOLFO S.A.S. DE C.V.
+ * @proyecto  goPAC.
+ * @copyright 2021
+ */
+
+
+?>
+
+<script src="<?php echo PATH_JS; ?>/go_master.js"></script>
+<!-- ## ********************************************* ## -->
+
+    <body  class=" d-flex flex-column">
+        <div class="page page-center">
+            <div class="container container-tight py-4">
+                <div class="text-center mb-4">
+                    <a href="." class="navbar-brand navbar-brand-autodark"><img src="<?php echo PATH_IMAGENES; ?>/logo_login.gif" height="60" alt=""></a>
+                </div>
+                <div class="card card-md">
+                    <div class="card-body">
+                        <h2 class="mb-3"><?php echo LNG_SEGURIDAD_0031; ?></h2>
+                        <p class="text-muted text-justify mb-4">
+                            <?php echo LNG_SEGURIDAD_0032; ?>
+                        </p>
+                        <ul class="list-unstyled space-y">
+                            <li class="row g-2">
+                                <span class="col-auto"><!-- Download SVG icon from http://tabler-icons.io/i/check -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon me-1 text-success" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12l5 5l10 -10" /></svg>
+                                </span>
+                                <span class="col">
+                                    <strong class="d-block"><?php echo LNG_SEGURIDAD_0033; ?></strong>
+                                    <span class="d-block text-muted"><?php echo LNG_SEGURIDAD_0034; ?>.</span>
+                                </span>
+                            </li>
+                            <li class="row g-2">
+                                <span class="col-auto"><!-- Download SVG icon from http://tabler-icons.io/i/check -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon me-1 text-success" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12l5 5l10 -10" /></svg>
+                                </span>
+                                <span class="col">
+                                    <strong class="d-block"><?php echo LNG_SEGURIDAD_0035; ?></strong>
+                                    <span class="d-block text-muted"><?php echo LNG_SEGURIDAD_0036; ?>.</span>
+                                </span>
+                            </li>
+                            <li class="row g-2">
+                                <span class="col-auto"><!-- Download SVG icon from http://tabler-icons.io/i/check -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon me-1 text-success" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12l5 5l10 -10" /></svg>
+                                </span>
+                                <span class="col">
+                                    <strong class="d-block"><?php echo LNG_SEGURIDAD_0037; ?></strong>
+                                    <span class="d-block text-muted"><?php echo LNG_SEGURIDAD_0038; ?>.</span>
+                                </span>
+                            </li>
+                        </ul>
+                        <div class="my-4">
+                            <button id="cmdCONTINUAR" name="cmdCONTINUAR" class="btn btn-primary w-100 cursor-pointer">
+                                <?php echo LNG_SEGURIDAD_0039; ?>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+
+
+<!-- ## ********************************************* ## -->
+<script type="text/javascript">
+    //# **************************************************** #
+    $("#cmdCONTINUAR").click(function() {
+        goRedirect("Usuarios", "remove_mconn");
+    });
+    //# **************************************************** #
+    //# **************************************************** #
+</script>
+<!-- ## ********************************************* ## -->

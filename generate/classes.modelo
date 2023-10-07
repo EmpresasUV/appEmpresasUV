@@ -1,0 +1,122 @@
+<?php
+/**
+ * @autor Rixio Danilo Iguarán Chourio.
+ * @cédula-profesional 12196442
+ * @correo-eletrónico atencion.clientes@obringolfo.com
+ * @denominacion OBRAS INFORMÁTICAS DEL GOLFO
+ * @empresa OBRINGOLFO S.A.S. DE C.V.
+ * @proyecto  OBRINGOLFO.
+ * @copyright 2022
+ */
+
+
+class Empresas extends EntidadBase{
+    /* ***************************************************************************
+    * Registrando las variables de la clase
+    *************************************************************************** */
+    private $uid;
+    private $db_name;
+    private $table;
+    /* ***************************************************************************
+    * Generando los metodos SET y GET para las variables
+    *************************************************************************** */
+    public function getUid(){ return $this->uid; }
+    public function setUid($uid){ $this->uid = $uid; }
+    public function getDb_name(){ return $this->db_name; }
+    public function setDb_name($db_name){ $this->db_name = $db_name; }
+
+    /* ***************************************************************************
+    * @FUNCTION constructor de clase
+    * @Param $adapter
+    * Inicializa y registra la clase dentro de la aplicación
+    *************************************************************************** */
+    public function __construct($adapter) {
+        try {
+
+            $this->table = "c_empresas";
+            parent::__construct($this->table, $adapter);
+
+        } catch (Exception $e) {
+            mostrar_error($e);
+        }
+    }
+
+    /* ***************************************************************************
+    * @FUNCTION registrar
+    * @Param NONE
+    * Registra un nuevo elemento dentro del sistema
+    *************************************************************************** */
+    public function registrar(){
+        try {
+
+            $query = "INSERT INTO c_empresas (uid, db_name)
+                      VALUES(
+                           '".$this->uid."',
+                           '".$this->db_name."'
+                      );";
+            $save = $this->db()->query($query);
+            //$this->db()->error;
+            return $save;
+
+        } catch (Exception $e) {
+            mostrar_error($e);
+        }
+    }
+
+    /* ***************************************************************************
+    * @FUNCTION eliminar
+    * @Param NONE
+    * Quita un elemento dentro del sistema
+    *************************************************************************** */
+    public function eliminar(){
+        try {
+
+            $query = "DELETE FROM c_empresas WHERE db_name='" . $this->db_name . "'";
+            $save = $this->db()->query($query);
+            //$this->db()->error;
+            return $save;
+
+        } catch (Exception $e) {
+            mostrar_error($e);
+        }
+    }
+
+    /* ***************************************************************************
+    * @FUNCTION actualizar
+    * @Param NONE
+    * Modifica un elemento dentro del sistema
+    *************************************************************************** */
+    public function actualizar($varUID){
+        try {
+            if(($this->uid      == null) &&
+               ($this->db_name  == null)){
+                $this->auditar("[Excepción][403] Actualización ejecutada sin datos.");
+                throw new Exception('[403] Actualización ejecutada sin datos.');
+            }
+
+            $Campos = Array();
+            if($this->uid != null){ //Tiene datos para actualizar
+                $Campos['uid'] = $this->uid;
+            }
+            if($this->db_name != null){ //Tiene datos para actualizar
+                $Campos['db_name'] = $this->db_name;
+            }
+
+            $qCampos = ""; //acumulador de query
+            foreach ($Campos as $Campo => $valor) {
+                $qCampos .= $Campo." = '".$valor."', ";
+            }
+            $qCampos = substr($qCampos, 0, strlen($qCampos)-2); //le quito la coma y el espacio al final
+            $query = "UPDATE c_empresas SET ".$qCampos." WHERE uid='".$varUID."';";
+
+            $save = $this->db()->query($query);
+            return $save;
+
+        } catch (Exception $e) {
+            mostrar_error($e);
+        }
+    }
+    # ********************************************************** #
+
+}
+?>

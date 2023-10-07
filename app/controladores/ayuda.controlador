@@ -1,0 +1,103 @@
+<?php
+/**
+ * @autor Rixio Danilo Iguarán Chourio.
+ * @cédula-profesional 12196442
+ * @correo-eletrónico atencion.clientes@obringolfo.com
+ * @denominacion OBRAS INFORMÁTICAS DEL GOLFO
+ * @empresa OBRINGOLFO S.A.S. DE C.V.
+ * @proyecto  goPAC.
+ * @copyright 2021
+ */
+
+
+class AyudaControlador extends ControladorBase{
+    public $conectar;
+    public $adapter;
+    /** ****************************************************** **/
+    public function __construct() {
+        try {
+
+            parent::__construct();
+            $this->conectar = new Conectar();
+            $this->adapter  = $this->conectar->conexion();
+
+        } catch (Exception $e) {
+            mostrar_error($e);
+        }
+    }
+    /** ****************************************************** **/
+    public function index(){
+        chkSesion();
+        //Cargamos la vista index y le pasamos valores
+        $this->view("index",array(
+            "allusers" => $allusers
+        ));
+    }
+    /** ****************************************************** **/
+    /**
+     * CONTROL DE INTERFACES PARA EL USUARIO (Carga dinamica de interfaces)
+     *  **/
+    /** ****************************************************** **/
+    public function iface_acerca(){
+        try { chkSesion();
+
+            $this->view("_header", null);
+            $this->view("iface_acerca", null);
+            $this->view("_footer", null);
+
+        } catch (Exception $e) {
+            mostrar_error($e);
+        }
+    }
+    /** ****************************************************** **/
+    public function iface_licenciamiento(){
+        try { chkSesion();
+
+            $this->view("_header", null);
+            $this->view("iface_licenciamiento", null);
+            $this->view("_footer", null);
+
+        } catch (Exception $e) {
+            mostrar_error($e);
+        }
+    }
+    /** ****************************************************** **/
+    public function iface_privacidad(){
+        try { chkSesion();
+
+            $this->view("_header", null);
+            $this->view("iface_privacidad", null);
+            $this->view("_footer", null);
+
+        } catch (Exception $e) {
+            mostrar_error($e);
+        }
+    }
+    /** ****************************************************** **/
+    public function iface_politicas(){
+        try { chkSesion();
+
+            $this->view("_header", null);
+            $this->view("iface_politicas", null);
+            $this->view("_footer", null);
+
+        } catch (Exception $e) {
+            mostrar_error($e);
+        }
+    }
+    /** ****************************************************** **/
+    public function iface_manuales_comprobacion(){
+        try { chkSesion();
+
+            $this->view("_header", null);
+            $this->view("iface_manuales_comprobacion", null);
+            $this->view("_footer", null);
+
+        } catch (Exception $e) {
+            mostrar_error($e);
+        }
+    }
+    /** ****************************************************** **/
+
+}
+?>

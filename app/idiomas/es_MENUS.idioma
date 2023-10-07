@@ -1,0 +1,72 @@
+<?php
+/**
+ * @autor Rixio Danilo Iguarán Chourio.
+ * @cédula-profesional 12196442
+ * @correo-eletrónico atencion.clientes@obringolfo.com
+ * @denominacion OBRAS INFORMÁTICAS DEL GOLFO
+ * @empresa OBRINGOLFO S.A.S. DE C.V.
+ * @proyecto  goPAC.
+ * @copyright 2023
+ */
+
+    /** MENU DE INICIO **/
+    define('LNG_MENU_0001', 'Inicio');
+
+    /** MENU DE AYUDA **/
+    define('LNG_MENU_0002', 'Ayuda');
+    define('LNG_MENU_0003', 'Documentación');
+    define('LNG_MENU_0004', 'Video guías');
+    define('LNG_MENU_0005', 'Soporte técnico');
+    define('LNG_MENU_0006', 'Acerca de...');
+    define('LNG_MENU_0007', 'Activar modo oscuro');
+    define('LNG_MENU_0008', 'Activar modo claro');
+    define('LNG_MENU_0009', 'Nuevo');
+    define('LNG_MENU_0010', '');
+
+    /** MENU PERFIL DEL USUARIO **/
+    define('LNG_MENU_0011', 'Perfil de usuario');
+    define('LNG_MENU_0012', 'Planes y características');
+    define('LNG_MENU_0013', 'Pagos y facturación');
+    define('LNG_MENU_0014', 'Configuraciones');
+    define('LNG_MENU_0015', 'Cerrar sesión');
+    define('LNG_MENU_0016', '');
+    define('LNG_MENU_0017', '');
+    define('LNG_MENU_0018', '');
+    define('LNG_MENU_0019', '');
+
+    /** MENU AVALÚOS **/
+    define('LNG_MENU_0020', 'Gestión de avalúos');
+    define('LNG_MENU_0021', 'Nuevo avalúo');
+    define('LNG_MENU_0022', 'Buscar un avalúo');
+    define('LNG_MENU_0023', 'Reportes de avalúos');
+    define('LNG_MENU_0024', '');
+    define('LNG_MENU_0025', '');
+    define('LNG_MENU_0026', '');
+    define('LNG_MENU_0027', '');
+    define('LNG_MENU_0028', '');
+    define('LNG_MENU_0029', '');
+
+    /** MENU INMUEBLES **/
+    define('LNG_MENU_0030', 'Manejo de inmuebles');
+    define('LNG_MENU_0031', 'Registro de inmuebles');
+    define('LNG_MENU_0032', 'Busqueda de inmuebles');
+    define('LNG_MENU_0033', 'Registro de comparable');
+    define('LNG_MENU_0034', 'Busqueda de comparables');
+    define('LNG_MENU_0035', 'No estará relacionado a ningún avalúo');
+    define('LNG_MENU_0036', 'inmuebles en tu cuenta');
+    define('LNG_MENU_0037', 'Verificado');
+    define('LNG_MENU_0038', 'Sin verificar');
+    define('LNG_MENU_0039', '');
+
+    /** MENU PAGOS Y SUSCRIPCIONES **/
+    define('LNG_MENU_0040', 'Pagos y suscripciones');
+    define('LNG_MENU_0041', 'comparables en tu cuenta');
+    define('LNG_MENU_0042', '');
+    define('LNG_MENU_0043', '');
+    define('LNG_MENU_0044', '');
+    define('LNG_MENU_0045', '');
+    define('LNG_MENU_0046', '');
+    define('LNG_MENU_0047', '');
+    define('LNG_MENU_0048', '');
+    define('LNG_MENU_0049', '');
+

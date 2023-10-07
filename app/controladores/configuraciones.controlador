@@ -1,0 +1,63 @@
+<?php
+/**
+ * @autor Rixio Danilo Iguarán Chourio.
+ * @cédula-profesional 12196442
+ * @correo-eletrónico atencion.clientes@obringolfo.com
+ * @denominacion OBRAS INFORMÁTICAS DEL GOLFO
+ * @empresa OBRINGOLFO S.A.S. DE C.V.
+ * @proyecto  goPAC.
+ * @copyright 2021
+ */
+
+
+class ConfiguracionesControlador extends ControladorBase{
+    public $conectar;
+    public $adapter;
+    public $adapter_empresa;
+
+    /** ****************************************************** **/
+    public function __construct() {
+        try {
+
+            parent::__construct();
+            $this->conectar = new Conectar();
+            $this->adapter  = $this->conectar->conexion();
+
+        } catch (Exception $e) {
+            mostrar_error($e);
+        }
+    }
+    /** ****************************************************** **/
+    public function index(){
+        try {  chkSesion();
+
+            chkSesion();
+
+        } catch (Exception $e) {
+            mostrar_error($e);
+        }
+    }
+    /** ****************************************************** **/
+    /** ****************************************************** **/
+    /** ****************************************************** **/
+    /** ****************************************************** **/
+    /** ****************************************************** **/
+    /** ****************************************************** **/
+    /** ****************************************************** **/
+    /** ****************************************************** **/
+    /** ****************************************************** **/
+    /** ****************************************************** **/
+
+    /** ****************************************************** **/
+    public function iface_opciones_generales(){
+        try {  chkSesion();
+
+            $this->view("configuraciones_opciones_generales", array(null));
+
+        } catch (Exception $e) {
+            mostrar_error($e);
+        }
+    }
+    /** ****************************************************** **/
+}
+?>

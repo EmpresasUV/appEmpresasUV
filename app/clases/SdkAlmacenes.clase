@@ -1,0 +1,215 @@
+<?php
+/**
+ * @autor Rixio Danilo Iguarán Chourio.
+ * @cédula-profesional 12196442
+ * @correo-eletrónico atencion.clientes@obringolfo.com
+ * @denominacion OBRAS INFORMÁTICAS DEL GOLFO
+ * @empresa OBRINGOLFO S.A.S. DE C.V.
+ * @proyecto  goPAC.
+ * @copyright 2021
+ */
+
+
+class SdkAlmacenes extends ControladorBase{
+    public $conector;
+    public $adapter;
+    //public $MySdk;
+
+    /** ******************************************************
+    * PROPIEDADES DEL OBJETO SDK
+    ****************************************************** **/
+    public $id;
+    public $codigo;
+    public $nombre;
+
+    /* ***************************************************************************
+    * Generando los metodos SET y GET para las PROPIEDADES
+    *************************************************************************** */
+    /* Setters y Getters para la propiedad [ Id ] */
+    public function getId(){ return $this->id; }
+    public function setId($id){ $this->id = $id; }
+    /* Setters y Getters para la propiedad [ Codigo ] */
+    public function getCodigo(){ return $this->codigo; }
+    public function setCodigo($codigo){ $this->codigo = $codigo; }
+    /* Setters y Getters para la propiedad [ Id ] */
+    public function getNombre(){ return $this->nombre; }
+    public function setNombre($nombre){ $this->nombre = $nombre; }
+
+    /** ****************************************************** **/
+    public function __construct() {
+        parent::__construct();
+        $this->conector = new Conectar();
+        $this->adapter  = $this->conector->conexion();
+    }
+
+   /** ****************************************************** **/
+    public function index(){
+        goRedirect("Escritorio", "index");
+    }
+    /** ****************************************************** **/
+
+    private function LeerDatosAlmacen()
+    {
+        try
+        {
+            if(isset($_SESSION["caja"]["empresa_SDK"]) && $_SESSION["caja"]["empresa_SDK"] != ""){ //Tenemos una empresa y podemos procesar
+                //$Empresa = $_SESSION["caja"]["empresa_SDK"];
+                $MySdk = new COM("SdkContPAQi.Comercial");
+                $arreglo_RECT = array();
+
+                // Leer los datos del registro donde el SDK esta posicionado
+                $this->auditar("Empresa: ".$Empresa);
+                $IOResult = $MySdk->open_SDK($Empresa);
+                if($IOResult == 0){ //Abrimos el SDK de Comercial
+                    // Declarar variables a leer de la base de datos
+                    $idBd = "";
+                    $codigoBd = "";
+                    $nombreBd = "";
+
+                    $MySdk->fLeeDatoAlmacen("CIDALMACEN", $idBd, 3000);
+                    $MySdk->fLeeDatoAlmacen("CCODIGOALMACEN", $codigoBd, 3000);
+                    $MySdk->fLeeDatoAlmacen("CNOMBREALMACEN", $nombreBd, 3000);
+                    $MySdk->close_SDK();
+
+                    //Llenar el arreglo de datos e indices
+                    $arreglo_RECT["error"] = 0;
+                    $arreglo_RECT["id"] = $idBd;
+                    $arreglo_RECT["codigo"] = $codigoBd;
+                    $arreglo_RECT["nombre"] = $nombreBd;
+                    $this->auditar("Leido Almacen: ".$idBd." | ".$codigoBd." | ".$nombreBd);
+
+                }else{
+                    $arreglo_RECT["error"] = 1;
+                }
+
+                //Crear el objeto JSON
+                $MyAlmacen = json_encode($arreglo_RECT);
+                $this->auditar("MyAlmacen: ".$MyAlmacen);
+                return $MyAlmacen;
+
+            }else{
+                $this->auditar("No se pudo detectar la empresa");
+                return false;
+            }
+        }
+        catch (Exception $e)
+        {
+            mostrar_error($e);
+        }
+    }
+
+    public function prueba(){
+        $MySdk = new COM("SdkContPAQi.Comercial");
+        $MySdk->fInicioSesionSDK("PUNTOVENTAS", "XiYeme=R6G");
+        $MySdk->fInicioSesionSDKCONTPAQi("PUNTOVENTAS", "XiYeme=R6G");
+        $nStart_PAQ = $MySdk->fSetNombrePAQ("CONTPAQ I COMERCIAL");
+        if(!$nStart_PAQ == 0){ //Error estableciendo el PAQ
+            return "PAQ: ".$nStart_PAQ;
+        }else{ //Hemos establecido el PAQ correctamente
+            if(isset($_SESSION["caja"]["empresa_SDK"]) && $_SESSION["caja"]["empresa_SDK"] != ""){ //Tenemos una empresa y podemos procesar
+                $rutaEMPRESA_COM = "C:\\Compac\\Empresas\\" + $_SESSION["caja"]["empresa_SDK"];
+                $nStart_EMP = $MySdk->fAbreEmpresa($rutaEMPRESA_COM);
+                if(!$nStart_EMP == 0){ //Error abriendo la empresa
+                    return "Empresa: ".$nStart_EMP;
+                }else{
+                    return 0;
+                }
+            }else{ //No podemos detectar la empresa activa
+                return 404;
+            }
+        }
+    }
+
+
+    public function BuscarAlmacenes()
+    {
+        try
+        {
+            if(isset($_SESSION["caja"]["empresa_SDK"]) && $_SESSION["caja"]["empresa_SDK"] != ""){ //Tenemos una empresa y podemos procesar
+                $Empresa = $_SESSION["caja"]["empresa_SDK"];
+                $MySdk = new COM("SdkContPAQi.Comercial");
+                $this->auditar("Empresa: ".$Empresa);
+
+                $IOResult = $MySdk->open_SDK($Empresa);
+                //$this->auditar("IOResult: ".$IOResult);
+                if($IOResult == 0){ //Abrimos el SDK de Comercial
+                    $this->auditar("Sin errores, buscamos almacenes");
+                    $almacenesList = array();
+                    // Posicionar el SDK en el primer registro
+                    $resultado = $MySdk->fPosPrimerAlmacen();
+                    if ($resultado == 0)
+                    {
+                        $this->auditar("Posisionamos en el primer almacen");
+
+                        // Leer los datos del registro donde el SDK esta posicionado
+                        $idBd = "";
+                        $codigoBd = "";
+                        $nombreBd = "";
+
+                        $x = $MySdk->fLeeDatoAlmacen("CIDALMACEN", $idBd, 3000);
+                        $this->auditar("fLeeDatoAlmacen: ".$x);
+                        $MySdk->fLeeDatoAlmacen("CCODIGOALMACEN", $codigoBd, 3000);
+                        $MySdk->fLeeDatoAlmacen("CNOMBREALMACEN", $nombreBd, 3000);
+
+                        $array = [
+                            'id'        => $idBd,
+                            'codigo'    => $codigoBd,
+                            'nombre'    => $nombreBd,
+                        ];
+                        array_push($almacenesList, $array);
+                        $this->auditar(print_r($array, true));
+                    }
+                    else
+                    {
+                        $this->auditar("Error al posicionar el primer almacen");
+                        return false;
+                    }
+                    // Crear un loop y posicionar el SDK en el siguiente registro
+                    while ($MySdk->fPosSiguienteAlmacen() == 0)
+                    {
+                        // Leer los datos del registro donde el SDK esta posicionado
+                        $idBd = "";
+                        $codigoBd = "";
+                        $nombreBd = "";
+
+                        $MySdk->fLeeDatoAlmacen("CIDALMACEN", $idBd, 3000);
+                        $MySdk->fLeeDatoAlmacen("CCODIGOALMACEN", $codigoBd, 3000);
+                        $MySdk->fLeeDatoAlmacen("CNOMBREALMACEN", $nombreBd, 3000);
+
+                        $array = [
+                            'id'        => $idBd,
+                            'codigo'    => $codigoBd,
+                            'nombre'    => $nombreBd,
+                        ];
+                        array_push($almacenesList, $array);
+                        $this->auditar(print_r($array, true));
+
+                        // Checar si el SDK esta posicionado en el ultimo registro
+                        // Si el SDK esta posicionado en el ultimo registro salir del loop
+                        if ($MySdk->fPosEOFAlmacen() == 1)
+                            break;
+                    }
+
+                    $MySdk->close_SDK();
+                    return $almacenesList;
+
+                }else{
+                    $this->auditar("Tenemos error abriendo la empresa");
+                    $MySdk->close_SDK();
+                    return false;
+                }
+
+            }else{
+                $this->auditar("No se pudo detectar la empresa");
+                return false;
+            }
+
+        }
+        catch (Exception $e)
+        {
+            mostrar_error($e);
+        }
+
+    }
+
+}

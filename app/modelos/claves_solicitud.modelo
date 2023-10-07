@@ -1,0 +1,67 @@
+<?php
+/**
+* @autor Rixio Danilo Iguarán Chourio.
+* @cédula-profesional 12196442
+* @correo-eletrónico atencion.clientes@obringolfo.com
+* @denominacion OBRAS INFORMÁTICAS DEL GOLFO
+* @empresa OBRINGOLFO S.A.S. DE C.V.
+* @proyecto  OBRINGOLFO.
+* @copyright 2023
+*/
+
+class Claves_solicitud extends ModeloBase{
+    /* ***************************************************************************
+    * Registrando las variables de la clase
+    *************************************************************************** */
+    private $time_request;
+    private $hash;
+    private $mail_user;
+    private $new_mail;
+    private $table;
+
+    /* ***************************************************************************
+    * Generando los metodos SET y GET para las variables
+    *************************************************************************** */
+    /* Setters y Getters para la propiedad [ Time_request ] */
+    public function getTime_request(){ return $this->time_request; }
+    public function setTime_request($time_request){ $this->time_request = $time_request; }
+
+    /* Setters y Getters para la propiedad [ Hash ] */
+    public function getHash(){ return $this->hash; }
+    public function setHash($hash){ $this->hash = $hash; }
+
+    /* Setters y Getters para la propiedad [ Mail_user ] */
+    public function getMail_user(){ return $this->mail_user; }
+    public function setMail_user($mail_user){ $this->mail_user = $mail_user; }
+
+    /* Setters y Getters para la propiedad [ New_mail ] */
+    public function getNew_mail(){ return $this->new_mail; }
+    public function setNew_mail($new_mail){ $this->new_mail = $new_mail; }
+
+
+    /* ***************************************************************************
+    * @FUNCTION constructor de clase
+    * @Param $adapter
+    * Inicializa y registra la clase dentro de la aplicación
+    *************************************************************************** */
+    public function __construct($adapter) {
+        try {
+
+            $this->table = 'claves_solicitud';
+            parent::__construct($this->table, $adapter);
+
+        } catch (Exception $e) {
+            mostrar_error($e);
+        }
+    }
+
+    /* ***************************************************************************
+    * OTROS MÉTODOS Y FUNCIONES PARA ÉSTE MODELO EN ESPECÍFICO
+    *************************************************************************** */
+
+    /** *********************************************************************** */
+    /** *********************************************************************** */
+    /** *********************************************************************** */
+    /** *********************************************************************** */
+}
+?>

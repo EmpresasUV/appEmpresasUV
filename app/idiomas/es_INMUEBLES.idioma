@@ -1,0 +1,122 @@
+<?php
+/**
+ * @autor Rixio Danilo Iguarán Chourio.
+ * @cédula-profesional 12196442
+ * @correo-eletrónico atencion.clientes@obringolfo.com
+ * @denominacion OBRAS INFORMÁTICAS DEL GOLFO
+ * @empresa OBRINGOLFO S.A.S. DE C.V.
+ * @proyecto  goPAC.
+ * @copyright 2021
+ */
+
+    define('LNG_INMUEBLES_0000', 'Inmuebles');
+    define('LNG_INMUEBLES_0001', 'Dirección');
+    define('LNG_INMUEBLES_0002', 'Geolocalización');
+    define('LNG_INMUEBLES_0003', 'Tipo o clase');
+    define('LNG_INMUEBLES_0004', 'Características');
+    define('LNG_INMUEBLES_0005', 'Acabados');
+    define('LNG_INMUEBLES_0006', 'Expediente');
+    define('LNG_INMUEBLES_0007', 'Fotografías básicas');
+    define('LNG_INMUEBLES_0008', 'Hola, yo soy RoboTIPs<br><br>Yo te asistiré en todo el <b>proceso de registro</b>.<br><br>Para iniciar, ingresa el <b>código postal</b> y selecciona la dirección del inmueble que valuarás');
+    define('LNG_INMUEBLES_0009', 'Muy bien...<br><br> Ahora <b>mueve</b> el mapa y haz <b>clic</b> en su Geo-Localización.');
+
+    define('LNG_INMUEBLES_0010', 'Latitud');
+    define('LNG_INMUEBLES_0011', 'Longitud');
+    define('LNG_INMUEBLES_0012', 'Geolocalizar');
+    define('LNG_INMUEBLES_0013', 'Buscar coordenadas de posicionamiento global');
+    define('LNG_INMUEBLES_0014', 'Buscar coordenada');
+    define('LNG_INMUEBLES_0015', '<b>No se pudo geolocalizar</b>, verifique los datos proporcionados e intente de nuevo.');
+    define('LNG_INMUEBLES_0016', 'Casa habitación');
+    define('LNG_INMUEBLES_0017', 'Casa en condominio');
+    define('LNG_INMUEBLES_0018', 'Departamento en condominio');
+    define('LNG_INMUEBLES_0019', 'Terreno');
+
+    define('LNG_INMUEBLES_0020', 'Terreno en condominio');
+    define('LNG_INMUEBLES_0021', 'Perfecto, vas muy bien...<br> Ahora dime que <b>tipo de inmueble</b> valuarás?');
+    define('LNG_INMUEBLES_0022', 'Resumen general');
+    define('LNG_INMUEBLES_0023', 'Instalaciones especiales');
+    define('LNG_INMUEBLES_0024', 'CARACTERÍSTICAS GENERALES');
+    define('LNG_INMUEBLES_0025', 'Frentes');
+    define('LNG_INMUEBLES_0026', 'Recamaras');
+    define('LNG_INMUEBLES_0027', 'Baños');
+    define('LNG_INMUEBLES_0028', 'Estacionamientos');
+    define('LNG_INMUEBLES_0029', 'Piso o nivel');
+
+    define('LNG_INMUEBLES_0030', 'No. de niveles');
+    define('LNG_INMUEBLES_0031', 'Años de edad');
+    define('LNG_INMUEBLES_0032', 'Elevador');
+    define('LNG_INMUEBLES_0033', 'CÁLCULO DE SUPERFICIES');
+    define('LNG_INMUEBLES_0034', 'de Terreno');
+    define('LNG_INMUEBLES_0035', 'de Construcción');
+    define('LNG_INMUEBLES_0036', 'Vendible');
+    define('LNG_INMUEBLES_0037', 'Área libre');
+    define('LNG_INMUEBLES_0038', 'CARACTERÍSTICAS DE COMERCIALIZACIÓN');
+    define('LNG_INMUEBLES_0039', 'Clasificación del inmueble');
+
+    define('LNG_INMUEBLES_0040', 'V.U.T.');
+    define('LNG_INMUEBLES_0041', 'Factor negociación');
+    define('LNG_INMUEBLES_0042', 'Valor pretendido del inmueble');
+    define('LNG_INMUEBLES_0043', 'Costo por metro cuadrado');
+    define('LNG_INMUEBLES_0044', 'DATOS DEL SOLICITANTE');
+    define('LNG_INMUEBLES_0045', 'Enlace de publicación');
+    define('LNG_INMUEBLES_0046', 'CARACTERÍSTICAS CATASTRALES');
+    define('LNG_INMUEBLES_0047', 'Tipo de suelo');
+    define('LNG_INMUEBLES_0048', 'Características del suelo');
+    define('LNG_INMUEBLES_0049', 'Pisos según su acabado');
+
+    define('LNG_INMUEBLES_0050', 'Muros según su acabado');
+    define('LNG_INMUEBLES_0051', 'Techos según su acabado');
+    define('LNG_INMUEBLES_0052', 'Instalaciones privadas');
+    define('LNG_INMUEBLES_0053', 'Instalaciones comunes');
+    define('LNG_INMUEBLES_0054', 'Instalaciones especiales privadas');
+    define('LNG_INMUEBLES_0055', 'Instalaciones especiales comunes');
+    define('LNG_INMUEBLES_0056', 'Escrituras públicas');
+    define('LNG_INMUEBLES_0057', 'Croquis de áreas');
+    define('LNG_INMUEBLES_0058', 'Comprobante de domicilio');
+    define('LNG_INMUEBLES_0059', 'Predial');
+
+    define('LNG_INMUEBLES_0060', 'Fachada principal');
+    define('LNG_INMUEBLES_0061', 'Fachada posterior');
+    define('LNG_INMUEBLES_0062', 'Recamara pricipal');
+    define('LNG_INMUEBLES_0063', 'Recamara adicional');
+    define('LNG_INMUEBLES_0064', 'Baño principal');
+    define('LNG_INMUEBLES_0065', 'Baño adicional');
+    define('LNG_INMUEBLES_0066', 'Cocina');
+    define('LNG_INMUEBLES_0067', 'Interior principal');
+    define('LNG_INMUEBLES_0068', 'Interior adicional');
+    define('LNG_INMUEBLES_0069', 'Entorno principal');
+
+    define('LNG_INMUEBLES_0070', 'Entorno adicional');
+    define('LNG_INMUEBLES_0071', 'Entorno adicional');
+    define('LNG_INMUEBLES_0072', 'Resumen general del inmueble');
+    define('LNG_INMUEBLES_0073', 'Descripción general');
+    define('LNG_INMUEBLES_0074', 'Debes marcar con un clic la ubicación');
+    define('LNG_INMUEBLES_0075', 'Seleccionaste');
+    define('LNG_INMUEBLES_0076', 'Ahora describe las <strong>características</strong> tiene el inmueble, presta atención a los cálculos');
+    define('LNG_INMUEBLES_0077', 'Activa los tipos de acabado que tiene el inmueble, observa que se dividen en 3 tipos');
+    define('LNG_INMUEBLES_0078', 'En su caso, configura las instalaciones especiales que existen; éstas afectarán los cálculos de avalúo considerablemente, así que defínelas correctamente');
+    define('LNG_INMUEBLES_0079', 'Ahora arrastra o carga los documentos solicitados, éstos se integrarán al expediente electrónico del inmueble que valúas, nota que cada archivo no puede exceder un tamaño de 4MB');
+
+    define('LNG_INMUEBLES_0080', 'Comparables');
+    define('LNG_INMUEBLES_0081', 'Incompletos (esperando)');
+    define('LNG_INMUEBLES_0082', 'Acabados de obra');
+    define('LNG_INMUEBLES_0083', 'Acabados en espacios');
+    define('LNG_INMUEBLES_0084', 'Acabados en detalles');
+    define('LNG_INMUEBLES_0085', 'Acabados de carpintería');
+    define('LNG_INMUEBLES_0086', 'Acabados de H&S');
+    define('LNG_INMUEBLES_0087', 'Acabados en herrería');
+    define('LNG_INMUEBLES_0088', 'Otros acabados');
+    define('LNG_INMUEBLES_0089', 'Fotografías avanzadas');
+
+    define('LNG_INMUEBLES_0090', 'Otras fotografías');
+    define('LNG_INMUEBLES_0091', '');
+    define('LNG_INMUEBLES_0092', '');
+    define('LNG_INMUEBLES_0093', '');
+    define('LNG_INMUEBLES_0094', '');
+    define('LNG_INMUEBLES_0095', '');
+    define('LNG_INMUEBLES_0096', '');
+    define('LNG_INMUEBLES_0097', '');
+    define('LNG_INMUEBLES_0098', '');
+    define('LNG_INMUEBLES_0099', '');
+
+?>

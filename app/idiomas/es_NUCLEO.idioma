@@ -1,0 +1,196 @@
+<?php
+/**
+ * @autor Rixio Danilo Iguarán Chourio.
+ * @cédula-profesional 12196442
+ * @correo-eletrónico atencion.clientes@obringolfo.com
+ * @denominacion OBRAS INFORMÁTICAS DEL GOLFO
+ * @empresa OBRINGOLFO S.A.S. DE C.V.
+ * @proyecto  goPAC.
+ * @copyright 2021
+ */
+
+    define('LNG_NUCLEO_0001', 'EmpresasUV ® :: Sistema administrativo');
+    define('LNG_NUCLEO_0002', 'EmpresasUV ®');
+    define('LNG_NUCLEO_0003', 'Aceptar');
+    define('LNG_NUCLEO_0004', 'Cancelar');
+    define('LNG_NUCLEO_0005', 'Leer más');
+    define('LNG_NUCLEO_0006', 'EmpresasUV &reg;');
+    define('LNG_NUCLEO_0007', 'Derechos reservados');
+    define('LNG_NUCLEO_0008', 'Política');
+    define('LNG_NUCLEO_0009', 'Privacidad');
+    define('LNG_NUCLEO_0010', 'A.R.C.O.');
+    define('LNG_NUCLEO_0011', 'Patrocinadores');
+    define('LNG_NUCLEO_0012', 'Planes y costos');
+    define('LNG_NUCLEO_0013', 'Buscar');
+    define('LNG_NUCLEO_0014', 'Buscar en ésta página');
+    define('LNG_NUCLEO_0015', 'Procesando su solicitud, espere por favor...');
+    define('LNG_NUCLEO_0016', 'Validando los datos, aguarde un momento...');
+    define('LNG_NUCLEO_0017', 'Negociando con el servidor, espere...');
+    define('LNG_NUCLEO_0018', 'Regresar a inicio');
+    define('LNG_NUCLEO_0019', 'Guardando los datos, espere por favor...');
+
+    define('LNG_NUCLEO_0020', 'Licenciamiento de software');
+    define('LNG_NUCLEO_0021', 'Se autoriza al uso de este sistema a:');
+    define('LNG_NUCLEO_0022', 'Todos los fragmentos de códigos, instrucciones, algoritmos, análisis, diseño y funcionamiento de éste software, se encuentra protegido bajo los términos y disposiciones legales de la LEY FEDERAL DE DERECHOS DE AUTOR a través de PANAMERICANA DE PATENTES Y MARCAS S.C. y el INSTITUTO MEXICANO DE LA PROPIEDAD INDUSTRIAL bajo autorización con folio 45383 y expediente 0841593; quedando prohibida su reproducción parcial o total sin el consentimiento escrito de su creador.');
+    define('LNG_NUCLEO_0023', 'Derechos');
+    define('LNG_NUCLEO_0024', 'Limitaciones');
+    define('LNG_NUCLEO_0025', 'Uso comercial');
+    define('LNG_NUCLEO_0026', 'Uso personal');
+    define('LNG_NUCLEO_0027', 'Modificación');
+    define('LNG_NUCLEO_0028', 'Distribución');
+    define('LNG_NUCLEO_0029', 'Responsabilidad');
+    define('LNG_NUCLEO_0030', 'Garantía');
+    define('LNG_NUCLEO_0031', 'Condiciones');
+    define('LNG_NUCLEO_0032', 'Revise el aviso de licencia y copyright');
+    define('LNG_NUCLEO_0033', 'Hecho en México');
+    define('LNG_NUCLEO_0034', 'Siguiente');
+    define('LNG_NUCLEO_0035', 'Anterior');
+    define('LNG_NUCLEO_0036', 'Faltan algunos datos requeridos');
+    define('LNG_NUCLEO_0037', '¡Precaución!');
+    define('LNG_NUCLEO_0038', 'Finalizar');
+    define('LNG_NUCLEO_0039', '¡Error!');
+
+    define('LNG_NUCLEO_0040', 'Descripción general');
+    define('LNG_NUCLEO_0041', 'Escritorio');
+    define('LNG_NUCLEO_0042', 'Configuración empresarial');
+    define('LNG_NUCLEO_0043', 'Cuenta');
+    define('LNG_NUCLEO_0044', 'Finanzas y contabilidad');
+    define('LNG_NUCLEO_0045', 'Experiencia de usuario');
+    define('LNG_NUCLEO_0046', 'Cambiar');
+    define('LNG_NUCLEO_0047', 'Quitar');
+    define('LNG_NUCLEO_0048', 'Tú acceso');
+    define('LNG_NUCLEO_0049', 'Número de cuenta');
+
+    define('LNG_NUCLEO_0050', 'Configuración de la cuenta');
+    define('LNG_NUCLEO_0051', 'Plata');
+    define('LNG_NUCLEO_0052', 'Oro');
+    define('LNG_NUCLEO_0053', 'Platino');
+    define('LNG_NUCLEO_0054', 'Contratar ahora');
+    define('LNG_NUCLEO_0055', 'Modo demo');
+    define('LNG_NUCLEO_0056', '¿Cómo trabaja?, deseo explorar las funcionalidades de la herramienta');
+    define('LNG_NUCLEO_0057', 'Comprendo que no podré finalizar un avalúo inmobiliario en su totalidad y que todos los documentos e imágenes que se mostrarán estarán marcados como demostrativos sin validez oficial');
+    define('LNG_NUCLEO_0058', 'Correo electrónico');
+    define('LNG_NUCLEO_0059', 'Tus nombres');
+
+    define('LNG_NUCLEO_0060', 'Mi cuenta');
+    define('LNG_NUCLEO_0061', 'Mis Notificaciones');
+    define('LNG_NUCLEO_0062', 'Planes y características');
+    define('LNG_NUCLEO_0063', 'Pagos y facturas');
+    define('LNG_NUCLEO_0064', 'Solicitud de ayuda');
+    define('LNG_NUCLEO_0065', 'Foros');
+    define('LNG_NUCLEO_0066', 'Datos fiscales');
+    define('LNG_NUCLEO_0067', 'Dirección fiscal');
+    define('LNG_NUCLEO_0068', 'Documentos y expediente');
+    define('LNG_NUCLEO_0069', 'Foto de perfil');
+
+    define('LNG_NUCLEO_0070', 'Datos personales');
+    define('LNG_NUCLEO_0071', 'Seguridad');
+    define('LNG_NUCLEO_0072', 'Perfil público');
+    define('LNG_NUCLEO_0073', 'Nombre completo');
+    define('LNG_NUCLEO_0074', 'Apellido paterno');
+    define('LNG_NUCLEO_0075', 'Apellido materno');
+    define('LNG_NUCLEO_0076', 'Cambiar contraseña');
+    define('LNG_NUCLEO_0077', 'Actualmente eres visible');
+    define('LNG_NUCLEO_0078', 'Actualmente eres invisible');
+    define('LNG_NUCLEO_0079', 'Escriba la nueva dirección de correo electrónico para enviar la confirmación');
+
+    define('LNG_NUCLEO_0080', 'Cancelar');
+    define('LNG_NUCLEO_0081', 'Guardar');
+    define('LNG_NUCLEO_0082', 'Actualizar');
+    define('LNG_NUCLEO_0083', 'Eliminar');
+    define('LNG_NUCLEO_0084', 'Borrar');
+    define('LNG_NUCLEO_0085', 'Modificar');
+    define('LNG_NUCLEO_0086', 'Cambiar');
+    define('LNG_NUCLEO_0087', 'Enviar');
+    define('LNG_NUCLEO_0088', 'Solicitar');
+    define('LNG_NUCLEO_0089', 'Imagen corporativa');
+
+    define('LNG_NUCLEO_0090', 'Arrastre o click');
+    define('LNG_NUCLEO_0091', 'Imagen encabesado de página');
+    define('LNG_NUCLEO_0092', 'Imagen pié de página');
+    define('LNG_NUCLEO_0093', 'Mis datos fiscales');
+    define('LNG_NUCLEO_0094', 'Razón social');
+    define('LNG_NUCLEO_0095', 'Evite colocar las siglas del tipo de sociedad');
+    define('LNG_NUCLEO_0096', 'Proporcionanos tus datos para facturas');
+    define('LNG_NUCLEO_0097', 'Registro federal');
+    define('LNG_NUCLEO_0098', 'RFC que registrás');
+    define('LNG_NUCLEO_0099', 'Teléfono');
+
+    define('LNG_NUCLEO_0100', 'Correo fiscal');
+    define('LNG_NUCLEO_0101', 'Solo se usará para las notificaciones de pagos y facturación');
+    define('LNG_NUCLEO_0102', 'Régimen fiscal');
+    define('LNG_NUCLEO_0103', 'Régimen fiscal para la facturación');
+    define('LNG_NUCLEO_0104', 'Uso del CFDI');
+    define('LNG_NUCLEO_0105', 'Uso del CFDI para la facturación');
+    define('LNG_NUCLEO_0106', 'Mi domicilio fiscal');
+    define('LNG_NUCLEO_0107', '¿Donde te encuentras ubicado?');
+    define('LNG_NUCLEO_0108', 'Código postal');
+    define('LNG_NUCLEO_0109', 'Colonia');
+
+    define('LNG_NUCLEO_0110', 'Ingrese un código postal');
+    define('LNG_NUCLEO_0111', 'Colonia o fraccionamiento');
+    define('LNG_NUCLEO_0112', 'Ciudad');
+    define('LNG_NUCLEO_0113', 'Ciudad o localidad');
+    define('LNG_NUCLEO_0114', 'Municipio');
+    define('LNG_NUCLEO_0115', 'Estado');
+    define('LNG_NUCLEO_0116', 'Entidad federativa');
+    define('LNG_NUCLEO_0117', 'País');
+    define('LNG_NUCLEO_0118', 'Tipo de vialidad');
+    define('LNG_NUCLEO_0119', 'Tipo de vialidad que aplica');
+
+    define('LNG_NUCLEO_0120', 'Nombre de vialidad');
+    define('LNG_NUCLEO_0121', 'Exterior');
+    define('LNG_NUCLEO_0122', 'Interior');
+    define('LNG_NUCLEO_0123', '¿Más automatización?');
+    define('LNG_NUCLEO_0124', 'Paso');
+    define('LNG_NUCLEO_0125', 'Pasos en el proceso');
+    define('LNG_NUCLEO_0126', 'Procesando coordenadas, espere por favor...');
+    define('LNG_NUCLEO_0127', 'Fotografía');
+    define('LNG_NUCLEO_0128', 'píxeles');
+    define('LNG_NUCLEO_0129', 'archivo escaneado');
+
+    define('LNG_NUCLEO_0130', 'El tamaño del archivo supera los 4MB');
+    define('LNG_NUCLEO_0131', 'Seleccionar');
+    define('LNG_NUCLEO_0132', 'Sí');
+    define('LNG_NUCLEO_0133', 'No');
+    define('LNG_NUCLEO_0134', 'Últimos');
+    define('LNG_NUCLEO_0135', 'días');
+    define('LNG_NUCLEO_0136', 'meses');
+    define('LNG_NUCLEO_0137', 'Folios');
+    define('LNG_NUCLEO_0138', 'Usando');
+    define('LNG_NUCLEO_0139', 'de espacio de un total de');
+
+    define('LNG_NUCLEO_0140', 'Otros');
+    define('LNG_NUCLEO_0141', 'Disponible');
+    define('LNG_NUCLEO_0142', 'Últimas notificaciones');
+    define('LNG_NUCLEO_0143', 'Notificación');
+    define('LNG_NUCLEO_0144', '¡DESCARGO DE RESPONSABILIDAD!, Este sistema incorpora procesos de automatización inteligentes; debido a esto y considerando la naturaleza legal de los resultados que pueda ofrecer, es necesario que usted como usuario revise, concilie, supervise y se asegure que los indicadores, cálculos y datos procesados sean correctos y verídicos.');
+    define('LNG_NUCLEO_0145', '');
+    define('LNG_NUCLEO_0146', '');
+    define('LNG_NUCLEO_0147', '');
+    define('LNG_NUCLEO_0148', '');
+    define('LNG_NUCLEO_0149', '');
+
+    define('LNG_NUCLEO_0150', '');
+    define('LNG_NUCLEO_0151', '');
+    define('LNG_NUCLEO_0152', '');
+    define('LNG_NUCLEO_0153', '');
+    define('LNG_NUCLEO_0154', '');
+    define('LNG_NUCLEO_0155', '');
+    define('LNG_NUCLEO_0156', '');
+    define('LNG_NUCLEO_0157', '');
+    define('LNG_NUCLEO_0158', '');
+    define('LNG_NUCLEO_0159', '');
+
+    define('LNG_NUCLEO_0160', '');
+    define('LNG_NUCLEO_0161', '');
+    define('LNG_NUCLEO_0162', '');
+    define('LNG_NUCLEO_0163', '');
+    define('LNG_NUCLEO_0164', '');
+    define('LNG_NUCLEO_0165', '');
+    define('LNG_NUCLEO_0166', '');
+    define('LNG_NUCLEO_0167', '');
+    define('LNG_NUCLEO_0168', '');
+    define('LNG_NUCLEO_0169', '');
+
+?>

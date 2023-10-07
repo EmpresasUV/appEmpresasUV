@@ -1,0 +1,93 @@
+<?php
+/**
+ * @autor Rixio Danilo Iguarán Chourio.
+ * @cédula-profesional 12196442
+ * @correo-eletrónico atencion.clientes@obringolfo.com
+ * @denominacion OBRAS INFORMÁTICAS DEL GOLFO
+ * @empresa OBRINGOLFO S.A.S. DE C.V.
+ * @proyecto  goPAC.
+ * @copyright 2021
+ */
+
+    # ESTADO DEL REGISTRO DE AUDITORÍA EN LA APLICACIÓN
+    define('AUDITAR_LOG', true);
+    define('DOMAIN_URL', $_SERVER["REQUEST_SCHEME"]."://".$_SERVER["SERVER_NAME"]);
+
+    # CONFIGURACIÓN DEL FORMATO DE FECHA Y HORA DEL SISTEMA
+    define('APP_TIMEZONE', 'America/Mexico_City');
+
+    # CONFIGURACION DE RUTAS A DIRECTORIOS DE LA APLICACIÓN
+    define('DS', DIRECTORY_SEPARATOR);
+    define('ROOT_DIR', $_SERVER['DOCUMENT_ROOT'].'/appEmpresasUV/');
+    define('PATH_DOCS',             'docs');
+    define('PATH_RESPALDOS',        'respaldos');
+    define('PATH_CLASES',           'app/clases');
+    define('PATH_CONTROLADORES',    'app/controladores');
+    define('PATH_NUCLEO',           'app/nucleos');
+    define('PATH_DATOS',            'app/datos');
+    define('PATH_AYUDANTES',        'app/ayudantes');
+    define('PATH_MODELOS',          'app/modelos');
+    define('PATH_VISTAS',           'app/vistas');
+    define('PATH_IDIOMAS',          'app/idiomas');
+    define('PATH_CONFIGURACIONES',  'app/configuraciones');
+    define('PATH_LIBRERIAS',        'app/librerias');
+    define('PATH_FUENTES',          'app/librerias/fonts');
+    define('PATH_AJAX',             'app/librerias/ajax');
+    define('PATH_SQL',              'app/librerias/sql');
+    define('PATH_CSS',              'app/librerias/css');
+    define('PATH_JS',               'app/librerias/js');
+    define('PATH_PHP',              'app/librerias/php');
+    define('PATH_CORREOS',          'app/librerias/pl/correos');
+    define('PATH_IMAGENES',         'app/librerias/img');
+    define('PATH_SONIDOS',          'app/librerias/snds');
+    define('PATH_AVALUOS',          'docs/avaluos');
+    define('PATH_EXPEDIENTES',      'docs/expedientes');
+    define('PATH_INMUEBLES',        'docs/inmuebles');
+    define('PATH_CACHE',            'docs/temp/cache');
+    define('PATH_REGISTROS',        'docs/temp/registros');
+    define('PATH_SESIONES',         'docs/temp/sesiones');
+
+    #CONFIGURACION DE LOS PARAMETROS DE CONEXIÓN CON LA BASE DE DATOS
+    define('DB_DRIVER',     "mysql");
+    define('DB_HOST',       "localhost");
+    define('DB_USUARIO',    "root");
+    define('DB_SECRETO',    "Promo1002##");
+    define('DB_PREFIJO',    "");
+    define('DB_NOMBRE',     "sistemas_empresasuv");
+    define('DB_CHARSET',    "utf8");
+    define("DISABLE_FOREIGN_KEY_CHECKS", true);
+
+    #CONFIGURACION DE LOS PARAMETROS DE CONEXIÓN CON EL CORREO ELECTRÓNICO
+    define('MAIL_HOST',       "nahuatl.obringolfo.com");
+    define('MAIL_PORT',       "587");
+    define('MAIL_USUARIO',    "sistema@leezar.obringolfo.com");
+    define('MAIL_SECRETO',    "Q7gGwX1u8h3C");
+    define('MAIL_FROM_CORREO',"sistema@leezar.obringolfo.com");
+    define('MAIL_FROM_NOMBRE',"Sistemas EME®");
+
+    # DATOS DE SEGURIDAD Y REPORTE
+    define('SECURITY_PEPPER', 'c1isvFdxMDdmjOlvxpecFw');
+    define('MAIL_SOPORTE', 'software@obringolfo.com');
+
+    # DETECTANDO EL LENGUAJE DEL NAVEGADOR
+    $lang = substr(locale_accept_from_http($_SERVER['HTTP_ACCEPT_LANGUAGE']), 0, 2);
+    if(($lang != 'es') && ($lang !='en')){
+        $lang = 'en';
+    }
+    define('LANG', $lang);
+    // Incluir todas las clases
+    foreach(glob(PATH_IDIOMAS."/".$lang."_*.idioma") as $file_LNG){
+        require_once $file_LNG;
+    }
+
+    # CONTROLADOR QUE SE CARGA DE FORMA AUTOMATICA AL INICIAR
+    define("CONTROLADOR_DEFECTO", "Index");
+    # ACCION QUE EJECUTA EL CONTROLADOR AL CARGAR
+    define("ACCION_DEFECTO", "index");
+    # TIEMPO EN MINUTOS DE INACTIVIDAD EN EL SISTEMA
+    define('SESSION_INACTIVIDAD',    60);
+    # CODIFICACIÓN EN EL SISTEMA Y BASE DE DATOS
+    define("CHARSET", 'utf8');
+
+    //Más constantes de configuración
+?>

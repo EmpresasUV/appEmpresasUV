@@ -1,0 +1,44 @@
+<?php
+/**
+ * @autor Rixio Danilo Iguarán Chourio.
+ * @cédula-profesional 12196442
+ * @correo-eletrónico atencion.clientes@obringolfo.com
+ * @denominacion OBRAS INFORMÁTICAS DEL GOLFO
+ * @empresa OBRINGOLFO S.A.S. DE C.V.
+ * @proyecto  WINDOWS PAQUETE ADMINISTRATIVO CONTABLE (WinPAC).
+ * @copyright 2022
+ */
+	
+?>
+
+    <!-- *********************************************************************************************** -->
+	<!-- [BEGIN][PESTAÑA NÓMINAS] -->
+    <div title="Asesores">
+		<!-- [BEGIN][OPCIONES DE ASESORES] -->
+        <div class="ribbon-group">
+            <div class="ribbon-toolbar" >
+				<a class="easyui-menubutton" data-options="
+					name: 'cmd_ASESORES_NUEVO',
+					iconCls: 'icon-user-plus',
+					iconAlign: 'top',
+					size: 'large'"
+					onmouseover='statusMSG("Inserta un nuevo asesor autorizado para el sistema.");'
+					onmouseout='statusMSG_clear();'
+				>Nuevo<br>asesor</a>
+				<a class="easyui-menubutton" data-options="
+					name: 'cmd_ASESORES_PERMISOS',
+					iconCls: 'icon-user-shield',
+					iconAlign: 'top',
+					size: 'large'"
+					onmouseover='statusMSG("Configura los privilegios de acceso de un asesor.");'
+					onmouseout='statusMSG_clear();'
+				>Permisos<br>de acceso</a>
+			</div>
+
+            <div class="ribbon-group-title">Configuración de asesores</div>
+        </div>
+		<!-- [END][OPCIONES DE ASESORES] -->
+        <div class="ribbon-group-sep"></div>
+    </div>
+	<!-- [END][PESTAÑA NÓMINAS] -->
+	<!-- *********************************************************************************************** -->

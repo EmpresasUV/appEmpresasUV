@@ -1,0 +1,221 @@
+<?php
+/**
+ * @autor Rixio Danilo Iguarán Chourio.
+ * @cédula-profesional 12196442
+ * @correo-eletrónico atencion.clientes@obringolfo.com
+ * @denominacion OBRAS INFORMÁTICAS DEL GOLFO
+ * @empresa OBRINGOLFO S.A.S. DE C.V.
+ * @proyecto  goPAC.
+ * @copyright 2021
+ */
+
+?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+    <head>
+        <!-- Compiled with Bootstrap Email version: 1.3.1 --><meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="x-apple-disable-message-reformatting">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="format-detection" content="telephone=no, date=no, address=no, email=no">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <style type="text/css">
+            body,table,td{font-family:Helvetica,Arial,sans-serif !important}.ExternalClass{width:100%}.ExternalClass,.ExternalClass p,.ExternalClass span,.ExternalClass font,.ExternalClass td,.ExternalClass div{line-height:150%}a{text-decoration:none}*{color:inherit}a[x-apple-data-detectors],u+#body a,#MessageViewBody a{color:inherit;text-decoration:none;font-size:inherit;font-family:inherit;font-weight:inherit;line-height:inherit}img{-ms-interpolation-mode:bicubic}table:not([class^=s-]){font-family:Helvetica,Arial,sans-serif;mso-table-lspace:0pt;mso-table-rspace:0pt;border-spacing:0px;border-collapse:collapse}table:not([class^=s-]) td{border-spacing:0px;border-collapse:collapse}@media screen and (max-width: 600px){.w-full,.w-full>tbody>tr>td{width:100% !important}*[class*=s-lg-]>tbody>tr>td{font-size:0 !important;line-height:0 !important;height:0 !important}.s-2>tbody>tr>td{font-size:8px !important;line-height:8px !important;height:8px !important}.s-3>tbody>tr>td{font-size:12px !important;line-height:12px !important;height:12px !important}.s-5>tbody>tr>td{font-size:20px !important;line-height:20px !important;height:20px !important}.s-10>tbody>tr>td{font-size:40px !important;line-height:40px !important;height:40px !important}}
+        </style>
+    </head>
+    <body class="bg-light" style="outline: 0; width: 100%; min-width: 100%; height: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-family: Helvetica, Arial, sans-serif; line-height: 24px; font-weight: normal; font-size: 16px; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; color: #000000; margin: 0; padding: 0; border-width: 0;" bgcolor="#f7fafc">
+        <table class="bg-light body" valign="top" role="presentation" border="0" cellpadding="0" cellspacing="0" style="outline: 0; width: 100%; min-width: 100%; height: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-family: Helvetica, Arial, sans-serif; line-height: 24px; font-weight: normal; font-size: 16px; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; color: #000000; margin: 0; padding: 0; border-width: 0;" bgcolor="#f7fafc">
+            <tbody>
+                <tr>
+                    <td valign="top" style="line-height: 24px; font-size: 16px; margin: 0;" align="left" bgcolor="#f7fafc">
+                        <table class="container" role="presentation" border="0" cellpadding="0" cellspacing="0" style="width: 100%;">
+                            <tbody>
+                                <tr>
+                                    <td align="center" style="line-height: 24px; font-size: 16px; margin: 0; padding: 0 16px;">
+                                        <!--[if (gte mso 9)|(IE)]>
+                                            <table align="center" role="presentation">
+                                                <tbody>
+                                                    <tr>
+                                                        <td width="600">
+                                        <![endif]-->
+                                        <table align="center" role="presentation" border="0" cellpadding="0" cellspacing="0" style="width: 100%; max-width: 600px; margin: 0 auto;">
+                                            <tbody>
+                                                <tr>
+                                                    <td style="line-height: 24px; font-size: 16px; margin: 0;" align="left">
+                                                        <div class="text-center" style="" align="center">
+                                                            <img src="https://oca.obringolfo.com/app/librerias/img/logo_login.gif" height="100" alt="" style="height: auto; line-height: 100%; outline: none; text-decoration: none; display: block; border-style: none; border-width: 0;">
+                                                        </div>
+                                                        <table class="s-10 w-full" role="presentation" border="0" cellpadding="0" cellspacing="0" style="width: 100%;" width="100%">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td style="line-height: 40px; font-size: 40px; width: 100%; height: 40px; margin: 0;" align="left" width="100%" height="40">
+                                                                        &#160;
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                        <table class="card" role="presentation" border="0" cellpadding="0" cellspacing="0" style="border-radius: 6px; border-collapse: separate !important; width: 100%; overflow: hidden; border: 1px solid #e2e8f0;" bgcolor="#ffffff">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td style="line-height: 24px; font-size: 16px; width: 100%; margin: 0;" align="left" bgcolor="#ffffff">
+                                                                        <table class="card-body" role="presentation" border="0" cellpadding="0" cellspacing="0" style="width: 100%;">
+                                                                            <tbody>
+                                                                                <tr>
+                                                                                    <td style="line-height: 24px; font-size: 16px; width: 100%; margin: 0; padding: 20px;" align="left">
+                                                                                        <p class="text-teal-700  text-right" style="line-height: 24px; font-size: 16px; color: #13795b; width: 100%; margin: 0;" align="right">Atenci&#243;n<br>
+                                                                                            <strong><?php echo $array_vars['nombre_completo'] ?></strong><br>
+                                                                                            Cuenta: (<strong><?php echo $array_vars['cuenta'] ?></strong>)</p>
+                                                                                        <h1 class="h4" style="padding-top: 0; padding-bottom: 0; font-weight: 500; vertical-align: baseline; font-size: 24px; line-height: 28.8px; margin: 0;" align="left">Registro de cuenta exitoso</h1>
+                                                                                        <table class="s-2 w-full" role="presentation" border="0" cellpadding="0" cellspacing="0" style="width: 100%;" width="100%">
+                                                                                            <tbody>
+                                                                                                <tr>
+                                                                                                    <td style="line-height: 8px; font-size: 8px; width: 100%; height: 8px; margin: 0;" align="left" width="100%" height="8">
+                                                                                                        &#160;
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                            </tbody>
+                                                                                        </table>
+                                                                                        <h7 class="text-teal-700" style="color: #13795b;">Ahora puede disfrutar de los beneficios inmobiliarios de nuestros sistemas</h7>
+                                                                                        <table class="s-5 w-full" role="presentation" border="0" cellpadding="0" cellspacing="0" style="width: 100%;" width="100%">
+                                                                                            <tbody>
+                                                                                                <tr>
+                                                                                                    <td style="line-height: 20px; font-size: 20px; width: 100%; height: 20px; margin: 0;" align="left" width="100%" height="20">
+                                                                                                        &#160;
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                            </tbody>
+                                                                                        </table>
+                                                                                        <table class="hr" role="presentation" border="0" cellpadding="0" cellspacing="0" style="width: 100%;">
+                                                                                            <tbody>
+                                                                                                <tr>
+                                                                                                    <td style="line-height: 24px; font-size: 16px; border-top-width: 1px; border-top-color: #e2e8f0; border-top-style: solid; height: 1px; width: 100%; margin: 0;" align="left">
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                            </tbody>
+                                                                                        </table>
+                                                                                        <table class="s-5 w-full" role="presentation" border="0" cellpadding="0" cellspacing="0" style="width: 100%;" width="100%">
+                                                                                            <tbody>
+                                                                                                <tr>
+                                                                                                    <td style="line-height: 20px; font-size: 20px; width: 100%; height: 20px; margin: 0;" align="left" width="100%" height="20">
+                                                                                                        &#160;
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                            </tbody>
+                                                                                        </table>
+                                                                                        <div class="space-y-3">
+                                                                                            <p class="text-gray-700 text-justify" style="line-height: 24px; font-size: 16px; color: #4a5568; width: 100%; margin: 0;" align="justify"><small>Estimado usuario,</small></p>
+                                                                                            <table class="s-3 w-full" role="presentation" border="0" cellpadding="0" cellspacing="0" style="width: 100%;" width="100%">
+                                                                                                <tbody>
+                                                                                                    <tr>
+                                                                                                        <td style="line-height: 12px; font-size: 12px; width: 100%; height: 12px; margin: 0;" align="left" width="100%" height="12">
+                                                                                                            &#160;
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                            <p class="text-gray-700 text-justify" style="line-height: 24px; font-size: 16px; color: #4a5568; width: 100%; margin: 0;" align="justify"><small>
+                                                                                                    La configuraci&#243;n inicial de su cuenta de acceso se ha completado con &#233;xito, ahora podr&#225; acceder a los servicios de nuestra plataforma digital en funci&#243;n del tipo de plan que ha seleccionado.
+                                                                                                </small></p>
+                                                                                            <table class="s-3 w-full" role="presentation" border="0" cellpadding="0" cellspacing="0" style="width: 100%;" width="100%">
+                                                                                                <tbody>
+                                                                                                    <tr>
+                                                                                                        <td style="line-height: 12px; font-size: 12px; width: 100%; height: 12px; margin: 0;" align="left" width="100%" height="12">
+                                                                                                            &#160;
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                            <p class="text-gray-700 text-justify" style="line-height: 24px; font-size: 16px; color: #4a5568; width: 100%; margin: 0;" align="justify"><small>Hemos generado los siguientes registros:</small></p>
+                                                                                            <table class="s-3 w-full" role="presentation" border="0" cellpadding="0" cellspacing="0" style="width: 100%;" width="100%">
+                                                                                                <tbody>
+                                                                                                    <tr>
+                                                                                                        <td style="line-height: 12px; font-size: 12px; width: 100%; height: 12px; margin: 0;" align="left" width="100%" height="12">
+                                                                                                            &#160;
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                            <p class="text-gray-700 text-justify" style="line-height: 24px; font-size: 16px; color: #4a5568; width: 100%; margin: 0;" align="justify"><small>
+                                                                                                    No Cuenta: <strong><?php echo $array_vars['cuenta'] ?><strong><br>
+                                                                                                    Tipo de Plan: <strong><?php echo $array_vars['plan_name'] ?><strong><br>
+                                                                                                            Correo autorizado: <strong><?php echo $array_vars['correo'] ?><strong>
+                                                                                                                </strong></strong></strong></strong></small></p>
+                                                                                            <table class="s-3 w-full" role="presentation" border="0" cellpadding="0" cellspacing="0" style="width: 100%;" width="100%">
+                                                                                                <tbody>
+                                                                                                    <tr>
+                                                                                                        <td style="line-height: 12px; font-size: 12px; width: 100%; height: 12px; margin: 0;" align="left" width="100%" height="12">
+                                                                                                            &#160;
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                            <p class="text-gray-700 text-justify" style="line-height: 24px; font-size: 16px; color: #4a5568; width: 100%; margin: 0;" align="justify"><small>
+                                                                                                    Agradecemos su atenci&#243;n y esperamos poderle atender de la maneras m&#225;s veraz y objetiva posible, recuerde que para dudas &#243; comentarios puede abrir un ticket de servicio en cualquier momento accediendo a nuestra &#225;rea de clientes y donde uno de los integrantes de nuestro departamento de atenci&#243;n al cliente le atender&#225;.
+                                                                                                </small></p>
+                                                                                        </div>
+                                                                                        <table class="s-5 w-full" role="presentation" border="0" cellpadding="0" cellspacing="0" style="width: 100%;" width="100%">
+                                                                                            <tbody>
+                                                                                                <tr>
+                                                                                                    <td style="line-height: 20px; font-size: 20px; width: 100%; height: 20px; margin: 0;" align="left" width="100%" height="20">
+                                                                                                        &#160;
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                            </tbody>
+                                                                                        </table>
+                                                                                        <table class="hr" role="presentation" border="0" cellpadding="0" cellspacing="0" style="width: 100%;">
+                                                                                            <tbody>
+                                                                                                <tr>
+                                                                                                    <td style="line-height: 24px; font-size: 16px; border-top-width: 1px; border-top-color: #e2e8f0; border-top-style: solid; height: 1px; width: 100%; margin: 0;" align="left">
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                            </tbody>
+                                                                                        </table>
+                                                                                        <table class="s-5 w-full" role="presentation" border="0" cellpadding="0" cellspacing="0" style="width: 100%;" width="100%">
+                                                                                            <tbody>
+                                                                                                <tr>
+                                                                                                    <td style="line-height: 20px; font-size: 20px; width: 100%; height: 20px; margin: 0;" align="left" width="100%" height="20">
+                                                                                                        &#160;
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                            </tbody>
+                                                                                        </table>
+                                                                                        <p style="font-size: 8px; line-height: 100%; color: #842029; width: 100%; margin: 0;" class="text-red-700 text-justify" align="justify">
+                                                                                            Aviso de privacidad de acuerdo con la Ley Federal de Protecci&#243;n de Datos Personales en Posesi&#243;n de los Particulares y su Reglamento, le notificamos que sus datos personales est&#225;n salvaguardados por nuestros sistemas, en una base de datos propiedad de INGENIERIA LEEZAR S.A. DE C.V.&#174;.; Por lo que ponemos a su disposici&#243;n las pol&#237;ticas relativas al cuidado y manejo de sus datos personales que podr&#225; encontrar en nuestra secci&#243;n de privacidad. Usted podr&#225; ejercer en cualquier momento los derechos de acceso, rectificaci&#243;n, cancelaci&#243;n y oposici&#243;n a dichos datos (Derechos ARCO), para lo cual deber&#225; enviar un correo a la direcci&#243;n electr&#243;nica atencion.clientes@obringolfo.com, misma que se indica dentro del aviso de privacidad correspondiente; adem&#225;s, le informamos que sus datos personales s&#243;lo ser&#225;n utilizados para proveerle los productos y servicios de INGENIERIA LEEZAR S.A. DE C.V.&#174;, informarle sobre nuevos productos o servicios, cambios en los mismos, mensajes promoci&#243;nales, mercadol&#243;gicos, publicitarios o de prospecci&#243;n comercial y evaluar la calidad del servicio brindado. Adicionalmente le informamos que toda la informaci&#243;n personal en nuestras bases de datos no est&#225; a la venta ni disponible para su comercializaci&#243;n con terceros. En caso de que desee dejar de recibir estos correos, escribanos a nuestra direcci&#243;n de correo y ser&#225; un gusto atender a sus solicitudes.
+                                                                                        </p>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                        <table class="s-10 w-full" role="presentation" border="0" cellpadding="0" cellspacing="0" style="width: 100%;" width="100%">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td style="line-height: 40px; font-size: 40px; width: 100%; height: 40px; margin: 0;" align="left" width="100%" height="40">
+                                                                        &#160;
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <!--[if (gte mso 9)|(IE)]>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                                        <![endif]-->
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>

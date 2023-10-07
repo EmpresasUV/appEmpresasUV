@@ -1,0 +1,177 @@
+<?php
+/**
+* @autor Rixio Danilo Iguarán Chourio.
+* @cédula-profesional 12196442
+* @correo-eletrónico atencion.clientes@obringolfo.com
+* @denominacion OBRAS INFORMÁTICAS DEL GOLFO
+* @empresa OBRINGOLFO S.A.S. DE C.V.
+* @proyecto  OBRINGOLFO.
+* @copyright 2023
+*/
+
+class Tpv_cajas_cortes extends ModeloBase{
+    /* ***************************************************************************
+    * Registrando las variables de la clase
+    *************************************************************************** */
+    private $id;
+    private $id_caja;
+    private $fecha_inicio;
+    private $fecha_cierre;
+    private $m10c;
+    private $m20c;
+    private $m50c;
+    private $m1p;
+    private $m2p;
+    private $m5p;
+    private $m10p;
+    private $m20p;
+    private $b20p;
+    private $b50p;
+    private $b100p;
+    private $b200p;
+    private $b500p;
+    private $b1000p;
+    private $dinero_monedas;
+    private $dinero_billetes;
+    private $dinero_inicio;
+    private $dinero_cierre;
+    private $utilidad_neta;
+    private $numero_operaciones;
+    private $numero_productos;
+    private $estado;
+    private $table;
+
+    /* ***************************************************************************
+    * Generando los metodos SET y GET para las variables
+    *************************************************************************** */
+    /* Setters y Getters para la propiedad [ Id ] */
+    public function getId(){ return $this->id; }
+    public function setId($id){ $this->id = $id; }
+
+    /* Setters y Getters para la propiedad [ Id_caja ] */
+    public function getId_caja(){ return $this->id_caja; }
+    public function setId_caja($id_caja){ $this->id_caja = $id_caja; }
+
+    /* Setters y Getters para la propiedad [ Fecha_inicio ] */
+    public function getFecha_inicio(){ return $this->fecha_inicio; }
+    public function setFecha_inicio($fecha_inicio){ $this->fecha_inicio = $fecha_inicio; }
+
+    /* Setters y Getters para la propiedad [ Fecha_cierre ] */
+    public function getFecha_cierre(){ return $this->fecha_cierre; }
+    public function setFecha_cierre($fecha_cierre){ $this->fecha_cierre = $fecha_cierre; }
+
+    /* Setters y Getters para la propiedad [ M10c ] */
+    public function getM10c(){ return $this->m10c; }
+    public function setM10c($m10c){ $this->m10c = $m10c; }
+
+    /* Setters y Getters para la propiedad [ M20c ] */
+    public function getM20c(){ return $this->m20c; }
+    public function setM20c($m20c){ $this->m20c = $m20c; }
+
+    /* Setters y Getters para la propiedad [ M50c ] */
+    public function getM50c(){ return $this->m50c; }
+    public function setM50c($m50c){ $this->m50c = $m50c; }
+
+    /* Setters y Getters para la propiedad [ M1p ] */
+    public function getM1p(){ return $this->m1p; }
+    public function setM1p($m1p){ $this->m1p = $m1p; }
+
+    /* Setters y Getters para la propiedad [ M2p ] */
+    public function getM2p(){ return $this->m2p; }
+    public function setM2p($m2p){ $this->m2p = $m2p; }
+
+    /* Setters y Getters para la propiedad [ M5p ] */
+    public function getM5p(){ return $this->m5p; }
+    public function setM5p($m5p){ $this->m5p = $m5p; }
+
+    /* Setters y Getters para la propiedad [ M10p ] */
+    public function getM10p(){ return $this->m10p; }
+    public function setM10p($m10p){ $this->m10p = $m10p; }
+
+    /* Setters y Getters para la propiedad [ M20p ] */
+    public function getM20p(){ return $this->m20p; }
+    public function setM20p($m20p){ $this->m20p = $m20p; }
+
+    /* Setters y Getters para la propiedad [ B20p ] */
+    public function getB20p(){ return $this->b20p; }
+    public function setB20p($b20p){ $this->b20p = $b20p; }
+
+    /* Setters y Getters para la propiedad [ B50p ] */
+    public function getB50p(){ return $this->b50p; }
+    public function setB50p($b50p){ $this->b50p = $b50p; }
+
+    /* Setters y Getters para la propiedad [ B100p ] */
+    public function getB100p(){ return $this->b100p; }
+    public function setB100p($b100p){ $this->b100p = $b100p; }
+
+    /* Setters y Getters para la propiedad [ B200p ] */
+    public function getB200p(){ return $this->b200p; }
+    public function setB200p($b200p){ $this->b200p = $b200p; }
+
+    /* Setters y Getters para la propiedad [ B500p ] */
+    public function getB500p(){ return $this->b500p; }
+    public function setB500p($b500p){ $this->b500p = $b500p; }
+
+    /* Setters y Getters para la propiedad [ B1000p ] */
+    public function getB1000p(){ return $this->b1000p; }
+    public function setB1000p($b1000p){ $this->b1000p = $b1000p; }
+
+    /* Setters y Getters para la propiedad [ Dinero_monedas ] */
+    public function getDinero_monedas(){ return $this->dinero_monedas; }
+    public function setDinero_monedas($dinero_monedas){ $this->dinero_monedas = $dinero_monedas; }
+
+    /* Setters y Getters para la propiedad [ Dinero_billetes ] */
+    public function getDinero_billetes(){ return $this->dinero_billetes; }
+    public function setDinero_billetes($dinero_billetes){ $this->dinero_billetes = $dinero_billetes; }
+
+    /* Setters y Getters para la propiedad [ Dinero_inicio ] */
+    public function getDinero_inicio(){ return $this->dinero_inicio; }
+    public function setDinero_inicio($dinero_inicio){ $this->dinero_inicio = $dinero_inicio; }
+
+    /* Setters y Getters para la propiedad [ Dinero_cierre ] */
+    public function getDinero_cierre(){ return $this->dinero_cierre; }
+    public function setDinero_cierre($dinero_cierre){ $this->dinero_cierre = $dinero_cierre; }
+
+    /* Setters y Getters para la propiedad [ Utilidad_neta ] */
+    public function getUtilidad_neta(){ return $this->utilidad_neta; }
+    public function setUtilidad_neta($utilidad_neta){ $this->utilidad_neta = $utilidad_neta; }
+
+    /* Setters y Getters para la propiedad [ Numero_operaciones ] */
+    public function getNumero_operaciones(){ return $this->numero_operaciones; }
+    public function setNumero_operaciones($numero_operaciones){ $this->numero_operaciones = $numero_operaciones; }
+
+    /* Setters y Getters para la propiedad [ Numero_productos ] */
+    public function getNumero_productos(){ return $this->numero_productos; }
+    public function setNumero_productos($numero_productos){ $this->numero_productos = $numero_productos; }
+
+    /* Setters y Getters para la propiedad [ Estado ] */
+    public function getEstado(){ return $this->estado; }
+    public function setEstado($estado){ $this->estado = $estado; }
+
+
+    /* ***************************************************************************
+    * @FUNCTION constructor de clase
+    * @Param $adapter
+    * Inicializa y registra la clase dentro de la aplicación
+    *************************************************************************** */
+    public function __construct($adapter) {
+        try {
+
+            $this->table = 'tpv_cajas_cortes';
+            parent::__construct($this->table, $adapter);
+
+        } catch (Exception $e) {
+            mostrar_error($e);
+        }
+    }
+
+    /* ***************************************************************************
+    * OTROS MÉTODOS Y FUNCIONES PARA ÉSTE MODELO EN ESPECÍFICO
+    *************************************************************************** */
+
+    /** *********************************************************************** */
+    /** *********************************************************************** */
+    /** *********************************************************************** */
+    /** *********************************************************************** */
+}
+?>

@@ -1,0 +1,18 @@
+<?php
+/**
+ * @autor Rixio Danilo Iguarán Chourio.
+ * @cédula-profesional 12196442
+ * @correo-eletrónico atencion.clientes@obringolfo.com
+ * @denominacion OBRAS INFORMÁTICAS DEL GOLFO
+ * @empresa OBRINGOLFO S.A.S. DE C.V.
+ * @proyecto  goPAC.
+ * @copyright 2021
+ */
+    //$_SESSION['LAST_ACTIVITY'] = time();
+
+?>
+
+    <!-- Tabler Core -->
+    <script src="<?php echo PATH_JS; ?>/tabler.js?<?= time(); ?>" defer></script>
+    
+</html>

@@ -1,0 +1,46 @@
+<?php
+/**
+ * @autor Rixio Danilo Iguarán Chourio.
+ * @cédula-profesional 12196442
+ * @correo-eletrónico atencion.clientes@obringolfo.com
+ * @denominacion OBRAS INFORMÁTICAS DEL GOLFO
+ * @empresa OBRINGOLFO S.A.S. DE C.V.
+ * @proyecto  goPAC.
+ * @copyright 2021
+ */
+
+    chkSesion();
+?>
+
+<!-- Download SVG icon from http://tabler-icons.io/i/check -->
+<script src="<?php echo PATH_JS; ?>/go_master.js"></script>
+<script src="<?php echo PATH_JS; ?>/libs/apexcharts/dist/apexcharts.min.js?<?= time() ?>"></script>
+<!-- ## ********************************************* ## -->
+
+    <div class="page-body">
+        <div class="container-xl">
+
+
+
+
+
+
+
+
+        </div>
+    </div>
+
+<!-- ## ********************************************* ## -->
+<script type="text/javascript">
+    //# **************************************************** #
+    //# **************************************************** #
+    //# **************************************************** #
+    //# **************************************************** #
+    //# **************************************************** #
+    //# **************************************************** #
+    //# **************************************************** #
+    //# **************************************************** #
+    //# **************************************************** #
+    //# **************************************************** #
+</script>
+<!-- ## ********************************************* ## -->

@@ -1,0 +1,72 @@
+<?php
+/**
+ * @autor Rixio Danilo Iguarán Chourio.
+ * @cédula-profesional 12196442
+ * @correo-eletrónico atencion.clientes@obringolfo.com
+ * @denominacion OBRAS INFORMÁTICAS DEL GOLFO
+ * @empresa OBRINGOLFO S.A.S. DE C.V.
+ * @proyecto  goPAC.
+ * @copyright 2021
+ */
+
+    /** MENU DE INICIO **/
+    define('LNG_MENU_0001', 'Home');
+
+    /** MENU DE AYUDA **/
+    define('LNG_MENU_0002', 'Help');
+    define('LNG_MENU_0003', 'Documentation');
+    define('LNG_MENU_0004', 'Video tutorials');
+    define('LNG_MENU_0005', 'Technical support');
+    define('LNG_MENU_0006', 'About...');
+    define('LNG_MENU_0007', 'Enable dark mode');
+    define('LNG_MENU_0008', 'Enable light mode');
+    define('LNG_MENU_0009', 'New');
+    define('LNG_MENU_0010', '');
+
+    /** MENU DE AVALÚOS **/
+    define('LNG_MENU_0011', 'Profile');
+    define('LNG_MENU_0012', 'Plans & features');
+    define('LNG_MENU_0013', 'Payments and billing');
+    define('LNG_MENU_0014', 'Settings');
+    define('LNG_MENU_0015', 'Logout');
+    define('LNG_MENU_0016', '');
+    define('LNG_MENU_0017', '');
+    define('LNG_MENU_0018', '');
+    define('LNG_MENU_0019', '');
+
+    /** MENU AVALÚOS **/
+    define('LNG_MENU_0020', 'Valuations');
+    define('LNG_MENU_0021', 'New valuation');
+    define('LNG_MENU_0022', 'Find valuations');
+    define('LNG_MENU_0023', 'Valuation reports');
+    define('LNG_MENU_0024', '');
+    define('LNG_MENU_0025', '');
+    define('LNG_MENU_0026', '');
+    define('LNG_MENU_0027', '');
+    define('LNG_MENU_0028', '');
+    define('LNG_MENU_0029', '');
+
+    /** MENU INMUEBLES **/
+    define('LNG_MENU_0030', 'Property management');
+    define('LNG_MENU_0031', 'Real estate registry');
+    define('LNG_MENU_0032', 'Property search');
+    define('LNG_MENU_0033', 'Comparable registry');
+    define('LNG_MENU_0034', 'Comparable search');
+    define('LNG_MENU_0035', 'It will not be related to any appraisal');
+    define('LNG_MENU_0036', 'real estate in your account');
+    define('LNG_MENU_0037', 'Verified');
+    define('LNG_MENU_0038', 'Unverified');
+    define('LNG_MENU_0039', '');
+
+    /** MENU PAGOS Y SUSCRIPCIONES **/
+    define('LNG_MENU_0040', 'Payments & subscriptions');
+    define('LNG_MENU_0041', 'comparables in your account');
+    define('LNG_MENU_0042', '');
+    define('LNG_MENU_0043', '');
+    define('LNG_MENU_0044', '');
+    define('LNG_MENU_0045', '');
+    define('LNG_MENU_0046', '');
+    define('LNG_MENU_0047', '');
+    define('LNG_MENU_0048', '');
+    define('LNG_MENU_0049', '');
+

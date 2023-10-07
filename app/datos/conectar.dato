@@ -1,0 +1,56 @@
+<?php
+/**
+ * @autor Rixio Danilo Iguarán Chourio.
+ * @cédula-profesional 12196442
+ * @correo-eletrónico atencion.clientes@obringolfo.com
+ * @denominacion OBRAS INFORMÁTICAS DEL GOLFO
+ * @empresa OBRINGOLFO S.A.S. DE C.V.
+ * @proyecto  goPAC.
+ * @copyright 2021
+ */
+
+class Conectar{
+    private $driver;
+    private $host, $user, $pass, $prefix, $database, $charset;
+
+    # ********************************************************** #
+    public function __construct() {
+        try {
+
+            $db_cfg = require_once PATH_CONFIGURACIONES.'/database.configuracion';
+            $this->prefix   = $db_cfg["prefix"];
+            $this->driver   = $db_cfg["driver"];
+            $this->host     = $db_cfg["host"];
+            $this->user     = $db_cfg["user"];
+            $this->pass     = $db_cfg["pass"];
+            $this->database = $db_cfg["database"];
+            $this->charset  = $db_cfg["charset"];
+
+        } catch (Exception $e) {
+            mostrar_error($e);
+        }catch (\Throwable $eT) {
+            mostrar_error($e);
+        }
+    }
+    # ********************************************************** #
+    public function conexion(){
+        try {
+
+            if($this->driver == "mysql" || $this->driver == null){
+                $con = new mysqli($this->host, $this->user, $this->pass, $this->database);
+                $con->query("SET NAMES '".$this->charset."'");
+            }
+            return $con;
+
+        } catch (Exception $e) {
+            mostrar_error($e);
+        }catch (\Throwable $eT) {
+            mostrar_error($e);
+        }
+    }
+    # ********************************************************** #
+    # ********************************************************** #
+    # ********************************************************** #
+    # ********************************************************** #
+}
+?>

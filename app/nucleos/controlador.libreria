@@ -1,0 +1,479 @@
+<?php
+/**
+ * @autor Rixio Danilo Iguarán Chourio.
+ * @cédula-profesional 12196442
+ * @correo-eletrónico atencion.clientes@obringolfo.com
+ * @denominacion OBRAS INFORMÁTICAS DEL GOLFO
+ * @empresa OBRINGOLFO S.A.S. DE C.V.
+ * @proyecto  goPAC.
+ * @copyright 2021
+ */
+
+$errores = new obError();
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
+    require_once PATH_CONFIGURACIONES."/cookie.configuracion";
+    require_once PATH_CONFIGURACIONES."/sesion.configuracion";
+    require_once PATH_PHP . "/phpmailer/src/Exception.php";
+    require_once PATH_PHP . "/phpmailer/src/PHPMailer.php";
+    require_once PATH_PHP . "/phpmailer/src/SMTP.php";
+
+//FUNCIONES PARA EL CONTROLADOR FRONTAL
+/** *************************************************************************** **/
+    function goControlador($MyControlador){
+        $xClaseControlador = ucwords($MyControlador) . 'Controlador';
+        $xArchivoControlador = PATH_CONTROLADORES . "/" . strtolower($MyControlador) . '.controlador';
+        if(!is_file($xArchivoControlador)){
+            $xArchivoControlador = PATH_CONTROLADORES . "/" . strtolower(CONTROLADOR_DEFECTO) . '.controlador';
+        }
+        require_once $xArchivoControlador;
+        $xObjControlador = new $xClaseControlador();
+        return $xObjControlador;
+
+    }
+/** *************************************************************************** **/
+    function goAccion($MyObjControlador, $MyAction){
+        $MyAction = $MyAction;
+        $MyObjControlador->$MyAction();
+    }
+/** *************************************************************************** **/
+    function exeAccion($MyObjControlador){
+        if(isset($_GET["goAcc"]) && method_exists($MyObjControlador, $_GET["goAcc"])){
+            goAccion($MyObjControlador, $_GET["goAcc"]);
+        }else{
+            goAccion($MyObjControlador, ACCION_DEFECTO);
+        }
+
+    }
+/** *************************************************************************** **/
+    function goRedirect($MyObjControlador, $MyAction){
+        if(($MyObjControlador != "") && ($MyAction != "")){
+            header("Location: /index.php?goExec=".$MyObjControlador."&goAcc=".$MyAction);
+        }
+    }
+/** *************************************************************************** **/
+    function getUUID(){
+        $data = random_bytes(16);
+        $data[6] = chr(ord($data[6]) & 0x0f | 0x40);
+        $data[8] = chr(ord($data[8]) & 0x3f | 0x80);
+        return vsprintf('%s%s-%s-%s-%s-%s%s%s', str_split(bin2hex($data), 4));
+
+    }
+/** *************************************************************************** **/
+    function auditar($texto){
+        if(AUDITAR_LOG){
+            $strLOG = '';
+            $filename = "auditoria [".date('d.m.Y')."].log";
+            $dataFile = fopen(PATH_REGISTROS."/".$filename, "a+");
+            $dia = date("d");
+            $mes = date("m");
+            $anno = date("Y");
+            $hora = date("H");
+            $minuto = date("i");
+            $segundo = date("s");
+            $tiempo = "\n".$dia."/".$mes."/".$anno." ".$hora.":".$minuto.":".$segundo;
+            if($dataFile){
+                $strLOG =   str_pad($tiempo, 19, " ", STR_PAD_BOTH)." | ".
+                            str_pad(get_cliente_ip(), 15, " ", STR_PAD_BOTH)." | ".
+                            str_pad(basename($_SERVER['PHP_SELF'], ".php"), 10, " ", STR_PAD_BOTH)." | ".
+                            str_pad(__FUNCTION__, 17, " ", STR_PAD_BOTH)." | ".
+                            str_pad('Libreria G', 17, " ", STR_PAD_BOTH)." | ".
+                            utf8_decode($texto);
+
+                fwrite($dataFile, $strLOG);
+                fclose($dataFile);
+            }
+
+        }
+    }
+ /** *************************************************************************** **/
+   function get_cliente_ip() {
+        $ipaddress = '';
+        if (getenv('HTTP_CLIENT_IP'))
+            $ipaddress = getenv('HTTP_CLIENT_IP');
+        else if(getenv('HTTP_X_FORWARDED_FOR'))
+            $ipaddress = getenv('HTTP_X_FORWARDED_FOR');
+        else if(getenv('HTTP_X_FORWARDED'))
+            $ipaddress = getenv('HTTP_X_FORWARDED');
+        else if(getenv('HTTP_FORWARDED_FOR'))
+            $ipaddress = getenv('HTTP_FORWARDED_FOR');
+        else if(getenv('HTTP_FORWARDED'))
+           $ipaddress = getenv('HTTP_FORWARDED');
+        else if(getenv('REMOTE_ADDR'))
+            $ipaddress = getenv('REMOTE_ADDR');
+        else
+            $ipaddress = 'UNKNOWN';
+        return $ipaddress;
+    }
+/** *************************************************************************** **/
+    function mostrar_error($error){
+        handleError($error->getCode(), $error->getMessage(), $error->getFile(), $error->getLine(), $error->getTrace());
+        exit();
+    }
+/** *************************************************************************** **/
+    function handleError($code, $description, $file = null, $line = null, $context = null) {
+        $displayErrors = ini_get("display_errors");
+        $displayErrors = strtolower($displayErrors);
+        if (error_reporting() === 0 || $displayErrors === "on") {
+            return false;
+            exit(0);
+        }
+        list($error, $log) = mapErrorCode($code);
+        $objError = array(
+            'level' => $error,
+            'code' => $code,
+            'error' => $error,
+            'description' => $description,
+            'file' => $file,
+            'line' => $line,
+            'context' => $context,
+            'path' => $file,
+            'message' => $error . ' (' . $code . '): ' . $description . ' en [' . $file . ', línea ' . $line . ']'
+        );
+
+        echo json_encode($objError);
+    }
+/** *************************************************************************** **/
+    function mapErrorCode($code) {
+        $error = $log = null;
+        switch ($code) {
+            case E_PARSE:
+            case E_ERROR:
+            case E_CORE_ERROR:
+            case E_COMPILE_ERROR:
+            case E_USER_ERROR:
+                $error = 'Error Fatal';
+                $log = LOG_ERR;
+                break;
+            case E_WARNING:
+            case E_USER_WARNING:
+            case E_COMPILE_WARNING:
+            case E_RECOVERABLE_ERROR:
+                $error = 'Precaución';
+                $log = LOG_WARNING;
+                break;
+            case E_NOTICE:
+            case E_USER_NOTICE:
+                $error = 'Noticia';
+                $log = LOG_NOTICE;
+                break;
+            case E_STRICT:
+                $error = 'Estricto';
+                $log = LOG_NOTICE;
+                break;
+            case E_DEPRECATED:
+            case E_USER_DEPRECATED:
+                $error = 'Depreciado';
+                $log = LOG_NOTICE;
+                break;
+            default :
+                break;
+        }
+        return array($error, $log);
+    }
+
+    /** *************************************************************************** **/
+    function chkSesion(){
+
+        $_SESSION['LAST_ACTIVITY'] = time();
+        if(isset($_SESSION["usuario"]['logined'])){
+            if($_SESSION["usuario"]['logined'] != true){
+                //Cerramos en forzado el sistema
+                goRedirect("Index", "index");
+            }
+        }else{
+            //Cerramos en forzado el sistema
+            goRedirect("Index", "index");
+        }
+    }
+    /** *************************************************************************** **/
+    function goSesion(){
+        if(!isset($_SESSION["time"])){ //No hay tiempo establecido
+            $_SESSION["time"] = time(); //Asigno tiempo de arranque de la sesión
+        }else{ //El tiempo de arranque ya se había asignado
+            $xTmpActiva = time() - $_SESSION["time"];
+            if($xTmpActiva > MAX_SESSION_TIEMPO){ //El tiempo de vida se ha superado
+                session_destroy(); //Destruyo la sesión activa
+                goRedirect("Index", "index");
+            }else{ //Aun en tiempo de vida y hay que reniciar contador
+                $_SESSION["time"] = time(); //Reinicio tiempo de operación
+            }
+        }
+        //VALIDANDO POR VARIABLES
+        if(!isset($_SESSION["usuario"])){ //No hay tiempo establecido
+            session_destroy(); //Destruyo la sesión activa
+            goRedirect("Index", "index");
+        }
+    }
+/** *************************************************************************** **/
+    function goConsola($data){
+        if(is_array($data)) $output = "<script>console.log( 'Debug Objects: " . implode( ',', $data) . "' );</script>";
+        else $output = "<script>console.log( 'Debug Objects: " . $data . "' );</script>";
+
+        echo $output;
+    }
+/** *************************************************************************** **/
+function load_Menu($mnu_load){
+    $mnuFILE = PATH_AJAX."/".strtolower($mnu_load).".mnu";
+    if(file_exists($mnuFILE)){
+        ob_start(); //Activo la captura de buffer de salida
+        require($mnuFILE); //requiero el archivo de MENU para que se ejecute
+        $mnuCONTENT = ob_get_clean(); //retorno la salida del archivo ejecutado            
+    }else{
+        $mnuCONTENT = "[404] Menú no encontrado (".$mnuFILE.")";
+    }
+    return $mnuCONTENT;
+}
+/** *************************************************************************** **/
+function import_sql($xFILE, $db_NAME){
+    $xClass = new ControladorBase();
+    //Asigno la conexión MASTER
+    $conn = new mysqli(DB_HOST, DB_USUARIO, DB_SECRETO);
+    //Selecciono la DB
+    mysqli_select_db($conn, $db_NAME);
+    $query = '';
+    $sqlScript = file($xFILE);
+    foreach ($sqlScript as $line)   {
+        $startWith = substr(trim($line), 0 ,2);
+        $endWith = substr(trim($line), -1 ,1);
+        if (empty($line) || $startWith == '--' || $startWith == '/*' || $startWith == '//') {
+            continue;
+        }
+        $query = $query . $line;
+        if ($endWith == ';') {
+            //auditar("Ejecutando: ".$query);
+            mysqli_query($conn, $query) or $xClass->auditar('Problema importando SQL: ' . $query. ' --> '.mysqli_error($conn));
+            $query= '';             
+        }
+    }    
+}
+/** *************************************************************************** **/
+function rmDir_rf($carpeta){
+    $xClass = new ControladorBase();
+    $folderCont = scandir($carpeta);
+    foreach ($folderCont as $clave => $valor) {
+        $del_OBJETO = $carpeta . '/' . $folderCont[$clave];
+        if($valor != '.' && $valor != '..'){ //omitimos directorios especiales
+            if(is_dir($del_OBJETO)){ //es un directorio
+                $xClass->auditar("Eliminando carpeta: ".$del_OBJETO);
+                rmDir_rf($del_OBJETO); //recursivo dentro de
+            }else{
+                $xClass->auditar("Eliminando archivo: ".$del_OBJETO);
+                unlink($del_OBJETO); //archivo
+            }    
+        } 
+    }
+    $xClass->auditar("Eliminando carpeta: ".$carpeta);
+    rmdir($carpeta); //carpeta principal
+}
+/** *************************************************************************** **/
+function quitar_tildes($cadena){
+    //Ahora reemplazamos las letras
+    $cadena = str_replace(
+        array('á', 'à', 'ä', 'â', 'ª', 'Á', 'À', 'Â', 'Ä'),
+        array('a', 'a', 'a', 'a', 'a', 'A', 'A', 'A', 'A'),
+        $cadena
+    );
+
+    $cadena = str_replace(
+        array('é', 'è', 'ë', 'ê', 'É', 'È', 'Ê', 'Ë'),
+        array('e', 'e', 'e', 'e', 'E', 'E', 'E', 'E'),
+        $cadena );
+
+    $cadena = str_replace(
+        array('í', 'ì', 'ï', 'î', 'Í', 'Ì', 'Ï', 'Î'),
+        array('i', 'i', 'i', 'i', 'I', 'I', 'I', 'I'),
+        $cadena );
+
+    $cadena = str_replace(
+        array('ó', 'ò', 'ö', 'ô', 'Ó', 'Ò', 'Ö', 'Ô'),
+        array('o', 'o', 'o', 'o', 'O', 'O', 'O', 'O'),
+        $cadena );
+
+    $cadena = str_replace(
+        array('ú', 'ù', 'ü', 'û', 'Ú', 'Ù', 'Û', 'Ü'),
+        array('u', 'u', 'u', 'u', 'U', 'U', 'U', 'U'),
+        $cadena );
+
+    $cadena = str_replace(
+        array('ñ', 'Ñ', 'ç', 'Ç'),
+        array('n', 'N', 'c', 'C'),
+        $cadena
+    );
+
+    return $cadena;
+}
+/** *************************************************************************** **/
+    function send_email($template_mail, $array_vars){
+        if((!isset($template_mail)) || (!isset($array_vars))){ //no tenemos parametros :(
+            exit('falta parametro necesario en send_email.');
+        }
+        //****************************************************************************
+        // CARGAMOS Y OBTENEMOS EL CÓDIGO DE LA PLANTILLA DE CORREOS
+        //****************************************************************************
+        ob_start(); //Activo la captura de buffer de salida
+        require(PATH_LIBRERIAS.'/pl/correos/'.$template_mail.'.template'); //requiero el archivo de plantilla para que se ejecute
+        $html_return = ob_get_clean();
+        //****************************************************************************
+        // EJECUTAMOS EL ENVÍO DEL CORREO ELECTRÓNICO
+        //****************************************************************************
+        $mail = new PHPMailer(true);
+        $mail->isSMTP();                             //Send using SMTP
+        $mail->Host       = MAIL_HOST;               //Set the SMTP server to send through
+        $mail->SMTPAuth   = true;                    //Enable SMTP authentication
+        $mail->Username   = MAIL_USUARIO;            //SMTP username
+        $mail->Password   = MAIL_SECRETO;            //SMTP password
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         //Enable implicit TLS encryption
+        $mail->Port       = MAIL_PORT;                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+        $mail->setFrom(MAIL_FROM_CORREO, MAIL_FROM_NOMBRE);
+        $mail->addAddress($array_vars['to'], isset($array_vars['to_NAME']) ? $array_vars['to_NAME'] : '');     //Add a recipient
+        if((isset($array_vars['cc'])) && ($array_vars['cc'] != '')){
+            $mail->addCC($array_vars['cc']);
+        }
+        if(isset($array_vars['attach']) && is_array($array_vars['attach'])){ //hay imagenes para adjuntar
+            foreach ($array_vars['attach'] as $file) {
+                $mail->AddAttachment($file, basename($file));
+            }
+        }
+        $mail->CharSet = 'UTF-8';
+        $mail->isHTML(true);                                  //Set email format to HTML
+        $mail->Subject = $array_vars['subject'];
+        $mail->Body    = $html_return;
+        $mail->send();
+        //****************************************************************************
+        return true;
+    }
+/** *************************************************************************** **/
+    function check_user_conections($user_name) {
+        //Revisando todos los archivos de sesiones
+        $user_found = false;
+        foreach(glob(PATH_SESIONES."/*") as $file_name){
+            if(filesize($file_name) > 0){
+                $file = fopen($file_name, "r");
+                $file_content = fread($file, filesize($file_name));
+                if (strpos($file_content, $user_name)) { //Hemos encontrado una sesión activa del usuario
+                    $user_found = true;
+                }
+            }
+        }
+
+        return $user_found;
+    }
+/** *************************************************************************** **/
+function remove_user_conections($user_name) {
+    //Revisando todos los archivos de sesiones
+    $user_found = false;
+    foreach(glob(PATH_SESIONES."/*") as $file_name){
+        if(filesize($file_name) > 0){
+            $file = fopen($file_name, "r");
+            $file_content = fread($file, filesize($file_name));
+            if (strpos($file_content, $user_name)) { //Hemos encontrado una sesión activa del usuario
+                unlink($file_name);
+            }
+        }
+    }
+
+}
+/** *************************************************************************** **/
+function Zero($Valor, $Longitud)
+{
+    $MyValor = $Valor;
+    if(strlen($MyValor) < $Longitud){
+        $MyCAD = $Valor;
+        Do {
+            $MyCAD = "0".$MyCAD;
+        }While(strlen($MyCAD) < $Longitud);
+        return $MyCAD;
+    }elseif(strlen($MyValor) == $Longitud){
+        return $Valor;
+    }elseif(strlen($MyValor) > $Longitud){
+        return "Z Err";
+    }
+}
+/** *************************************************************************** **/
+function fecha_DMA($amd)
+{
+    return substr($amd, 8, 2)."-".substr($amd, 5, 2)."-".substr($amd, 0, 4);
+}
+/** *************************************************************************** **/
+function fecha_AMD($dma)
+{
+    return substr($dma, 7, 4)."-".substr($dma, 4, 2)."-".substr($dma, 1, 2);
+}
+/** *************************************************************************** **/
+function Utf8_ansi($valor='') {
+
+    $utf8_ansi2 = array(
+    "\u00c0" =>"À",
+    "\u00c1" =>"Á",
+    "\u00c2" =>"Â",
+    "\u00c3" =>"Ã",
+    "\u00c4" =>"Ä",
+    "\u00c5" =>"Å",
+    "\u00c6" =>"Æ",
+    "\u00c7" =>"Ç",
+    "\u00c8" =>"È",
+    "\u00c9" =>"É",
+    "\u00ca" =>"Ê",
+    "\u00cb" =>"Ë",
+    "\u00cc" =>"Ì",
+    "\u00cd" =>"Í",
+    "\u00ce" =>"Î",
+    "\u00cf" =>"Ï",
+    "\u00d1" =>"Ñ",
+    "\u00d2" =>"Ò",
+    "\u00d3" =>"Ó",
+    "\u00d4" =>"Ô",
+    "\u00d5" =>"Õ",
+    "\u00d6" =>"Ö",
+    "\u00d8" =>"Ø",
+    "\u00d9" =>"Ù",
+    "\u00da" =>"Ú",
+    "\u00db" =>"Û",
+    "\u00dc" =>"Ü",
+    "\u00dd" =>"Ý",
+    "\u00df" =>"ß",
+    "\u00e0" =>"à",
+    "\u00e1" =>"á",
+    "\u00e2" =>"â",
+    "\u00e3" =>"ã",
+    "\u00e4" =>"ä",
+    "\u00e5" =>"å",
+    "\u00e6" =>"æ",
+    "\u00e7" =>"ç",
+    "\u00e8" =>"è",
+    "\u00e9" =>"é",
+    "\u00ea" =>"ê",
+    "\u00eb" =>"ë",
+    "\u00ec" =>"ì",
+    "\u00ed" =>"í",
+    "\u00ee" =>"î",
+    "\u00ef" =>"ï",
+    "\u00f0" =>"ð",
+    "\u00f1" =>"ñ",
+    "\u00f2" =>"ò",
+    "\u00f3" =>"ó",
+    "\u00f4" =>"ô",
+    "\u00f5" =>"õ",
+    "\u00f6" =>"ö",
+    "\u00f8" =>"ø",
+    "\u00f9" =>"ù",
+    "\u00fa" =>"ú",
+    "\u00fb" =>"û",
+    "\u00fc" =>"ü",
+    "\u00fd" =>"ý",
+    "\u00ff" =>"ÿ");
+    return strtr($valor, $utf8_ansi2);
+}
+/** *************************************************************************** **/
+/** *************************************************************************** **/
+/** *************************************************************************** **/
+/** *************************************************************************** **/
+/** *************************************************************************** **/
+/** *************************************************************************** **/
+/** *************************************************************************** **/
+
+?>
