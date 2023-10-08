@@ -24,6 +24,8 @@ namespace ContPAQi
     {
         void setNoCaja(string xCaja);
         string BuscarAlmacenPorCodigo(string CodigoAlmacen);
+        string BuscarAlmacenPorId(int IdAlmacen);
+        string BuscarTodosAlmacenes();
     }
     /** ********************************************************************* **/
     /** INTERFACE PARA EVENTOS DE LA CLASE **/
@@ -34,6 +36,8 @@ namespace ContPAQi
     {
         void setNoCaja(string xCaja);
         string BuscarAlmacenPorCodigo(string CodigoAlmacen);
+        string BuscarAlmacenPorId(int IdAlmacen);
+        string BuscarTodosAlmacenes();
     }
     /** ********************************************************************* **/
     /** CLASE PRINCIPAL DE IMPLEMENTACIÓN  **/
@@ -59,7 +63,6 @@ namespace ContPAQi
         public int Id { get; set; }
         public string Codigo { get; set; }
         public string Nombre { get; set; }
-        [ComVisible(true)]
         public string NoCaja { get; set; }
         public void setNoCaja(string xCaja)
         {
@@ -87,8 +90,28 @@ namespace ContPAQi
                 Nombre = nombreBd.ToString()
             };
         }
+        public string BuscarAlmacenPorId(int IdAlmacen)
+        {
+            try
+            {
+                open_SDK();
+                ComercialSdk.fBuscaIdAlmacen(IdAlmacen).TirarSiEsError();
+                AlmacenSdk MyAlmacen = LeerDatosAlmacen();
+                close_SDK();
+                ObjRESP.Add("Id", MyAlmacen.Id.ToString());
+                ObjRESP.Add("Codigo", MyAlmacen.Codigo.ToString());
+                ObjRESP.Add("Nombre", MyAlmacen.Nombre.ToString());
 
+                return JsonConvert.SerializeObject(ObjRESP, JsonSettingsHTML);
+            }
+            catch (Exception ex)
+            {
+                Console_log(ex.Message + ";\nTrace:\n" + ex.StackTrace.ToString(), EventLogEntryType.Error, 1000);
+                return null;
+            }
+            finally { ComercialSdk.fCierraEmpresa(); ComercialSdk.fTerminaSDK(); }
 
+        }
         public string BuscarAlmacenPorCodigo(string CodigoAlmacen)
         {
             try
@@ -111,7 +134,46 @@ namespace ContPAQi
             finally { ComercialSdk.fCierraEmpresa(); ComercialSdk.fTerminaSDK(); }
 
         }
+        public string BuscarTodosAlmacenes()
+        {
+            try
+            {
+                AlmacenSdk MyAlmacen = new AlmacenSdk();
+                List<string> ListaAlmacenes = new List<string>();
+                Dictionary<string, string> objALMACEN = new Dictionary<string, string>();
+                open_SDK();
+                //Posicionamos en el primer almacen y leemos sus datos
+                ComercialSdk.fPosPrimerAlmacen();
+                MyAlmacen = LeerDatosAlmacen();
+                objALMACEN.Add("Id", MyAlmacen.Id.ToString());
+                objALMACEN.Add("Codigo", MyAlmacen.Codigo.ToString());
+                objALMACEN.Add("Nombre", MyAlmacen.Nombre.ToString());
+                ListaAlmacenes.Add(JsonConvert.SerializeObject(objALMACEN, JsonSettingsHTML));
+                objALMACEN.Clear();
+                // Crear un loop y posicionar el SDK en el siguiente registro
+                while (ComercialSdk.fPosSiguienteAlmacen() == SdkConstantes.CodigoExito)
+                {
+                    MyAlmacen = LeerDatosAlmacen();
+                    objALMACEN.Add("Id", MyAlmacen.Id.ToString());
+                    objALMACEN.Add("Codigo", MyAlmacen.Codigo.ToString());
+                    objALMACEN.Add("Nombre", MyAlmacen.Nombre.ToString());
+                    ListaAlmacenes.Add(JsonConvert.SerializeObject(objALMACEN, JsonSettingsHTML));
+                    objALMACEN.Clear();
 
+                    if (ComercialSdk.fPosEOFAlmacen() == 1)
+                        break;
+                }
+
+                return JsonConvert.SerializeObject(ListaAlmacenes, JsonSettingsHTML);
+            }
+            catch (Exception ex)
+            {
+                Console_log(ex.Message + ";\nTrace:\n" + ex.StackTrace.ToString(), EventLogEntryType.Error, 1000);
+                return null;
+            }
+            finally { ComercialSdk.fCierraEmpresa(); ComercialSdk.fTerminaSDK(); }
+
+        }
 
         /** ********************************************************************* **/
         /** FUNCIONES DE INTER-CONECTIVIDAD **/
@@ -139,7 +201,7 @@ namespace ContPAQi
                 {
                     var EmpresaDB = MyCajas[3].ToString().Trim();
                     string rutaEMPRESA_COM = "C:\\Compac\\Empresas\\" + EmpresaDB;
-                    Console_log("Abriendo la empresa: " + EmpresaDB + " en la ruta: " + rutaEMPRESA_COM, EventLogEntryType.Information, 100);
+                    Console_log("La caja " +this.NoCaja+ " abre la empresa: " + EmpresaDB + " en la ruta: " + rutaEMPRESA_COM, EventLogEntryType.Information, 100);
                     nStart = ComercialSdk.fAbreEmpresa(rutaEMPRESA_COM);
                     if (nStart != 0)
                     {
