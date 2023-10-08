@@ -1,48 +1,21 @@
-<pre>
 <?php
 define('ROOT_DIR', $_SERVER['DOCUMENT_ROOT'].'/appEmpresasUV/');
-define('NombrePaqComercial', 'CONTPAQ I COMERCIAL');
-define('NombrePaqContable', 'CONTPAQ I CONTABILIDAD');
+header('Content-Type: application/json; charset=UTF8');
 
     try {
-        $MySdk = new COM("SdkContPAQi.Comercial");
-
-        $lResultado = $MySdk->test();
-        echo $lResultado;
-
-        $MySdk->fInicioSesionSDK("PUNTOVENTAS", "XiYeme=R6G");
-        $MySdk->fInicioSesionSDKCONTPAQi("PUNTOVENTAS", "XiYeme=R6G");
-
-        $nStart = $MySdk->fSetNombrePAQ(NombrePaqComercial);
-        if ($nStart != 0)
-        {
-            $strMensaje = "";
-            $MySdk->fError($nStart, $strMensaje, 512);
-            echo("Error detectado: " . $strMensaje);
-        }
-        else
-        {
-            $rutaEMPRESA_COM = "C:\\Compac\\Empresas\\cmPuntoVentas";
-            echo("Abriendo la empresa: cmPuntoVentas en la ruta: " . $rutaEMPRESA_COM);
-            $nStart =  $MySdk->fAbreEmpresa($rutaEMPRESA_COM);
-            if ($nStart != 0)
-            {
-                $strMensaje = "";
-                 $MySdk->fError($nStart, $strMensaje, 512);
-                echo("Error detectado: " . $strMensaje);
-            }
-        }
-
-        $MySdk->fCierraEmpresa();
-        echo("Empresa cerrada");
-        $MySdk->fTerminaSDK();
-        echo("SDK Finalizado");
-
-
+        //$MyComercial = new COM("ContPAQi.CiComercialSdk");
+        //$MyComercial = new COM("ContPAQi.ProductoSdk");
+        //$MyComercial = new COM("ContPAQi.MovimientoSdk");
+        //$MyComercial = new COM("ContPAQi.DocumentoSdk");
+        //$MyComercial = new COM("ContPAQi.ConceptoSdk");
+        //$MyComercial = new COM("ContPAQi.ClienteSdk");
+        //$MyComercial = new COM("ContPAQi.CaracteristicasSdk");
+        $MyAlmacenSdk = new COM("ContPAQi.AlmacenSdk");
+        $MyAlmacenSdk->setNoCaja("1");
+        echo $MyAlmacenSdk->BuscarAlmacenPorCodigo("120");        
 
     } catch(Exception $e){
-        echo 'error: ' . $e->getMessage(), "\n";
+        echo 'Error: ' . $e->getMessage() , "\n\nTrace: " . $e->getTraceAsString(), "\n";
     }
 
 ?>
-</pre>

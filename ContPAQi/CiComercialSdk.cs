@@ -23,7 +23,6 @@ namespace ContPAQi
     public interface IComercialSdk
     {
         string OpenCaja(int NoCaja);
-        string get_Producto(string Codigo, int Cantidad, int NoCaja);
     }
 
     [Guid("8cae3118-d62a-4984-ae0c-2f5dd7236015"),
@@ -31,7 +30,6 @@ namespace ContPAQi
     public interface IComercialSdkEvents
     {
         string OpenCaja(int NoCaja);
-        string get_Producto(string Codigo, int Cantidad, int NoCaja);
     }
 
     [ComVisible(true)]
@@ -219,118 +217,6 @@ namespace ContPAQi
             finally { close_SDK(); }
         }
         /*** *************************************************** ***/
-        [ComVisible(true)]
-        public string get_Producto(string Codigo, int Cantidad, int NoCaja)
-        {
-            try
-            {
-                open_SDK(NoCaja);
-                var ObjRESP = new Dictionary<string, string>();
-                ProductoSdk MyProducto = ProductoSdk.BuscarProductoPorCodigo(Codigo.ToString());
-                if (MyProducto.Codigo != "") //Producto encontrado
-                {
-                    if (MyProducto.Estado == "1") //Producto activo
-                    {
-                        ObjRESP.Add("Code", "0");
-                        //Código
-                        ObjRESP.Add("Codigo", MyProducto.Codigo);
-                        //Nombre
-                        ObjRESP.Add("Nombre", MyProducto.Nombre);
-                        //Precio Unitario
-                        ObjRESP.Add("Precio", MyProducto.Precio.ToString("N", new CultureInfo("es-MX")));
-                        //Total con IVA
-                        ObjRESP.Add("Total", (Convert.ToSingle(Cantidad.ToString()) * MyProducto.Precio).ToString("N", new CultureInfo("es-MX")));
-
-                        //Buscamos los almacenes que se encuentran asignados a la caja
-                        MySQL dbMySQL = new MySQL();
-                        MySqlDataReader MyAlmacenes = dbMySQL.execSQL("SELECT * FROM tpv_cajas_almacenes WHERE id_caja = " + NoCaja + ";");
-                        while (MyAlmacenes.Read())//Buscamos si la caja tiene almacenes
-                        {
-                            lista_Almacenes.Add(MyAlmacenes["id_SDK"].ToString());
-                        }
-                        dbMySQL.Desconectar();
-
-                        //Asignando las caracteristicas del producto en su caso.
-                        if ((MyProducto.Caracteristicas.existCaracteristica1) || (MyProducto.Caracteristicas.existCaracteristica2) || (MyProducto.Caracteristicas.existCaracteristica3))
-                        {
-                            //Tiene caracteristicas
-                            ObjRESP.Add("Caracteristicas", "1");
-                            if (MyProducto.Caracteristicas.nameCaracteristica1.ToString() != "")
-                            {
-                                ObjRESP.Add("C1_NAME", MyProducto.Caracteristicas.nameCaracteristica1.ToString());
-                                ObjRESP.Add("C1_VALUES", JsonConvert.SerializeObject(MyProducto.Caracteristicas.listaCaracteristica1, JsonSettingsHTML));
-                            }
-                            if (MyProducto.Caracteristicas.nameCaracteristica2.ToString() != "")
-                            {
-                                ObjRESP.Add("C2_NAME", MyProducto.Caracteristicas.nameCaracteristica2.ToString());
-                                ObjRESP.Add("C2_VALUES", JsonConvert.SerializeObject(MyProducto.Caracteristicas.listaCaracteristica2, JsonSettingsHTML));
-                            }
-                            if (MyProducto.Caracteristicas.nameCaracteristica3.ToString() != "")
-                            {
-                                ObjRESP.Add("C3_NAME", MyProducto.Caracteristicas.nameCaracteristica3.ToString());
-                                ObjRESP.Add("C3_VALUES", JsonConvert.SerializeObject(MyProducto.Caracteristicas.listaCaracteristica3, JsonSettingsHTML));
-                            }
-                        }
-                        else
-                        {
-                            ObjRESP.Add("Caracteristicas", "0");
-                            ObjRESP.Add("C1_NAME", "");
-                            ObjRESP.Add("C1_VALUES", "");
-                            ObjRESP.Add("C2_NAME", "");
-                            ObjRESP.Add("C2_VALUES", "");
-                            ObjRESP.Add("C3_NAME", "");
-                            ObjRESP.Add("C3_VALUES", "");
-
-                        }
-
-                    }
-                    else
-                    {
-                        //El producto no está activo
-                        ObjRESP.Add("Code", "1997");
-                        Console_log("El producto (" + Codigo + ") no está activo.", EventLogEntryType.Error, 1000);
-                    }
-                }
-                else
-                {
-                    //El producto no se encuentra
-                    ObjRESP.Add("Code", "1996");
-                    Console_log("El producto (" + Codigo + ") no se encuentra registrado.", EventLogEntryType.Error, 1000);
-
-                }
-
-                close_SDK();
-                return JsonConvert.SerializeObject(ObjRESP);
-
-            }
-            catch (Exception ex)
-            {
-                Console_log(ex.Message + ";\nTrace:\n" + ex.StackTrace.ToString(), EventLogEntryType.Error, 1000);
-                return ErrorCode;
-            }
-            finally { close_SDK(); }
-
-        }
-        /*** *************************************************** ***/
-        public string get_Existencia(string Codigo, int Cantidad, int NoCaja)
-        {
-            try
-            {
-                open_SDK(NoCaja);
-                var ObjRESP = new Dictionary<string, string>();
-
-
-                close_SDK();
-                return JsonConvert.SerializeObject(ObjRESP);
-
-            }
-            catch (Exception ex)
-            {
-                Console_log(ex.Message + ";\nTrace:\n" + ex.StackTrace.ToString(), EventLogEntryType.Error, 1001);
-                return ErrorCode;
-            }
-            finally { close_SDK(); }
-        }
         /*** *************************************************** ***/
         /*** *************************************************** ***/
         /*** *************************************************** ***/

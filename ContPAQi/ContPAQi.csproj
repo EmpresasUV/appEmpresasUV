@@ -136,6 +136,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CiComercialSdk.cs" />
+    <Compile Include="Comercial\AlmacenSdk.cs" />
     <Compile Include="Comercial\CaracteristicasSdk.cs" />
     <Compile Include="Comercial\ClienteSdk.cs" />
     <Compile Include="Comercial\ConceptoSdk.cs" />
@@ -155,4 +156,10 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>C:\XAMPP\APACHE\BIN\httpd -k stop</PreBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PostBuildEvent>C:\XAMPP\APACHE\BIN\httpd -k start</PostBuildEvent>
+  </PropertyGroup>
 </Project>
