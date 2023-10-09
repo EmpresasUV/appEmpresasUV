@@ -23,9 +23,9 @@ namespace ContPAQi
     public interface IAlmacenSdk
     {
         void setNoCaja(string xCaja);
-        string BuscarAlmacenPorCodigo(string CodigoAlmacen);
-        string BuscarAlmacenPorId(int IdAlmacen);
-        string BuscarTodosAlmacenes();
+        string http_BuscarAlmacenPorCodigo(string CodigoAlmacen);
+        string http_BuscarAlmacenPorId(int IdAlmacen);
+        string http_BuscarTodosAlmacenes();
     }
     /** ********************************************************************* **/
     /** INTERFACE PARA EVENTOS DE LA CLASE **/
@@ -35,9 +35,9 @@ namespace ContPAQi
     public interface IAlmacenSdkEvents
     {
         void setNoCaja(string xCaja);
-        string BuscarAlmacenPorCodigo(string CodigoAlmacen);
-        string BuscarAlmacenPorId(int IdAlmacen);
-        string BuscarTodosAlmacenes();
+        string http_BuscarAlmacenPorCodigo(string CodigoAlmacen);
+        string http_BuscarAlmacenPorId(int IdAlmacen);
+        string http_BuscarTodosAlmacenes();
     }
     /** ********************************************************************* **/
     /** CLASE PRINCIPAL DE IMPLEMENTACIÓN  **/
@@ -69,28 +69,10 @@ namespace ContPAQi
             this.NoCaja = xCaja;
         }
 
-        private AlmacenSdk LeerDatosAlmacen()
-        {
-            Dictionary<string, string> objAlmacen = new Dictionary<string, string>();
-            // Declarar variables a leer de la base de datos
-            var idBd = new StringBuilder(3000);
-            var codigoBd = new StringBuilder(3000);
-            var nombreBd = new StringBuilder(3000);
-
-            // Leer los datos del registro donde el SDK esta posicionado
-            ComercialSdk.fLeeDatoAlmacen("CIDALMACEN", idBd, 3000);
-            ComercialSdk.fLeeDatoAlmacen("CCODIGOALMACEN", codigoBd, 3000);
-            ComercialSdk.fLeeDatoAlmacen("CNOMBREALMACEN", nombreBd, 3000);
-
-            // Instanciar un almacen y asignar los datos de la base de datos
-            return new AlmacenSdk
-            {
-                Id = int.Parse(idBd.ToString()),
-                Codigo = codigoBd.ToString(),
-                Nombre = nombreBd.ToString()
-            };
-        }
-        public string BuscarAlmacenPorId(int IdAlmacen)
+        /** ********************************************************************* **/
+        /** FUNCIONES DE APLICACION WEB **/
+        /** ********************************************************************* **/
+        public string http_BuscarAlmacenPorId(int IdAlmacen)
         {
             try
             {
@@ -112,7 +94,7 @@ namespace ContPAQi
             finally { ComercialSdk.fCierraEmpresa(); ComercialSdk.fTerminaSDK(); }
 
         }
-        public string BuscarAlmacenPorCodigo(string CodigoAlmacen)
+        public string http_BuscarAlmacenPorCodigo(string CodigoAlmacen)
         {
             try
             {
@@ -134,7 +116,7 @@ namespace ContPAQi
             finally { ComercialSdk.fCierraEmpresa(); ComercialSdk.fTerminaSDK(); }
 
         }
-        public string BuscarTodosAlmacenes()
+        public string http_BuscarTodosAlmacenes()
         {
             try
             {
@@ -172,7 +154,31 @@ namespace ContPAQi
                 return null;
             }
             finally { ComercialSdk.fCierraEmpresa(); ComercialSdk.fTerminaSDK(); }
+        }
 
+        /** ********************************************************************* **/
+        /** FUNCIONES DEL CICLO INTERNO **/
+        /** ********************************************************************* **/
+        private AlmacenSdk LeerDatosAlmacen()
+        {
+            Dictionary<string, string> objAlmacen = new Dictionary<string, string>();
+            // Declarar variables a leer de la base de datos
+            var idBd = new StringBuilder(3000);
+            var codigoBd = new StringBuilder(3000);
+            var nombreBd = new StringBuilder(3000);
+
+            // Leer los datos del registro donde el SDK esta posicionado
+            ComercialSdk.fLeeDatoAlmacen("CIDALMACEN", idBd, 3000);
+            ComercialSdk.fLeeDatoAlmacen("CCODIGOALMACEN", codigoBd, 3000);
+            ComercialSdk.fLeeDatoAlmacen("CNOMBREALMACEN", nombreBd, 3000);
+
+            // Instanciar un almacen y asignar los datos de la base de datos
+            return new AlmacenSdk
+            {
+                Id = int.Parse(idBd.ToString()),
+                Codigo = codigoBd.ToString(),
+                Nombre = nombreBd.ToString()
+            };
         }
 
         /** ********************************************************************* **/

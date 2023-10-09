@@ -23,8 +23,10 @@ namespace ContPAQi
     [Guid("3a69c508-9e0f-4ff9-ae0c-71f78304deb2")]
     public interface IProductoSdk
     {
-        string BuscarProductoPorId(int productoId, string xCaja);
-        string BuscarProductoPorCodigo(string productoCodigo, string xCaja);
+        void setNoCaja(string xCaja);
+        string http_BuscarProductoPorId(int productoId);
+        string http_BuscarProductoPorCodigo(string productoCodigo);
+        string http_BuscarTodosProductos(int soloActivos = 1);
     }
     /** ********************************************************************* **/
     /** INTERFACE PARA EVENTOS DE LA CLASE **/
@@ -33,10 +35,10 @@ namespace ContPAQi
      InterfaceType(ComInterfaceType.InterfaceIsIDispatch)]
     public interface IProductoSdkEvents
     {
-        string BuscarProductoPorId(int productoId, string xCaja);
-        ProductoSdk BuscarProductoPorId(int productoId);
-        string BuscarProductoPorCodigo(string productoCodigo, string xCaja);
-        ProductoSdk BuscarProductoPorCodigo(string productoCodigo);
+        void setNoCaja(string xCaja);
+        string http_BuscarProductoPorId(int productoId);
+        string http_BuscarProductoPorCodigo(string productoCodigo);
+        string http_BuscarTodosProductos(int soloActivos = 1);
     }
     /** ********************************************************************* **/
     /** CLASE PRINCIPAL DE IMPLEMENTACIÓN  **/
@@ -55,7 +57,7 @@ namespace ContPAQi
         public const string NombrePaqComercial = "CONTPAQ I COMERCIAL";
         public const string NombrePaqContable = "CONTPAQ I CONTABILIDAD";
         public List<string> lista_Almacenes = new List<string>();
-        public SqlConnection SQLConexion = new SqlConnection(@"Data Source = DC-CONTABLE\COMPAC; Initial Catalog = cmPuntoVentas; User ID = sa; Password = Promo1002##");
+        //public SqlConnection SQLConexion = new SqlConnection(@"Data Source = DC-CONTABLE\COMPAC; Initial Catalog = cmPuntoVentas; User ID = sa; Password = Promo1002##");
         public JsonSerializerSettings JsonSettingsHTML = new JsonSerializerSettings
         {
             StringEscapeHandling = StringEscapeHandling.EscapeNonAscii
@@ -69,14 +71,164 @@ namespace ContPAQi
         public int Tipo { get; set; }
         public bool TieneCaracteristicas { get; set; }
         public CaracteristicasSdk Caracteristicas { get; set; }
-
-        [ComVisible(true)]
-        public override string ToString()
+        public string NoCaja { get; set; }
+        public string DbEmpresa { get; set; }
+        public void setNoCaja(string xCaja)
         {
-            return $"{Id} - {Codigo} - {Nombre} - {Precio} - {Estado} - {Tipo}";
+            this.NoCaja = xCaja;
         }
 
-        [ComVisible(true)]
+        /** ********************************************************************* **/
+        /** FUNCIONES DE APLICACION WEB **/
+        /** ********************************************************************* **/
+        public string http_BuscarProductoPorId(int productoId)
+        {
+            try
+            {
+
+                Dictionary<string, string> ObjPRODUCTO = new Dictionary<string, string>();
+                open_SDK();
+                ComercialSdk.fBuscaIdProducto(productoId);
+                ProductoSdk MyProducto = LeerDatosProducto();
+                close_SDK();
+                ObjPRODUCTO.Add("Id", MyProducto.Id.ToString());
+                ObjPRODUCTO.Add("Codigo", MyProducto.Codigo.ToString());
+                ObjPRODUCTO.Add("Nombre", MyProducto.Nombre.ToString());
+                ObjPRODUCTO.Add("Precio", MyProducto.Precio.ToString());
+                ObjPRODUCTO.Add("Estado", MyProducto.Estado.ToString());
+                ObjPRODUCTO.Add("Tipo", MyProducto.Tipo.ToString());
+
+                return JsonConvert.SerializeObject(ObjPRODUCTO, JsonSettingsHTML);
+            }
+            catch (Exception ex)
+            {
+                Console_log(ex.Message + ";\nTrace:\n" + ex.StackTrace.ToString(), EventLogEntryType.Error, 8000);
+                return null;
+            }
+            finally { ComercialSdk.fCierraEmpresa(); ComercialSdk.fTerminaSDK(); }
+        }
+        public string http_BuscarProductoPorCodigo(string productoCodigo)
+        {
+            try
+            {
+                Dictionary<string, string> ObjPRODUCTO = new Dictionary<string, string>();
+                open_SDK();
+                ComercialSdk.fBuscaProducto(productoCodigo).TirarSiEsError();
+                ProductoSdk MyProducto = LeerDatosProducto();
+                close_SDK();
+                ObjPRODUCTO.Add("Id", MyProducto.Id.ToString());
+                ObjPRODUCTO.Add("Codigo", MyProducto.Codigo.ToString());
+                ObjPRODUCTO.Add("Nombre", MyProducto.Nombre.ToString());
+                ObjPRODUCTO.Add("Precio", MyProducto.Precio.ToString());
+                ObjPRODUCTO.Add("Estado", MyProducto.Estado.ToString());
+                ObjPRODUCTO.Add("Tipo", MyProducto.Tipo.ToString());
+                //ObjPRODUCTO.Add("Caracteristicas", MyProducto.ToString());
+
+                return JsonConvert.SerializeObject(ObjPRODUCTO, JsonSettingsHTML);
+            }
+            catch (Exception ex)
+            {
+                Console_log(ex.Message + "\n\nTrace:\n" + ex.StackTrace.ToString(), EventLogEntryType.Error, 8000);
+                return null;
+            }
+            finally { ComercialSdk.fCierraEmpresa(); ComercialSdk.fTerminaSDK(); }
+
+        }
+        public string http_BuscarTodosProductos(int soloActivos = 1)
+        {
+            try
+            {
+                ProductoSdk MyProducto = new ProductoSdk();
+                List<string> ListaProductos = new List<string>();
+                Dictionary<string, string> objPRODUCTO = new Dictionary<string, string>();
+                open_SDK();
+                if (soloActivos == 1) //Solo buscamos los productos activos
+                {
+                    //Posicionamos en el primer almacen y leemos sus datos
+                    ComercialSdk.fPosPrimerProducto();
+                    MyProducto = LeerDatosProducto();
+                    if(MyProducto.Estado == "1")
+                    {
+                        objPRODUCTO.Add("Id", MyProducto.Id.ToString());
+                        objPRODUCTO.Add("Codigo", MyProducto.Codigo.ToString());
+                        objPRODUCTO.Add("Nombre", MyProducto.Nombre.ToString());
+                        objPRODUCTO.Add("Precio", MyProducto.Precio.ToString());
+                        objPRODUCTO.Add("Estado", MyProducto.Estado.ToString());
+                        objPRODUCTO.Add("Tipo", MyProducto.Tipo.ToString());
+                        //objPRODUCTO.Add("Caracteristicas", MyProducto.ToString());
+                        ListaProductos.Add(JsonConvert.SerializeObject(objPRODUCTO, JsonSettingsHTML));
+                        objPRODUCTO.Clear();
+                    }
+                    // Crear un loop y posicionar el SDK en el siguiente registro
+                    while (ComercialSdk.fPosSiguienteProducto() == SdkConstantes.CodigoExito)
+                    {
+                        MyProducto = LeerDatosProducto();
+                        if (MyProducto.Estado == "1")
+                        {
+                            objPRODUCTO.Add("Id", MyProducto.Id.ToString());
+                            objPRODUCTO.Add("Codigo", MyProducto.Codigo.ToString());
+                            objPRODUCTO.Add("Nombre", MyProducto.Nombre.ToString());
+                            objPRODUCTO.Add("Precio", MyProducto.Precio.ToString());
+                            objPRODUCTO.Add("Estado", MyProducto.Estado.ToString());
+                            objPRODUCTO.Add("Tipo", MyProducto.Tipo.ToString());
+                            //objPRODUCTO.Add("Caracteristicas", MyProducto.ToString());
+                            ListaProductos.Add(JsonConvert.SerializeObject(objPRODUCTO, JsonSettingsHTML));
+                            objPRODUCTO.Clear();
+
+                        }
+
+                        if (ComercialSdk.fPosEOFProducto() == 1)
+                            break;
+                    }
+
+                }
+                else //Buscamos todos los prosuctos (Activos e Inactivos)
+                {
+                    //Posicionamos en el primer almacen y leemos sus datos
+                    ComercialSdk.fPosPrimerProducto();
+                    MyProducto = LeerDatosProducto();
+                    objPRODUCTO.Add("Id", MyProducto.Id.ToString());
+                    objPRODUCTO.Add("Codigo", MyProducto.Codigo.ToString());
+                    objPRODUCTO.Add("Nombre", MyProducto.Nombre.ToString());
+                    objPRODUCTO.Add("Precio", MyProducto.Precio.ToString());
+                    objPRODUCTO.Add("Estado", MyProducto.Estado.ToString());
+                    objPRODUCTO.Add("Tipo", MyProducto.Tipo.ToString());
+                    //objPRODUCTO.Add("Caracteristicas", MyProducto.ToString());
+                    ListaProductos.Add(JsonConvert.SerializeObject(objPRODUCTO, JsonSettingsHTML));
+                    objPRODUCTO.Clear();
+                    // Crear un loop y posicionar el SDK en el siguiente registro
+                    while (ComercialSdk.fPosSiguienteProducto() == SdkConstantes.CodigoExito)
+                    {
+                        MyProducto = LeerDatosProducto();
+                        objPRODUCTO.Add("Id", MyProducto.Id.ToString());
+                        objPRODUCTO.Add("Codigo", MyProducto.Codigo.ToString());
+                        objPRODUCTO.Add("Nombre", MyProducto.Nombre.ToString());
+                        objPRODUCTO.Add("Precio", MyProducto.Precio.ToString());
+                        objPRODUCTO.Add("Estado", MyProducto.Estado.ToString());
+                        objPRODUCTO.Add("Tipo", MyProducto.Tipo.ToString());
+                        //objPRODUCTO.Add("Caracteristicas", MyProducto.ToString());
+                        ListaProductos.Add(JsonConvert.SerializeObject(objPRODUCTO, JsonSettingsHTML));
+                        objPRODUCTO.Clear();
+
+                        if (ComercialSdk.fPosEOFProducto() == 1)
+                            break;
+                    }
+
+                }
+                close_SDK();
+                return JsonConvert.SerializeObject(ListaProductos, JsonSettingsHTML);
+            }
+            catch (Exception ex)
+            {
+                Console_log(ex.Message + "\n\nTrace:\n" + ex.StackTrace.ToString(), EventLogEntryType.Error, 8000);
+                return null;
+            }
+            finally { ComercialSdk.fCierraEmpresa(); ComercialSdk.fTerminaSDK(); }
+        }
+
+        /** ********************************************************************* **/
+        /** FUNCIONES DEL CICLO INTERNO **/
+        /** ********************************************************************* **/
         public static ProductoSdk LeerDatosProducto()
         {
             // Declarar variables a leer de la base de datos
@@ -104,13 +256,12 @@ namespace ContPAQi
             ComercialSdk.fLeeDatoProducto("CESEXENTO", ExentoBd, 3000);
 
             var Precio_IVA = double.Parse(precioBd.ToString());
-
             if (int.Parse(ExentoBd.ToString()) == 0)
             {
                 // Asignar el precio con impuesto
                 Precio_IVA = double.Parse(precioBd.ToString()) * 1.16;
             }
-            
+
 
             CaracteristicasSdk MyCaracteristicas = new CaracteristicasSdk(int.Parse(idBd.ToString()));
 
@@ -126,64 +277,17 @@ namespace ContPAQi
                 Caracteristicas = MyCaracteristicas
             };
         }
-
-        [ComVisible(true)]
-        public string BuscarProductoPorId(int productoId, string xCaja)
-        {
-            open_SDK(xCaja);
-            ComercialSdk.fBuscaIdProducto(productoId);
-            ProductoSdk MyProducto = LeerDatosProducto();
-            close_SDK();
-            ObjRESP.Add("Id", MyProducto.Id.ToString());
-            ObjRESP.Add("Codigo", MyProducto.Codigo.ToString());
-            ObjRESP.Add("Nombre", MyProducto.Nombre.ToString());
-            ObjRESP.Add("Precio", MyProducto.Precio.ToString());
-            ObjRESP.Add("Estado", MyProducto.Estado.ToString());
-            ObjRESP.Add("Tipo", MyProducto.Tipo.ToString());
-
-            return JsonConvert.SerializeObject(ObjRESP, JsonSettingsHTML);
-        }
         public static ProductoSdk BuscarProductoPorId(int productoId)
         {
 
             ComercialSdk.fBuscaIdProducto(productoId);
             return LeerDatosProducto();
         }
-
-        [ComVisible(true)]
-        public string BuscarProductoPorCodigo(string productoCodigo, string xCaja)
-        {
-            try
-            {
-                open_SDK(xCaja);
-                ComercialSdk.fBuscaProducto(productoCodigo).TirarSiEsError();
-                ProductoSdk MyProducto = LeerDatosProducto();
-                close_SDK();
-                ObjRESP.Add("Id", MyProducto.Id.ToString());
-                ObjRESP.Add("Codigo", MyProducto.Codigo.ToString());
-                ObjRESP.Add("Nombre", MyProducto.Nombre.ToString());
-                ObjRESP.Add("Precio", MyProducto.Precio.ToString());
-                ObjRESP.Add("Estado", MyProducto.Estado.ToString());
-                ObjRESP.Add("Tipo", MyProducto.Tipo.ToString());
-                //ObjRESP.Add("Caracteristicas", MyProducto.ToString());
-
-                return JsonConvert.SerializeObject(ObjRESP, JsonSettingsHTML);
-            }
-            catch (Exception ex)
-            {
-                Console_log(ex.Message + ";\nTrace:\n" + ex.StackTrace.ToString(), EventLogEntryType.Error, 1000);
-                return null;
-            }
-            finally { ComercialSdk.fCierraEmpresa(); ComercialSdk.fTerminaSDK(); }
-
-        }
         public static ProductoSdk BuscarProductoPorCodigo(string productoCodigo)
         {
             ComercialSdk.fBuscaProducto(productoCodigo);
             return LeerDatosProducto();
         }
-
-        [ComVisible(true)]
         public List<ProductoSdk> BuscarProductos()
         {
             var productosList = new List<ProductoSdk>();
@@ -210,8 +314,6 @@ namespace ContPAQi
 
             return productosList;
         }
-
-        [ComVisible(true)]
         public int CrearProducto(ProductoSdk producto)
         {
             // Instanciar un producto con la estructura tProducto del SDK
@@ -232,8 +334,6 @@ namespace ContPAQi
 
             return productoNuevoId;
         }
-
-        [ComVisible(true)]
         public void ActualizarProducto(ProductoSdk producto)
         {
             // Buscar el producto por código
@@ -249,8 +349,6 @@ namespace ContPAQi
             // Guardar los cambios realizados al registro
             ComercialSdk.fGuardaProducto().TirarSiEsError();
         }
-
-        [ComVisible(true)]
         public void EliminarProducto(ProductoSdk producto)
         {
             // Buscar el producto por codigo
@@ -260,8 +358,6 @@ namespace ContPAQi
             // Borrar el registro de la base de datos 
             ComercialSdk.fBorraProducto().TirarSiEsError();
         }
-
-        [ComVisible(true)]
         public string[] ExistenciaAlmacen(string productoCodigo, ref List<string> ListaAlmacenes)
         {
             string[] aExiALM = { "", "", "" };
@@ -290,8 +386,6 @@ namespace ContPAQi
             }
             return aExiALM;
         }
-
-        [ComVisible(true)]
         public string[] ExistenciaAlmacenCaracteristicas(string productoCodigo, string C_1, string C_2, string C_3, ref List<string> ListaAlmacenes)
         {
             string[] aExiALM = { "", "" };
@@ -328,7 +422,7 @@ namespace ContPAQi
         /** ********************************************************************* **/
         /** FUNCIONES DE INTER-CONECTIVIDAD **/
         /** ********************************************************************* **/
-        public void open_SDK(string NoCaja)
+        public void open_SDK()
         {
             try
             {
@@ -346,12 +440,12 @@ namespace ContPAQi
                 }
 
                 MySQL dbMySQL = new MySQL();
-                MySqlDataReader MyCajas = dbMySQL.execSQL("SELECT * FROM tpv_cajas WHERE id = " + NoCaja + ";");
+                MySqlDataReader MyCajas = dbMySQL.execSQL("SELECT * FROM tpv_cajas WHERE id = " + this.NoCaja + ";");
                 if (MyCajas.Read())
                 {
-                    var EmpresaDB = MyCajas[3].ToString().Trim();
-                    string rutaEMPRESA_COM = "C:\\Compac\\Empresas\\" + EmpresaDB;
-                    Console_log("Abriendo la empresa: " + EmpresaDB + " en la ruta: " + rutaEMPRESA_COM, EventLogEntryType.Information, 100);
+                    this.DbEmpresa = MyCajas[3].ToString().Trim();
+                    string rutaEMPRESA_COM = "C:\\Compac\\Empresas\\" + this.DbEmpresa;
+                    Console_log("La caja " + this.NoCaja + " abre la empresa: " + this.DbEmpresa + " en la ruta: " + rutaEMPRESA_COM, EventLogEntryType.Information, 100);
                     nStart = ComercialSdk.fAbreEmpresa(rutaEMPRESA_COM);
                     if (nStart != 0)
                     {
