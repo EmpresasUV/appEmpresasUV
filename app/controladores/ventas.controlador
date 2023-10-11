@@ -260,8 +260,9 @@ class VentasControlador extends ControladorBase{
                     $MyRESP["Producto"]["Precio"]   = $json_OBJ->Precio;
                     $MyRESP["Producto"]["Estado"]   = $json_OBJ->Estado;
                     $MyRESP["Producto"]["Tipo"]     = $json_OBJ->Tipo;
+/*                    
                     $MyRESP["Producto"]["TieneCaracteristicas"]     = boolval($json_OBJ->TieneCaracteristicas);
-                    if(boolval($json_OBJ->TieneCaracteristicas)){
+                    if($MyRESP["Producto"]["TieneCaracteristicas"]){
                         $MyRESP["Producto"]["Caracteristica1_Nombre"]   = Utf8_ansi($json_OBJ->Caracteristica1_Nombre);
                         $MyRESP["Producto"]["Caracteristica1_Valores"]  = Utf8_ansi($json_OBJ->Caracteristica1_Valores);
                         $MyRESP["Producto"]["Caracteristica2_Nombre"]   = Utf8_ansi($json_OBJ->Caracteristica2_Nombre);
@@ -269,6 +270,7 @@ class VentasControlador extends ControladorBase{
                         $MyRESP["Producto"]["Caracteristica3_Nombre"]   = Utf8_ansi($json_OBJ->Caracteristica3_Nombre);
                         $MyRESP["Producto"]["Caracteristica3_Valores"]  = Utf8_ansi($json_OBJ->Caracteristica3_Valores);   
                     }
+*/                    
                 }
                 else
                 {

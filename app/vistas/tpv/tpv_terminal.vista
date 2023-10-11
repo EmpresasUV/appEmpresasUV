@@ -308,7 +308,7 @@
             }
         }).done(function(respuesta) {
             $.messager.progress('close');
-            console.log(respuesta);
+            //console.log(respuesta);
             if(!ExisteError(respuesta)){
                 var jsonRCP = read_json(respuesta.json);
                 $("#txt_Serie").html(jsonRCP.Serie);
