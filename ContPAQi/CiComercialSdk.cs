@@ -16,20 +16,21 @@ using Microsoft.Win32;
 using MySql.Data.MySqlClient;
 using Newtonsoft.Json;
 
-
 namespace ContPAQi
 {
     [Guid("2412a43b-c437-4141-9953-4a8685d5ece3")]
     public interface IComercialSdk
     {
-        string OpenCaja(int NoCaja);
+        void setNoCaja(string xCaja);
+        string OpenCaja();
     }
 
     [Guid("8cae3118-d62a-4984-ae0c-2f5dd7236015"),
      InterfaceType(ComInterfaceType.InterfaceIsIDispatch)]
     public interface IComercialSdkEvents
     {
-        string OpenCaja(int NoCaja);
+        void setNoCaja(string xCaja);
+        string OpenCaja();
     }
 
     [ComVisible(true)]
@@ -51,146 +52,25 @@ namespace ContPAQi
         {
             StringEscapeHandling = StringEscapeHandling.EscapeNonAscii
         };
+        public string NoCaja { get; set; }
+        public void setNoCaja(string xCaja)
+        {
+            this.NoCaja = xCaja;
+        }
 
-        [ComVisible(true)]
-        public CaracteristicasSdk sdkCaracteristicas;
-        [ComVisible(true)]
-        public ClienteSdk sdkClientes;
-        [ComVisible(true)]
-        public ConceptoSdk sdkConceptos;
-        [ComVisible(true)]
-        public DatosCfdi sdkDatosCfdi;
-        [ComVisible(true)]
-        public DocumentoSdk sdkDocumentos;
-        [ComVisible(true)]
-        public MovimientoSdk sdkMovimientos;
-        [ComVisible(true)]
-        public ProductoSdk sdkProducto;
-        /*** *************************************************** ***/
-        public void open_SDK(string EmpresaDB)
-        {
-            try
-            {
-                var keySistema = Registry.LocalMachine.OpenSubKey(NombreLlaveRegistroComercial);
-                var lEntrada = keySistema.GetValue("DirectorioBase");
-                Directory.SetCurrentDirectory(lEntrada.ToString());
-                ComercialSdk.fInicioSesionSDK("PUNTOVENTAS", "XiYeme=R6G");
-                ComercialSdk.fInicioSesionSDKCONTPAQi("PUNTOVENTAS", "XiYeme=R6G");
-                int nStart = ComercialSdk.fSetNombrePAQ(NombrePaqComercial);
-                if (nStart != 0)
-                {
-                    StringBuilder strMensaje = new StringBuilder(512);
-                    ComercialSdk.fError(nStart, strMensaje, 512);
-                    Console_log("Error SDK [190]: " + strMensaje, EventLogEntryType.Error, 100);
-                }
-                else
-                {
-                    string rutaEMPRESA_COM = "C:\\Compac\\Empresas\\" + EmpresaDB;
-                    Console_log("Abriendo la empresa: " + EmpresaDB + " en la ruta: " + rutaEMPRESA_COM, EventLogEntryType.Information, 100);
-                    nStart = ComercialSdk.fAbreEmpresa(rutaEMPRESA_COM);
-                    if (nStart != 0)
-                    {
-                        StringBuilder strMensaje = new StringBuilder(512);
-                        ComercialSdk.fError(nStart, strMensaje, 512);
-                        Console_log("Error SDK [191]: " + strMensaje, EventLogEntryType.Error, 100);
-                    }
-                }
-
-            }
-            catch (Exception ex)
-            {
-                Console_log(ex.Message + ";\nTrace:\n" + ex.StackTrace.ToString(), EventLogEntryType.Error, 100);
-            }
-            //finally { ComercialSdk.fCierraEmpresa(); ComercialSdk.fTerminaSDK(); }
-        }
-        public void open_SDK(int NoCaja)
-        {
-            try
-            {
-                MySQL dbMySQL = new MySQL();
-                MySqlDataReader MyCajas = dbMySQL.execSQL("SELECT * FROM tpv_cajas WHERE id = " + NoCaja + ";");
-                if (MyCajas.Read())
-                {
-                    var keySistema = Registry.LocalMachine.OpenSubKey(NombreLlaveRegistroComercial);
-                    var lEntrada = keySistema.GetValue("DirectorioBase");
-                    Directory.SetCurrentDirectory(lEntrada.ToString());
-                    ComercialSdk.fInicioSesionSDK("PUNTOVENTAS", "XiYeme=R6G");
-                    ComercialSdk.fInicioSesionSDKCONTPAQi("PUNTOVENTAS", "XiYeme=R6G");
-                    int nStart = ComercialSdk.fSetNombrePAQ(NombrePaqComercial);
-                    if (nStart != 0)
-                    {
-                        StringBuilder strMensaje = new StringBuilder(512);
-                        ComercialSdk.fError(nStart, strMensaje, 512);
-                        Console_log("Error SDK [191]: " + strMensaje, EventLogEntryType.Error, 100);
-                    }
-                    else
-                    {
-                        var EmpresaDB = MyCajas[3].ToString().Trim();
-                        string rutaEMPRESA_COM = "C:\\Compac\\Empresas\\" + EmpresaDB;
-                        Console_log("Abriendo la empresa: " + EmpresaDB + " en la ruta: " + rutaEMPRESA_COM, EventLogEntryType.Information, 110);
-                        nStart = ComercialSdk.fAbreEmpresa(rutaEMPRESA_COM);
-                        if (nStart != 0)
-                        {
-                            StringBuilder strMensaje = new StringBuilder(512);
-                            ComercialSdk.fError(nStart, strMensaje, 512);
-                            Console_log("Error SDK [191]: " + strMensaje, EventLogEntryType.Error, 100);
-                        }
-                    }
-                }
-                else
-                {
-                    Console_log("Code: 404\nNo es posible cargar Los datos de la Caja ("+ NoCaja + ").", EventLogEntryType.Error, 111);
-                }
-            }
-            catch (Exception ex)
-            {
-                Console_log(ex.Message + ";\nTrace:\n" + ex.StackTrace.ToString(), EventLogEntryType.Error, 112);
-            }
-        }
-        public void close_SDK()
-        {
-            try
-            {
-                ComercialSdk.fCierraEmpresa();
-                ComercialSdk.fTerminaSDK();
-            }
-            catch (Exception ex) { Console_log(ex.Message + ";\nTrace:\n" + ex.StackTrace.ToString(), EventLogEntryType.Error, 102); }
-            finally { ComercialSdk.fCierraEmpresa(); ComercialSdk.fTerminaSDK(); }
-        }
-        /*** *************************************************** ***/
-        public void Console_log(string Text_Message, EventLogEntryType TypeE, int EventID)
-        {
-            try
-            {
-                if (!EventLog.SourceExists("ContPAQi Web"))
-                {
-                    EventLog.CreateEventSource("ContPAQi Web", "ContPAQi Web");
-                    eventLog.Source = "ContPAQi Web";
-                }
-                else
-                {
-                    eventLog.Source = "ContPAQi Web";
-                }
-                eventLog.WriteEntry(Text_Message, TypeE, EventID, 1);
-            }
-            catch
-            {
-                eventLog.Source = "Application";
-            }
-        }
         /*** *************************************************** ***/
         [ComVisible(true)]
-        public string OpenCaja(int NoCaja)
+        public string OpenCaja()
         {
             try
             {
                 var ObjRESP = new Dictionary<string, string>();
                 MySQL dbMySQL = new MySQL();
-                MySqlDataReader MyCajas = dbMySQL.execSQL("SELECT * FROM tpv_cajas WHERE id = " + NoCaja + ";");
+                MySqlDataReader MyCajas = dbMySQL.execSQL("SELECT * FROM tpv_cajas WHERE id = " + this.NoCaja + ";");
                 if (MyCajas.Read())
                 {
-                    open_SDK(MyCajas[3].ToString().Trim());
-                    ClienteSdk cPublicoGeneral = null; // ClienteSdk.BuscarClientePorCodigo("XAXX010101000");
+                    open_SDK();
+                    ClienteSdk cPublicoGeneral = new ClienteSdk().BuscarClientePorCodigo("XAXX010101000");
                     if (cPublicoGeneral != null) //El cliente publico general existe
                     {
                         //Buscando el folio y la serie de la proxima remisión
@@ -211,7 +91,7 @@ namespace ContPAQi
                 return JsonConvert.SerializeObject(ObjRESP);
             }
             catch (Exception ex) { 
-                Console_log(ex.Message + ";\nTrace:\n" + ex.StackTrace.ToString(), EventLogEntryType.Error, 102);
+                Console_log(ex.Message + "\n\nTrace:\n" + ex.StackTrace.ToString(), EventLogEntryType.Error, 102);
                 return ErrorCode;
             }
             finally { close_SDK(); }
@@ -235,5 +115,81 @@ namespace ContPAQi
         /*** *************************************************** ***/
         /*** *************************************************** ***/
         /*** *************************************************** ***/
+
+
+        /*** *************************************************** ***/
+        public void open_SDK()
+        {
+            try
+            {
+                var keySistema = Registry.LocalMachine.OpenSubKey(NombreLlaveRegistroComercial);
+                var lEntrada = keySistema.GetValue("DirectorioBase");
+                Directory.SetCurrentDirectory(lEntrada.ToString());
+                ComercialSdk.fInicioSesionSDK("PUNTOVENTAS", "XiYeme=R6G");
+                ComercialSdk.fInicioSesionSDKCONTPAQi("PUNTOVENTAS", "XiYeme=R6G");
+                int nStart = ComercialSdk.fSetNombrePAQ(NombrePaqComercial);
+                if (nStart != 0) //Hay un error al conectar con el PAQ
+                {
+                    StringBuilder strMensaje = new StringBuilder(512);
+                    ComercialSdk.fError(nStart, strMensaje, 512);
+                    Console_log("Error SDK [190]: " + nStart.ToString() + strMensaje.ToString(), EventLogEntryType.Error, 100);
+                }
+
+                MySQL dbMySQL = new MySQL();
+                MySqlDataReader MyCajas = dbMySQL.execSQL("SELECT * FROM tpv_cajas WHERE id = " + this.NoCaja + ";");
+                if (MyCajas.Read())
+                {
+                    var EmpresaDB = MyCajas[3].ToString().Trim();
+                    string rutaEMPRESA_COM = "C:\\Compac\\Empresas\\" + EmpresaDB;
+                    Console_log("La caja " + this.NoCaja + " abre la empresa: " + EmpresaDB + " en la ruta: " + rutaEMPRESA_COM, EventLogEntryType.Information, 100);
+                    nStart = ComercialSdk.fAbreEmpresa(rutaEMPRESA_COM);
+                    if (nStart != 0)
+                    {
+                        StringBuilder strMensaje = new StringBuilder(512);
+                        ComercialSdk.fError(nStart, strMensaje, 512);
+                        Console_log("Error SDK [191]: " + nStart.ToString() + strMensaje.ToString(), EventLogEntryType.Error, 100);
+                    }
+                }
+                else
+                {
+                    Console_log("Code: 404\nNo es posible cargar Los datos de la Caja (" + NoCaja + ").", EventLogEntryType.Error, 111);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console_log(ex.Message + ";\nTrace:\n" + ex.StackTrace.ToString(), EventLogEntryType.Error, 100);
+            }
+            //finally { ComercialSdk.fCierraEmpresa(); ComercialSdk.fTerminaSDK(); }
+        }
+        public void close_SDK()
+        {
+            try
+            {
+                ComercialSdk.fCierraEmpresa();
+                ComercialSdk.fTerminaSDK();
+            }
+            catch (Exception ex) { Console_log(ex.Message + ";\nTrace:\n" + ex.StackTrace.ToString(), EventLogEntryType.Error, 102); }
+            finally { ComercialSdk.fCierraEmpresa(); ComercialSdk.fTerminaSDK(); }
+        }
+        public void Console_log(string Text_Message, EventLogEntryType TypeE, int EventID)
+        {
+            try
+            {
+                if (!EventLog.SourceExists("ContPAQi Web"))
+                {
+                    EventLog.CreateEventSource("ContPAQi Web", "ContPAQi Web");
+                    eventLog.Source = "ContPAQi Web";
+                }
+                else
+                {
+                    eventLog.Source = "ContPAQi Web";
+                }
+                eventLog.WriteEntry(Text_Message, TypeE, EventID, 1);
+            }
+            catch
+            {
+                eventLog.Source = "Application";
+            }
+        }
     }
 }

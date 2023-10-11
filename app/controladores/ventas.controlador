@@ -154,8 +154,9 @@ class VentasControlador extends ControladorBase{
 
             if(isset($_POST["caja"]) && !$_POST["caja"] == ""){
                 $MyComercial = new COM("ContPAQi.CiComercialSdk");
+                $MyComercial->setNoCaja($_POST["caja"]);
                 $MyRESPONSE["error"] = 0;
-                $MyRESPONSE["json"] = $MyComercial->OpenCaja($_POST["caja"]);
+                $MyRESPONSE["json"] = $MyComercial->OpenCaja();
             }else{
                 $MyRESPONSE["error"] = 200;
             }
@@ -246,30 +247,34 @@ class VentasControlador extends ControladorBase{
                 isset($_SESSION["caja"]["id"]) && ($_SESSION["caja"]["id"] != '')
             ){
                 //Busco los datos del producto en el Middleware
-                $MyComercial = new COM("ContPAQi.CiComercialSdk");
-                //Buscando el producto
-                $jsonSTR = $MyComercial->get_Producto($_POST['codigo'], $_POST['cantidad'], $_SESSION["caja"]["id"]);
-                $json_OBJ = json_decode($jsonSTR); //Json a Objeto
-                $MyRESP["Codigo"] = $json_OBJ->Code;
-                $MyRESP["Producto"] = array();
-                $MyRESP["Producto"]["Codigo"] = $json_OBJ->Codigo;
-                $MyRESP["Producto"]["Nombre"] = $json_OBJ->Nombre;
-                $MyRESP["Producto"]["Precio"] = $json_OBJ->Precio;
-                $MyRESP["Producto"]["Caracteristicas"]  = boolval($json_OBJ->Caracteristicas);
-                $MyRESP["Producto"]["C1_NAME"]          = Utf8_ansi($json_OBJ->C1_NAME);
-                $MyRESP["Producto"]["C1_VALUES"]        = Utf8_ansi($json_OBJ->C1_VALUES);
-                $MyRESP["Producto"]["C2_NAME"]          = Utf8_ansi($json_OBJ->C2_NAME);
-                $MyRESP["Producto"]["C2_VALUES"]        = Utf8_ansi($json_OBJ->C2_VALUES);
-                $MyRESP["Producto"]["C3_NAME"]          = Utf8_ansi($json_OBJ->C3_NAME);
-                $MyRESP["Producto"]["C3_VALUES"]        = Utf8_ansi($json_OBJ->C3_VALUES);
+                $MyProductoSdk = new COM("ContPAQi.ProductoSdk");
+                $MyProductoSdk->setNoCaja($_SESSION["caja"]["id"]);
+                $jsonSTR =  $MyProductoSdk->http_BuscarPorCodigo($_POST['codigo']);
+                if($jsonSTR != ""){
+                    //Procesando los datos del producto
+                    $json_OBJ = json_decode($jsonSTR); //Json a Objeto
+                    $MyRESP["Codigo"] = 0;
+                    $MyRESP["Producto"] = array();
+                    $MyRESP["Producto"]["Codigo"]   = $json_OBJ->Codigo;
+                    $MyRESP["Producto"]["Nombre"]   = $json_OBJ->Nombre;
+                    $MyRESP["Producto"]["Precio"]   = $json_OBJ->Precio;
+                    $MyRESP["Producto"]["Estado"]   = $json_OBJ->Estado;
+                    $MyRESP["Producto"]["Tipo"]     = $json_OBJ->Tipo;
+                    $MyRESP["Producto"]["TieneCaracteristicas"]     = boolval($json_OBJ->TieneCaracteristicas);
+                    if(boolval($json_OBJ->TieneCaracteristicas)){
+                        $MyRESP["Producto"]["Caracteristica1_Nombre"]   = Utf8_ansi($json_OBJ->Caracteristica1_Nombre);
+                        $MyRESP["Producto"]["Caracteristica1_Valores"]  = Utf8_ansi($json_OBJ->Caracteristica1_Valores);
+                        $MyRESP["Producto"]["Caracteristica2_Nombre"]   = Utf8_ansi($json_OBJ->Caracteristica2_Nombre);
+                        $MyRESP["Producto"]["Caracteristica2_Valores"]  = Utf8_ansi($json_OBJ->Caracteristica2_Valores);
+                        $MyRESP["Producto"]["Caracteristica3_Nombre"]   = Utf8_ansi($json_OBJ->Caracteristica3_Nombre);
+                        $MyRESP["Producto"]["Caracteristica3_Valores"]  = Utf8_ansi($json_OBJ->Caracteristica3_Valores);   
+                    }
+                }
+                else
+                {
+                    $MyRESP["Codigo"] = 404;
+                }
 
-/*
-                $MyRESP["Producto"]["Descuento"] = "";
-                $MyRESP["Producto"]["Total"] = "";
-                $MyRESP["Producto"]["Almacen"] = "";
-                $MyRESP["Producto"]["IVA"] = "";
-                $MyRESP["Codigo"] = 0;
-*/
             }else{
                 $MyRESP["Codigo"] = 403;
             }

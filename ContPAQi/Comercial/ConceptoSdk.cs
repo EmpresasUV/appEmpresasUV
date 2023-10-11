@@ -83,7 +83,11 @@ namespace ContPAQi
             ComercialSdk.fLeeDatoConceptoDocto("CCODIGOCONCEPTO", codigoBd, 3000);
             ComercialSdk.fLeeDatoConceptoDocto("CNOMBRECONCEPTO", nombreBd, 3000);
 
-            return new ConceptoSdk { Id = int.Parse(idBd.ToString()), Codigo = codigoBd.ToString(), Nombre = nombreBd.ToString() };
+            return new ConceptoSdk {
+                Id = int.Parse(idBd.ToString()),
+                Codigo = codigoBd.ToString(),
+                Nombre = nombreBd.ToString()
+            };
         }
 
 

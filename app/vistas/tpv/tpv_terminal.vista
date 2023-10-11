@@ -309,15 +309,13 @@
         }).done(function(respuesta) {
             $.messager.progress('close');
             console.log(respuesta);
-/*
             if(!ExisteError(respuesta)){
-                var jsonRCP = read_json(respuesta);
+                var jsonRCP = read_json(respuesta.json);
                 $("#txt_Serie").html(jsonRCP.Serie);
                 $("#txt_Folio").html(jsonRCP.Folio);
                 $('#txt_RFC').textbox('setValue', jsonRCP.cliente_RFC);
                 $('#txt_RAZON').textbox('setValue', jsonRCP.cliente_RAZON);
             }
-*/
         });
         //# **************************************************** #
         txt_CANTIDAD.textbox('textbox').bind('keypress', function(e){
@@ -342,14 +340,14 @@
                     if(!ExisteError(respuesta)){
                         var jsonRCP = read_json(respuesta);
                         //Procesar las caracteristicas del producto
-                        if(jsonRCP.Producto.Caracteristicas){ //El producto tiene caracteristicas
+                        if(jsonRCP.Producto.TieneCaracteristicas == "True"){ //El producto tiene caracteristicas
                             $('#txt_CARACTERISTICA1').combobox('clear');
                             $('#txt_CARACTERISTICA2').combobox('clear');
                             $('#txt_CARACTERISTICA3').combobox('clear');
-                            if(jsonRCP.Producto.C1_NAME != ""){
+                            if(jsonRCP.Producto.Caracteristica1_Nombre != ""){
                                 //Tenemos Caracteristica 1
-                                $("#C1_LABEL").html(jsonRCP.Producto.C1_NAME);
-                                var C1obj = read_json(jsonRCP.Producto.C1_VALUES);
+                                $("#C1_LABEL").html(jsonRCP.Producto.Caracteristica1_Nombre);
+                                var C1obj = read_json(jsonRCP.Producto.Caracteristica1_Valores);
                                 Object.entries(C1obj).forEach(([key, value]) => {
                                     var data = $('#txt_CARACTERISTICA1').combobox('getData');
                                     data.push({value: value, text: key});
@@ -358,10 +356,10 @@
                             }else{ //No hay característica 1
                                 $('#txt_CARACTERISTICA1').hide();
                             }
-                            if(jsonRCP.Producto.C2_NAME != ""){
+                            if(jsonRCP.Producto.Caracteristica2_Nombre != ""){
                                 //Tenemos Caracteristica 2
-                                $("#C2_LABEL").html(jsonRCP.Producto.C2_NAME);
-                                var C2obj = read_json(jsonRCP.Producto.C2_VALUES);
+                                $("#C2_LABEL").html(jsonRCP.Producto.Caracteristica2_Nombre);
+                                var C2obj = read_json(jsonRCP.Producto.Caracteristica2_Valores);
                                 Object.entries(C2obj).forEach(([key, value]) => {
                                     var data = $('#txt_CARACTERISTICA2').combobox('getData');
                                     data.push({value: value, text: key});
@@ -370,10 +368,10 @@
                             }else{ //No hay característica 2
                                 $('#txt_CARACTERISTICA2').hide();
                             }
-                            if(jsonRCP.Producto.C3_NAME != ""){
+                            if(jsonRCP.Producto.Caracteristica3_Nombre != ""){
                                 //Tenemos Caracteristica 3
-                                $("#C3_LABEL").html(jsonRCP.Producto.C3_NAME);
-                                var C3obj = read_json(jsonRCP.Producto.C3_VALUES);
+                                $("#C3_LABEL").html(jsonRCP.Producto.Caracteristica3_Nombre);
+                                var C3obj = read_json(jsonRCP.Producto.Caracteristica3_Valores);
                                 Object.entries(C3obj).forEach(([key, value]) => {
                                     var data = $('#txt_CARACTERISTICA3').combobox('getData');
                                     data.push({value: value, text: key});

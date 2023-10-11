@@ -57,7 +57,6 @@ namespace ContPAQi
             StringEscapeHandling = StringEscapeHandling.EscapeNonAscii
         };
 
-        //public SqlConnection SQLConexion = new SqlConnection(@"Data Source = DC-CONTABLE\COMPAC; Initial Catalog = cmPuntoVentas; User ID = sa; Password = Promo1002##");
         public int Id_Producto { get; set; }
         public string nameCaracteristica1 { get; set; }
         public string valorCaracteristica1 { get; set; }

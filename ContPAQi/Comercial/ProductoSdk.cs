@@ -24,9 +24,11 @@ namespace ContPAQi
     public interface IProductoSdk
     {
         void setNoCaja(string xCaja);
-        string http_BuscarProductoPorId(int productoId);
-        string http_BuscarProductoPorCodigo(string productoCodigo);
-        string http_BuscarTodosProductos(int soloActivos = 1);
+        string http_BuscarPorId(int productoId);
+        string http_BuscarPorCodigo(string productoCodigo);
+        string http_BuscarTodos(int soloActivos = 1);
+        int http_ExistenciaAlmacen(string productoCodigo, string almacenCodigo);
+        int http_ExistenciaAlmacenCaracteristicas(string productoCodigo, string almacenCodigo, string C1, string C2, string C3);
     }
     /** ********************************************************************* **/
     /** INTERFACE PARA EVENTOS DE LA CLASE **/
@@ -36,9 +38,11 @@ namespace ContPAQi
     public interface IProductoSdkEvents
     {
         void setNoCaja(string xCaja);
-        string http_BuscarProductoPorId(int productoId);
-        string http_BuscarProductoPorCodigo(string productoCodigo);
-        string http_BuscarTodosProductos(int soloActivos = 1);
+        string http_BuscarPorId(int productoId);
+        string http_BuscarPorCodigo(string productoCodigo);
+        string http_BuscarTodos(int soloActivos = 1);
+        int http_ExistenciaAlmacen(string productoCodigo, string almacenCodigo);
+        int http_ExistenciaAlmacenCaracteristicas(string productoCodigo, string almacenCodigo, string C1, string C2, string C3);
     }
     /** ********************************************************************* **/
     /** CLASE PRINCIPAL DE IMPLEMENTACIÓN  **/
@@ -81,7 +85,7 @@ namespace ContPAQi
         /** ********************************************************************* **/
         /** FUNCIONES DE APLICACION WEB **/
         /** ********************************************************************* **/
-        public string http_BuscarProductoPorId(int productoId)
+        public string http_BuscarPorId(int productoId)
         {
             try
             {
@@ -97,6 +101,30 @@ namespace ContPAQi
                 ObjPRODUCTO.Add("Precio", MyProducto.Precio.ToString());
                 ObjPRODUCTO.Add("Estado", MyProducto.Estado.ToString());
                 ObjPRODUCTO.Add("Tipo", MyProducto.Tipo.ToString());
+                if ((MyProducto.Caracteristicas.existCaracteristica1) || (MyProducto.Caracteristicas.existCaracteristica2) || (MyProducto.Caracteristicas.existCaracteristica3))
+                {
+                    ObjPRODUCTO.Add("TieneCaracteristicas", "True");
+                    if (MyProducto.Caracteristicas.existCaracteristica1) //El producto tiene Caracteristica1
+                    {
+                        ObjPRODUCTO.Add("Caracteristica1_Nombre", MyProducto.Caracteristicas.nameCaracteristica1);
+                        ObjPRODUCTO.Add("Caracteristica1_Valores", JsonConvert.SerializeObject(MyProducto.Caracteristicas.listaCaracteristica1, JsonSettingsHTML));
+                    }
+                    if (MyProducto.Caracteristicas.existCaracteristica2) //El producto tiene Caracteristica2
+                    {
+                        ObjPRODUCTO.Add("Caracteristica2_Nombre", MyProducto.Caracteristicas.nameCaracteristica2);
+                        ObjPRODUCTO.Add("Caracteristica2_Valores", JsonConvert.SerializeObject(MyProducto.Caracteristicas.listaCaracteristica2, JsonSettingsHTML));
+                    }
+                    if (MyProducto.Caracteristicas.existCaracteristica3) //El producto tiene Caracteristica3
+                    {
+                        ObjPRODUCTO.Add("Caracteristica3_Nombre", MyProducto.Caracteristicas.nameCaracteristica3);
+                        ObjPRODUCTO.Add("Caracteristica3_Valores", JsonConvert.SerializeObject(MyProducto.Caracteristicas.listaCaracteristica3, JsonSettingsHTML));
+                    }
+
+                }
+                else
+                {
+                    ObjPRODUCTO.Add("TieneCaracteristicas", "False");
+                }
 
                 return JsonConvert.SerializeObject(ObjPRODUCTO, JsonSettingsHTML);
             }
@@ -107,7 +135,7 @@ namespace ContPAQi
             }
             finally { ComercialSdk.fCierraEmpresa(); ComercialSdk.fTerminaSDK(); }
         }
-        public string http_BuscarProductoPorCodigo(string productoCodigo)
+        public string http_BuscarPorCodigo(string productoCodigo)
         {
             try
             {
@@ -122,7 +150,30 @@ namespace ContPAQi
                 ObjPRODUCTO.Add("Precio", MyProducto.Precio.ToString());
                 ObjPRODUCTO.Add("Estado", MyProducto.Estado.ToString());
                 ObjPRODUCTO.Add("Tipo", MyProducto.Tipo.ToString());
-                //ObjPRODUCTO.Add("Caracteristicas", MyProducto.ToString());
+                if ((MyProducto.Caracteristicas.existCaracteristica1) || (MyProducto.Caracteristicas.existCaracteristica2) || (MyProducto.Caracteristicas.existCaracteristica3))
+                {
+                    ObjPRODUCTO.Add("TieneCaracteristicas", "True");
+                    if (MyProducto.Caracteristicas.existCaracteristica1) //El producto tiene Caracteristica1
+                    {
+                        ObjPRODUCTO.Add("Caracteristica1_Nombre", MyProducto.Caracteristicas.nameCaracteristica1);
+                        ObjPRODUCTO.Add("Caracteristica1_Valores", JsonConvert.SerializeObject(MyProducto.Caracteristicas.listaCaracteristica1, JsonSettingsHTML));
+                    }
+                    if (MyProducto.Caracteristicas.existCaracteristica2) //El producto tiene Caracteristica2
+                    {
+                        ObjPRODUCTO.Add("Caracteristica2_Nombre", MyProducto.Caracteristicas.nameCaracteristica2);
+                        ObjPRODUCTO.Add("Caracteristica2_Valores", JsonConvert.SerializeObject(MyProducto.Caracteristicas.listaCaracteristica2, JsonSettingsHTML));
+                    }
+                    if (MyProducto.Caracteristicas.existCaracteristica3) //El producto tiene Caracteristica3
+                    {
+                        ObjPRODUCTO.Add("Caracteristica3_Nombre", MyProducto.Caracteristicas.nameCaracteristica3);
+                        ObjPRODUCTO.Add("Caracteristica3_Valores", JsonConvert.SerializeObject(MyProducto.Caracteristicas.listaCaracteristica3, JsonSettingsHTML));
+                    }
+
+                }
+                else
+                {
+                    ObjPRODUCTO.Add("TieneCaracteristicas", "False");
+                }
 
                 return JsonConvert.SerializeObject(ObjPRODUCTO, JsonSettingsHTML);
             }
@@ -134,7 +185,7 @@ namespace ContPAQi
             finally { ComercialSdk.fCierraEmpresa(); ComercialSdk.fTerminaSDK(); }
 
         }
-        public string http_BuscarTodosProductos(int soloActivos = 1)
+        public string http_BuscarTodos(int soloActivos = 1)
         {
             try
             {
@@ -225,7 +276,63 @@ namespace ContPAQi
             }
             finally { ComercialSdk.fCierraEmpresa(); ComercialSdk.fTerminaSDK(); }
         }
+        public int http_ExistenciaAlmacen(string productoCodigo, string almacenCodigo)
+        {
+            try
+            {
+                Double temp_existencia = 0;
+                DateTime now = DateTime.Now;
+                open_SDK();
+                ComercialSdk.fRegresaExistencia(productoCodigo, almacenCodigo, now.ToString("yyyy"), now.ToString("MM"), now.ToString("dd"), ref temp_existencia);
+                close_SDK();
+                if (temp_existencia > 0) //Tenemos existencia en el almacén
+                {
+                    return Convert.ToInt32(temp_existencia);
+                }
+                else //No tenemos existencias en este almacén
+                {
+                    return 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console_log(ex.Message + "\n\nTrace:\n" + ex.StackTrace.ToString(), EventLogEntryType.Error, 8000);
+                return 0;
+            }
+            finally { ComercialSdk.fCierraEmpresa(); ComercialSdk.fTerminaSDK(); }
 
+        }
+        public int http_ExistenciaAlmacenCaracteristicas(string productoCodigo, string almacenCodigo, string C1, string C2, string C3)
+        {
+            try
+            {
+                Double temp_existencia = 0;
+                DateTime now = DateTime.Now;
+                open_SDK();
+                ComercialSdk.fRegresaExistenciaCaracteristicas(
+                    productoCodigo,
+                    almacenCodigo,
+                    now.ToString("yyyy"), now.ToString("MM"), now.ToString("dd"),
+                    C1, C2, C3,
+                    ref temp_existencia
+                );
+                close_SDK();
+                if (temp_existencia > 0) //Tenemos existencia en el almacén
+                {
+                    return Convert.ToInt32(temp_existencia);
+                }
+                else //No tenemos existencias en este almacén
+                {
+                    return 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console_log(ex.Message + "\n\nTrace:\n" + ex.StackTrace.ToString(), EventLogEntryType.Error, 8000);
+                return 0;
+            }
+            finally { ComercialSdk.fCierraEmpresa(); ComercialSdk.fTerminaSDK(); }
+        }
         /** ********************************************************************* **/
         /** FUNCIONES DEL CICLO INTERNO **/
         /** ********************************************************************* **/
@@ -255,6 +362,7 @@ namespace ContPAQi
             ComercialSdk.fLeeDatoProducto("CIDPADRECARACTERISTICA3", Car3Bd, 3000);
             ComercialSdk.fLeeDatoProducto("CESEXENTO", ExentoBd, 3000);
 
+            //Analizando los impuestos en el precio del producto
             var Precio_IVA = double.Parse(precioBd.ToString());
             if (int.Parse(ExentoBd.ToString()) == 0)
             {
@@ -262,7 +370,7 @@ namespace ContPAQi
                 Precio_IVA = double.Parse(precioBd.ToString()) * 1.16;
             }
 
-
+            //Detectando y asignando las catacteristicas
             CaracteristicasSdk MyCaracteristicas = new CaracteristicasSdk(int.Parse(idBd.ToString()));
 
             // Instanciar un producto y asignar los datos de la base de datos

@@ -25,12 +25,12 @@ namespace ContPAQi
     [Guid("493365e4-1c65-4377-90f4-7e02e3141309")]
     public interface IClienteSdk
     {
-        string BuscarClientePorId(int clienteId, string xCaja);
-        string BuscarClientePorCodigo(string clienteCodigo, string xCaja);
-        //List<ClienteSdk> BuscarClientes();
-        int CrearCliente(ClienteSdk cliente);
-        void ActualizarCliente(ClienteSdk cliente);
-        void EliminarCliente(ClienteSdk cliente);
+        void setNoCaja(string xCaja);
+        string http_BuscarPorId(int clienteId);
+        string http_BuscarPorCodigo(string clienteCodigo);
+        string http_BuscarTodos(int soloActivos = 1);
+
+
     }
     /** ********************************************************************* **/
     /** INTERFACE PARA EVENTOS DE LA CLASE **/
@@ -39,12 +39,10 @@ namespace ContPAQi
      InterfaceType(ComInterfaceType.InterfaceIsIDispatch)]
     public interface IClienteSdkEvents
     {
-        string BuscarClientePorId(int clienteId, string xCaja);
-        string BuscarClientePorCodigo(string clienteCodigo, string xCaja);
-        //List<ClienteSdk> BuscarClientes();
-        int CrearCliente(ClienteSdk cliente);
-        void ActualizarCliente(ClienteSdk cliente);
-        void EliminarCliente(ClienteSdk cliente);
+        void setNoCaja(string xCaja);
+        string http_BuscarPorId(int clienteId);
+        string http_BuscarPorCodigo(string clienteCodigo);
+        string http_BuscarTodos(int soloActivos = 1);
     }
     /** ********************************************************************* **/
     /** CLASE PRINCIPAL DE IMPLEMENTACIÓN  **/
@@ -75,63 +73,205 @@ namespace ContPAQi
         public string Rfc { get; set; }
         public int Tipo { get; set; }
         public int Status { get; set; }
-
-        [ComVisible(true)]
-        public override string ToString()
+        public string NoCaja { get; set; }
+        public void setNoCaja(string xCaja)
         {
-            return $"{Id} - {Codigo} - {RazonSocial} - {Rfc} - {Tipo}";
+            this.NoCaja = xCaja;
         }
 
-        [ComVisible(true)]
-        public static ClienteSdk LeerDatosCliente()
-        {
-            // Declarar variables a leer de la base de datos
-            var idBd = new StringBuilder(3000);
-            var codigoBd = new StringBuilder(3000);
-            var razonSocialBd = new StringBuilder(3000);
-            var rfcBd = new StringBuilder(3000);
-            var tipoBd = new StringBuilder(3000);
-            var statusBd = new StringBuilder(3000);
-
-            // Leer los datos del registro donde el SDK esta posicionado
-            ComercialSdk.fLeeDatoCteProv("CIDCLIENTEPROVEEDOR", idBd, 3000).TirarSiEsError();
-            ComercialSdk.fLeeDatoCteProv("CCODIGOCLIENTE", codigoBd, 3000).TirarSiEsError();
-            ComercialSdk.fLeeDatoCteProv("CRAZONSOCIAL", razonSocialBd, 3000).TirarSiEsError();
-            ComercialSdk.fLeeDatoCteProv("CRFC", rfcBd, 3000).TirarSiEsError();
-            ComercialSdk.fLeeDatoCteProv("CTIPOCLIENTE", tipoBd, 3000).TirarSiEsError();
-            ComercialSdk.fLeeDatoCteProv("CESTATUS", statusBd, 3000).TirarSiEsError();
-            
-            // Instanciar un cliente y asignar los datos de la base de datos
-            return new ClienteSdk
-            {
-                Id = int.Parse(idBd.ToString()),
-                Codigo = codigoBd.ToString(),
-                RazonSocial = razonSocialBd.ToString(),
-                Rfc = rfcBd.ToString(),
-                Tipo = int.Parse(tipoBd.ToString()),
-                Status = int.Parse(statusBd.ToString())
-            };
-        }
-
-        [ComVisible(true)]
-        public string BuscarClientePorId(int clienteId, string xCaja)
+        /** ********************************************************************* **/
+        /** FUNCIONES DE APLICACION WEB **/
+        /** ********************************************************************* **/
+        public string http_BuscarPorCodigo(string clienteCodigo)
         {
             try
             {
-                open_SDK(xCaja);
-                ComercialSdk.fBuscaIdCteProv(clienteId).TirarSiEsError();
+                Dictionary<string, string> ObjRESP = new Dictionary<string, string>();
+                open_SDK();
+                ComercialSdk.fBuscaCteProv(clienteCodigo).TirarSiEsError();
                 ClienteSdk MyCliente = LeerDatosCliente();
                 close_SDK();
-                ObjRESP.Add("Rfc", MyCliente.Rfc);
-                ObjRESP.Add("RazonSocial", MyCliente.RazonSocial);
+                ObjRESP.Add("Id", MyCliente.Id.ToString());
+                ObjRESP.Add("Codigo", MyCliente.Codigo.ToString());
+                ObjRESP.Add("Rfc", MyCliente.Rfc.ToString());
+                ObjRESP.Add("RazonSocial", MyCliente.RazonSocial.ToString());
+                ObjRESP.Add("Tipo", MyCliente.Tipo.ToString());
+                ObjRESP.Add("Estado", MyCliente.Status.ToString());
+
                 return JsonConvert.SerializeObject(ObjRESP, JsonSettingsHTML);
             }
-            catch (ARSoftware.Contpaqi.Comercial.Sdk.Excepciones.ContpaqiSdkException)
+            catch (ARSoftware.Contpaqi.Comercial.Sdk.Excepciones.ContpaqiSdkException e)
             {
+                Console_log("Error SDK: " + e.CodigoErrorSdk.ToString() + " -> " + e.MensajeErrorSdk.ToString(), EventLogEntryType.Error, 3000);
+                return null;
+            }
+            catch (Exception ex)
+            {
+                Console_log(ex.Message + "\n\nTrace:\n" + ex.StackTrace.ToString(), EventLogEntryType.Error, 3000);
                 return null;
             }
         }
-        public static ClienteSdk BuscarClientePorId(int clienteId)
+        public string http_BuscarPorId(int clienteId)
+        {
+            try
+            {
+                Dictionary<string, string> ObjRESP = new Dictionary<string, string>();
+                open_SDK();
+                ComercialSdk.fBuscaIdCteProv(clienteId).TirarSiEsError();
+                ClienteSdk MyCliente = LeerDatosCliente();
+                close_SDK();
+                ObjRESP.Add("Id", MyCliente.Id.ToString());
+                ObjRESP.Add("Codigo", MyCliente.Codigo.ToString());
+                ObjRESP.Add("Rfc", MyCliente.Rfc.ToString());
+                ObjRESP.Add("RazonSocial", MyCliente.RazonSocial.ToString());
+                ObjRESP.Add("Tipo", MyCliente.Tipo.ToString());
+                ObjRESP.Add("Estado", MyCliente.Status.ToString());
+
+                return JsonConvert.SerializeObject(ObjRESP, JsonSettingsHTML);
+            }
+            catch (ARSoftware.Contpaqi.Comercial.Sdk.Excepciones.ContpaqiSdkException e)
+            {
+                Console_log("Error SDK: " + e.CodigoErrorSdk.ToString() + " -> " + e.MensajeErrorSdk.ToString(), EventLogEntryType.Error, 3000);
+                return null;
+            }
+            catch (Exception ex)
+            {
+                Console_log(ex.Message + "\n\nTrace:\n" + ex.StackTrace.ToString(), EventLogEntryType.Error, 3000);
+                return null;
+            }
+        }
+        public string http_BuscarTodos(int soloActivos = 1)
+        {
+            try
+            {
+                ClienteSdk MyCliente = new ClienteSdk();
+                List<string> ListaClientes = new List<string>();
+                Dictionary<string, string> objCLIENTE = new Dictionary<string, string>();
+                open_SDK();
+                if (soloActivos == 1) //Solo buscamos los clientes activos
+                {
+                    //Posicionamos en el primer almacen y leemos sus datos
+                    ComercialSdk.fPosPrimerCteProv();
+                    MyCliente = LeerDatosCliente();
+                    if (MyCliente.Status == 1)
+                    {
+                        objCLIENTE.Add("Id", MyCliente.Id.ToString());
+                        objCLIENTE.Add("Codigo", MyCliente.Codigo.ToString());
+                        objCLIENTE.Add("Rfc", MyCliente.Rfc.ToString());
+                        objCLIENTE.Add("RazonSocial", MyCliente.RazonSocial.ToString());
+                        objCLIENTE.Add("Tipo", MyCliente.Tipo.ToString());
+                        objCLIENTE.Add("Estado", MyCliente.Status.ToString());
+                        ListaClientes.Add(JsonConvert.SerializeObject(objCLIENTE, JsonSettingsHTML));
+                        objCLIENTE.Clear();
+                    }
+                    // Crear un loop y posicionar el SDK en el siguiente registro
+                    while (ComercialSdk.fPosSiguienteCteProv() == SdkConstantes.CodigoExito)
+                    {
+                        MyCliente = LeerDatosCliente();
+                        if (MyCliente.Status == 1)
+                        {
+                            objCLIENTE.Add("Id", MyCliente.Id.ToString());
+                            objCLIENTE.Add("Codigo", MyCliente.Codigo.ToString());
+                            objCLIENTE.Add("Rfc", MyCliente.Rfc.ToString());
+                            objCLIENTE.Add("RazonSocial", MyCliente.RazonSocial.ToString());
+                            objCLIENTE.Add("Tipo", MyCliente.Tipo.ToString());
+                            objCLIENTE.Add("Estado", MyCliente.Status.ToString());
+                            ListaClientes.Add(JsonConvert.SerializeObject(objCLIENTE, JsonSettingsHTML));
+                            objCLIENTE.Clear();
+                        }
+                        if (ComercialSdk.fPosEOFCteProv() == 1)
+                            break;
+                    }
+
+                }
+                else //Buscamos todos los prosuctos (Activos e Inactivos)
+                {
+                    //Posicionamos en el primer almacen y leemos sus datos
+                    ComercialSdk.fPosPrimerCteProv();
+                    MyCliente = LeerDatosCliente();
+                    objCLIENTE.Add("Id", MyCliente.Id.ToString());
+                    objCLIENTE.Add("Codigo", MyCliente.Codigo.ToString());
+                    objCLIENTE.Add("Rfc", MyCliente.Rfc.ToString());
+                    objCLIENTE.Add("RazonSocial", MyCliente.RazonSocial.ToString());
+                    objCLIENTE.Add("Tipo", MyCliente.Tipo.ToString());
+                    objCLIENTE.Add("Estado", MyCliente.Status.ToString());
+                    ListaClientes.Add(JsonConvert.SerializeObject(objCLIENTE, JsonSettingsHTML));
+                    objCLIENTE.Clear();
+                    // Crear un loop y posicionar el SDK en el siguiente registro
+                    while (ComercialSdk.fPosSiguienteCteProv() == SdkConstantes.CodigoExito)
+                    {
+                        MyCliente = LeerDatosCliente();
+                        objCLIENTE.Add("Id", MyCliente.Id.ToString());
+                        objCLIENTE.Add("Codigo", MyCliente.Codigo.ToString());
+                        objCLIENTE.Add("Rfc", MyCliente.Rfc.ToString());
+                        objCLIENTE.Add("RazonSocial", MyCliente.RazonSocial.ToString());
+                        objCLIENTE.Add("Tipo", MyCliente.Tipo.ToString());
+                        objCLIENTE.Add("Estado", MyCliente.Status.ToString());
+                        ListaClientes.Add(JsonConvert.SerializeObject(objCLIENTE, JsonSettingsHTML));
+                        objCLIENTE.Clear();
+                        if (ComercialSdk.fPosEOFCteProv() == 1)
+                            break;
+                    }
+
+                }
+                close_SDK();
+                return JsonConvert.SerializeObject(ListaClientes, JsonSettingsHTML);
+            }
+            catch (Exception ex)
+            {
+                Console_log(ex.Message + "\n\nTrace:\n" + ex.StackTrace.ToString(), EventLogEntryType.Error, 8000);
+                return null;
+            }
+            finally { ComercialSdk.fCierraEmpresa(); ComercialSdk.fTerminaSDK(); }
+
+        }
+        /** ********************************************************************* **/
+        /** FUNCIONES DEL CICLO INTERNO **/
+        /** ********************************************************************* **/
+        public ClienteSdk LeerDatosCliente()
+        {
+            try
+            {
+                // Declarar variables a leer de la base de datos
+                var idBd = new StringBuilder(3000);
+                var codigoBd = new StringBuilder(3000);
+                var razonSocialBd = new StringBuilder(3000);
+                var rfcBd = new StringBuilder(3000);
+                var tipoBd = new StringBuilder(3000);
+                var statusBd = new StringBuilder(3000);
+
+                // Leer los datos del registro donde el SDK esta posicionado
+                ComercialSdk.fLeeDatoCteProv("CIDCLIENTEPROVEEDOR", idBd, 3000).TirarSiEsError();
+                ComercialSdk.fLeeDatoCteProv("CCODIGOCLIENTE", codigoBd, 3000).TirarSiEsError();
+                ComercialSdk.fLeeDatoCteProv("CRAZONSOCIAL", razonSocialBd, 3000).TirarSiEsError();
+                ComercialSdk.fLeeDatoCteProv("CRFC", rfcBd, 3000).TirarSiEsError();
+                ComercialSdk.fLeeDatoCteProv("CTIPOCLIENTE", tipoBd, 3000).TirarSiEsError();
+                ComercialSdk.fLeeDatoCteProv("CESTATUS", statusBd, 3000).TirarSiEsError();
+            
+                // Instanciar un cliente y asignar los datos de la base de datos
+                return new ClienteSdk
+                {
+                    Id = int.Parse(idBd.ToString()),
+                    Codigo = codigoBd.ToString(),
+                    RazonSocial = razonSocialBd.ToString(),
+                    Rfc = rfcBd.ToString(),
+                    Tipo = int.Parse(tipoBd.ToString()),
+                    Status = int.Parse(statusBd.ToString())
+                };
+            }
+            catch (ARSoftware.Contpaqi.Comercial.Sdk.Excepciones.ContpaqiSdkException e)
+            {
+                Console_log("Error SDK: " + e.CodigoErrorSdk.ToString() + " -> " + e.MensajeErrorSdk.ToString(), EventLogEntryType.Error, 3000);
+                return null;
+            }
+            catch (Exception ex)
+            {
+                Console_log(ex.Message + "\n\nTrace:\n" + ex.StackTrace.ToString(), EventLogEntryType.Error, 3000);
+                return null;
+            }
+
+        }
+        public ClienteSdk BuscarClientePorId(int clienteId)
         {
             try
             {
@@ -143,38 +283,7 @@ namespace ContPAQi
                 return null;
             }
         }
-
-        [ComVisible(true)]
-        [HandleProcessCorruptedStateExceptions]
-        public string BuscarClientePorCodigo(string clienteCodigo, string xCaja)
-        {
-            try
-            {
-                open_SDK(xCaja);               
-                ComercialSdk.fBuscaCteProv(clienteCodigo).TirarSiEsError();                
-                ClienteSdk MyCliente = LeerDatosCliente();               
-                close_SDK();
-                ObjRESP.Add("Id", MyCliente.Id.ToString());
-                ObjRESP.Add("Codigo", MyCliente.Codigo.ToString());
-                ObjRESP.Add("Rfc", MyCliente.Rfc.ToString());
-                ObjRESP.Add("RazonSocial", MyCliente.RazonSocial.ToString());
-                ObjRESP.Add("Tipo", MyCliente.Tipo.ToString());
-                ObjRESP.Add("Estado", MyCliente.Status.ToString());
-
-                return JsonConvert.SerializeObject(ObjRESP, JsonSettingsHTML);
-            }
-            catch (AccessViolationException ex)
-            {
-                Console_log(ex.Message + ";\nTrace:\n" + ex.StackTrace.ToString(), EventLogEntryType.Error, 2000);
-                return null;
-            }
-            catch (ARSoftware.Contpaqi.Comercial.Sdk.Excepciones.ContpaqiSdkException ex)
-            {
-                Console_log(ex.Message + ";\nTrace:\n" + ex.StackTrace.ToString(), EventLogEntryType.Error, 2000);
-                return null;
-            }
-        }
-        public static ClienteSdk BuscarClientePorCodigo(string clienteCodigo)
+        public ClienteSdk BuscarClientePorCodigo(string clienteCodigo)
         {
             try
             {
@@ -192,8 +301,6 @@ namespace ContPAQi
                 return null;
             }
         }
-
-        [ComVisible(true)]
         public List<ClienteSdk> BuscarClientes()
         {
             var clientesList = new List<ClienteSdk>();
@@ -220,8 +327,6 @@ namespace ContPAQi
 
             return clientesList;
         }
-
-        [ComVisible(true)]
         public int CrearCliente(ClienteSdk cliente)
         {
             // Instanciar un cliente con la estructura tCteProv del SDK
@@ -243,8 +348,6 @@ namespace ContPAQi
 
             return clienteNuevoId;
         }
-
-        [ComVisible(true)]
         public void ActualizarCliente(ClienteSdk cliente)
         {
             // Buscar el cliente por código
@@ -261,8 +364,6 @@ namespace ContPAQi
             // Guardar los cambios realizados al registro
             ComercialSdk.fGuardaCteProv().TirarSiEsError();
         }
-
-        [ComVisible(true)]
         public void EliminarCliente(ClienteSdk cliente)
         {
             // Buscar el cliente por código
@@ -276,7 +377,7 @@ namespace ContPAQi
         /** ********************************************************************* **/
         /** FUNCIONES DE INTER-CONECTIVIDAD **/
         /** ********************************************************************* **/
-        public void open_SDK(string NoCaja)
+        public void open_SDK()
         {
             try
             {
@@ -294,12 +395,12 @@ namespace ContPAQi
                 }
 
                 MySQL dbMySQL = new MySQL();
-                MySqlDataReader MyCajas = dbMySQL.execSQL("SELECT * FROM tpv_cajas WHERE id = " + NoCaja + ";");
+                MySqlDataReader MyCajas = dbMySQL.execSQL("SELECT * FROM tpv_cajas WHERE id = " + this.NoCaja + ";");
                 if (MyCajas.Read())
                 {
                     var EmpresaDB = MyCajas[3].ToString().Trim();
                     string rutaEMPRESA_COM = "C:\\Compac\\Empresas\\" + EmpresaDB;
-                    Console_log("Abriendo la empresa: " + EmpresaDB + " en la ruta: " + rutaEMPRESA_COM, EventLogEntryType.Information, 100);
+                    Console_log("La caja " + this.NoCaja + " abre la empresa: " + EmpresaDB + " en la ruta: " + rutaEMPRESA_COM, EventLogEntryType.Information, 100);
                     nStart = ComercialSdk.fAbreEmpresa(rutaEMPRESA_COM);
                     if (nStart != 0)
                     {

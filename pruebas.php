@@ -3,25 +3,30 @@ define('ROOT_DIR', $_SERVER['DOCUMENT_ROOT'].'/appEmpresasUV/');
 header('Content-Type: application/json; charset=UTF8');
 
     try {
+        /* ***************************************************************************** */
         //$MyAlmacenSdk = new COM("ContPAQi.AlmacenSdk");
         //$MyAlmacenSdk->setNoCaja("1");
-        //echo $MyAlmacenSdk->http_BuscarAlmacenPorId("45");
-        //echo $MyAlmacenSdk->http_BuscarAlmacenPorCodigo("110");
-        //echo $MyAlmacenSdk->http_BuscarTodosAlmacenes();
-
+        //echo $MyAlmacenSdk->http_BuscarPorId("45");
+        //echo $MyAlmacenSdk->http_BuscarPorCodigo("110");
+        //echo $MyAlmacenSdk->http_BuscarTodos();
+        /* ***************************************************************************** */
         $MyProductoSdk = new COM("ContPAQi.ProductoSdk");
         $MyProductoSdk->setNoCaja(1);
-        //echo $MyProductoSdk->http_BuscarProductoPorCodigo("5001");
-        //echo $MyProductoSdk->http_BuscarProductoPorId(1422);
-        //echo $MyProductoSdk->http_BuscarTodosProductos();
-
-
-
+        echo $MyProductoSdk->http_BuscarPorCodigo("6005");
+        //echo $MyProductoSdk->http_BuscarPorId(1343);
+        //echo $MyProductoSdk->http_BuscarTodos();
+        //echo $MyProductoSdk->http_ExistenciaAlmacen("5001", "111");
+        //echo $MyProductoSdk->http_ExistenciaAlmacenCaracteristicas("6001", "110", "U", "A", "XS"); //Considerar abreviaturas de caracteristicas
+        /* ***************************************************************************** */
+        //$MyClienteSdk = new COM("ContPAQi.ClienteSdk");
+        //$MyClienteSdk->setNoCaja(1);
+        //echo $MyClienteSdk->http_BuscarPorCodigo("XAXX010101000");
+        //echo $MyClienteSdk->http_BuscarPorId(3);
+        //echo $MyClienteSdk->http_BuscarTodos();
+        /* ***************************************************************************** */
         //$MyComercial = new COM("ContPAQi.MovimientoSdk");
         //$MyComercial = new COM("ContPAQi.DocumentoSdk");
         //$MyComercial = new COM("ContPAQi.ConceptoSdk");
-        //$MyComercial = new COM("ContPAQi.ClienteSdk");
-        //$MyComercial = new COM("ContPAQi.CaracteristicasSdk");
         //$MyComercial = new COM("ContPAQi.CiComercialSdk");        
 
 

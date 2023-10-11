@@ -23,9 +23,9 @@ namespace ContPAQi
     public interface IAlmacenSdk
     {
         void setNoCaja(string xCaja);
-        string http_BuscarAlmacenPorCodigo(string CodigoAlmacen);
-        string http_BuscarAlmacenPorId(int IdAlmacen);
-        string http_BuscarTodosAlmacenes();
+        string http_BuscarPorCodigo(string CodigoAlmacen);
+        string http_BuscarPorId(int IdAlmacen);
+        string http_BuscarTodos();
     }
     /** ********************************************************************* **/
     /** INTERFACE PARA EVENTOS DE LA CLASE **/
@@ -72,7 +72,7 @@ namespace ContPAQi
         /** ********************************************************************* **/
         /** FUNCIONES DE APLICACION WEB **/
         /** ********************************************************************* **/
-        public string http_BuscarAlmacenPorId(int IdAlmacen)
+        public string http_BuscarPorId(int IdAlmacen)
         {
             try
             {
@@ -94,7 +94,7 @@ namespace ContPAQi
             finally { ComercialSdk.fCierraEmpresa(); ComercialSdk.fTerminaSDK(); }
 
         }
-        public string http_BuscarAlmacenPorCodigo(string CodigoAlmacen)
+        public string http_BuscarPorCodigo(string CodigoAlmacen)
         {
             try
             {
@@ -116,7 +116,7 @@ namespace ContPAQi
             finally { ComercialSdk.fCierraEmpresa(); ComercialSdk.fTerminaSDK(); }
 
         }
-        public string http_BuscarTodosAlmacenes()
+        public string http_BuscarTodos()
         {
             try
             {

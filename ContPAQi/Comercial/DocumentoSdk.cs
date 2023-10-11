@@ -67,11 +67,6 @@ namespace ContPAQi
         public string Observaciones { get; set; }
         public double Total { get; set; }
 
-        public override string ToString()
-        {
-            return $"{Id} - {Fecha:MM/dd/yyyy} - {ConceptoSdk.BuscarConceptoPorId(ConceptoId).Nombre} - {Serie} - {Folio} - {ClienteSdk.BuscarClientePorId(ClienteId).RazonSocial} - {Total:C}";
-        }
-
         private static DocumentoSdk LeerDatosDocumento()
         {
             // Declarar variables a leer de la base de datos
