@@ -1,0 +1,51 @@
+
+11/10/2023 17:44:01 |  187.189.83.36  |    Administrador     |        getBy         | Tpv_cajas_almacenes  | SELECT * FROM tpv_cajas_almacenes WHERE id_caja='1'
+11/10/2023 17:44:10 |  187.189.83.36  |    Administrador     | get_ExistenciaAlmacen | VentasControlador    | Producto: 5001| Ex.Global: {"120":0,"121":108,"129":0}| Ex.Alacenes: {"120":0,"121":108,"129":0}
+11/10/2023 17:54:59 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Usuarios             | SELECT * FROM usuarios WHERE usuario='Administrador'
+11/10/2023 17:55:04 |  187.189.83.36  |    Administrador     |       updateBy       | Usuarios             | UPDATE usuarios SET ua_time = 1697064899, ua_ip = '187.189.83.36', ua_host = '192.168.1.200' WHERE usuario = 'Administrador';
+11/10/2023 17:55:04 |  187.189.83.36  |    Administrador     |        getBy         | Usuarios_empresas    | SELECT * FROM usuarios_empresas WHERE id_usuario='1'
+11/10/2023 17:55:04 |  187.189.83.36  |    Administrador     |        getBy         | Usuarios_empresas    | SELECT * FROM usuarios_empresas WHERE id_usuario='1'
+11/10/2023 17:55:04 |  187.189.83.36  |    Administrador     |        getBy         | Usuarios_empresas    | SELECT * FROM usuarios_empresas WHERE id_usuario='1'
+11/10/2023 17:55:04 |  187.189.83.36  |    Administrador     |        getBy         | Usuarios_empresas    | SELECT * FROM usuarios_empresas WHERE id_usuario='1'
+11/10/2023 17:55:04 |  187.189.83.36  |    Administrador     |        getBy         | Usuarios_empresas    | SELECT * FROM usuarios_empresas WHERE id_usuario='1'
+11/10/2023 17:55:04 |  187.189.83.36  |    Administrador     |        getBy         | Usuarios_empresas    | SELECT * FROM usuarios_empresas WHERE id_usuario='1'
+11/10/2023 17:55:04 |  187.189.83.36  |    Administrador     |        getBy         | Usuarios_empresas    | SELECT * FROM usuarios_empresas WHERE id_usuario='1'
+11/10/2023 17:55:04 |  187.189.83.36  |    Administrador     |        getBy         | Usuarios_empresas    | SELECT * FROM usuarios_empresas WHERE id_usuario='1'
+11/10/2023 17:55:04 |  187.189.83.36  |    Administrador     |        getBy         | Usuarios_empresas    | SELECT * FROM usuarios_empresas WHERE id_usuario='1'
+11/10/2023 17:55:04 |  187.189.83.36  |    Administrador     |        getBy         | Usuarios_empresas    | SELECT * FROM usuarios_empresas WHERE id_usuario='1'
+11/10/2023 17:55:04 |  187.189.83.36  |    Administrador     |        getBy         | Usuarios_empresas    | SELECT * FROM usuarios_empresas WHERE id_usuario='1'
+11/10/2023 17:55:04 |  187.189.83.36  |    Administrador     |        getBy         | Usuarios_empresas    | SELECT * FROM usuarios_empresas WHERE id_usuario='1'
+11/10/2023 17:55:04 |  187.189.83.36  |    Administrador     |        getBy         | Usuarios_empresas    | SELECT * FROM usuarios_empresas WHERE id_usuario='1'
+11/10/2023 17:55:04 |  187.189.83.36  |    Administrador     |        getBy         | Usuarios_empresas    | SELECT * FROM usuarios_empresas WHERE id_usuario='1'
+11/10/2023 17:55:04 |  187.189.83.36  |    Administrador     |        getBy         | Usuarios_empresas    | SELECT * FROM usuarios_empresas WHERE id_usuario='1'
+11/10/2023 17:55:04 |  187.189.83.36  |    Administrador     |        getBy         | Usuarios_empresas    | SELECT * FROM usuarios_empresas WHERE id_usuario='1'
+11/10/2023 17:55:04 |  187.189.83.36  |    Administrador     |        getBy         | Usuarios_empresas    | SELECT * FROM usuarios_empresas WHERE id_usuario='1'
+11/10/2023 17:55:04 |  187.189.83.36  |    Administrador     |        getBy         | Usuarios_empresas    | SELECT * FROM usuarios_empresas WHERE id_usuario='1'
+11/10/2023 17:55:04 |  187.189.83.36  |    Administrador     |        getBy         | Usuarios_empresas    | SELECT * FROM usuarios_empresas WHERE id_usuario='1'
+11/10/2023 17:55:04 |  187.189.83.36  |    Administrador     |        getBy         | Usuarios_empresas    | SELECT * FROM usuarios_empresas WHERE id_usuario='1'
+11/10/2023 17:55:04 |  187.189.83.36  |    Administrador     |        getBy         | Usuarios_empresas    | SELECT * FROM usuarios_empresas WHERE id_usuario='1'
+11/10/2023 17:55:04 |  187.189.83.36  |    Administrador     |        getBy         | Usuarios_empresas    | SELECT * FROM usuarios_empresas WHERE id_usuario='1'
+11/10/2023 17:55:04 |  187.189.83.36  |    Administrador     |        getBy         | Usuarios_empresas    | SELECT * FROM usuarios_empresas WHERE id_usuario='1'
+11/10/2023 17:55:04 |  187.189.83.36  |    Administrador     |        getBy         | Usuarios_empresas    | SELECT * FROM usuarios_empresas WHERE id_usuario='1'
+11/10/2023 17:55:04 |  187.189.83.36  |    Administrador     |        getBy         | Usuarios_empresas    | SELECT * FROM usuarios_empresas WHERE id_usuario='1'
+11/10/2023 17:55:04 |  187.189.83.36  |    Administrador     |        getBy         | Usuarios_empresas    | SELECT * FROM usuarios_empresas WHERE id_usuario='1'
+11/10/2023 17:55:04 |  187.189.83.36  |    Administrador     |        getBy         | Usuarios_empresas    | SELECT * FROM usuarios_empresas WHERE id_usuario='1'
+11/10/2023 17:55:14 |  187.189.83.36  |    Administrador     |       execSQL        | Tpv_cajas            | SELECT * FROM tpv_cajas WHERE id_usuario = '1' AND empresa_SDK = 'cmPuntoVentas'
+11/10/2023 17:55:14 |  187.189.83.36  |    Administrador     |       execSQL        | Tpv_cajas            | Filas: 2
+11/10/2023 17:55:14 |  187.189.83.36  |    Administrador     |       execSQL        | Tpv_cajas_cortes     | SELECT * FROM tpv_cajas_cortes WHERE id_caja=1 AND estado='A'
+11/10/2023 17:55:14 |  187.189.83.36  |    Administrador     |       execSQL        | Tpv_cajas_cortes     | Filas: 1
+11/10/2023 17:55:28 |  187.189.83.36  |    Administrador     |        getBy         | Tpv_cajas_almacenes  | SELECT * FROM tpv_cajas_almacenes WHERE id_caja='1'
+11/10/2023 17:55:37 |  187.189.83.36  |    Administrador     | get_ExistenciaAlmacen | VentasControlador    | Producto: 5001| Ex.Global: {"120":0,"121":108,"129":0}| Ex.Alacenes: {"120":0,"121":108,"129":0}
+11/10/2023 17:56:45 |  187.189.83.36  |    Administrador     |        getBy         | Tpv_cajas_almacenes  | SELECT * FROM tpv_cajas_almacenes WHERE id_caja='1'
+11/10/2023 17:56:55 |  187.189.83.36  |    Administrador     | get_ExistenciaAlmacen | VentasControlador    | Producto: 5002| Ex.Global: {"120":0,"121":34,"129":0}| Ex.Alacenes: {"120":0,"121":34,"129":0}
+11/10/2023 17:57:25 |  187.189.83.36  |    Administrador     |        getBy         | Tpv_cajas_almacenes  | SELECT * FROM tpv_cajas_almacenes WHERE id_caja='1'
+11/10/2023 17:57:25 |  187.189.83.36  |    Administrador     | get_ExistenciaAlmacenCaracteristicas | VentasControlador    | 6001|120|U|A|M
+11/10/2023 17:57:28 |  187.189.83.36  |    Administrador     | get_ExistenciaAlmacenCaracteristicas | VentasControlador    | 6001|121|U|A|M
+11/10/2023 17:57:31 |  187.189.83.36  |    Administrador     | get_ExistenciaAlmacenCaracteristicas | VentasControlador    | 6001|129|U|A|M
+11/10/2023 17:57:34 |  187.189.83.36  |    Administrador     | get_ExistenciaAlmacenCaracteristicas | VentasControlador    | Producto: 6001| Ex.Global: {"120":2,"121":0,"129":0}| Ex.Alacenes: {"120":2,"121":0,"129":0}
+11/10/2023 18:00:18 |  187.189.83.36  |    Administrador     |        getBy         | Tpv_cajas_almacenes  | SELECT * FROM tpv_cajas_almacenes WHERE id_caja='1'
+11/10/2023 18:00:18 |  187.189.83.36  |    Administrador     | get_ExistenciaAlmacenCaracteristicas | VentasControlador    | 6001|120|U|A|M
+11/10/2023 18:00:21 |  187.189.83.36  |    Administrador     | get_ExistenciaAlmacenCaracteristicas | VentasControlador    | 6001|121|U|A|M
+11/10/2023 18:00:24 |  187.189.83.36  |    Administrador     | get_ExistenciaAlmacenCaracteristicas | VentasControlador    | 6001|129|U|A|M
+11/10/2023 18:00:27 |  187.189.83.36  |    Administrador     | get_ExistenciaAlmacenCaracteristicas | VentasControlador    | Producto: 6001| Ex.Global: {"120":2,"121":0,"129":0}| Ex.Alacenes: {"120":2,"121":0,"129":0}
+11/10/2023 18:02:47 |  187.189.83.36  |    Administrador     |        getBy         | Tpv_cajas_almacenes  | SELECT * FROM tpv_cajas_almacenes WHERE id_caja='1'

@@ -253,7 +253,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Asignar</button>
+                    <button id="cmd_getCARACTERISTICAS" type="button" class="btn btn-primary" data-bs-dismiss="modal">Asignar</button>
                 </div>
             </div>
         </div>
@@ -290,6 +290,7 @@
 <!-- ## ********************************************* ## -->
 <script type="text/javascript">
     //# **************************************************** #
+    var productoCALLER = null;
     $(document).ready(function(){
         var txt_CANTIDAD = $('#txt_CANTIDAD');
         var txt_CODIGO = $('#txt_CODIGO');
@@ -299,7 +300,73 @@
             currency: 'MXN',
         });
         //# **************************************************** #
-        show_progress("Configurando tu terminal en ContPAQi...");
+        $("#cmd_getCARACTERISTICAS").on("click", function() {
+            //Verificar las existencias segun las caracteristicas del producto
+            show_progress("Comprobando la existencia en tus almacenes.");
+            $.ajax({
+                method: "POST",
+                url: "<?php echo $helper->url("Ventas", "get_ExistenciaAlmacenCaracteristicas"); ?>",
+                data: { //Parametros para el SDK
+                    codigo: $('#txt_CODIGO').textbox('getValue'),
+                    caracteristica1: $('#txt_CARACTERISTICA1').combobox('getValue'),
+                    caracteristica2: $('#txt_CARACTERISTICA2').combobox('getValue'),
+                    caracteristica3: $('#txt_CARACTERISTICA3').combobox('getValue')
+                }
+            }).done(function(respuesta) {
+                $.messager.progress('close');
+                //console.log(respuesta);
+                if(!ExisteError(respuesta)){
+                    var jsonRCP = read_json(respuesta);
+                    var jsonALMACENES = read_json(jsonRCP.Almacenes);
+                    var Mayor = 0
+                    var Mayor_Almacen = 0
+                    for(var key in jsonALMACENES){
+                        if(jsonALMACENES[key] > Mayor){
+                            Mayor = jsonALMACENES[key];
+                            Mayor_Almacen = key;
+                        }
+                    }
+                    //console.log("almacen: "+Mayor_Almacen+" | conteo:"+Mayor);
+
+                    //console.log("Ex: "+jsonRCP.Existencia+"| Pedido: "+$('#txt_CANTIDAD').textbox('getValue'));
+                    if(jsonRCP.Existencia > 0){ //Tenemos productos en existencias
+                        if(jsonRCP.Existencia > $('#txt_CANTIDAD').textbox('getValue')){ //Las existencias cubren el pedido
+                            //console.log(productoCALLER);
+                            var nRows = $('#grid_VENTAS').datagrid('getRows');
+                            var strCaracteristicas = $('#txt_CARACTERISTICA1').combobox('getText')+" | "+$('#txt_CARACTERISTICA2').combobox('getText')+" | "+$('#txt_CARACTERISTICA3').combobox('getText');
+                            //console.log((nRows.length));
+                            $('#grid_VENTAS').datagrid('insertRow',{
+                                index: (nRows.length),	// index start with 0
+                                row: {
+                                    cantidad: $('#txt_CANTIDAD').textbox('getValue'),
+                                    codigo: productoCALLER.Producto.Codigo,
+                                    producto: productoCALLER.Producto.Nombre,
+                                    caracteristicas: strCaracteristicas,
+                                    almacen: Mayor_Almacen,
+                                    precio: PesoMXN.format(productoCALLER.Producto.Precio),
+                                    descuento: '00%',
+                                    total: PesoMXN.format(productoCALLER.Producto.Precio * $('#txt_CANTIDAD').textbox('getValue')),
+                                    opciones: formatOptions((nRows.length))
+                                }
+                            });                            
+
+                        }else{ //El pedido es mas grande de lo que tenemos en existencia
+                            $("#titulo").html("Problema con éste producto.");
+                            $("#mensaje").html("La existencia del almacen no cubre la cantidad solicitada para el producto.");
+                            $("#cmdERROR")[0].click();
+                            return;
+                        }
+                    }else{ //No hay existencia de ese producto
+                        $("#titulo").html("Problema con éste producto.");
+                        $("#mensaje").html("Producto sin existencia en el almacén.");
+                        $("#cmdERROR")[0].click();
+                        return;
+                    }
+                }
+            });            
+        });
+        //# **************************************************** #        
+        show_progress("Configurando tu terminal en ContPAQi.");
         $.ajax({
             method: "POST",
             url: "<?php echo $helper->url("Ventas", "open_Caja"); ?>",
@@ -327,7 +394,7 @@
         txt_CODIGO.textbox('textbox').bind('keypress', function(e){
             if (e.keyCode == 13){   // Se presionó ENTER
 
-                show_progress("Validando almacenes y existencias en ContPAQi...");
+                show_progress("Buscando tu producto en ContPAQi.");
                 $.ajax({
                     method: "POST",
                     url: "<?php echo $helper->url("Ventas", "get_Producto"); ?>",
@@ -339,8 +406,9 @@
                     console.log(respuesta);
                     if(!ExisteError(respuesta)){
                         var jsonRCP = read_json(respuesta);
+                        productoCALLER = jsonRCP;
                         //Procesar las caracteristicas del producto
-                        if(jsonRCP.Producto.TieneCaracteristicas == "True"){ //El producto tiene caracteristicas
+                        if(jsonRCP.Producto.TieneCaracteristicas){ //El producto tiene caracteristicas
                             $('#txt_CARACTERISTICA1').combobox('clear');
                             $('#txt_CARACTERISTICA2').combobox('clear');
                             $('#txt_CARACTERISTICA3').combobox('clear');
@@ -381,26 +449,52 @@
                                 $('#txt_CARACTERISTICA3').hide();
                             }
                             $("#cmdCARACTERISTICAS")[0].click();
-                        }else{
-                            var nRows = $('#grid_VENTAS').datagrid('getRows');
-                            //console.log((nRows.length));
-                            $('#grid_VENTAS').datagrid('insertRow',{
-                                index: (nRows.length),	// index start with 0
-                                row: {
-                                    cantidad: $('#txt_CANTIDAD').textbox('getValue'),
-                                    codigo: jsonRCP.Producto.Codigo,
-                                    producto: jsonRCP.Producto.Nombre,
-                                    caracteristicas: '-- | N/A | --',
-                                    almacen: '000',
-                                    precio: PesoMXN.format(jsonRCP.Producto.Precio),
-                                    descuento: '00%',
-                                    total: PesoMXN.format(jsonRCP.Producto.Precio * $('#txt_CANTIDAD').textbox('getValue')),
-                                    opciones: formatOptions((nRows.length))
+                        }else{ //Es un producto sin caracteristicas
+
+                            var jsonEXISTENCIAS = read_json(jsonRCP.Producto.Existencias);
+                            var jsonALMACENES = read_json(jsonEXISTENCIAS.Almacenes);
+                            var Mayor = 0
+                            var Mayor_Almacen = 0
+                            for(var key in jsonALMACENES){
+                                if(jsonALMACENES[key] > Mayor){
+                                    Mayor = jsonALMACENES[key];
+                                    Mayor_Almacen = key;
                                 }
-                            });
+                            }
+                            if(jsonEXISTENCIAS.Existencia > 0){ //Tenemos productos en existencias
+                                if(jsonEXISTENCIAS.Existencia > $('#txt_CANTIDAD').textbox('getValue')){ //Las existencias cubren el pedido
+                                    var nRows = $('#grid_VENTAS').datagrid('getRows');
+                                    console.log((nRows.length));
+                                    $('#grid_VENTAS').datagrid('insertRow',{
+                                        index: (nRows.length),	// index start with 0
+                                        row: {
+                                            cantidad: $('#txt_CANTIDAD').textbox('getValue'),
+                                            codigo: jsonRCP.Producto.Codigo,
+                                            producto: jsonRCP.Producto.Nombre,
+                                            caracteristicas: '-- | N/A | --',
+                                            almacen: Mayor_Almacen,
+                                            precio: PesoMXN.format(jsonRCP.Producto.Precio),
+                                            descuento: '00%',
+                                            total: PesoMXN.format(jsonRCP.Producto.Precio * $('#txt_CANTIDAD').textbox('getValue')),
+                                            opciones: formatOptions((nRows.length))
+                                        }
+                                    });
+                                }else{ //El pedido es mas grande de lo que tenemos en existencia
+                                    $("#titulo").html("Problema con éste producto.");
+                                    $("#mensaje").html("La existencia del almacen no cubre la cantidad solicitada para el producto.");
+                                    $("#cmdERROR")[0].click();
+                                    return;
+                                }
+                            }else{ //No hay existencia de ese producto
+                                $("#titulo").html("Problema con éste producto.");
+                                $("#mensaje").html("Producto sin existencia en el almacén.");
+                                $("#cmdERROR")[0].click();
+                                return;
+                            }
+
                         }
-                        txt_CODIGO.textbox('setValue','');
-                        txt_CODIGO.textbox('textbox').focus();
+                        //txt_CODIGO.textbox('setValue','');
+                        //txt_CODIGO.textbox('textbox').focus();
                     }
                     $.messager.progress('close');
                 });

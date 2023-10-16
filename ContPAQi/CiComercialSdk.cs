@@ -69,10 +69,13 @@ namespace ContPAQi
                 MySqlDataReader MyCajas = dbMySQL.execSQL("SELECT * FROM tpv_cajas WHERE id = " + this.NoCaja + ";");
                 if (MyCajas.Read())
                 {
+                    //Console_log("0", EventLogEntryType.Warning, 102);
                     open_SDK();
+                    //Console_log("1", EventLogEntryType.Warning, 102);
                     ClienteSdk cPublicoGeneral = new ClienteSdk().BuscarClientePorCodigo("XAXX010101000");
                     if (cPublicoGeneral != null) //El cliente publico general existe
                     {
+                        //Console_log("2", EventLogEntryType.Warning, 102);
                         //Buscando el folio y la serie de la proxima remisión
                         tLlaveDoc MySerieFolio = DocumentoSdk.BuscarSiguienteSerieYFolio(MyCajas[4].ToString().Trim());
                         ObjRESP.Add("Serie", MySerieFolio.aSerie.ToString());
@@ -85,9 +88,11 @@ namespace ContPAQi
                         Console_log("Code: 404\nNo es posible cargar el cliente PUBLICO EN GENERAL (XAXX010101000).\nVerifique que está dado de alta en la empresa.\nEmpresa: " + MyCajas[3].ToString().Trim() + "\nConcepto:" + MyCajas[4].ToString().Trim(), EventLogEntryType.Error, 102);
                         return ErrorCode;
                     }
+                    //Console_log("3", EventLogEntryType.Warning, 102);
                     close_SDK();
                 }
                 dbMySQL.Desconectar();
+                //Console_log("4", EventLogEntryType.Warning, 102);
                 return JsonConvert.SerializeObject(ObjRESP);
             }
             catch (Exception ex) { 

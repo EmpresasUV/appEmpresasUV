@@ -1,0 +1,38 @@
+
+16/10/2023 09:39:24 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Usuarios             | SELECT * FROM usuarios WHERE usuario='Administrador'
+16/10/2023 09:39:29 |  187.189.83.36  |    Administrador     |       updateBy       | Usuarios             | UPDATE usuarios SET ua_time = 1697467164, ua_ip = '187.189.83.36', ua_host = '192.168.1.200' WHERE usuario = 'Administrador';
+16/10/2023 09:39:29 |  187.189.83.36  |    Administrador     |        getBy         | Usuarios_empresas    | SELECT * FROM usuarios_empresas WHERE id_usuario='1'
+16/10/2023 09:39:29 |  187.189.83.36  |    Administrador     |        getBy         | Usuarios_empresas    | SELECT * FROM usuarios_empresas WHERE id_usuario='1'
+16/10/2023 09:39:29 |  187.189.83.36  |    Administrador     |        getBy         | Usuarios_empresas    | SELECT * FROM usuarios_empresas WHERE id_usuario='1'
+16/10/2023 09:39:29 |  187.189.83.36  |    Administrador     |        getBy         | Usuarios_empresas    | SELECT * FROM usuarios_empresas WHERE id_usuario='1'
+16/10/2023 09:39:29 |  187.189.83.36  |    Administrador     |        getBy         | Usuarios_empresas    | SELECT * FROM usuarios_empresas WHERE id_usuario='1'
+16/10/2023 09:39:29 |  187.189.83.36  |    Administrador     |        getBy         | Usuarios_empresas    | SELECT * FROM usuarios_empresas WHERE id_usuario='1'
+16/10/2023 09:39:29 |  187.189.83.36  |    Administrador     |        getBy         | Usuarios_empresas    | SELECT * FROM usuarios_empresas WHERE id_usuario='1'
+16/10/2023 09:39:29 |  187.189.83.36  |    Administrador     |        getBy         | Usuarios_empresas    | SELECT * FROM usuarios_empresas WHERE id_usuario='1'
+16/10/2023 09:39:29 |  187.189.83.36  |    Administrador     |        getBy         | Usuarios_empresas    | SELECT * FROM usuarios_empresas WHERE id_usuario='1'
+16/10/2023 09:39:29 |  187.189.83.36  |    Administrador     |        getBy         | Usuarios_empresas    | SELECT * FROM usuarios_empresas WHERE id_usuario='1'
+16/10/2023 09:39:29 |  187.189.83.36  |    Administrador     |        getBy         | Usuarios_empresas    | SELECT * FROM usuarios_empresas WHERE id_usuario='1'
+16/10/2023 09:39:29 |  187.189.83.36  |    Administrador     |        getBy         | Usuarios_empresas    | SELECT * FROM usuarios_empresas WHERE id_usuario='1'
+16/10/2023 09:39:29 |  187.189.83.36  |    Administrador     |        getBy         | Usuarios_empresas    | SELECT * FROM usuarios_empresas WHERE id_usuario='1'
+16/10/2023 09:39:29 |  187.189.83.36  |    Administrador     |        getBy         | Usuarios_empresas    | SELECT * FROM usuarios_empresas WHERE id_usuario='1'
+16/10/2023 09:39:29 |  187.189.83.36  |    Administrador     |        getBy         | Usuarios_empresas    | SELECT * FROM usuarios_empresas WHERE id_usuario='1'
+16/10/2023 09:39:29 |  187.189.83.36  |    Administrador     |        getBy         | Usuarios_empresas    | SELECT * FROM usuarios_empresas WHERE id_usuario='1'
+16/10/2023 09:39:29 |  187.189.83.36  |    Administrador     |        getBy         | Usuarios_empresas    | SELECT * FROM usuarios_empresas WHERE id_usuario='1'
+16/10/2023 09:39:29 |  187.189.83.36  |    Administrador     |        getBy         | Usuarios_empresas    | SELECT * FROM usuarios_empresas WHERE id_usuario='1'
+16/10/2023 09:39:29 |  187.189.83.36  |    Administrador     |        getBy         | Usuarios_empresas    | SELECT * FROM usuarios_empresas WHERE id_usuario='1'
+16/10/2023 09:39:29 |  187.189.83.36  |    Administrador     |        getBy         | Usuarios_empresas    | SELECT * FROM usuarios_empresas WHERE id_usuario='1'
+16/10/2023 09:39:29 |  187.189.83.36  |    Administrador     |        getBy         | Usuarios_empresas    | SELECT * FROM usuarios_empresas WHERE id_usuario='1'
+16/10/2023 09:39:29 |  187.189.83.36  |    Administrador     |        getBy         | Usuarios_empresas    | SELECT * FROM usuarios_empresas WHERE id_usuario='1'
+16/10/2023 09:39:29 |  187.189.83.36  |    Administrador     |        getBy         | Usuarios_empresas    | SELECT * FROM usuarios_empresas WHERE id_usuario='1'
+16/10/2023 09:39:29 |  187.189.83.36  |    Administrador     |        getBy         | Usuarios_empresas    | SELECT * FROM usuarios_empresas WHERE id_usuario='1'
+16/10/2023 09:39:29 |  187.189.83.36  |    Administrador     |        getBy         | Usuarios_empresas    | SELECT * FROM usuarios_empresas WHERE id_usuario='1'
+16/10/2023 09:39:29 |  187.189.83.36  |    Administrador     |        getBy         | Usuarios_empresas    | SELECT * FROM usuarios_empresas WHERE id_usuario='1'
+16/10/2023 09:39:29 |  187.189.83.36  |    Administrador     |        getBy         | Usuarios_empresas    | SELECT * FROM usuarios_empresas WHERE id_usuario='1'
+16/10/2023 09:39:48 |  187.189.83.36  |    Administrador     |       execSQL        | Tpv_cajas            | SELECT * FROM tpv_cajas WHERE id_usuario = '1' AND empresa_SDK = 'cmPuntoVentas'
+16/10/2023 09:39:48 |  187.189.83.36  |    Administrador     |       execSQL        | Tpv_cajas            | Filas: 2
+16/10/2023 09:39:48 |  187.189.83.36  |    Administrador     |       execSQL        | Tpv_cajas_cortes     | SELECT * FROM tpv_cajas_cortes WHERE id_caja=1 AND estado='A'
+16/10/2023 09:39:48 |  187.189.83.36  |    Administrador     |       execSQL        | Tpv_cajas_cortes     | Filas: 1
+16/10/2023 09:51:35 |  187.189.83.36  |    Administrador     |       execSQL        | Tpv_cajas            | SELECT * FROM tpv_cajas WHERE id_usuario = '1' AND empresa_SDK = 'cmPuntoVentas'
+16/10/2023 09:51:35 |  187.189.83.36  |    Administrador     |       execSQL        | Tpv_cajas            | Filas: 2
+16/10/2023 09:51:35 |  187.189.83.36  |    Administrador     |       execSQL        | Tpv_cajas_cortes     | SELECT * FROM tpv_cajas_cortes WHERE id_caja=1 AND estado='A'
+16/10/2023 09:51:35 |  187.189.83.36  |    Administrador     |       execSQL        | Tpv_cajas_cortes     | Filas: 1

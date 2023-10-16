@@ -12,11 +12,11 @@ header('Content-Type: application/json; charset=UTF8');
         /* ***************************************************************************** */
         $MyProductoSdk = new COM("ContPAQi.ProductoSdk");
         $MyProductoSdk->setNoCaja(1);
-        echo $MyProductoSdk->http_BuscarPorCodigo("6005");
+        //echo $MyProductoSdk->http_BuscarPorCodigo("6005");
         //echo $MyProductoSdk->http_BuscarPorId(1343);
         //echo $MyProductoSdk->http_BuscarTodos();
         //echo $MyProductoSdk->http_ExistenciaAlmacen("5001", "111");
-        //echo $MyProductoSdk->http_ExistenciaAlmacenCaracteristicas("6001", "110", "U", "A", "XS"); //Considerar abreviaturas de caracteristicas
+        echo $MyProductoSdk->http_ExistenciaAlmacenCaracteristicas("6001", "120", "U", "A", "M"); //Considerar abreviaturas de caracteristicas
         /* ***************************************************************************** */
         //$MyClienteSdk = new COM("ContPAQi.ClienteSdk");
         //$MyClienteSdk->setNoCaja(1);

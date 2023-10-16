@@ -259,9 +259,8 @@ class VentasControlador extends ControladorBase{
                     $MyRESP["Producto"]["Nombre"]   = $json_OBJ->Nombre;
                     $MyRESP["Producto"]["Precio"]   = $json_OBJ->Precio;
                     $MyRESP["Producto"]["Estado"]   = $json_OBJ->Estado;
-                    $MyRESP["Producto"]["Tipo"]     = $json_OBJ->Tipo;
-/*                    
-                    $MyRESP["Producto"]["TieneCaracteristicas"]     = boolval($json_OBJ->TieneCaracteristicas);
+                    $MyRESP["Producto"]["Tipo"]     = $json_OBJ->Tipo;                   
+                    $MyRESP["Producto"]["TieneCaracteristicas"] = ($json_OBJ->TieneCaracteristicas=="True" ? true : false);
                     if($MyRESP["Producto"]["TieneCaracteristicas"]){
                         $MyRESP["Producto"]["Caracteristica1_Nombre"]   = Utf8_ansi($json_OBJ->Caracteristica1_Nombre);
                         $MyRESP["Producto"]["Caracteristica1_Valores"]  = Utf8_ansi($json_OBJ->Caracteristica1_Valores);
@@ -269,11 +268,11 @@ class VentasControlador extends ControladorBase{
                         $MyRESP["Producto"]["Caracteristica2_Valores"]  = Utf8_ansi($json_OBJ->Caracteristica2_Valores);
                         $MyRESP["Producto"]["Caracteristica3_Nombre"]   = Utf8_ansi($json_OBJ->Caracteristica3_Nombre);
                         $MyRESP["Producto"]["Caracteristica3_Valores"]  = Utf8_ansi($json_OBJ->Caracteristica3_Valores);   
+                    }else{
+                        $MyRESP["Producto"]["Existencias"] = $this->get_ExistenciaAlmacen($json_OBJ->Codigo);
                     }
-*/                    
-                }
-                else
-                {
+                    
+                }else{
                     $MyRESP["Codigo"] = 404;
                 }
 
@@ -288,7 +287,73 @@ class VentasControlador extends ControladorBase{
         }
     }
     /** ****************************************************** **/
-     public function get_Caracteristicas(){
+    public function get_ExistenciaAlmacen($CodigoProducto = null){
+        try {
+            chkSesion();
+            header('Content-Type: application/json; charset=UTF8');
+            $MyRESP = array();
+            if($CodigoProducto == null){ //El usuario envía un parametro POST
+                $CodigoProducto = $_POST["codigo"];
+            }
+
+            $MyProductoSdk = new COM("ContPAQi.ProductoSdk");
+            $MyProductoSdk->setNoCaja($_SESSION["caja"]["id"]);
+            //Creamos el objeto << ALMACENES DE CAJA >>
+            $cajas_almacenes = new Tpv_cajas_almacenes($this->adaptador);
+            $MyAlmacenes = $cajas_almacenes->getBy("id_caja", $_SESSION["caja"]["id"]);
+            if(!empty($MyAlmacenes)){ //La caja tiene almacenes almacenes registrados
+                $MyRESP["Codigo"] = 0;
+                $MyRESP["Existencia"] = 0;
+                $arrAlmacenes = array();
+                foreach($MyAlmacenes as $Almacen){
+                    $arrAlmacenes[$Almacen->id_SDK] = $MyProductoSdk->http_ExistenciaAlmacen($CodigoProducto, $Almacen->id_SDK);
+                    $MyRESP["Existencia"] += $arrAlmacenes[$Almacen->id_SDK];
+                }
+                $MyRESP["Almacenes"] = json_encode($arrAlmacenes);
+                $this->auditar("Producto: ".$CodigoProducto."| Ex.Global: ".$MyRESP["Almacenes"]."| Ex.Alacenes: ".$MyRESP["Almacenes"]);
+            }else{ //Error la caja no tiene almacenes registrados
+                $MyRESP["Codigo"] = 404;
+            }
+    
+            return json_encode($MyRESP);
+        } catch (Exception $e) {
+            mostrar_error($e);
+        }                
+    }
+    /** ****************************************************** **/
+    public function get_ExistenciaAlmacenCaracteristicas(){
+        try {
+            chkSesion();
+            header('Content-Type: application/json; charset=UTF8');
+            $MyRESP = array();
+
+            $MyProductoSdk = new COM("ContPAQi.ProductoSdk");
+            $MyProductoSdk->setNoCaja($_SESSION["caja"]["id"]);
+            //Creamos el objeto << ALMACENES DE CAJA >>
+            $cajas_almacenes = new Tpv_cajas_almacenes($this->adaptador);
+            $MyAlmacenes = $cajas_almacenes->getBy("id_caja", $_SESSION["caja"]["id"]);
+            if(!empty($MyAlmacenes)){ //La caja tiene almacenes almacenes registrados
+                $MyRESP["Codigo"] = 0;
+                $MyRESP["Existencia"] = 0;
+                $arrAlmacenes = array();
+                foreach($MyAlmacenes as $Almacen){
+                    $this->auditar($_POST["codigo"]."|".$Almacen->id_SDK."|".$_POST["caracteristica1"]."|".$_POST["caracteristica2"]."|".$_POST["caracteristica3"]);
+                    $arrAlmacenes[$Almacen->id_SDK] = $MyProductoSdk->http_ExistenciaAlmacenCaracteristicas($_POST["codigo"], $Almacen->id_SDK, $_POST["caracteristica1"], $_POST["caracteristica2"], $_POST["caracteristica3"]);
+                    $MyRESP["Existencia"] += $arrAlmacenes[$Almacen->id_SDK];
+                }
+                $MyRESP["Almacenes"] = json_encode($arrAlmacenes);
+                $this->auditar("Producto: ".$_POST["codigo"]."| Ex.Global: ".$MyRESP["Almacenes"]."| Ex.Alacenes: ".$MyRESP["Almacenes"]);
+            }else{ //Error la caja no tiene almacenes registrados
+                $MyRESP["Codigo"] = 404;
+            }
+    
+            echo json_encode($MyRESP);
+        } catch (Exception $e) {
+            mostrar_error($e);
+        }                
+    }
+    /** ****************************************************** **/        
+    public function get_Caracteristicas(){
         try {
             chkSesion();
             header('Content-Type: application/json; charset=UTF8');
