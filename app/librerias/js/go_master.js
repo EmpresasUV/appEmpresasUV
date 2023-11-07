@@ -416,10 +416,18 @@ function show_asistente(tipo, texto, alto = 400, ancho = 300){
 /** ********************************************************************************** **/
 function ExisteError(respuesta){
     var jsonRCP = read_json(respuesta);
+    var xRespCode;
     var winTitulo = "";
     var winMensaje = "";
     var is_error = false;
-    switch (respuesta.Code) {
+    if(typeof jsonRCP.Code === 'undefined'){
+        console.log("undefined Code");
+        xRespCode = jsonRCP.Codigo;
+    }else{
+        console.log("undefined Codigo");
+        xRespCode = jsonRCP.Code;
+    }
+    switch (xRespCode) {
         case 400:
             winTitulo = "Solicitud inválida";
             winMensaje = "El Sdk de ContPAQi no pudo interpretar la solicitud, la sintaxis del comando enviado es inválida.";
@@ -450,9 +458,6 @@ function ExisteError(respuesta){
             winMensaje = "No hay un precio asignado para los boletos";
             is_error = true;
         break
-
-
-
         default:
             is_error = false;
     }

@@ -75,9 +75,19 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex align-items-center">
-                                    <div class="subheader">FOLIO DE VENTAS</div>
+                                    <div class="subheader">NUMERO DE PRODUCTOS</div>
                                 </div>
+                                <div id="txt_T_Productos" class="h3 mb-1 text-red" style="text-align: right;">0</div>
 
+                                <div class="d-flex align-items-center">
+                                    <div class="subheader">DESCUENTOS</div>
+                                </div>
+                                <div id="txt_T_Descuentos" class="h3 mb-1 text-red" style="text-align: right;">0.00</div>
+
+                                <div class="d-flex align-items-center">
+                                    <div class="subheader">TOTAL A PAGAR</div>
+                                </div>
+                                <div id="txt_T_Total" class="h1 mb-1 text-red" style="text-align: right;">0.00</div>
                             </div>
                         </div>
 
@@ -464,7 +474,7 @@
                             if(jsonEXISTENCIAS.Existencia > 0){ //Tenemos productos en existencias
                                 if(jsonEXISTENCIAS.Existencia > $('#txt_CANTIDAD').textbox('getValue')){ //Las existencias cubren el pedido
                                     var nRows = $('#grid_VENTAS').datagrid('getRows');
-                                    console.log((nRows.length));
+                                    //console.log((nRows.length));
                                     $('#grid_VENTAS').datagrid('insertRow',{
                                         index: (nRows.length),	// index start with 0
                                         row: {
@@ -479,6 +489,7 @@
                                             opciones: formatOptions((nRows.length))
                                         }
                                     });
+                                    ActualizaTotales();                                    
                                 }else{ //El pedido es mas grande de lo que tenemos en existencia
                                     $("#titulo").html("Problema con éste producto.");
                                     $("#mensaje").html("La existencia del almacen no cubre la cantidad solicitada para el producto.");
@@ -493,9 +504,10 @@
                             }
 
                         }
-                        //txt_CODIGO.textbox('setValue','');
-                        //txt_CODIGO.textbox('textbox').focus();
+                        
                     }
+                    txt_CODIGO.textbox('setValue','');
+                    txt_CODIGO.textbox('textbox').focus();
                     $.messager.progress('close');
                 });
             }
@@ -543,6 +555,7 @@
                             //Eliminando el producto del grid
                             $('#grid_VENTAS').datagrid('deleteRow', $(cmd).attr('row-id'));
                             $('#grid_VENTAS').datagrid('reload');
+                            ActualizaTotales();
                             $('#txt_CODIGO').textbox('textbox').focus();
                         }
                     }
@@ -594,8 +607,6 @@
         width: 260,
         min: 1
     });
-
-
     //# **************************************************** #
     function get_Venta(){
         $.ajax({
@@ -608,6 +619,31 @@
         });
     }
     //# **************************************************** #
+    function ActualizaTotales(){
+        let PesoMXN = new Intl.NumberFormat('es-MX', {
+            style: 'currency',
+            currency: 'MXN',
+        });
+        console.log("-- [ ActualizaTotales ] --");
+        var tRows = $('#grid_VENTAS').datagrid('getRows');
+        console.log("tRows: "+tRows.length);
+        if(tRows.length >= 0){ //tenemos filas en el grid
+            var sumaProductos = 0;
+            var sumaDescuentos = 0.00;
+            var sumaTotal = 0.00;
+            for (var i = 0; i < tRows.length; i++) {
+                var row = tRows[i];
+                console.log(row.precio);
+                sumaProductos += parseInt(row.cantidad);
+                sumaDescuentos += parseFloat(row.descuento.replace(/[%]/g,''));
+                sumaTotal += parseFloat(row.total.replace(/[$]/g,''));
+            }
+            console.log("Productos: "+sumaProductos+" | Descuentos: "+sumaDescuentos+" | Total: "+sumaTotal);
+            $("#txt_T_Productos").html(sumaProductos);
+            $("#txt_T_Descuentos").html(PesoMXN.format(sumaDescuentos));
+            $("#txt_T_Total").html(PesoMXN.format(sumaTotal));
+        }
+    }
     //# **************************************************** #
     //# **************************************************** #
     //# **************************************************** #
