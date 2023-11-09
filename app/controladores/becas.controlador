@@ -1,0 +1,93 @@
+<?php
+/**
+ * @autor Rixio Danilo Iguarán Chourio.
+ * @cédula-profesional 12196442
+ * @correo-eletrónico atencion.clientes@obringolfo.com
+ * @denominacion OBRAS INFORMÁTICAS DEL GOLFO
+ * @empresa OBRINGOLFO S.A.S. DE C.V.
+ * @proyecto  goPAC.
+ * @copyright 2021
+ */
+
+
+class BecasControlador extends ControladorBase{
+    public $conectar;
+    public $adapter;
+    /** ****************************************************** **/
+    public function __construct() {
+        try {
+
+            parent::__construct();
+            $this->conectar = new Conectar();
+            $this->adapter  = $this->conectar->conexion();
+
+        } catch (Exception $e) {
+            mostrar_error($e);
+        }
+    }
+    /** ****************************************************** **/
+    public function index(){
+        try {
+
+            //$this->view("_header_app", null);
+            //$this->view("becas/registro_paso_01", null);
+            //$this->view("_footer_app", null);
+
+        } catch (Exception $e) {
+            mostrar_error($e);
+        }
+    }
+    /** ****************************************************** **/
+    public function next_step(){
+        try {
+
+            if(isset($_POST['step']) && ($_POST['step'] != '')){ //El usuario está en un paso
+                switch ($_POST['step']) {
+                    case 0: //Presentación
+                            $this->view("_header_login", null);
+                            $this->view("becas/registro_paso_01", null);
+                            $this->view("_footer_login", null);           
+                        break;
+    
+                    case 1: //Busqueda del alumno
+                        break;
+
+                    case 2: //Confirmación de datos
+                        break;
+                    
+                    case 3: //Dirección
+                        break;
+        
+                }                
+            }
+
+        } catch (Exception $e) {
+            mostrar_error($e);
+        }
+    }
+
+
+
+
+
+    /** ****************************************************** **/
+    /**
+     * CONTROL DE INTERFACES PARA EL USUARIO (Carga dinamica de interfaces)
+     *  **/
+    /** ****************************************************** **/
+    public function registro(){
+        try {
+
+            $this->view("_header_login", null);
+            $this->view("becas/registro_paso_00", null);
+            $this->view("_footer_login", null);
+
+        } catch (Exception $e) {
+            mostrar_error($e);
+        }
+    }
+
+    /** ****************************************************** **/
+
+}
+?>

@@ -1,0 +1,244 @@
+<?php
+/**
+ * @autor Rixio Danilo Iguarán Chourio.
+ * @cédula-profesional 12196442
+ * @correo-eletrónico atencion.clientes@obringolfo.com
+ * @denominacion OBRAS INFORMÁTICAS DEL GOLFO
+ * @empresa OBRINGOLFO S.A.S. DE C.V.
+ * @proyecto  goPAC.
+ * @copyright 2023
+ */
+
+
+?>
+<!-- Download SVG icon from http://tabler-icons.io/i/home -->
+<script src="<?php echo PATH_JS; ?>/go_master.js"></script>
+<!-- ## ********************************************* ## -->
+    <body  class=" d-flex flex-column">
+        <div class="page-body">
+            <div class="container container-xl">
+                <div class="text-center mb-4">
+                <img src="<?php echo PATH_IMAGENES; ?>/becas_img_00.png" height="150" alt="" style="max-width: 100%; height: auto;">
+                </div>
+                <div class="row row-cards">
+                    <div class="col-lg-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <ul class="steps steps-counter steps-vertical">
+                                    <li class="step-item active">Datos del alumno</li>
+                                    <li class="step-item"><?= LNG_SEGURIDAD_0068 ?></li>
+                                    <li class="step-item"><?= LNG_SEGURIDAD_0069 ?></li>
+                                    <li class="step-item"><?= LNG_SEGURIDAD_0070 ?></li>
+                                    <li class="step-item"><?= LNG_SEGURIDAD_0071 ?></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-9">
+                        <form id="FrmDATAREG01" name="FrmDATAREG01" class="card" method="post" autocomplete="off">
+                            <input id="step" name="step" type="hidden" value="1" />
+                            <div class="card-header">
+                                <h3 class="card-title">Realicemos la confirmación de tus datos generales</h3>
+                            </div>
+                            <div class="card-body">
+
+                                <div class="mb-3 row">
+                                    <label class="col-3 col-form-label required">Tú matricula</label>
+                                    <div class="col">
+                                        <input
+                                            id="txt_MATRICULA" name="txt_MATRICULA"
+                                            type="text"
+                                            value=""
+                                            class="form-control"
+                                            placeholder="Coloca tu matricula escolar"
+                                            onkeyup="chk_valid(this);" onfocus="chk_valid(this);" onchange="chk_valid(this);"
+                                            required="required"
+                                        >
+                                        <small class="form-hint">Recuerda que debe estar activa y corresponder con el programa de becas.</small>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-3 row">
+                                    <label class="col-3 col-form-label required"><?= LNG_NUCLEO_0059; ?></label>
+                                    <div class="col">
+                                        <input
+                                            id="txt_NOMBRE" name="txt_NOMBRE"
+                                            type="text"
+                                            patron="nombres"
+                                            class="form-control"
+                                            placeholder="<?= LNG_NUCLEO_0073 ?>"
+                                             onkeyup="chk_valid(this);" onfocus="chk_valid(this);" onchange="chk_valid(this);"
+                                             required="required"
+                                        >
+                                        <small class="form-hint"><?= LNG_NUCLEO_0073; ?>.</small>
+                                    </div>
+                                    <div class="col">
+                                        <input
+                                            id="txt_PATERNO" name="txt_PATERNO"
+                                            type="text"
+                                            patron="apellidos"
+                                            class="form-control"
+                                            placeholder="<?= LNG_NUCLEO_0074 ?>"
+                                            onkeyup="chk_valid(this);" onfocus="chk_valid(this);" onchange="chk_valid(this);"
+                                            required="required"
+                                        >
+                                        <small class="form-hint"><?= LNG_NUCLEO_0074; ?>.</small>
+                                    </div>
+                                    <div class="col">
+                                        <input
+                                            id="txt_MATERNO" name="txt_MATERNO"
+                                            type="text"
+                                            patron="apellidos"
+                                            class="form-control"
+                                            placeholder="<?= LNG_NUCLEO_0075 ?>"
+                                            onkeyup="chk_valid(this);" onfocus="chk_valid(this);" onchange="chk_valid(this);"
+                                            required="required"
+                                        >
+                                        <small class="form-hint"><?= LNG_NUCLEO_0075; ?>.</small>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3 row">
+                                    <label class="col-3 col-form-label required"><?= LNG_SEGURIDAD_0076 ?></label>
+                                    <div class="col">
+                                        <div class="input-group input-group-flat">
+                                            <input
+                                                id="txt_PASSW1" name="txt_PASSW1"
+                                                onpaste="return false;"
+                                                ondrop="return false;"
+                                                autocomplete="off"
+                                                type="password"
+                                                class="form-control"
+                                                placeholder="<?= LNG_SEGURIDAD_0003 ?>"
+                                                onkeyup="chk_valid(this);" onfocus="chk_valid(this);" onchange="chk_valid(this);"
+                                            >
+                                            <span class="input-group-text">
+                                                <a id="cmdPASSWORD" name="cmdPASSWORD"  class="link-secondary cursor_pointer" title="<?php echo LNG_SEGURIDAD_0020; ?>" data-bs-toggle="tooltip" onclick="show_password('txt_PASSW1', this);">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><circle cx="12" cy="12" r="2" /><path d="M22 12c-2.667 4.667 -6 7 -10 7s-7.333 -2.333 -10 -7c2.667 -4.667 6 -7 10 -7s7.333 2.333 10 7" /></svg>
+                                                </a>
+                                            </span>
+
+                                        </div>
+                                        <small class="form-hint"><?= LNG_SEGURIDAD_0003 ?>.</small>
+
+                                    </div>
+                                    <div class="col">
+                                        <div class="input-group input-group-flat">
+                                            <input
+                                                id="txt_PASSW2" name="txt_PASSW2"
+                                                onpaste="return false;"
+                                                ondrop="return false;"
+                                                autocomplete="off"
+                                                type="password"
+                                                class="form-control"
+                                                placeholder="<?= LNG_SEGURIDAD_0077 ?>"
+                                                onkeyup="chk_valid(this);" onfocus="chk_valid(this);" onchange="chk_valid(this);"
+                                            >
+                                            <span class="input-group-text">
+                                                <a id="cmdPASSWORD2" name="cmdPASSWORD2"  class="link-secondary cursor_pointer" title="<?php echo LNG_SEGURIDAD_0020; ?>" data-bs-toggle="tooltip" onclick="show_password('txt_PASSW2', this);">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><circle cx="12" cy="12" r="2" /><path d="M22 12c-2.667 4.667 -6 7 -10 7s-7.333 -2.333 -10 -7c2.667 -4.667 6 -7 10 -7s7.333 2.333 10 7" /></svg>
+                                                </a>
+                                            </span>
+
+                                        </div>
+                                        <small class="form-hint"><?= LNG_SEGURIDAD_0077 ?>.</small>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label class="col-3 col-form-label pt-0"><?= LNG_SEGURIDAD_0078 ?>
+                                        <span class="form-help" data-bs-toggle="popover" data-bs-placement="top" data-bs-html="true"
+                                            data-bs-content="<?php echo LNG_SEGURIDAD_0086; ?> <p class='mb-0'><a href='#'><?php echo LNG_NUCLEO_0005; ?></a></p>">?
+                                        </span>
+                                    </label>
+                                    <div class="col">
+                                        <div class="form-selectgroup">
+                                            <label class="form-selectgroup-item">
+                                                <input type="radio" name="txt_PERFIL" value="2" class="form-selectgroup-input" checked="">
+                                                <span class="form-selectgroup-label">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon me-1" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M3 21l18 0"></path><path d="M3 10l18 0"></path><path d="M5 6l7 -3l7 3"></path><path d="M4 10l0 11"></path><path d="M20 10l0 11"></path><path d="M8 14l0 3"></path><path d="M12 14l0 3"></path><path d="M16 14l0 3"></path></svg>
+                                                    <?= LNG_SEGURIDAD_0079 ?></span>
+                                            </label>
+                                            <label class="form-selectgroup-item">
+                                                <input type="radio" name="txt_PERFIL" value="3" class="form-selectgroup-input">
+                                                <span class="form-selectgroup-label">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon me-1" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M5 12l-2 0l9 -9l9 9l-2 0"></path><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7"></path><path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6"></path></svg>
+                                                    <?= LNG_SEGURIDAD_0080 ?></span>
+                                            </label>
+                                            <label class="form-selectgroup-item">
+                                                <input type="radio" name="txt_PERFIL" value="4" class="form-selectgroup-input">
+                                                <span class="form-selectgroup-label">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon me-1" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M9 7m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path><path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path><path d="M21 21v-2a4 4 0 0 0 -3 -3.85"></path></svg>
+                                                    <?= LNG_SEGURIDAD_0081 ?></span>
+                                            </label>
+                                            <label class="form-selectgroup-item">
+                                                <input type="radio" name="txt_PERFIL" value="5" class="form-selectgroup-input">
+                                                <span class="form-selectgroup-label">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon me-1" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M12 7m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path><path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path></svg>
+                                                    <?= LNG_SEGURIDAD_0082 ?></span>
+                                            </label>
+                                            <label class="form-selectgroup-item">
+                                                <input type="radio" name="txt_PERFIL" value="6" class="form-selectgroup-input">
+                                                <span class="form-selectgroup-label">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon me-1" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M16 21h3c.81 0 1.48 -.67 1.48 -1.48l.02 -.02c0 -.82 -.69 -1.5 -1.5 -1.5h-3v3z"></path><path d="M16 15h2.5c.84 -.01 1.5 .66 1.5 1.5s-.66 1.5 -1.5 1.5h-2.5v-3z"></path><path d="M4 9v-4c0 -1.036 .895 -2 2 -2s2 .964 2 2v4"></path><path d="M2.99 11.98a9 9 0 0 0 9 9m9 -9a9 9 0 0 0 -9 -9"></path><path d="M8 7h-4"></path></svg>
+                                                    <?= LNG_SEGURIDAD_0083 ?></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer text-end">
+                                <button id="cmdREG01" name="cmdREG01" type="button" class="btn btn-primary">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                        <path d="M12 9v-3.586a1 1 0 0 1 1.707 -.707l6.586 6.586a1 1 0 0 1 0 1.414l-6.586 6.586a1 1 0 0 1 -1.707 -.707v-3.586h-3v-6h3z"></path>
+                                        <path d="M3 9v6"></path>
+                                        <path d="M6 9v6"></path>
+                                    </svg><?php echo LNG_NUCLEO_0034; ?>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+
+<!-- ## ********************************************* ## -->
+<script type="text/javascript">
+    var MyPASS = GeneratePassword(14);
+    $("#txt_PASSW1").val(MyPASS);
+    $("#txt_PASSW2").val(MyPASS);
+    //# **************************************************** #
+    $("#cmdREG01").click(function() {
+        show_progress("<?php echo LNG_NUCLEO_0015; ?>");
+        var isValid = true;
+        $('#FrmDATAREG01').find(':input').each(function() {
+            if(this.className.substr(0, 6) == "easyui"){ //es un componente de easyui
+                isValid = $('#FrmDATAREG01').form('validate');
+            }else{ //es un elemento HTML5
+                if(!chk_valid(this)){
+                    isValid = false;
+                }
+            }
+        });
+        if (isValid){
+            if($("#txt_PASSW1").val() == $("#txt_PASSW2").val()){
+                document.getElementById("FrmDATAREG01").action = "<?php echo $helper->url("Usuarios", "reg_step"); ?>";
+                document.getElementById("FrmDATAREG01").submit();
+            }else{
+                $.messager.progress('close');
+                show_asistente("5", "<p align='center'><?=  LNG_SEGURIDAD_0049 ?></p>", 260, 230);
+                $("#txt_PASSW2").val('');
+                $("#txt_PASSW1").val('');
+            }
+            console.clear();
+        }else{
+            $.messager.progress('close');
+            show_asistente("5", "<p align='center'><?=  LNG_NUCLEO_0036 ?></p>", 260, 230);
+        }
+
+    });
+    //# **************************************************** #
+</script>
+<!-- ## ********************************************* ## -->

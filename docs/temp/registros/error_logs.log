@@ -18,3 +18,45 @@
 21/10/2023 19:42:59 | 201.108.163.140 |   index    |    scriptError    |    Libreria G     | Undefined index: caja
 
 21/10/2023 19:42:59 | 201.108.163.140 |   index    |    scriptError    |    Libreria G     | Undefined index: caja
+
+07/11/2023 09:33:25 |  187.189.83.36  |   index    |    scriptError    |    Libreria G     | require_once(app/vistas/_header.vista): failed to open stream: No such file or directory
+
+07/11/2023 09:33:25 |  187.189.83.36  |   index    |    scriptError    |    Libreria G     | require_once(): Failed opening required 'app/vistas/_header.vista' (include_path='.;C:\xampp\php\PEAR')
+
+07/11/2023 09:33:25 |  187.189.83.36  |   index    |    scriptError    |    Libreria G     | require_once(): Failed opening required 'app/vistas/_header.vista' (include_path='.;C:\xampp\php\PEAR')
+
+07/11/2023 09:33:25 |  187.189.83.36  |   index    |    scriptError    |    Libreria G     | require_once(): Failed opening required 'app/vistas/_header.vista' (include_path='.;C:\xampp\php\PEAR')
+
+07/11/2023 09:34:18 |  187.189.83.36  |   index    |    scriptError    |    Libreria G     | Undefined variable: txt_MAIL
+
+07/11/2023 09:36:35 |  187.189.83.36  |   index    |    scriptError    |    Libreria G     | Undefined index: usuario
+
+07/11/2023 09:36:35 |  187.189.83.36  |   index    |    scriptError    |    Libreria G     | Undefined index: usuario
+
+07/11/2023 09:36:42 |  187.189.83.36  |   index    |    scriptError    |    Libreria G     | Undefined index: usuario
+
+07/11/2023 09:36:42 |  187.189.83.36  |   index    |    scriptError    |    Libreria G     | Undefined index: usuario
+
+07/11/2023 09:42:39 |  187.189.83.36  |   index    |    scriptError    |    Libreria G     | Undefined index: usuario
+
+07/11/2023 09:42:39 |  187.189.83.36  |   index    |    scriptError    |    Libreria G     | Undefined index: usuario
+
+07/11/2023 12:01:52 |  187.189.83.36  |   index    |    scriptError    |    Libreria G     | Undefined index: usuario
+
+07/11/2023 12:01:52 |  187.189.83.36  |   index    |    scriptError    |    Libreria G     | Undefined index: usuario
+
+07/11/2023 12:10:30 |  187.189.83.36  |   index    |    scriptError    |    Libreria G     | Undefined index: usuario
+
+07/11/2023 12:10:30 |  187.189.83.36  |   index    |    scriptError    |    Libreria G     | Undefined index: usuario
+
+07/11/2023 12:11:50 |  187.189.83.36  |   index    |    scriptError    |    Libreria G     | Undefined index: usuario
+
+07/11/2023 12:11:50 |  187.189.83.36  |   index    |    scriptError    |    Libreria G     | Undefined index: usuario
+
+07/11/2023 12:12:10 |  187.189.83.36  |   index    |    scriptError    |    Libreria G     | Undefined index: usuario
+
+07/11/2023 12:12:10 |  187.189.83.36  |   index    |    scriptError    |    Libreria G     | Undefined index: usuario
+
+07/11/2023 12:12:46 |  187.189.83.36  |   index    |    scriptError    |    Libreria G     | Undefined index: usuario
+
+07/11/2023 12:12:46 |  187.189.83.36  |   index    |    scriptError    |    Libreria G     | Undefined index: usuario

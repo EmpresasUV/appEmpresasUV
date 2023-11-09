@@ -1,0 +1,77 @@
+<?php
+/**
+ * @autor Rixio Danilo Iguarán Chourio.
+ * @cédula-profesional 12196442
+ * @correo-eletrónico atencion.clientes@obringolfo.com
+ * @denominacion OBRAS INFORMÁTICAS DEL GOLFO
+ * @empresa OBRINGOLFO S.A.S. DE C.V.
+ * @proyecto  goPAC.
+ * @copyright 2023
+ */
+
+
+?>
+<!-- Download SVG icon from http://tabler-icons.io/i/home -->
+<script src="<?php echo PATH_JS; ?>/go_master.js"></script>
+<!-- ## ********************************************* ## -->
+    <body  class=" d-flex flex-column">
+        <div class="page-body">
+            <div class="container container-xl">
+                <div class="text-center mb-4">
+                    <img src="<?php echo PATH_IMAGENES; ?>/becas_img_00.png" height="150" alt="" style="max-width: 100%; height: auto;">
+                </div>
+                <div class="row row-cards d-flex justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="card">
+                            <div class="card-header justify-content-center">
+                                <h3 class="card-title">Programa de becas alimentarias de la Universidad Veracruzana</h3>
+                            </div>
+                            <div class="card-body">
+                                <!-- [BEGIN][FORMULARIO] -->
+                                <form id="FrmDATOS" name="FrmDATOS" method="post" autocomplete="off">
+                                    <input id="step" name="step" type="hidden" value="0" required="false" />
+
+                                    Descripción resumida del programa ó información relevante que mostrar al usuario. Descripción resumida del programa ó información relevante que mostrar al usuario. Descripción resumida del programa ó información relevante que mostrar al usuario. Descripción resumida del programa ó información relevante que mostrar al usuario. Descripción resumida del programa ó información relevante que mostrar al usuario. Descripción resumida del programa ó información relevante que mostrar al usuario. Descripción resumida del programa ó información relevante que mostrar al usuario.
+
+                                </form>
+                                <!-- [END][FORMULARIO] -->
+
+                            </div>
+                            <div class="card-footer text-center">
+                                <a id="cmd_INICIO" href="#" class="btn btn-success">Iniciar registro</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+
+<!-- ## ********************************************* ## -->
+<script type="text/javascript">
+    //# **************************************************** #
+    show_asistente("1", "<p align='center'>Hola, soy <strong>Robotips</strong> y te ayudaré a registrar tus datos.</p>", 260, 230);
+    $("#cmd_INICIO").click(function() {
+        show_progress("Negociando con el servidor, espere por favor...");
+        var isValid = true;
+        $('#FrmDATOS').find(':input').each(function() {
+            if(this.className.substr(0, 6) == "easyui"){ //es un componente de easyui
+                isValid = $('#FrmDATOS').form('validate');
+            }else{ //es un elemento HTML5
+                if(!chk_valid(this)){
+                    isValid = false;
+                }
+            }
+        });
+        if (isValid){
+            console.clear();
+            document.getElementById("FrmDATOS").action = "<?php echo $helper->url("Becas", "next_step"); ?>";
+            document.getElementById("FrmDATOS").submit();
+        }else{
+            $.messager.progress('close');
+            show_asistente("5", "<p align='center'><?=  LNG_NUCLEO_0036 ?></p>", 260, 230);
+        }
+    });
+    //# **************************************************** #
+</script>
+<!-- ## ********************************************* ## -->

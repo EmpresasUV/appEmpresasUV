@@ -32,7 +32,7 @@
         <meta name="doc-rights" content="Copywritten work">
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
         <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-        <meta http-equiv="Content-Security-Policy" content="default-src *; img-src * 'self' data: https: http:; script-src 'self' 'unsafe-inline' 'unsafe-eval' *; style-src  'self' 'unsafe-inline' *">
+        
         <!-- [ TITULO INICIAL ] -->
         <title>EmpresasUV ® :: <?php echo LNG_SEGURIDAD_0001; ?></title>
 
