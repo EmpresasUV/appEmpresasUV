@@ -1,0 +1,5 @@
+
+14/11/2023 12:35:11 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Usuarios             | SELECT * FROM usuarios WHERE correo=''
+14/11/2023 12:35:17 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Usuarios             | SELECT * FROM usuarios WHERE usuario=''
+14/11/2023 12:35:17 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Usuarios             | SELECT * FROM usuarios WHERE correo=''
+14/11/2023 12:35:17 |  187.189.83.36  |   Usuario anonimo    |       logedin        | UsuariosControlador  | [1401] Intento de acceso del usuario  pero no existe.

@@ -14,12 +14,9 @@
 <style>
     #external-events {
         z-index: 2;
-        /*top: 20px;*/
-        /*left: 20px;*/
         padding: 12px 12px;
         border: 1px solid #ccc;
         margin-bottom: 25px;
-        /*background: #eee;*/
     }
 
     #external-events .fc-event {
@@ -77,12 +74,12 @@
                                         </div>
                                         <div style="padding-top: 20px;">
                                             <p> <strong>Alimentos disponibles</strong> </p>
-                                            <div id="sDisponibles" style="text-align: center;font-size: 50px;font-weight: bold;color: green;">4</div>
+                                            <div id="sDisponibles" style="text-align: center;font-size: 50px;font-weight: bold;color: green;">10</div>
                                         </div>
-                                        <div style="padding-top: 20px;">
-                                            <p> <strong>Tú Matricula</strong> </p>
+                                        <div>
+                                            <p style="padding-top: 10px;"> <strong>Tú Matricula</strong> </p>
                                             <div id="sMatrucula" style="text-align: center;font-size: 12px;font-weight: bold;color: green;">XX000000000</div>
-                                            <p> <strong>Tú Comedor</strong> </p>
+                                            <p style="padding-top: 10px;"> <strong>Tú Comedor</strong> </p>
                                             <div id="sMatrucula" style="text-align: center;font-size: 12px;font-weight: bold;color: green;">COMEDOR INGENIERÍA</div>
                                         </div>
                                     </div>
@@ -96,7 +93,8 @@
                             <div class="card-footer text-end">
                                 <div class="row">
                                     <div class="col-lg-10" style="text-align: left;font-size: 10px;color: blue;">
-                                        Arrastra el tipo de alimento a tú calendario o haz clic en el día que deseas programarlos; si haces clic en un alimento, puedes quitarlo de la programación.<br>
+                                        Arrastra el tipo de alimento a tú calendario o haz clic en el día que deseas programarlos; si haces clic en un alimento.<br>
+                                        Si deseas quitar alguno de los alimentos agendados en la programación, haz un clic sobre él.<br>
                                         También puedes mover tus alimentos de un día a otro; asegurate de programar todos tus alimentos para continuar.
                                     </div>
                                     <div class="col-lg-2">
@@ -117,8 +115,39 @@
             </div>
         </div>
 
+        <a id="cmd_BORRAR" href="#" class="btn" data-bs-toggle="modal" data-bs-target="#modal-danger" style="display: none;">
+            Borrar alimento
+        </a>
+        <div class="modal modal-blur fade" id="modal-danger" tabindex="-1" aria-hidden="true" style="display: none;">
+            <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+                <div class="modal-content">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <div class="modal-status bg-danger"></div>
+                <div class="modal-body text-center py-4">
+                    <!-- Download SVG icon from http://tabler-icons.io/i/alert-triangle -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon mb-2 text-danger icon-lg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M12 9v4"></path><path d="M10.363 3.591l-8.106 13.534a1.914 1.914 0 0 0 1.636 2.871h16.214a1.914 1.914 0 0 0 1.636 -2.87l-8.106 -13.536a1.914 1.914 0 0 0 -3.274 0z"></path><path d="M12 16h.01"></path></svg>
+                    <h3>¿Quitar éste alimento de la agenda?</h3>
+                    <div class="text-secondary">Quitaremos el alimento que haz seleccionado de tu agenda y se marcará como disponible.</div>
+                </div>
+                <div class="modal-footer">
+                    <div class="w-100">
+                    <div class="row">
+                        <div class="col"><a id="cmdDel_NO" href="#" class="btn w-100" data-bs-dismiss="modal">
+                            No, cancelar
+                        </a></div>
+                        <div class="col"><a id="cmdDel_SI" href="#" class="btn btn-danger w-100" data-bs-dismiss="modal">
+                            Sí, quitarlo
+                        </a></div>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+
+
         <a id="cmd_ALIMENTOS" href="#" class="btn" data-bs-toggle="modal" data-bs-target="#modal-success" style="display: none;">
-            Success modal
+            Agendar alimento
         </a>       
         <div class="modal modal-blur fade" id="modal-success" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
@@ -134,10 +163,10 @@
                 <div class="modal-footer">
                     <div class="w-100">
                     <div class="row">
-                        <div class="col"><a id="cmdAdd_DESAYUNO" href="#" class="btn w-100" data-bs-dismiss="modal">
+                        <div class="col"><a id="cmdAdd_DESAYUNO" href="#" class="btn btn-outline-success w-100" data-bs-dismiss="modal">
                             Agendar desayuno
                         </a></div>
-                        <div class="col"><a id="cmdAdd_COMIDA" href="#" class="btn btn-success w-100" data-bs-dismiss="modal">
+                        <div class="col"><a id="cmdAdd_COMIDA" href="#" class="btn btn-outline-success w-100" data-bs-dismiss="modal">
                             Agendar comida
                         </a></div>
                     </div>
@@ -155,6 +184,7 @@
     var MyPASS = GeneratePassword(14);
     var xDateNewEvent;
     var GlobalsEvents;
+    var GlobalDelE;
     $("#txt_PASSW1").val(MyPASS);
     $("#txt_PASSW2").val(MyPASS);
     //# **************************************************** #
@@ -206,6 +236,11 @@
             }
         });
 
+        //# **************************************************** #
+        $("#cmdDel_SI").click(function() {
+            GlobalDelE.event.remove();
+            ServiciosADD();
+        });
         //# **************************************************** #
         $("#cmdAdd_DESAYUNO").click(function() {
             var allEvents = calendar.getEvents();
@@ -266,6 +301,8 @@
                 center: 'title',
                 right: 'dayGridMonth'
             },
+            //initialView: 'multiMonthYear',
+            //multiMonthMaxColumns: 1, // force a single column            
             locale: 'es',
             hiddenDays: [ 0, 6 ], //Ocultar los días sábados y domingos
             editable: true,
@@ -301,7 +338,7 @@
                 let sDisponibles = $("#sDisponibles").html();
                 if(sDisponibles <= 0){
                     info.revert();
-                    show_asistente("12", "<p align='center'>Lamento decirte que ya no tienes más alimentos disponibles.</p>", 270, 230);
+                    show_asistente("12", "<p align='center'>¡Lamento decirlo!, pero parece que se agotó la disponibilidad.</p>", 270, 230);
                 }else{
                     ServiciosDEL();
                 }
@@ -309,7 +346,6 @@
             },
             eventDrop: function(info) { //Mueve el evento a otro día
                 $.each(GlobalsEvents, function(index, value) {
-                    //console.log(value.title+" = "+info.event.title);
                     if((value.title == info.event.title) && (new Date(value.start).toDateString() === new Date(info.event.start).toDateString())) {
                         let nDia = semana[value.start.getDay()];
                         let Dia = value.start.getDate();
@@ -320,9 +356,8 @@
                 });
             },
             eventClick : function(info) {
-                //delete event from calender
-                info.event.remove();
-                ServiciosADD();
+                document.getElementById("cmd_BORRAR").click();
+                GlobalDelE = info;
             },
             dateClick: function(info) {
                 let sDisponibles = $("#sDisponibles").html();
@@ -334,8 +369,10 @@
                     let nMes = meses[info.date.getMonth()+1];
                     $("#text-secondary").html("Selecciona el tipo de alimento que quieres agendar en tú calendario para el día <br><br><strong>"+nDia+" "+Dia+" de "+nMes+"</strong>.");
                     document.getElementById("cmd_ALIMENTOS").click();
+                }else{
+                    show_asistente("12", "<p align='center'>¡Lamento decirlo!, pero parece que se agotó la disponibilidad.</p>", 270, 230);                    
                 }
-            }                        
+            }                                    
         });
         calendar.render();
     });

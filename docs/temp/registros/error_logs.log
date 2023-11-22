@@ -60,3 +60,25 @@
 07/11/2023 12:12:46 |  187.189.83.36  |   index    |    scriptError    |    Libreria G     | Undefined index: usuario
 
 07/11/2023 12:12:46 |  187.189.83.36  |   index    |    scriptError    |    Libreria G     | Undefined index: usuario
+
+14/11/2023 12:35:11 |  187.189.83.36  |   index    |    scriptError    |    Libreria G     | Undefined index: txt_MAIL
+
+14/11/2023 12:35:11 |  187.189.83.36  |   index    |    scriptError    |    Libreria G     | Undefined index: txt_MAIL
+
+14/11/2023 12:35:11 |  187.189.83.36  |   index    |    scriptError    |    Libreria G     | Undefined index: txt_PATERNO
+
+14/11/2023 12:35:11 |  187.189.83.36  |   index    |    scriptError    |    Libreria G     | Undefined index: txt_MATERNO
+
+14/11/2023 12:35:11 |  187.189.83.36  |   index    |    scriptError    |    Libreria G     | Undefined index: txt_NOMBRE
+
+14/11/2023 12:35:11 |  187.189.83.36  |   index    |    scriptError    |    Libreria G     | Undefined index: txt_PASSW1
+
+14/11/2023 12:35:11 |  187.189.83.36  |   index    |    scriptError    |    Libreria G     | Call to undefined method Usuarios::setId_tipo()
+
+14/11/2023 12:35:11 |  187.189.83.36  |   index    |    scriptError    |    Libreria G     | Call to undefined method Usuarios::setId_tipo()
+
+14/11/2023 12:35:11 |  187.189.83.36  |   index    |    scriptError    |    Libreria G     | Call to undefined method Usuarios::setId_tipo()
+
+14/11/2023 12:35:11 |  187.189.83.36  |   index    |    scriptError    |    Libreria G     | Call to undefined method Usuarios::setId_tipo()
+
+14/11/2023 12:35:11 |  187.189.83.36  |   index    |    scriptError    |    Libreria G     | Call to undefined method Usuarios::setId_tipo()
