@@ -18,7 +18,7 @@
         <div class="page page-center">
             <div class="container container-tight py-4">
                 <div class="text-center mb-4">
-                    <a href="." class="navbar-brand navbar-brand-autodark"><img src="<?php echo PATH_IMAGENES; ?>/logo_login.gif" height="100" alt="100"></a>
+                    <a href="." class="navbar-brand navbar-brand-autodark"><img src="<?php echo PATH_IMAGENES; ?>/logo_vertical.svg" height="150" alt="150"></a>
                 </div>
                 <form id="FrmRECOVERY" name="FrmRECOVERY" class="card card-md" method="post" autocomplete="off">
                     <div class="card-body">
