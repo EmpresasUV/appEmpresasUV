@@ -50,7 +50,7 @@
 <!-- ## ********************************************* ## -->
 <script type="text/javascript">
     //# **************************************************** #
-    show_asistente("1", "<p align='center'>Hola, soy <strong>Robotips</strong> y te ayudaré a registrar tus datos.</p>", 260, 230);
+    show_asistente("1", "<p align='center'>Hola, soy <strong>Robotips</strong> y te ayudaré a registrar tus datos.</p>", 270, 230);
     $("#cmd_INICIO").click(function() {
         show_progress("Negociando con el servidor, espere por favor...");
         var isValid = true;

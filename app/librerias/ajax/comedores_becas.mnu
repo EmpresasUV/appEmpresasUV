@@ -1,0 +1,77 @@
+<?php
+/**
+ * @autor Rixio Danilo Iguarán Chourio.
+ * @cédula-profesional 12196442
+ * @correo-eletrónico atencion.clientes@obringolfo.com
+ * @denominacion OBRAS INFORMÁTICAS DEL GOLFO
+ * @empresa OBRINGOLFO S.A.S. DE C.V.
+ * @proyecto  WINDOWS PAQUETE ADMINISTRATIVO CONTABLE (WinPAC).
+ * @copyright 2023
+ */
+
+    require_once PATH_AYUDANTES . '/vistas.ayudante';
+    $helper = new AyudaVistas();
+    chkSesion();
+?>
+    <!-- Download SVG icon from http://tabler-icons.io/i/lifebuoy -->
+    <!-- *********************************************************************************************** -->
+    <!-- [BEGIN][MENU DE AYUDA] -->
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#navbar-help" data-bs-toggle="dropdown" data-bs-auto-close="outside" role="button" aria-expanded="false" >
+            <span class="nav-link-icon d-md-none d-lg-inline-block">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path>
+                    <path d="M12 17l0 .01"></path>
+                    <path d="M12 13.5a1.5 1.5 0 0 1 1 -1.5a2.6 2.6 0 1 0 -3 -4"></path>
+                </svg>
+            </span>
+            <span class="nav-link-title">
+                Becas
+            </span>
+        </a>
+        <div class="dropdown-menu">
+            <button id="cmdBECAS_REGISTRO" name="cmdBECAS_REGISTRO" class="dropdown-item" rel="noopener">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-inline me-2" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428m0 0a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" /></svg>
+                Registro de becarios
+            </button>
+            <button id="cmdBECAS_PERIODOS" name="cmdBECAS_PERIODOS" class="dropdown-item" rel="noopener">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-inline me-2" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428m0 0a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" /></svg>
+                Períodos de becas
+            </button>
+            <button id="cmdBECAS_FESTIVOS" name="cmdBECAS_FESTIVOS" class="dropdown-item text-red" rel="noopener">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-report-money me-2" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2"></path>
+                    <path d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z"></path>
+                    <path d="M14 11h-2.5a1.5 1.5 0 0 0 0 3h1a1.5 1.5 0 0 1 0 3h-2.5"></path>
+                    <path d="M12 17v1m0 -8v1"></path>
+                </svg>
+                Días festivos
+            </button>
+
+        </div>
+    </li>
+    <!-- [END][MENU DE AYUDA] -->
+    <!-- *********************************************************************************************** -->
+<!-- ## ********************************************* ## -->
+<script type="text/javascript">
+    //# **************************************************** #
+    $(".dropdown-item").click(function() {
+        switch (this.id) {
+            case "cmdBECAS_REGISTRO":
+                goRedirect("Becas", "index");
+            break
+            case "cmdBECAS_PERIODOS":
+                goRedirect("Becas", "iface_about");
+            break
+            case "cmdBECAS_FESTIVOS":
+                goRedirect("Becas", "iface_about");
+            break
+
+        }
+    });
+    //# **************************************************** #
+    //# **************************************************** #
+</script>
+<!-- ## ********************************************* ## -->

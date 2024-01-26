@@ -1,0 +1,67 @@
+<?php
+/**
+* @autor Rixio Danilo Iguarán Chourio.
+* @cédula-profesional 12196442
+* @correo-eletrónico atencion.clientes@obringolfo.com
+* @denominacion OBRAS INFORMÁTICAS DEL GOLFO
+* @empresa OBRINGOLFO S.A.S. DE C.V.
+* @proyecto  OBRINGOLFO.
+* @copyright 2024
+*/
+
+class Asistencias_registros extends ModeloBase{
+    /* ***************************************************************************
+    * Registrando las variables de la clase
+    *************************************************************************** */
+    private $id_checador;
+    private $tipo;
+    private $fecha;
+    private $hora;
+    private $table;
+
+    /* ***************************************************************************
+    * Generando los metodos SET y GET para las variables
+    *************************************************************************** */
+    /* Setters y Getters para la propiedad [ Id_checador ] */
+    public function getId_checador(){ return $this->id_checador; }
+    public function setId_checador($id_checador){ $this->id_checador = $id_checador; }
+
+    /* Setters y Getters para la propiedad [ Tipo ] */
+    public function getTipo(){ return $this->tipo; }
+    public function setTipo($tipo){ $this->tipo = $tipo; }
+
+    /* Setters y Getters para la propiedad [ Fecha ] */
+    public function getFecha(){ return $this->fecha; }
+    public function setFecha($fecha){ $this->fecha = $fecha; }
+
+    /* Setters y Getters para la propiedad [ Hora ] */
+    public function getHora(){ return $this->hora; }
+    public function setHora($hora){ $this->hora = $hora; }
+
+
+    /* ***************************************************************************
+    * @FUNCTION constructor de clase
+    * @Param $adapter
+    * Inicializa y registra la clase dentro de la aplicación
+    *************************************************************************** */
+    public function __construct($adapter) {
+        try {
+
+            $this->table = 'asistencias_registros';
+            parent::__construct($this->table, $adapter);
+
+        } catch (Exception $e) {
+            mostrar_error($e);
+        }
+    }
+
+    /* ***************************************************************************
+    * OTROS MÉTODOS Y FUNCIONES PARA ÉSTE MODELO EN ESPECÍFICO
+    *************************************************************************** */
+
+    /** *********************************************************************** */
+    /** *********************************************************************** */
+    /** *********************************************************************** */
+    /** *********************************************************************** */
+}
+?>

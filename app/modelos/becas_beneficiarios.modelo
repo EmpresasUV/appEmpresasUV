@@ -1,0 +1,82 @@
+<?php
+/**
+* @autor Rixio Danilo Iguarán Chourio.
+* @cédula-profesional 12196442
+* @correo-eletrónico atencion.clientes@obringolfo.com
+* @denominacion OBRAS INFORMÁTICAS DEL GOLFO
+* @empresa OBRINGOLFO S.A.S. DE C.V.
+* @proyecto  OBRINGOLFO.
+* @copyright 2024
+*/
+
+class Becas_beneficiarios extends ModeloBase{
+    /* ***************************************************************************
+    * Registrando las variables de la clase
+    *************************************************************************** */
+    private $matricula;
+    private $id_comedor;
+    private $nombre;
+    private $secreto;
+    private $n_alimentos;
+    private $credencial;
+    private $calendarizo;
+    private $table;
+
+    /* ***************************************************************************
+    * Generando los metodos SET y GET para las variables
+    *************************************************************************** */
+    /* Setters y Getters para la propiedad [ Matricula ] */
+    public function getMatricula(){ return $this->matricula; }
+    public function setMatricula($matricula){ $this->matricula = $matricula; }
+
+    /* Setters y Getters para la propiedad [ Id_comedor ] */
+    public function getId_comedor(){ return $this->id_comedor; }
+    public function setId_comedor($id_comedor){ $this->id_comedor = $id_comedor; }
+
+    /* Setters y Getters para la propiedad [ Nombre ] */
+    public function getNombre(){ return $this->nombre; }
+    public function setNombre($nombre){ $this->nombre = $nombre; }
+
+    /* Setters y Getters para la propiedad [ Secreto ] */
+    public function getSecreto(){ return $this->secreto; }
+    public function setSecreto($secreto){ $this->secreto = $secreto; }
+
+    /* Setters y Getters para la propiedad [ N_alimentos ] */
+    public function getN_alimentos(){ return $this->n_alimentos; }
+    public function setN_alimentos($n_alimentos){ $this->n_alimentos = $n_alimentos; }
+
+    /* Setters y Getters para la propiedad [ Credencial ] */
+    public function getCredencial(){ return $this->credencial; }
+    public function setCredencial($credencial){ $this->credencial = $credencial; }
+
+    /* Setters y Getters para la propiedad [ Calendarizo ] */
+    public function getCalendarizo(){ return $this->calendarizo; }
+    public function setCalendarizo($calendarizo){ $this->calendarizo = $calendarizo; }
+
+
+    /* ***************************************************************************
+    * @FUNCTION constructor de clase
+    * @Param $adapter
+    * Inicializa y registra la clase dentro de la aplicación
+    *************************************************************************** */
+    public function __construct($adapter) {
+        try {
+
+            $this->table = 'becas_beneficiarios';
+            parent::__construct($this->table, $adapter);
+
+        } catch (Exception $e) {
+            mostrar_error($e);
+        }
+    }
+
+    /* ***************************************************************************
+    * OTROS MÉTODOS Y FUNCIONES PARA ÉSTE MODELO EN ESPECÍFICO
+    *************************************************************************** */
+
+    /** *********************************************************************** */
+    /** *********************************************************************** */
+    /** *********************************************************************** */
+    /** *********************************************************************** */
+}
+?>

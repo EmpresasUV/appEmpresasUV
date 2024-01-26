@@ -41,15 +41,94 @@ class BecasControlador extends ControladorBase{
     public function next_step(){
         try {
 
+            auditar(print_r($_POST, true));
+
             if(isset($_POST['step']) && ($_POST['step'] != '')){ //El usuario está en un paso
                 switch ($_POST['step']) {
                     case 0: //Presentación
                             $this->view("_header_login", null);
                             $this->view("becas/registro_paso_01", null);
-                            $this->view("_footer_login", null);           
+                            $this->view("_footer_login", null);
                         break;
-    
+
                     case 1: //Busqueda del alumno
+                            //Comprobando datos del formulario
+                            if(isset($_POST['txt_MATRICULA']) && ($_POST['txt_MATRICULA'] != '')) {
+                                $txt_MATRICULA = $_POST['txt_MATRICULA'];
+                                if(isset($_POST['txt_PASSW1']) && ($_POST['txt_PASSW1'] != '')) {
+                                    $txt_PASSW1 = $_POST['txt_PASSW1'];
+                                }else{
+                                    $this->view("_header_login", null);
+                                    $this->view("becas/registro_paso_01", array("error" => "400", "error_msg" => "Tú confirmación de acceso no es correcta.<br>Debes revisar."));
+                                    $this->view("_footer_login", null);
+                                }
+                            }else{
+                                $this->view("_header_login", null);
+                                $this->view("becas/registro_paso_01", array("error" => "404", "error_msg" => "Tú matricula no es correcta.<br>Debes revisar."));
+                                $this->view("_footer_login", null);
+                            }
+
+                            auditar($txt_MATRICULA." | ".$txt_PASSW1);
+
+                            $beneficiario = new Becas_beneficiarios($this->adapter); //Preparo la conexion con el modelo en la db
+                            $MyBeneficiario = $beneficiario->getBy('matricula', $txt_MATRICULA); //busco la matricula en la db
+                            if(!empty($MyBeneficiario)){ //tenemos un beneficiario valido
+                                if($MyBeneficiario[0]->calendarizo == 0){ //El beneficiario no ha programado su calendario
+
+                                    $pwd_peppered = hash_hmac("sha256", $txt_PASSW1, SECURITY_PEPPER);
+                                    $pwd_hashed = $MyBeneficiario[0]->secreto;
+                                    if (password_verify($pwd_peppered, $pwd_hashed)) {
+                                        //Cargamos los datos del comedor
+                                        $comedor = new Becas_comedores($this->adapter); //Preparo la conexion con el modelo en la db
+                                        $MyComedor = $comedor->getBy('id', $MyBeneficiario[0]->id_comedor); //busco el comedor en la db
+                                        //Cargamos los datos del periodo
+                                        $periodo = new Becas_periodos($this->adapter); //Preparo la conexion con el modelo en la db
+                                        $MyPeriodo = $periodo->getBy('estado', "A"); //busco el comedor en la db
+                                        //Cargamos los datos de las becas autorizadas por mes
+                                        $b_mes = new Becas_mes($this->adapter); //Preparo la conexion con el modelo en la db
+                                        $MyB_Mes = $b_mes->getAll(); //busco el comedor en la db
+                                        //Cargamos los datos de los dias festivos
+                                        $festivos = new Becas_festivos($this->adapter); //Preparo la conexion con el modelo en la db
+                                        $MyFestivos = $festivos->getAll(); //busco todos los días en la db
+
+                                        //Generamos el arreglo de datos
+                                        $Becario = array(
+                                            "Matricula" => $MyBeneficiario[0]->matricula,
+                                            "Nombre" => $MyBeneficiario[0]->nombre,
+                                            "NAlimentos" => $MyBeneficiario[0]->n_alimentos,
+                                            "Comedor" => $MyComedor[0]->nombre,
+                                            "Periodo_Id" => $MyPeriodo[0]->id,
+                                            "Periodo_I" => $MyPeriodo[0]->f_inicio,
+                                            "Periodo_F" => $MyPeriodo[0]->f_final,
+                                            "Ruta_Credencial" => "/docs/becados/".$MyBeneficiario[0]->matricula."/credencial.jpg"
+                                        );
+                                        //Cargamos la vista y enviamos el arreglo de datos
+                                        $this->view("_header_login", null);
+                                        $this->view("becas/registro_paso_02", array(
+                                            "Becario" => $Becario,
+                                            "B_Mes" => $MyB_Mes,
+                                            "dFestivos" => $MyFestivos
+                                        ));
+                                        $this->view("_footer_login", null);
+
+                                    }else{
+                                        //Anunciamos contraseña erronea
+                                        $this->view("_header_login", null);
+                                        $this->view("becas/registro_paso_01", array("error" => "404", "error_msg" => "Tu contraseña de acceso no es válida.<br>Debes revisar."));
+                                        $this->view("_footer_login", null);
+                                    }
+
+                                }else{ //Ya está calendarizado
+                                    $this->view("_header_login", null);
+                                    $this->view("becas/registro_paso_01", array("error" => "403", "error_msg" => "Ya completaste la calendarización de tus alimentos.<br>No puedes moficar tu calendario de comidas."));
+                                    $this->view("_footer_login", null);
+                                }
+                            }else{
+                                $this->view("_header_login", null);
+                                $this->view("becas/registro_paso_01", array("error" => "404", "error_msg" => "Tu matricula no está registrada como becario.<br>Debes revisar."));
+                                $this->view("_footer_login", null);
+                            }
+
                         break;
 
                     case 2: //Confirmación de datos
@@ -66,6 +145,20 @@ class BecasControlador extends ControladorBase{
         }
     }
 
+    /** ****************************************************** **/
+    public function check_becario(){
+        try {
+            chkSesion();
+            header('Content-Type: application/json; charset=UTF8');
+            $xRespuesta = array();
+
+
+
+            echo json_encode($xRespuesta['data']);
+        } catch (Exception $e) {
+            mostrar_error($e);
+        }
+    }
 
 
 

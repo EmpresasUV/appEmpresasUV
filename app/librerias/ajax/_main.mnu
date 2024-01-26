@@ -12,6 +12,16 @@
     require_once PATH_AYUDANTES . '/vistas.ayudante';
     $helper = new AyudaVistas();
     chkSesion();
+
+    if(!isset($_SESSION["Empresa"])){
+        $_SESSION["Empresa"] = array(
+            "id"            => 0,
+            "Nombre"        => "Sin conexión",
+            "RutaDatos"     => null,
+            "RutaRespaldo"  => null
+        );
+    }
+
 ?>
 
     <script src="<?php echo PATH_JS; ?>/go_master.js"></script>
@@ -62,8 +72,17 @@
                     <ul class="navbar-nav">
 
                         <?php echo load_Menu("general_inicio"); ?>
-                        <?php echo load_Menu("general_ventas"); ?>
-                        <?php echo load_Menu("general_ayuda"); ?>
+                        <?php
+                            switch (mb_convert_case($_SESSION["Empresa"]["Nombre"], MB_CASE_UPPER, "UTF-8")) {
+                              case "COMEDORES UV":
+                                    echo load_Menu("general_ventas");
+                                    echo load_Menu("comedores_becas");
+                              break;
+                              default:
+
+                            }
+
+                            echo load_Menu("general_ayuda"); ?>
 
                     </ul>
                     <div class="my-2 my-md-0 flex-grow-1 flex-md-grow-0 order-first order-md-last">

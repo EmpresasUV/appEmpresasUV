@@ -1,0 +1,77 @@
+<?php
+/**
+* @autor Rixio Danilo Iguarán Chourio.
+* @cédula-profesional 12196442
+* @correo-eletrónico atencion.clientes@obringolfo.com
+* @denominacion OBRAS INFORMÁTICAS DEL GOLFO
+* @empresa OBRINGOLFO S.A.S. DE C.V.
+* @proyecto  OBRINGOLFO.
+* @copyright 2024
+*/
+
+class Asistencias_dispositivos extends ModeloBase{
+    /* ***************************************************************************
+    * Registrando las variables de la clase
+    *************************************************************************** */
+    private $id;
+    private $nombre;
+    private $serie;
+    private $direccion;
+    private $puerto;
+    private $info;
+    private $table;
+
+    /* ***************************************************************************
+    * Generando los metodos SET y GET para las variables
+    *************************************************************************** */
+    /* Setters y Getters para la propiedad [ Id ] */
+    public function getId(){ return $this->id; }
+    public function setId($id){ $this->id = $id; }
+
+    /* Setters y Getters para la propiedad [ Nombre ] */
+    public function getNombre(){ return $this->nombre; }
+    public function setNombre($nombre){ $this->nombre = $nombre; }
+
+    /* Setters y Getters para la propiedad [ Serie ] */
+    public function getSerie(){ return $this->serie; }
+    public function setSerie($serie){ $this->serie = $serie; }
+
+    /* Setters y Getters para la propiedad [ Direccion ] */
+    public function getDireccion(){ return $this->direccion; }
+    public function setDireccion($direccion){ $this->direccion = $direccion; }
+
+    /* Setters y Getters para la propiedad [ Puerto ] */
+    public function getPuerto(){ return $this->puerto; }
+    public function setPuerto($puerto){ $this->puerto = $puerto; }
+
+    /* Setters y Getters para la propiedad [ Info ] */
+    public function getInfo(){ return $this->info; }
+    public function setInfo($info){ $this->info = $info; }
+
+
+    /* ***************************************************************************
+    * @FUNCTION constructor de clase
+    * @Param $adapter
+    * Inicializa y registra la clase dentro de la aplicación
+    *************************************************************************** */
+    public function __construct($adapter) {
+        try {
+
+            $this->table = 'asistencias_dispositivos';
+            parent::__construct($this->table, $adapter);
+
+        } catch (Exception $e) {
+            mostrar_error($e);
+        }
+    }
+
+    /* ***************************************************************************
+    * OTROS MÉTODOS Y FUNCIONES PARA ÉSTE MODELO EN ESPECÍFICO
+    *************************************************************************** */
+
+    /** *********************************************************************** */
+    /** *********************************************************************** */
+    /** *********************************************************************** */
+    /** *********************************************************************** */
+}
+?>

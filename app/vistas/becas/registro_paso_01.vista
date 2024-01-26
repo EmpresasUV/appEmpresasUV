@@ -11,28 +11,10 @@
 
 
 ?>
-<style>
-    #external-events {
-        z-index: 2;
-        padding: 12px 12px;
-        border: 1px solid #ccc;
-        margin-bottom: 25px;
-    }
-
-    #external-events .fc-event {
-        cursor: move;
-        margin: 3px 0;
-    }
-
-    #calendar {
-        max-width: 1100px;
-    }    
-</style>
 <!-- Download SVG icon from http://tabler-icons.io/i/home -->
 <script src="<?php echo PATH_JS; ?>/go_master.js"></script>
-<script src='<?php echo PATH_JS; ?>/fullcalendar/dist/index.global.min.js'></script>
-<script src='<?php echo PATH_JS; ?>/fullcalendar/packages/core/locales/es.global.js'></script>
 <!-- ## ********************************************* ## -->
+
     <body  class=" d-flex flex-column">
         <div class="page-body">
             <div class="container container-xl">
@@ -44,70 +26,75 @@
                         <div class="card">
                             <div class="card-body">
                                 <ul class="steps steps-counter steps-vertical">
-                                    <li class="step-item active">Datos del alumno</li>
-                                    <li class="step-item"><?= LNG_SEGURIDAD_0068 ?></li>
-                                    <li class="step-item"><?= LNG_SEGURIDAD_0069 ?></li>
-                                    <li class="step-item"><?= LNG_SEGURIDAD_0070 ?></li>
-                                    <li class="step-item"><?= LNG_SEGURIDAD_0071 ?></li>
+                                    <li class="step-item active">Comprobación de datos</li>
+                                    <li class="step-item">Calendarización</li>
+                                    <li class="step-item">Confirmación y envío</li>
                                 </ul>
                             </div>
                         </div>
                     </div>
 
                     <div class="col-lg-9">
-                        <form id="FrmDATAREG01" name="FrmDATAREG01" class="card" method="post" autocomplete="off">
-                            <input id="step" name="step" type="hidden" value="1" />
+                        <form id="FrmDATOS01" name="FrmDATOS01" class="card" method="post" autocomplete="off">
+                            <input id="step" name="step" type="hidden" value="1" required="false" />
                             <div class="card-header">
-                                <h3 class="card-title">Agenda tu calendario de alimentos programados</h3>
+                                <h3 class="card-title">Realicemos la confirmación de tus datos</h3>
                             </div>
-                            <div class="row card-body">
-                                <div class="col-lg-3">
-                                    <div class="card" id='external-events'>
-                                        <p> <strong>Tipo de alimento</strong> </p>
-                                        <div class='fc-event fc-daygrid-event fc-daygrid-dot-event'>
-                                            <div class="fc-daygrid-event-dot"></div>
-                                            <div class='fc-event-main'>Desayuno</div>
-                                        </div>
-                                        <div class='fc-event fc-daygrid-event fc-daygrid-dot-event'>
-                                            <div class="fc-daygrid-event-dot"></div>
-                                            <div class='fc-event-main'>Comida</div>
-                                        </div>
-                                        <div style="padding-top: 20px;">
-                                            <p> <strong>Alimentos disponibles</strong> </p>
-                                            <div id="sDisponibles" style="text-align: center;font-size: 50px;font-weight: bold;color: green;">10</div>
-                                        </div>
-                                        <div>
-                                            <p style="padding-top: 10px;"> <strong>Tú Matricula</strong> </p>
-                                            <div id="sMatrucula" style="text-align: center;font-size: 12px;font-weight: bold;color: green;">XX000000000</div>
-                                            <p style="padding-top: 10px;"> <strong>Tú Comedor</strong> </p>
-                                            <div id="sMatrucula" style="text-align: center;font-size: 12px;font-weight: bold;color: green;">COMEDOR INGENIERÍA</div>
-                                        </div>
+                            <div class="card-body">
+
+                                <div class="mb-3 row">
+                                    <label class="col-3 col-form-label required">Tú matricula</label>
+                                    <div class="col">
+                                        <input
+                                            id="txt_MATRICULA" name="txt_MATRICULA"
+                                            type="text"
+                                            value=""
+                                            class="form-control"
+                                            placeholder="Coloca tu matricula escolar"
+                                            onkeyup="chk_valid(this);" onfocus="chk_valid(this);" onchange="chk_valid(this);"
+                                            required="required"
+                                        >
+                                        <small class="form-hint">Recuerda que debe estar activa y corresponder con el programa de becas.</small>
                                     </div>
                                 </div>
-                                <div class="col-lg-9">
-                                    <div id='calendar-container'>
-                                        <div id='calendar'></div>
+                                
+
+                                <div class="mb-3 row">
+                                    <label class="col-3 col-form-label required">Contraseña de seguridad</label>
+                                    <div class="col">
+                                        <div class="input-group input-group-flat">
+                                            <input
+                                                id="txt_PASSW1" name="txt_PASSW1"
+                                                onpaste="return false;"
+                                                ondrop="return false;"
+                                                autocomplete="off"
+                                                type="password"
+                                                class="form-control"
+                                                placeholder="<?= LNG_SEGURIDAD_0003 ?>"
+                                                onkeyup="chk_valid(this);" onfocus="chk_valid(this);" onchange="chk_valid(this);"
+                                            >
+                                            <span class="input-group-text">
+                                                <a id="cmdPASSWORD" name="cmdPASSWORD"  class="link-secondary cursor_pointer" title="<?php echo LNG_SEGURIDAD_0020; ?>" data-bs-toggle="tooltip" onclick="show_password('txt_PASSW1', this);">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><circle cx="12" cy="12" r="2" /><path d="M22 12c-2.667 4.667 -6 7 -10 7s-7.333 -2.333 -10 -7c2.667 -4.667 6 -7 10 -7s7.333 2.333 10 7" /></svg>
+                                                </a>
+                                            </span>
+
+                                        </div>
+                                        <small class="form-hint"><?= LNG_SEGURIDAD_0003 ?>.</small>
+
                                     </div>
-                                </div>                               
+                                </div>
+
                             </div>
                             <div class="card-footer text-end">
-                                <div class="row">
-                                    <div class="col-lg-10" style="text-align: left;font-size: 10px;color: blue;">
-                                        Arrastra el tipo de alimento a tú calendario o haz clic en el día que deseas programarlos; si haces clic en un alimento.<br>
-                                        Si deseas quitar alguno de los alimentos agendados en la programación, haz un clic sobre él.<br>
-                                        También puedes mover tus alimentos de un día a otro; asegurate de programar todos tus alimentos para continuar.
-                                    </div>
-                                    <div class="col-lg-2">
-                                        <button id="cmdREG01" name="cmdREG01" type="button" class="btn btn-primary" disabled>
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                                <path d="M12 9v-3.586a1 1 0 0 1 1.707 -.707l6.586 6.586a1 1 0 0 1 0 1.414l-6.586 6.586a1 1 0 0 1 -1.707 -.707v-3.586h-3v-6h3z"></path>
-                                                <path d="M3 9v6"></path>
-                                                <path d="M6 9v6"></path>
-                                            </svg>Siguiente
-                                        </button>
-                                    </div>
-                                </div>
+                                <button id="cmdREG01" name="cmdREG01" type="button" class="btn btn-primary">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                        <path d="M12 9v-3.586a1 1 0 0 1 1.707 -.707l6.586 6.586a1 1 0 0 1 0 1.414l-6.586 6.586a1 1 0 0 1 -1.707 -.707v-3.586h-3v-6h3z"></path>
+                                        <path d="M3 9v6"></path>
+                                        <path d="M6 9v6"></path>
+                                    </svg><?php echo LNG_NUCLEO_0034; ?>
+                                </button>
                             </div>
                         </form>
                     </div>
@@ -115,85 +102,63 @@
             </div>
         </div>
 
-        <a id="cmd_BORRAR" href="#" class="btn" data-bs-toggle="modal" data-bs-target="#modal-danger" style="display: none;">
-            Borrar alimento
-        </a>
-        <div class="modal modal-blur fade" id="modal-danger" tabindex="-1" aria-hidden="true" style="display: none;">
-            <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
-                <div class="modal-content">
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                <div class="modal-status bg-danger"></div>
-                <div class="modal-body text-center py-4">
-                    <!-- Download SVG icon from http://tabler-icons.io/i/alert-triangle -->
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon mb-2 text-danger icon-lg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M12 9v4"></path><path d="M10.363 3.591l-8.106 13.534a1.914 1.914 0 0 0 1.636 2.871h16.214a1.914 1.914 0 0 0 1.636 -2.87l-8.106 -13.536a1.914 1.914 0 0 0 -3.274 0z"></path><path d="M12 16h.01"></path></svg>
-                    <h3>¿Quitar éste alimento de la agenda?</h3>
-                    <div class="text-secondary">Quitaremos el alimento que haz seleccionado de tu agenda y se marcará como disponible.</div>
-                </div>
-                <div class="modal-footer">
-                    <div class="w-100">
-                    <div class="row">
-                        <div class="col"><a id="cmdDel_NO" href="#" class="btn w-100" data-bs-dismiss="modal">
-                            No, cancelar
-                        </a></div>
-                        <div class="col"><a id="cmdDel_SI" href="#" class="btn btn-danger w-100" data-bs-dismiss="modal">
-                            Sí, quitarlo
-                        </a></div>
+
+
+<?php
+if(isset($error) && $error != ""){
+    echo '
+            <a id="cmd_ERROR_W" href="#" class="btn" data-bs-toggle="modal" data-bs-target="#modal-danger" style="display: none;">Borrar alimento</a>
+            <div class="modal modal-blur fade" id="modal-danger" tabindex="-1" aria-hidden="true" style="display: none;">
+                <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <div class="modal-status bg-danger"></div>
+                    <div class="modal-body text-center py-4">
+                        <!-- Download SVG icon from http://tabler-icons.io/i/alert-triangle -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon mb-2 text-danger icon-lg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M12 9v4"></path><path d="M10.363 3.591l-8.106 13.534a1.914 1.914 0 0 0 1.636 2.871h16.214a1.914 1.914 0 0 0 1.636 -2.87l-8.106 -13.536a1.914 1.914 0 0 0 -3.274 0z"></path><path d="M12 16h.01"></path></svg>
+                        <h3>Hemos detectado un problema.</h3>
+                        <div class="text-secondary">'.$error_msg.'</div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="w-100">
+                        <div class="row">
+                            <div class="col"><a id="cmd_ERROR" href="#" class="btn w-100" data-bs-dismiss="modal">
+                                Entiendo, revisaré
+                            </a></div>
+                        </div>
+                        </div>
                     </div>
                     </div>
-                </div>
                 </div>
             </div>
-        </div>
-
-
-        <a id="cmd_ALIMENTOS" href="#" class="btn" data-bs-toggle="modal" data-bs-target="#modal-success" style="display: none;">
-            Agendar alimento
-        </a>       
-        <div class="modal modal-blur fade" id="modal-success" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
-                <div class="modal-content">
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                <div class="modal-status bg-success"></div>
-                <div class="modal-body text-center py-4">
-                    <!-- Download SVG icon from http://tabler-icons.io/i/circle-check -->
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon mb-2 text-green icon-lg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /><path d="M9 12l2 2l4 -4" /></svg>
-                    <h3>¿Agendar alimento en tu calendario?</h3>
-                    <div id="text-secondary" class="text-secondary">.</div>
-                </div>
-                <div class="modal-footer">
-                    <div class="w-100">
-                    <div class="row">
-                        <div class="col"><a id="cmdAdd_DESAYUNO" href="#" class="btn btn-outline-success w-100" data-bs-dismiss="modal">
-                            Agendar desayuno
-                        </a></div>
-                        <div class="col"><a id="cmdAdd_COMIDA" href="#" class="btn btn-outline-success w-100" data-bs-dismiss="modal">
-                            Agendar comida
-                        </a></div>
-                    </div>
-                    </div>
-                </div>
-                </div>
-            </div>
-        </div>
-
+            <script>document.getElementById("cmd_ERROR_W").click();</script>
+    ';
+}
+?>
 
     </body>
 
+
 <!-- ## ********************************************* ## -->
 <script type="text/javascript">
-    var MyPASS = GeneratePassword(14);
-    var xDateNewEvent;
-    var GlobalsEvents;
-    var GlobalDelE;
-    $("#txt_PASSW1").val(MyPASS);
-    $("#txt_PASSW2").val(MyPASS);
+    //var MyPASS = GeneratePassword(14);
+    var isValid = true;
+    $( document ).ready(function() {
+        var temp_ERROR = '<?php if(isset($error) && $error != ""){ echo $error; } ?>';
+        if(temp_ERROR != ''){
+            document.getElementById("cmd_ERROR_W").click();
+            $("#txt_PASSW1").val('');
+        }
+    });
+
+
     //# **************************************************** #
     $("#cmdREG01").click(function() {
         show_progress("<?php echo LNG_NUCLEO_0015; ?>");
         var isValid = true;
-        $('#FrmDATAREG01').find(':input').each(function() {
+        $('#FrmDATOS01').find(':input').each(function() {
             if(this.className.substr(0, 6) == "easyui"){ //es un componente de easyui
-                isValid = $('#FrmDATAREG01').form('validate');
+                isValid = $('#FrmDATOS01').form('validate');
             }else{ //es un elemento HTML5
                 if(!chk_valid(this)){
                     isValid = false;
@@ -201,199 +166,15 @@
             }
         });
         if (isValid){
-            if($("#txt_PASSW1").val() == $("#txt_PASSW2").val()){
-                document.getElementById("FrmDATAREG01").action = "<?php echo $helper->url("Usuarios", "reg_step"); ?>";
-                document.getElementById("FrmDATAREG01").submit();
-            }else{
-                $.messager.progress('close');
-                show_asistente("5", "<p align='center'><?=  LNG_SEGURIDAD_0049 ?></p>", 270, 230);
-                $("#txt_PASSW2").val('');
-                $("#txt_PASSW1").val('');
-            }
-            console.clear();
+            document.getElementById("FrmDATOS01").action = "<?php echo $helper->url("Becas", "next_step"); ?>";
+            document.getElementById("FrmDATOS01").submit();
+            //console.clear();
         }else{
             $.messager.progress('close');
-            show_asistente("5", "<p align='center'><?=  LNG_NUCLEO_0036 ?></p>", 270, 230);
+            show_asistente("5", "<p align='center'><?=  LNG_NUCLEO_0036 ?></p>", 260, 230);
         }
 
     });
     //# **************************************************** #
-    document.addEventListener('DOMContentLoaded', function() {
-        var Calendar = FullCalendar.Calendar;
-        var Draggable = FullCalendar.Draggable;
-        var containerEl = document.getElementById('external-events');
-        var calendarEl = document.getElementById('calendar');
-
-        // initialize the external events
-        // -----------------------------------------------------------------
-
-        new Draggable(containerEl, {
-            itemSelector: '.fc-event',
-            eventData: function(eventEl) {
-                return {
-                    title: eventEl.innerText
-                };
-            }
-        });
-
-        //# **************************************************** #
-        $("#cmdDel_SI").click(function() {
-            GlobalDelE.event.remove();
-            ServiciosADD();
-        });
-        //# **************************************************** #
-        $("#cmdAdd_DESAYUNO").click(function() {
-            var allEvents = calendar.getEvents();
-            var existe = false;
-            $.each(allEvents, function(index, value) {
-                //console.log(index +" | "+ value.title+" = Desayuno");
-                if((value.title == "Desayuno") && (new Date(value.start).toDateString() === new Date(xDateNewEvent).toDateString())) {
-                    existe = true;
-                }
-            });
-            if(existe == false){
-                calendar.addEvent({
-                    title: 'Desayuno',
-                    start: xDateNewEvent,
-                    allDay: true
-                });
-                ServiciosDEL();            
-            }else{
-                let nDia = semana[xDateNewEvent.getDay()];
-                let Dia = xDateNewEvent.getDate();
-                let nMes = meses[xDateNewEvent.getMonth()+1]; 
-                show_asistente("5", "<p align='center'>Ya tienes <strong>Desayuno</strong> programado para el día "+nDia+" "+Dia+" de "+nMes+".</p>", 270, 230);
-            }
-        });
-        //# **************************************************** #
-        $("#cmdAdd_COMIDA").click(function() {
-            var allEvents = calendar.getEvents();
-            var existe = false;
-            $.each(allEvents, function(index, value) {
-                //console.log(index +" | "+ value.title+" = Comida");
-                if((value.title == "Comida") && (new Date(value.start).toDateString() === new Date(xDateNewEvent).toDateString())) {
-                    existe = true;
-                }
-            });
-            if(existe == false){
-                calendar.addEvent({
-                    title: 'Comida',
-                    start: xDateNewEvent,
-                    allDay: true
-                });
-                ServiciosDEL();            
-            }else{
-                let nDia = semana[xDateNewEvent.getDay()];
-                let Dia = xDateNewEvent.getDate();
-                let nMes = meses[xDateNewEvent.getMonth()+1]; 
-                show_asistente("5", "<p align='center'>Ya tienes <strong>Comida</strong> programado para el día "+nDia+" "+Dia+" de "+nMes+".</p>", 270, 230);
-            }
-        });
-
-
-        // initialize the calendar
-        // -----------------------------------------------------------------
-        const semana = ["Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado"];
-        const meses = ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"];
-        var calendar = new Calendar(calendarEl, {
-            headerToolbar: {
-                left: 'prev,next',
-                center: 'title',
-                right: 'dayGridMonth'
-            },
-            //initialView: 'multiMonthYear',
-            //multiMonthMaxColumns: 1, // force a single column            
-            locale: 'es',
-            hiddenDays: [ 0, 6 ], //Ocultar los días sábados y domingos
-            editable: true,
-            droppable: true, //Permitir que se arrastren elementos
-            eventAdd: function(info) { //Después de agregado el evento
-            },
-            drop: function(info) { //Arrastra y suelta el evento
-                let sDisponibles = $("#sDisponibles").html();
-                if(sDisponibles > 0){
-                    let diaSeleccionado = semana[info.date.getDay()];                
-                    if((info.date.getDay() == 0) || (info.date.getDay() == 6)){
-                        show_asistente("5", "<p align='center'>Los fines de semana no hay actividades alimenticias</p>", 270, 230);
-                    }
-
-                    var allEvents = calendar.getEvents();
-                    $.each(allEvents, function(index, value) {
-                        if((value.title == info.draggedEl.innerText) && (new Date(value.start).toDateString() === new Date(info.date).toDateString())) {
-                            let nDia = semana[value.start.getDay()];
-                            let Dia = value.start.getDate();
-                            let nMes = meses[value.start.getMonth()+1];  
-                            show_asistente("5", "<p align='center'>Ya tienes <strong>"+value.title+"</strong> programado para el día "+nDia+" "+Dia+" de "+nMes+".</p>", 270, 230);
-                            value.remove();
-                            ServiciosADD();
-                        }
-                    });
-
-                }
-            },
-            eventDragStart: function(info) {
-                GlobalsEvents = calendar.getEvents();   
-            },
-            eventReceive: function(info) {
-                let sDisponibles = $("#sDisponibles").html();
-                if(sDisponibles <= 0){
-                    info.revert();
-                    show_asistente("12", "<p align='center'>¡Lamento decirlo!, pero parece que se agotó la disponibilidad.</p>", 270, 230);
-                }else{
-                    ServiciosDEL();
-                }
-                
-            },
-            eventDrop: function(info) { //Mueve el evento a otro día
-                $.each(GlobalsEvents, function(index, value) {
-                    if((value.title == info.event.title) && (new Date(value.start).toDateString() === new Date(info.event.start).toDateString())) {
-                        let nDia = semana[value.start.getDay()];
-                        let Dia = value.start.getDate();
-                        let nMes = meses[value.start.getMonth()+1]; 
-                        show_asistente("5", "<p align='center'>Ya tienes <strong>"+value.title+"</strong> programado para el día "+nDia+" "+Dia+" de "+nMes+".</p>", 270, 230);
-                        info.revert();
-                    }
-                });
-            },
-            eventClick : function(info) {
-                document.getElementById("cmd_BORRAR").click();
-                GlobalDelE = info;
-            },
-            dateClick: function(info) {
-                let sDisponibles = $("#sDisponibles").html();
-                if(sDisponibles > 0){
-                    //console.log(info);
-                    xDateNewEvent = info.date;
-                    let nDia = semana[info.date.getDay()];
-                    let Dia = info.date.getDate();
-                    let nMes = meses[info.date.getMonth()+1];
-                    $("#text-secondary").html("Selecciona el tipo de alimento que quieres agendar en tú calendario para el día <br><br><strong>"+nDia+" "+Dia+" de "+nMes+"</strong>.");
-                    document.getElementById("cmd_ALIMENTOS").click();
-                }else{
-                    show_asistente("12", "<p align='center'>¡Lamento decirlo!, pero parece que se agotó la disponibilidad.</p>", 270, 230);                    
-                }
-            }                                    
-        });
-        calendar.render();
-    });
-
-    function ServiciosADD(){
-        let sDisponibles = $("#sDisponibles").html();
-        sDisponibles++;
-        $("#sDisponibles").html(sDisponibles);
-        if(sDisponibles > 0){ //deshabilitamos el botón siguiente
-            $('#cmdREG01').prop("disabled", true);
-        }        
-    }
-
-    function ServiciosDEL(){
-        let sDisponibles = $("#sDisponibles").html();
-        sDisponibles--;
-        $("#sDisponibles").html(sDisponibles);
-        if(sDisponibles == 0){ //habilitamos el botón siguiente
-            $('#cmdREG01').prop("disabled", false);
-        }        
-    }
-
 </script>
 <!-- ## ********************************************* ## -->

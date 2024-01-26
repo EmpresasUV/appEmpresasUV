@@ -1,0 +1,67 @@
+<?php
+/**
+* @autor Rixio Danilo Iguarán Chourio.
+* @cédula-profesional 12196442
+* @correo-eletrónico atencion.clientes@obringolfo.com
+* @denominacion OBRAS INFORMÁTICAS DEL GOLFO
+* @empresa OBRINGOLFO S.A.S. DE C.V.
+* @proyecto  OBRINGOLFO.
+* @copyright 2024
+*/
+
+class Asistencias_empleados extends ModeloBase{
+    /* ***************************************************************************
+    * Registrando las variables de la clase
+    *************************************************************************** */
+    private $id_nominas;
+    private $id_checador;
+    private $id_empresa;
+    private $nombre;
+    private $table;
+
+    /* ***************************************************************************
+    * Generando los metodos SET y GET para las variables
+    *************************************************************************** */
+    /* Setters y Getters para la propiedad [ Id_nominas ] */
+    public function getId_nominas(){ return $this->id_nominas; }
+    public function setId_nominas($id_nominas){ $this->id_nominas = $id_nominas; }
+
+    /* Setters y Getters para la propiedad [ Id_checador ] */
+    public function getId_checador(){ return $this->id_checador; }
+    public function setId_checador($id_checador){ $this->id_checador = $id_checador; }
+
+    /* Setters y Getters para la propiedad [ Id_empresa ] */
+    public function getId_empresa(){ return $this->id_empresa; }
+    public function setId_empresa($id_empresa){ $this->id_empresa = $id_empresa; }
+
+    /* Setters y Getters para la propiedad [ Nombre ] */
+    public function getNombre(){ return $this->nombre; }
+    public function setNombre($nombre){ $this->nombre = $nombre; }
+
+
+    /* ***************************************************************************
+    * @FUNCTION constructor de clase
+    * @Param $adapter
+    * Inicializa y registra la clase dentro de la aplicación
+    *************************************************************************** */
+    public function __construct($adapter) {
+        try {
+
+            $this->table = 'asistencias_empleados';
+            parent::__construct($this->table, $adapter);
+
+        } catch (Exception $e) {
+            mostrar_error($e);
+        }
+    }
+
+    /* ***************************************************************************
+    * OTROS MÉTODOS Y FUNCIONES PARA ÉSTE MODELO EN ESPECÍFICO
+    *************************************************************************** */
+
+    /** *********************************************************************** */
+    /** *********************************************************************** */
+    /** *********************************************************************** */
+    /** *********************************************************************** */
+}
+?>

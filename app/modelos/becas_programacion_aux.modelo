@@ -1,0 +1,62 @@
+<?php
+/**
+* @autor Rixio Danilo Iguarán Chourio.
+* @cédula-profesional 12196442
+* @correo-eletrónico atencion.clientes@obringolfo.com
+* @denominacion OBRAS INFORMÁTICAS DEL GOLFO
+* @empresa OBRINGOLFO S.A.S. DE C.V.
+* @proyecto  OBRINGOLFO.
+* @copyright 2024
+*/
+
+class Becas_programacion_aux extends ModeloBase{
+    /* ***************************************************************************
+    * Registrando las variables de la clase
+    *************************************************************************** */
+    private $id_matricula;
+    private $tipo_alimento;
+    private $fecha;
+    private $table;
+
+    /* ***************************************************************************
+    * Generando los metodos SET y GET para las variables
+    *************************************************************************** */
+    /* Setters y Getters para la propiedad [ Id_matricula ] */
+    public function getId_matricula(){ return $this->id_matricula; }
+    public function setId_matricula($id_matricula){ $this->id_matricula = $id_matricula; }
+
+    /* Setters y Getters para la propiedad [ Tipo_alimento ] */
+    public function getTipo_alimento(){ return $this->tipo_alimento; }
+    public function setTipo_alimento($tipo_alimento){ $this->tipo_alimento = $tipo_alimento; }
+
+    /* Setters y Getters para la propiedad [ Fecha ] */
+    public function getFecha(){ return $this->fecha; }
+    public function setFecha($fecha){ $this->fecha = $fecha; }
+
+
+    /* ***************************************************************************
+    * @FUNCTION constructor de clase
+    * @Param $adapter
+    * Inicializa y registra la clase dentro de la aplicación
+    *************************************************************************** */
+    public function __construct($adapter) {
+        try {
+
+            $this->table = 'becas_programacion_aux';
+            parent::__construct($this->table, $adapter);
+
+        } catch (Exception $e) {
+            mostrar_error($e);
+        }
+    }
+
+    /* ***************************************************************************
+    * OTROS MÉTODOS Y FUNCIONES PARA ÉSTE MODELO EN ESPECÍFICO
+    *************************************************************************** */
+
+    /** *********************************************************************** */
+    /** *********************************************************************** */
+    /** *********************************************************************** */
+    /** *********************************************************************** */
+}
+?>

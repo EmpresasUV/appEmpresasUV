@@ -6,7 +6,7 @@
 * @denominacion OBRAS INFORMÁTICAS DEL GOLFO
 * @empresa OBRINGOLFO S.A.S. DE C.V.
 * @proyecto  OBRINGOLFO.
-* @copyright 2023
+* @copyright 2024
 */
 
 class Usuarios extends ModeloBase{

@@ -1,0 +1,107 @@
+<?php
+/**
+* @autor Rixio Danilo Iguarán Chourio.
+* @cédula-profesional 12196442
+* @correo-eletrónico atencion.clientes@obringolfo.com
+* @denominacion OBRAS INFORMÁTICAS DEL GOLFO
+* @empresa OBRINGOLFO S.A.S. DE C.V.
+* @proyecto  OBRINGOLFO.
+* @copyright 2024
+*/
+
+class Asistencias_huellas extends ModeloBase{
+    /* ***************************************************************************
+    * Registrando las variables de la clase
+    *************************************************************************** */
+    private $id_checador;
+    private $FP_00;
+    private $FP_01;
+    private $FP_02;
+    private $FP_03;
+    private $FP_04;
+    private $FP_05;
+    private $FP_06;
+    private $FP_07;
+    private $FP_08;
+    private $FP_09;
+    private $FP_10;
+    private $table;
+
+    /* ***************************************************************************
+    * Generando los metodos SET y GET para las variables
+    *************************************************************************** */
+    /* Setters y Getters para la propiedad [ Id_checador ] */
+    public function getId_checador(){ return $this->id_checador; }
+    public function setId_checador($id_checador){ $this->id_checador = $id_checador; }
+
+    /* Setters y Getters para la propiedad [ FP_00 ] */
+    public function getFP_00(){ return $this->FP_00; }
+    public function setFP_00($FP_00){ $this->FP_00 = $FP_00; }
+
+    /* Setters y Getters para la propiedad [ FP_01 ] */
+    public function getFP_01(){ return $this->FP_01; }
+    public function setFP_01($FP_01){ $this->FP_01 = $FP_01; }
+
+    /* Setters y Getters para la propiedad [ FP_02 ] */
+    public function getFP_02(){ return $this->FP_02; }
+    public function setFP_02($FP_02){ $this->FP_02 = $FP_02; }
+
+    /* Setters y Getters para la propiedad [ FP_03 ] */
+    public function getFP_03(){ return $this->FP_03; }
+    public function setFP_03($FP_03){ $this->FP_03 = $FP_03; }
+
+    /* Setters y Getters para la propiedad [ FP_04 ] */
+    public function getFP_04(){ return $this->FP_04; }
+    public function setFP_04($FP_04){ $this->FP_04 = $FP_04; }
+
+    /* Setters y Getters para la propiedad [ FP_05 ] */
+    public function getFP_05(){ return $this->FP_05; }
+    public function setFP_05($FP_05){ $this->FP_05 = $FP_05; }
+
+    /* Setters y Getters para la propiedad [ FP_06 ] */
+    public function getFP_06(){ return $this->FP_06; }
+    public function setFP_06($FP_06){ $this->FP_06 = $FP_06; }
+
+    /* Setters y Getters para la propiedad [ FP_07 ] */
+    public function getFP_07(){ return $this->FP_07; }
+    public function setFP_07($FP_07){ $this->FP_07 = $FP_07; }
+
+    /* Setters y Getters para la propiedad [ FP_08 ] */
+    public function getFP_08(){ return $this->FP_08; }
+    public function setFP_08($FP_08){ $this->FP_08 = $FP_08; }
+
+    /* Setters y Getters para la propiedad [ FP_09 ] */
+    public function getFP_09(){ return $this->FP_09; }
+    public function setFP_09($FP_09){ $this->FP_09 = $FP_09; }
+
+    /* Setters y Getters para la propiedad [ FP_10 ] */
+    public function getFP_10(){ return $this->FP_10; }
+    public function setFP_10($FP_10){ $this->FP_10 = $FP_10; }
+
+
+    /* ***************************************************************************
+    * @FUNCTION constructor de clase
+    * @Param $adapter
+    * Inicializa y registra la clase dentro de la aplicación
+    *************************************************************************** */
+    public function __construct($adapter) {
+        try {
+
+            $this->table = 'asistencias_huellas';
+            parent::__construct($this->table, $adapter);
+
+        } catch (Exception $e) {
+            mostrar_error($e);
+        }
+    }
+
+    /* ***************************************************************************
+    * OTROS MÉTODOS Y FUNCIONES PARA ÉSTE MODELO EN ESPECÍFICO
+    *************************************************************************** */
+
+    /** *********************************************************************** */
+    /** *********************************************************************** */
+    /** *********************************************************************** */
+    /** *********************************************************************** */
+}
+?>

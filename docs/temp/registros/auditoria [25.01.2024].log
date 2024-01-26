@@ -1,0 +1,1142 @@
+
+25/01/2024 10:45:40 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 0
+)
+
+25/01/2024 10:45:53 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => A380Y78513884
+    [txt_PASSW1] => Promo1002##
+)
+
+25/01/2024 10:45:53 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | A380Y78513884 | Promo1002##
+25/01/2024 10:45:53 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='A380Y78513884'
+25/01/2024 10:45:53 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='3'
+25/01/2024 10:45:53 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+25/01/2024 10:46:39 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => A380Y78513884
+    [txt_PASSW1] => Promo1002##
+)
+
+25/01/2024 10:46:39 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | A380Y78513884 | Promo1002##
+25/01/2024 10:46:39 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='A380Y78513884'
+25/01/2024 10:46:39 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='3'
+25/01/2024 10:46:39 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+25/01/2024 10:48:07 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => A380Y78513884
+    [txt_PASSW1] => Promo1002##
+)
+
+25/01/2024 10:48:07 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | A380Y78513884 | Promo1002##
+25/01/2024 10:48:07 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='A380Y78513884'
+25/01/2024 10:48:07 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='3'
+25/01/2024 10:48:07 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+25/01/2024 10:49:27 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => A380Y78513884
+    [txt_PASSW1] => Promo1002##
+)
+
+25/01/2024 10:49:27 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | A380Y78513884 | Promo1002##
+25/01/2024 10:49:27 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='A380Y78513884'
+25/01/2024 10:49:27 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='3'
+25/01/2024 10:49:27 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+25/01/2024 10:49:57 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => A380Y78513884
+    [txt_PASSW1] => Promo1002##
+)
+
+25/01/2024 10:49:57 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | A380Y78513884 | Promo1002##
+25/01/2024 10:49:57 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='A380Y78513884'
+25/01/2024 10:49:57 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='3'
+25/01/2024 10:49:57 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+25/01/2024 12:40:38 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => A380Y78513884
+    [txt_PASSW1] => Promo1002##
+)
+
+25/01/2024 12:40:38 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | A380Y78513884 | Promo1002##
+25/01/2024 12:40:38 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='A380Y78513884'
+25/01/2024 12:40:38 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='3'
+25/01/2024 12:40:38 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+25/01/2024 12:44:25 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 0
+)
+
+25/01/2024 12:44:28 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => A100Z78513856
+    [txt_PASSW1] => Promo1002##
+)
+
+25/01/2024 12:44:28 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | A100Z78513856 | Promo1002##
+25/01/2024 12:44:28 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='A100Z78513856'
+25/01/2024 12:44:28 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='1'
+25/01/2024 12:44:28 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+25/01/2024 13:08:19 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 0
+)
+
+25/01/2024 13:08:27 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => A100Z78513856
+    [txt_PASSW1] => Promo1002##
+)
+
+25/01/2024 13:08:27 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | A100Z78513856 | Promo1002##
+25/01/2024 13:08:27 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='A100Z78513856'
+25/01/2024 13:08:28 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='1'
+25/01/2024 13:08:28 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+25/01/2024 13:08:28 |  187.189.83.36  |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
+25/01/2024 13:10:06 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 0
+)
+
+25/01/2024 13:10:16 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => A100Z78513856
+    [txt_PASSW1] => Promo1002##
+)
+
+25/01/2024 13:10:16 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | A100Z78513856 | Promo1002##
+25/01/2024 13:10:16 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='A100Z78513856'
+25/01/2024 13:10:16 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='1'
+25/01/2024 13:10:16 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+25/01/2024 13:10:16 |  187.189.83.36  |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
+25/01/2024 13:11:37 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 0
+)
+
+25/01/2024 13:11:45 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => A100Z78513856
+    [txt_PASSW1] => Promo1002##
+)
+
+25/01/2024 13:11:45 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | A100Z78513856 | Promo1002##
+25/01/2024 13:11:45 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='A100Z78513856'
+25/01/2024 13:11:45 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='1'
+25/01/2024 13:11:45 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+25/01/2024 13:11:45 |  187.189.83.36  |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
+25/01/2024 13:19:20 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 0
+)
+
+25/01/2024 13:19:27 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => A100Z78513856
+    [txt_PASSW1] => Promo1002##
+)
+
+25/01/2024 13:19:27 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | A100Z78513856 | Promo1002##
+25/01/2024 13:19:27 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='A100Z78513856'
+25/01/2024 13:19:27 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='1'
+25/01/2024 13:19:27 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+25/01/2024 13:19:27 |  187.189.83.36  |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
+25/01/2024 13:27:33 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 0
+)
+
+25/01/2024 13:27:42 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => A100Z78513856
+    [txt_PASSW1] => Promo1002##
+)
+
+25/01/2024 13:27:42 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | A100Z78513856 | Promo1002##
+25/01/2024 13:27:42 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='A100Z78513856'
+25/01/2024 13:27:42 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='1'
+25/01/2024 13:27:42 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+25/01/2024 13:27:42 |  187.189.83.36  |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
+25/01/2024 13:29:22 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 0
+)
+
+25/01/2024 13:29:33 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => A100Z78513856
+    [txt_PASSW1] => Promo1002##
+)
+
+25/01/2024 13:29:33 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | A100Z78513856 | Promo1002##
+25/01/2024 13:29:33 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='A100Z78513856'
+25/01/2024 13:29:33 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='1'
+25/01/2024 13:29:33 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+25/01/2024 13:29:33 |  187.189.83.36  |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
+25/01/2024 13:30:53 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => A100Z78513856
+    [txt_PASSW1] => Promo1002##
+)
+
+25/01/2024 13:30:53 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | A100Z78513856 | Promo1002##
+25/01/2024 13:30:53 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='A100Z78513856'
+25/01/2024 13:30:54 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='1'
+25/01/2024 13:30:54 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+25/01/2024 13:30:54 |  187.189.83.36  |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
+25/01/2024 13:31:19 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => A100Z78513856
+    [txt_PASSW1] => Promo1002##
+)
+
+25/01/2024 13:31:19 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | A100Z78513856 | Promo1002##
+25/01/2024 13:31:19 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='A100Z78513856'
+25/01/2024 13:31:19 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='1'
+25/01/2024 13:31:19 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+25/01/2024 13:31:19 |  187.189.83.36  |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
+25/01/2024 13:35:20 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 0
+)
+
+25/01/2024 13:35:28 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => A100Z78513856
+    [txt_PASSW1] => Promo1002##
+)
+
+25/01/2024 13:35:28 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | A100Z78513856 | Promo1002##
+25/01/2024 13:35:28 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='A100Z78513856'
+25/01/2024 13:35:28 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='1'
+25/01/2024 13:35:28 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+25/01/2024 13:35:28 |  187.189.83.36  |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
+25/01/2024 13:38:42 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 0
+)
+
+25/01/2024 13:38:50 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => A100Z78513856
+    [txt_PASSW1] => Promo1002##
+)
+
+25/01/2024 13:38:50 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | A100Z78513856 | Promo1002##
+25/01/2024 13:38:50 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='A100Z78513856'
+25/01/2024 13:38:50 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='1'
+25/01/2024 13:38:50 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+25/01/2024 13:38:50 |  187.189.83.36  |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
+25/01/2024 13:39:07 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 0
+)
+
+25/01/2024 13:39:23 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => A220Z78513868
+    [txt_PASSW1] => Promo1002##
+)
+
+25/01/2024 13:39:23 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | A220Z78513868 | Promo1002##
+25/01/2024 13:39:23 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='A220Z78513868'
+25/01/2024 13:39:23 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='3'
+25/01/2024 13:39:23 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+25/01/2024 13:39:23 |  187.189.83.36  |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
+25/01/2024 13:42:33 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 0
+)
+
+25/01/2024 13:42:54 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => A220Z78513868
+    [txt_PASSW1] => Promo1002##
+)
+
+25/01/2024 13:42:54 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | A220Z78513868 | Promo1002##
+25/01/2024 13:42:54 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='A220Z78513868'
+25/01/2024 13:42:54 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='3'
+25/01/2024 13:42:54 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+25/01/2024 13:42:54 |  187.189.83.36  |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
+25/01/2024 13:45:02 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 0
+)
+
+25/01/2024 13:45:05 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => A220Z78513868
+    [txt_PASSW1] => Promo1002##
+)
+
+25/01/2024 13:45:05 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | A220Z78513868 | Promo1002##
+25/01/2024 13:45:05 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='A220Z78513868'
+25/01/2024 13:45:05 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='3'
+25/01/2024 13:45:05 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+25/01/2024 13:45:05 |  187.189.83.36  |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
+25/01/2024 13:46:51 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => A220Z78513868
+    [txt_PASSW1] => Promo1002##
+)
+
+25/01/2024 13:46:51 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | A220Z78513868 | Promo1002##
+25/01/2024 13:46:51 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='A220Z78513868'
+25/01/2024 13:46:51 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='3'
+25/01/2024 13:46:51 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+25/01/2024 13:46:51 |  187.189.83.36  |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
+25/01/2024 13:50:32 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 0
+)
+
+25/01/2024 13:50:41 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => A220Z78513868
+    [txt_PASSW1] => Promo1002##
+)
+
+25/01/2024 13:50:41 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | A220Z78513868 | Promo1002##
+25/01/2024 13:50:41 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='A220Z78513868'
+25/01/2024 13:50:41 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='3'
+25/01/2024 13:50:41 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+25/01/2024 13:50:41 |  187.189.83.36  |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
+25/01/2024 13:57:53 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 0
+)
+
+25/01/2024 13:57:56 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => A220Z78513868
+    [txt_PASSW1] => Promo1002##
+)
+
+25/01/2024 13:57:56 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | A220Z78513868 | Promo1002##
+25/01/2024 13:57:56 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='A220Z78513868'
+25/01/2024 13:57:56 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='3'
+25/01/2024 13:57:56 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+25/01/2024 13:57:56 |  187.189.83.36  |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
+25/01/2024 13:59:48 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 0
+)
+
+25/01/2024 13:59:54 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => A220Z78513868
+    [txt_PASSW1] => Promo1002##
+)
+
+25/01/2024 13:59:54 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | A220Z78513868 | Promo1002##
+25/01/2024 13:59:54 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='A220Z78513868'
+25/01/2024 13:59:54 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='3'
+25/01/2024 13:59:54 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+25/01/2024 13:59:54 |  187.189.83.36  |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
+25/01/2024 14:06:49 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 0
+)
+
+25/01/2024 14:06:53 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => A220Z78513868
+    [txt_PASSW1] => Promo1002##
+)
+
+25/01/2024 14:06:53 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | A220Z78513868 | Promo1002##
+25/01/2024 14:06:53 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='A220Z78513868'
+25/01/2024 14:06:53 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='3'
+25/01/2024 14:06:53 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+25/01/2024 14:06:53 |  187.189.83.36  |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
+25/01/2024 14:08:01 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => A220Z78513868
+    [txt_PASSW1] => Promo1002##
+)
+
+25/01/2024 14:08:01 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | A220Z78513868 | Promo1002##
+25/01/2024 14:08:01 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='A220Z78513868'
+25/01/2024 14:08:01 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='3'
+25/01/2024 14:08:01 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+25/01/2024 14:08:01 |  187.189.83.36  |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
+25/01/2024 14:09:37 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 0
+)
+
+25/01/2024 14:09:40 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => A220Z78513868
+    [txt_PASSW1] => Promo1002##
+)
+
+25/01/2024 14:09:40 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | A220Z78513868 | Promo1002##
+25/01/2024 14:09:40 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='A220Z78513868'
+25/01/2024 14:09:40 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='3'
+25/01/2024 14:09:40 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+25/01/2024 14:09:40 |  187.189.83.36  |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
+25/01/2024 14:12:00 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 0
+)
+
+25/01/2024 14:12:03 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => A220Z78513868
+    [txt_PASSW1] => Promo1002##
+)
+
+25/01/2024 14:12:03 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | A220Z78513868 | Promo1002##
+25/01/2024 14:12:03 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='A220Z78513868'
+25/01/2024 14:12:03 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='3'
+25/01/2024 14:12:03 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+25/01/2024 14:12:03 |  187.189.83.36  |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
+25/01/2024 14:15:26 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => A220Z78513868
+    [txt_PASSW1] => Promo1002##
+)
+
+25/01/2024 14:15:26 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | A220Z78513868 | Promo1002##
+25/01/2024 14:15:26 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='A220Z78513868'
+25/01/2024 14:15:26 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='3'
+25/01/2024 14:15:26 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+25/01/2024 14:15:26 |  187.189.83.36  |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
+25/01/2024 14:15:29 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => A220Z78513868
+    [txt_PASSW1] => Promo1002##
+)
+
+25/01/2024 14:15:29 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | A220Z78513868 | Promo1002##
+25/01/2024 14:15:29 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='A220Z78513868'
+25/01/2024 14:15:29 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='3'
+25/01/2024 14:15:29 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+25/01/2024 14:15:29 |  187.189.83.36  |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
+25/01/2024 14:16:30 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => A220Z78513868
+    [txt_PASSW1] => Promo1002##
+)
+
+25/01/2024 14:16:30 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | A220Z78513868 | Promo1002##
+25/01/2024 14:16:30 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='A220Z78513868'
+25/01/2024 14:16:31 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='3'
+25/01/2024 14:16:31 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+25/01/2024 14:16:31 |  187.189.83.36  |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
+25/01/2024 14:17:38 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => A220Z78513868
+    [txt_PASSW1] => Promo1002##
+)
+
+25/01/2024 14:17:38 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | A220Z78513868 | Promo1002##
+25/01/2024 14:17:38 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='A220Z78513868'
+25/01/2024 14:17:38 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='3'
+25/01/2024 14:17:38 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+25/01/2024 14:17:38 |  187.189.83.36  |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
+25/01/2024 14:19:09 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => A220Z78513868
+    [txt_PASSW1] => Promo1002##
+)
+
+25/01/2024 14:19:09 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | A220Z78513868 | Promo1002##
+25/01/2024 14:19:09 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='A220Z78513868'
+25/01/2024 14:19:09 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='3'
+25/01/2024 14:19:09 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+25/01/2024 14:19:09 |  187.189.83.36  |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
+25/01/2024 16:07:06 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => A220Z78513868
+    [txt_PASSW1] => Promo1002##
+)
+
+25/01/2024 16:07:06 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | A220Z78513868 | Promo1002##
+25/01/2024 16:07:06 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='A220Z78513868'
+25/01/2024 16:07:06 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='3'
+25/01/2024 16:07:06 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+25/01/2024 16:07:06 |  187.189.83.36  |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
+25/01/2024 16:07:08 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => A220Z78513868
+    [txt_PASSW1] => Promo1002##
+)
+
+25/01/2024 16:07:08 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | A220Z78513868 | Promo1002##
+25/01/2024 16:07:08 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='A220Z78513868'
+25/01/2024 16:07:08 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='3'
+25/01/2024 16:07:08 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+25/01/2024 16:07:08 |  187.189.83.36  |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
+25/01/2024 16:11:28 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => A220Z78513868
+    [txt_PASSW1] => Promo1002##
+)
+
+25/01/2024 16:11:28 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | A220Z78513868 | Promo1002##
+25/01/2024 16:11:28 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='A220Z78513868'
+25/01/2024 16:11:28 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='3'
+25/01/2024 16:11:28 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+25/01/2024 16:11:28 |  187.189.83.36  |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
+25/01/2024 16:13:47 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => A220Z78513868
+    [txt_PASSW1] => Promo1002##
+)
+
+25/01/2024 16:13:47 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | A220Z78513868 | Promo1002##
+25/01/2024 16:13:47 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='A220Z78513868'
+25/01/2024 16:13:47 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='3'
+25/01/2024 16:13:47 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+25/01/2024 16:13:47 |  187.189.83.36  |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
+25/01/2024 16:15:00 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => A220Z78513868
+    [txt_PASSW1] => Promo1002##
+)
+
+25/01/2024 16:15:00 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | A220Z78513868 | Promo1002##
+25/01/2024 16:15:00 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='A220Z78513868'
+25/01/2024 16:15:00 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='3'
+25/01/2024 16:15:00 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+25/01/2024 16:15:00 |  187.189.83.36  |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
+25/01/2024 16:15:48 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => A220Z78513868
+    [txt_PASSW1] => Promo1002##
+)
+
+25/01/2024 16:15:48 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | A220Z78513868 | Promo1002##
+25/01/2024 16:15:48 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='A220Z78513868'
+25/01/2024 16:15:48 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='3'
+25/01/2024 16:15:48 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+25/01/2024 16:15:48 |  187.189.83.36  |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
+25/01/2024 16:16:11 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => A220Z78513868
+    [txt_PASSW1] => Promo1002##
+)
+
+25/01/2024 16:16:11 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | A220Z78513868 | Promo1002##
+25/01/2024 16:16:11 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='A220Z78513868'
+25/01/2024 16:16:11 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='3'
+25/01/2024 16:16:11 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+25/01/2024 16:16:11 |  187.189.83.36  |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
+25/01/2024 16:16:44 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => A220Z78513868
+    [txt_PASSW1] => Promo1002##
+)
+
+25/01/2024 16:16:44 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | A220Z78513868 | Promo1002##
+25/01/2024 16:16:44 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='A220Z78513868'
+25/01/2024 16:16:44 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='3'
+25/01/2024 16:16:44 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+25/01/2024 16:16:44 |  187.189.83.36  |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
+25/01/2024 16:17:39 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => A220Z78513868
+    [txt_PASSW1] => Promo1002##
+)
+
+25/01/2024 16:17:39 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | A220Z78513868 | Promo1002##
+25/01/2024 16:17:39 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='A220Z78513868'
+25/01/2024 16:17:39 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='3'
+25/01/2024 16:17:39 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+25/01/2024 16:17:39 |  187.189.83.36  |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
+25/01/2024 16:17:46 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => A220Z78513868
+    [txt_PASSW1] => Promo1002##
+)
+
+25/01/2024 16:17:46 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | A220Z78513868 | Promo1002##
+25/01/2024 16:17:46 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='A220Z78513868'
+25/01/2024 16:17:46 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='3'
+25/01/2024 16:17:46 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+25/01/2024 16:17:46 |  187.189.83.36  |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
+25/01/2024 16:20:24 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => A220Z78513868
+    [txt_PASSW1] => Promo1002##
+)
+
+25/01/2024 16:20:24 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | A220Z78513868 | Promo1002##
+25/01/2024 16:20:24 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='A220Z78513868'
+25/01/2024 16:20:24 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='3'
+25/01/2024 16:20:24 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+25/01/2024 16:20:24 |  187.189.83.36  |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
+25/01/2024 16:21:43 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => A220Z78513868
+    [txt_PASSW1] => Promo1002##
+)
+
+25/01/2024 16:21:43 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | A220Z78513868 | Promo1002##
+25/01/2024 16:21:43 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='A220Z78513868'
+25/01/2024 16:21:43 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='3'
+25/01/2024 16:21:43 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+25/01/2024 16:21:43 |  187.189.83.36  |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
+25/01/2024 16:23:33 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => A220Z78513868
+    [txt_PASSW1] => Promo1002##
+)
+
+25/01/2024 16:23:33 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | A220Z78513868 | Promo1002##
+25/01/2024 16:23:33 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='A220Z78513868'
+25/01/2024 16:23:33 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='3'
+25/01/2024 16:23:33 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+25/01/2024 16:23:33 |  187.189.83.36  |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
+25/01/2024 16:23:37 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => A220Z78513868
+    [txt_PASSW1] => Promo1002##
+)
+
+25/01/2024 16:23:37 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | A220Z78513868 | Promo1002##
+25/01/2024 16:23:37 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='A220Z78513868'
+25/01/2024 16:23:37 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='3'
+25/01/2024 16:23:37 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+25/01/2024 16:23:37 |  187.189.83.36  |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
+25/01/2024 16:27:00 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => A220Z78513868
+    [txt_PASSW1] => Promo1002##
+)
+
+25/01/2024 16:27:00 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | A220Z78513868 | Promo1002##
+25/01/2024 16:27:00 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='A220Z78513868'
+25/01/2024 16:27:00 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='3'
+25/01/2024 16:27:00 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+25/01/2024 16:27:00 |  187.189.83.36  |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
+25/01/2024 16:31:20 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => A220Z78513868
+    [txt_PASSW1] => Promo1002##
+)
+
+25/01/2024 16:31:20 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | A220Z78513868 | Promo1002##
+25/01/2024 16:31:20 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='A220Z78513868'
+25/01/2024 16:31:20 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='3'
+25/01/2024 16:31:20 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+25/01/2024 16:31:20 |  187.189.83.36  |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
+25/01/2024 16:31:24 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => A220Z78513868
+    [txt_PASSW1] => Promo1002##
+)
+
+25/01/2024 16:31:24 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | A220Z78513868 | Promo1002##
+25/01/2024 16:31:24 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='A220Z78513868'
+25/01/2024 16:31:24 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='3'
+25/01/2024 16:31:24 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+25/01/2024 16:31:24 |  187.189.83.36  |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
+25/01/2024 16:34:26 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => A220Z78513868
+    [txt_PASSW1] => Promo1002##
+)
+
+25/01/2024 16:34:26 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | A220Z78513868 | Promo1002##
+25/01/2024 16:34:26 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='A220Z78513868'
+25/01/2024 16:34:26 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='3'
+25/01/2024 16:34:26 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+25/01/2024 16:34:26 |  187.189.83.36  |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
+25/01/2024 16:34:28 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => A220Z78513868
+    [txt_PASSW1] => Promo1002##
+)
+
+25/01/2024 16:34:28 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | A220Z78513868 | Promo1002##
+25/01/2024 16:34:28 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='A220Z78513868'
+25/01/2024 16:34:28 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='3'
+25/01/2024 16:34:28 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+25/01/2024 16:34:28 |  187.189.83.36  |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
+25/01/2024 16:37:04 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => A220Z78513868
+    [txt_PASSW1] => Promo1002##
+)
+
+25/01/2024 16:37:04 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | A220Z78513868 | Promo1002##
+25/01/2024 16:37:04 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='A220Z78513868'
+25/01/2024 16:37:04 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='3'
+25/01/2024 16:37:04 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+25/01/2024 16:37:04 |  187.189.83.36  |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
+25/01/2024 16:37:07 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => A220Z78513868
+    [txt_PASSW1] => Promo1002##
+)
+
+25/01/2024 16:37:07 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | A220Z78513868 | Promo1002##
+25/01/2024 16:37:07 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='A220Z78513868'
+25/01/2024 16:37:07 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='3'
+25/01/2024 16:37:07 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+25/01/2024 16:37:07 |  187.189.83.36  |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
+25/01/2024 16:37:59 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => A220Z78513868
+    [txt_PASSW1] => Promo1002##
+)
+
+25/01/2024 16:37:59 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | A220Z78513868 | Promo1002##
+25/01/2024 16:37:59 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='A220Z78513868'
+25/01/2024 16:37:59 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='3'
+25/01/2024 16:37:59 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+25/01/2024 16:37:59 |  187.189.83.36  |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
+25/01/2024 16:39:20 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => A220Z78513868
+    [txt_PASSW1] => Promo1002##
+)
+
+25/01/2024 16:39:20 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | A220Z78513868 | Promo1002##
+25/01/2024 16:39:20 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='A220Z78513868'
+25/01/2024 16:39:20 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='3'
+25/01/2024 16:39:20 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+25/01/2024 16:39:20 |  187.189.83.36  |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
+25/01/2024 16:39:40 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => A220Z78513868
+    [txt_PASSW1] => Promo1002##
+)
+
+25/01/2024 16:39:40 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | A220Z78513868 | Promo1002##
+25/01/2024 16:39:40 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='A220Z78513868'
+25/01/2024 16:39:40 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='3'
+25/01/2024 16:39:40 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+25/01/2024 16:39:40 |  187.189.83.36  |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
+25/01/2024 16:41:45 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => A220Z78513868
+    [txt_PASSW1] => Promo1002##
+)
+
+25/01/2024 16:41:45 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | A220Z78513868 | Promo1002##
+25/01/2024 16:41:45 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='A220Z78513868'
+25/01/2024 16:41:45 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='3'
+25/01/2024 16:41:45 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+25/01/2024 16:41:45 |  187.189.83.36  |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
+25/01/2024 16:44:33 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => A220Z78513868
+    [txt_PASSW1] => Promo1002##
+)
+
+25/01/2024 16:44:33 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | A220Z78513868 | Promo1002##
+25/01/2024 16:44:33 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='A220Z78513868'
+25/01/2024 16:44:33 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='3'
+25/01/2024 16:44:33 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+25/01/2024 16:44:33 |  187.189.83.36  |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
+25/01/2024 16:45:43 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => A220Z78513868
+    [txt_PASSW1] => Promo1002##
+)
+
+25/01/2024 16:45:43 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | A220Z78513868 | Promo1002##
+25/01/2024 16:45:43 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='A220Z78513868'
+25/01/2024 16:45:43 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='3'
+25/01/2024 16:45:43 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+25/01/2024 16:45:43 |  187.189.83.36  |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
+25/01/2024 16:45:45 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => A220Z78513868
+    [txt_PASSW1] => Promo1002##
+)
+
+25/01/2024 16:45:45 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | A220Z78513868 | Promo1002##
+25/01/2024 16:45:45 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='A220Z78513868'
+25/01/2024 16:45:45 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='3'
+25/01/2024 16:45:45 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+25/01/2024 16:45:45 |  187.189.83.36  |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
+25/01/2024 17:55:01 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => A220Z78513868
+    [txt_PASSW1] => Promo1002##
+)
+
+25/01/2024 17:55:01 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | A220Z78513868 | Promo1002##
+25/01/2024 17:55:01 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='A220Z78513868'
+25/01/2024 17:55:01 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='3'
+25/01/2024 17:55:01 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+25/01/2024 17:55:01 |  187.189.83.36  |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
+25/01/2024 17:55:32 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => A220Z78513868
+    [txt_PASSW1] => Promo1002##
+)
+
+25/01/2024 17:55:32 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | A220Z78513868 | Promo1002##
+25/01/2024 17:55:32 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='A220Z78513868'
+25/01/2024 17:55:32 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='3'
+25/01/2024 17:55:32 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+25/01/2024 17:55:32 |  187.189.83.36  |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
+25/01/2024 17:56:24 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => A220Z78513868
+    [txt_PASSW1] => Promo1002##
+)
+
+25/01/2024 17:56:24 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | A220Z78513868 | Promo1002##
+25/01/2024 17:56:24 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='A220Z78513868'
+25/01/2024 17:56:24 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='3'
+25/01/2024 17:56:24 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+25/01/2024 17:56:24 |  187.189.83.36  |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
+25/01/2024 19:37:33 | 201.108.175.49  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 0
+)
+
+25/01/2024 19:38:57 | 201.108.175.49  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => A220Z78513868
+    [txt_PASSW1] => Promo1002##
+)
+
+25/01/2024 19:38:57 | 201.108.175.49  |   index    |      auditar      |    Libreria G     | A220Z78513868 | Promo1002##
+25/01/2024 19:38:57 | 201.108.175.49  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='A220Z78513868'
+25/01/2024 19:38:57 | 201.108.175.49  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='3'
+25/01/2024 19:38:57 | 201.108.175.49  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+25/01/2024 19:38:57 | 201.108.175.49  |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
+25/01/2024 19:52:10 | 201.108.175.49  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => A220Z78513868
+    [txt_PASSW1] => Promo1002##
+)
+
+25/01/2024 19:52:10 | 201.108.175.49  |   index    |      auditar      |    Libreria G     | A220Z78513868 | Promo1002##
+25/01/2024 19:52:10 | 201.108.175.49  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='A220Z78513868'
+25/01/2024 19:52:10 | 201.108.175.49  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='3'
+25/01/2024 19:52:10 | 201.108.175.49  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+25/01/2024 19:52:10 | 201.108.175.49  |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
+25/01/2024 19:52:44 | 201.108.175.49  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => A220Z78513868
+    [txt_PASSW1] => Promo1002##
+)
+
+25/01/2024 19:52:44 | 201.108.175.49  |   index    |      auditar      |    Libreria G     | A220Z78513868 | Promo1002##
+25/01/2024 19:52:44 | 201.108.175.49  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='A220Z78513868'
+25/01/2024 19:52:44 | 201.108.175.49  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='3'
+25/01/2024 19:52:44 | 201.108.175.49  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+25/01/2024 19:52:44 | 201.108.175.49  |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
+25/01/2024 20:10:09 | 201.108.175.49  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => A220Z78513868
+    [txt_PASSW1] => Promo1002##
+)
+
+25/01/2024 20:10:09 | 201.108.175.49  |   index    |      auditar      |    Libreria G     | A220Z78513868 | Promo1002##
+25/01/2024 20:10:09 | 201.108.175.49  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='A220Z78513868'
+25/01/2024 20:10:09 | 201.108.175.49  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='3'
+25/01/2024 20:10:09 | 201.108.175.49  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+25/01/2024 20:10:09 | 201.108.175.49  |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
+25/01/2024 20:24:41 | 201.108.175.49  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => A220Z78513868
+    [txt_PASSW1] => Promo1002##
+)
+
+25/01/2024 20:24:41 | 201.108.175.49  |   index    |      auditar      |    Libreria G     | A220Z78513868 | Promo1002##
+25/01/2024 20:24:41 | 201.108.175.49  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='A220Z78513868'
+25/01/2024 20:24:41 | 201.108.175.49  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='3'
+25/01/2024 20:24:41 | 201.108.175.49  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+25/01/2024 20:24:41 | 201.108.175.49  |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
+25/01/2024 20:27:33 | 201.108.175.49  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => A220Z78513868
+    [txt_PASSW1] => Promo1002##
+)
+
+25/01/2024 20:27:33 | 201.108.175.49  |   index    |      auditar      |    Libreria G     | A220Z78513868 | Promo1002##
+25/01/2024 20:27:33 | 201.108.175.49  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='A220Z78513868'
+25/01/2024 20:27:33 | 201.108.175.49  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='3'
+25/01/2024 20:27:33 | 201.108.175.49  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+25/01/2024 20:27:33 | 201.108.175.49  |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
+25/01/2024 20:28:32 | 201.108.175.49  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => A220Z78513868
+    [txt_PASSW1] => Promo1002##
+)
+
+25/01/2024 20:28:32 | 201.108.175.49  |   index    |      auditar      |    Libreria G     | A220Z78513868 | Promo1002##
+25/01/2024 20:28:32 | 201.108.175.49  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='A220Z78513868'
+25/01/2024 20:28:32 | 201.108.175.49  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='3'
+25/01/2024 20:28:32 | 201.108.175.49  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+25/01/2024 20:28:32 | 201.108.175.49  |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
+25/01/2024 20:29:42 | 201.108.175.49  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => A220Z78513868
+    [txt_PASSW1] => Promo1002##
+)
+
+25/01/2024 20:29:42 | 201.108.175.49  |   index    |      auditar      |    Libreria G     | A220Z78513868 | Promo1002##
+25/01/2024 20:29:42 | 201.108.175.49  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='A220Z78513868'
+25/01/2024 20:29:42 | 201.108.175.49  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='3'
+25/01/2024 20:29:42 | 201.108.175.49  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+25/01/2024 20:29:42 | 201.108.175.49  |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
+25/01/2024 20:32:50 | 201.108.175.49  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => A220Z78513868
+    [txt_PASSW1] => Promo1002##
+)
+
+25/01/2024 20:32:50 | 201.108.175.49  |   index    |      auditar      |    Libreria G     | A220Z78513868 | Promo1002##
+25/01/2024 20:32:50 | 201.108.175.49  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='A220Z78513868'
+25/01/2024 20:32:50 | 201.108.175.49  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='3'
+25/01/2024 20:32:50 | 201.108.175.49  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+25/01/2024 20:32:50 | 201.108.175.49  |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
+25/01/2024 20:36:59 | 201.108.175.49  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => A220Z78513868
+    [txt_PASSW1] => Promo1002##
+)
+
+25/01/2024 20:36:59 | 201.108.175.49  |   index    |      auditar      |    Libreria G     | A220Z78513868 | Promo1002##
+25/01/2024 20:36:59 | 201.108.175.49  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='A220Z78513868'
+25/01/2024 20:36:59 | 201.108.175.49  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='3'
+25/01/2024 20:36:59 | 201.108.175.49  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+25/01/2024 20:36:59 | 201.108.175.49  |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
+25/01/2024 20:49:08 | 201.108.175.49  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => A220Z78513868
+    [txt_PASSW1] => Promo1002##
+)
+
+25/01/2024 20:49:08 | 201.108.175.49  |   index    |      auditar      |    Libreria G     | A220Z78513868 | Promo1002##
+25/01/2024 20:49:08 | 201.108.175.49  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='A220Z78513868'
+25/01/2024 20:49:08 | 201.108.175.49  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='3'
+25/01/2024 20:49:08 | 201.108.175.49  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+25/01/2024 20:49:08 | 201.108.175.49  |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
+25/01/2024 20:49:08 | 201.108.175.49  |   Usuario anonimo    |        getAll        | Becas_festivos       | SELECT * FROM becas_festivos
+25/01/2024 20:49:18 | 201.108.175.49  |   index    |      auditar      |    Libreria G     | Array
+(
+)
+
+25/01/2024 20:49:44 | 201.108.175.49  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => A220Z78513868
+    [txt_PASSW1] => Promo1002##
+)
+
+25/01/2024 20:49:44 | 201.108.175.49  |   index    |      auditar      |    Libreria G     | A220Z78513868 | Promo1002##
+25/01/2024 20:49:44 | 201.108.175.49  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='A220Z78513868'
+25/01/2024 20:49:44 | 201.108.175.49  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='3'
+25/01/2024 20:49:44 | 201.108.175.49  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+25/01/2024 20:49:44 | 201.108.175.49  |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
+25/01/2024 20:49:44 | 201.108.175.49  |   Usuario anonimo    |        getAll        | Becas_festivos       | SELECT * FROM becas_festivos
+25/01/2024 20:53:46 | 201.108.175.49  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => A220Z78513868
+    [txt_PASSW1] => Promo1002##
+)
+
+25/01/2024 20:53:46 | 201.108.175.49  |   index    |      auditar      |    Libreria G     | A220Z78513868 | Promo1002##
+25/01/2024 20:53:46 | 201.108.175.49  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='A220Z78513868'
+25/01/2024 20:53:46 | 201.108.175.49  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='3'
+25/01/2024 20:53:46 | 201.108.175.49  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+25/01/2024 20:53:46 | 201.108.175.49  |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
+25/01/2024 20:53:46 | 201.108.175.49  |   Usuario anonimo    |        getAll        | Becas_festivos       | SELECT * FROM becas_festivos
+25/01/2024 20:54:11 | 201.108.175.49  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => A220Z78513868
+    [txt_PASSW1] => Promo1002##
+)
+
+25/01/2024 20:54:11 | 201.108.175.49  |   index    |      auditar      |    Libreria G     | A220Z78513868 | Promo1002##
+25/01/2024 20:54:11 | 201.108.175.49  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='A220Z78513868'
+25/01/2024 20:54:11 | 201.108.175.49  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='3'
+25/01/2024 20:54:11 | 201.108.175.49  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+25/01/2024 20:54:11 | 201.108.175.49  |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
+25/01/2024 20:54:11 | 201.108.175.49  |   Usuario anonimo    |        getAll        | Becas_festivos       | SELECT * FROM becas_festivos
+25/01/2024 20:54:55 | 201.108.175.49  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => A220Z78513868
+    [txt_PASSW1] => Promo1002##
+)
+
+25/01/2024 20:54:55 | 201.108.175.49  |   index    |      auditar      |    Libreria G     | A220Z78513868 | Promo1002##
+25/01/2024 20:54:55 | 201.108.175.49  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='A220Z78513868'
+25/01/2024 20:54:55 | 201.108.175.49  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='3'
+25/01/2024 20:54:55 | 201.108.175.49  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+25/01/2024 20:54:55 | 201.108.175.49  |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
+25/01/2024 20:54:55 | 201.108.175.49  |   Usuario anonimo    |        getAll        | Becas_festivos       | SELECT * FROM becas_festivos
+25/01/2024 20:55:00 | 201.108.175.49  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => A220Z78513868
+    [txt_PASSW1] => Promo1002##
+)
+
+25/01/2024 20:55:00 | 201.108.175.49  |   index    |      auditar      |    Libreria G     | A220Z78513868 | Promo1002##
+25/01/2024 20:55:00 | 201.108.175.49  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='A220Z78513868'
+25/01/2024 20:55:00 | 201.108.175.49  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='3'
+25/01/2024 20:55:00 | 201.108.175.49  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+25/01/2024 20:55:00 | 201.108.175.49  |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
+25/01/2024 20:55:00 | 201.108.175.49  |   Usuario anonimo    |        getAll        | Becas_festivos       | SELECT * FROM becas_festivos
+25/01/2024 20:57:04 | 201.108.175.49  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => A220Z78513868
+    [txt_PASSW1] => Promo1002##
+)
+
+25/01/2024 20:57:04 | 201.108.175.49  |   index    |      auditar      |    Libreria G     | A220Z78513868 | Promo1002##
+25/01/2024 20:57:04 | 201.108.175.49  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='A220Z78513868'
+25/01/2024 20:57:04 | 201.108.175.49  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='3'
+25/01/2024 20:57:04 | 201.108.175.49  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+25/01/2024 20:57:04 | 201.108.175.49  |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
+25/01/2024 20:57:04 | 201.108.175.49  |   Usuario anonimo    |        getAll        | Becas_festivos       | SELECT * FROM becas_festivos
+25/01/2024 20:57:23 | 201.108.175.49  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => A220Z78513868
+    [txt_PASSW1] => Promo1002##
+)
+
+25/01/2024 20:57:23 | 201.108.175.49  |   index    |      auditar      |    Libreria G     | A220Z78513868 | Promo1002##
+25/01/2024 20:57:23 | 201.108.175.49  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='A220Z78513868'
+25/01/2024 20:57:23 | 201.108.175.49  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='3'
+25/01/2024 20:57:23 | 201.108.175.49  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+25/01/2024 20:57:23 | 201.108.175.49  |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
+25/01/2024 20:57:23 | 201.108.175.49  |   Usuario anonimo    |        getAll        | Becas_festivos       | SELECT * FROM becas_festivos
+25/01/2024 20:57:41 | 201.108.175.49  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => A220Z78513868
+    [txt_PASSW1] => Promo1002##
+)
+
+25/01/2024 20:57:41 | 201.108.175.49  |   index    |      auditar      |    Libreria G     | A220Z78513868 | Promo1002##
+25/01/2024 20:57:41 | 201.108.175.49  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='A220Z78513868'
+25/01/2024 20:57:42 | 201.108.175.49  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='3'
+25/01/2024 20:57:42 | 201.108.175.49  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+25/01/2024 20:57:42 | 201.108.175.49  |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
+25/01/2024 20:57:42 | 201.108.175.49  |   Usuario anonimo    |        getAll        | Becas_festivos       | SELECT * FROM becas_festivos
+25/01/2024 20:58:19 | 201.108.175.49  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => A220Z78513868
+    [txt_PASSW1] => Promo1002##
+)
+
+25/01/2024 20:58:19 | 201.108.175.49  |   index    |      auditar      |    Libreria G     | A220Z78513868 | Promo1002##
+25/01/2024 20:58:19 | 201.108.175.49  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='A220Z78513868'
+25/01/2024 20:58:19 | 201.108.175.49  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='3'
+25/01/2024 20:58:19 | 201.108.175.49  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+25/01/2024 20:58:19 | 201.108.175.49  |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
+25/01/2024 20:58:19 | 201.108.175.49  |   Usuario anonimo    |        getAll        | Becas_festivos       | SELECT * FROM becas_festivos
+25/01/2024 20:58:34 | 201.108.175.49  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => A220Z78513868
+    [txt_PASSW1] => Promo1002##
+)
+
+25/01/2024 20:58:34 | 201.108.175.49  |   index    |      auditar      |    Libreria G     | A220Z78513868 | Promo1002##
+25/01/2024 20:58:34 | 201.108.175.49  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='A220Z78513868'
+25/01/2024 20:58:34 | 201.108.175.49  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='3'
+25/01/2024 20:58:34 | 201.108.175.49  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+25/01/2024 20:58:34 | 201.108.175.49  |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
+25/01/2024 20:58:34 | 201.108.175.49  |   Usuario anonimo    |        getAll        | Becas_festivos       | SELECT * FROM becas_festivos
+25/01/2024 20:59:02 | 201.108.175.49  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => A220Z78513868
+    [txt_PASSW1] => Promo1002##
+)
+
+25/01/2024 20:59:02 | 201.108.175.49  |   index    |      auditar      |    Libreria G     | A220Z78513868 | Promo1002##
+25/01/2024 20:59:02 | 201.108.175.49  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='A220Z78513868'
+25/01/2024 20:59:02 | 201.108.175.49  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='3'
+25/01/2024 20:59:02 | 201.108.175.49  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+25/01/2024 20:59:02 | 201.108.175.49  |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
+25/01/2024 20:59:02 | 201.108.175.49  |   Usuario anonimo    |        getAll        | Becas_festivos       | SELECT * FROM becas_festivos
