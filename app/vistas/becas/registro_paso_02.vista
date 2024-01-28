@@ -250,7 +250,6 @@
                 msg: '¿Estas seguro que deseas enviar tu programación de alimentos?<br><br>Recuerda que no podrás realizar cambios después de éste paso.',
                 fn: function(r){
                     if (r){
-                        $.messager.alert("Guardando tu programación");
                         var aTipo = "";
                         var all_alimentos = calendar.getEvents();
                         $.each(all_alimentos, function(index, value) {
