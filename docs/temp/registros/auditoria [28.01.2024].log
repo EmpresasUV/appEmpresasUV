@@ -17,3 +17,127 @@
 28/01/2024 09:25:06 | 201.108.175.49  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
 28/01/2024 09:25:06 | 201.108.175.49  |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
 28/01/2024 09:25:06 | 201.108.175.49  |   Usuario anonimo    |        getAll        | Becas_festivos       | SELECT * FROM becas_festivos
+28/01/2024 09:45:48 | 201.108.175.49  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => A220Z78513868
+    [txt_PASSW1] => Promo1002##
+)
+
+28/01/2024 09:45:48 | 201.108.175.49  |   index    |      auditar      |    Libreria G     | A220Z78513868 | Promo1002##
+28/01/2024 09:45:48 | 201.108.175.49  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='A220Z78513868'
+28/01/2024 09:45:48 | 201.108.175.49  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='3'
+28/01/2024 09:45:48 | 201.108.175.49  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+28/01/2024 09:45:48 | 201.108.175.49  |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
+28/01/2024 09:45:48 | 201.108.175.49  |   Usuario anonimo    |        getAll        | Becas_festivos       | SELECT * FROM becas_festivos
+28/01/2024 09:46:31 | 201.108.175.49  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('A220Z78513868', 'D', '2024-02-06', 'D');
+28/01/2024 09:46:31 | 201.108.175.49  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('A220Z78513868', 'D', '2024-02-07', 'D');
+28/01/2024 09:46:32 | 201.108.175.49  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('A220Z78513868', 'D', '2024-02-08', 'D');
+28/01/2024 09:46:32 | 201.108.175.49  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('A220Z78513868', 'D', '2024-02-09', 'D');
+28/01/2024 09:46:32 | 201.108.175.49  |   Usuario anonimo    |       updateBy       | Becas_beneficiarios  | UPDATE becas_beneficiarios SET calendarizo = 1 WHERE matricula = 'A220Z78513868';
+28/01/2024 09:46:32 | 201.108.175.49  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 2
+)
+
+28/01/2024 09:53:05 | 201.108.175.49  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 0
+)
+
+28/01/2024 09:53:06 | 201.108.175.49  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => A220Z78513868
+    [txt_PASSW1] => Promo1002##
+)
+
+28/01/2024 09:53:06 | 201.108.175.49  |   index    |      auditar      |    Libreria G     | A220Z78513868 | Promo1002##
+28/01/2024 09:53:06 | 201.108.175.49  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='A220Z78513868'
+28/01/2024 09:53:06 | 201.108.175.49  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='3'
+28/01/2024 09:53:06 | 201.108.175.49  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+28/01/2024 09:53:06 | 201.108.175.49  |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
+28/01/2024 09:53:06 | 201.108.175.49  |   Usuario anonimo    |        getAll        | Becas_festivos       | SELECT * FROM becas_festivos
+28/01/2024 09:55:57 | 201.108.175.49  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => A220Z78513868
+    [txt_PASSW1] => Promo1002##
+)
+
+28/01/2024 09:55:57 | 201.108.175.49  |   index    |      auditar      |    Libreria G     | A220Z78513868 | Promo1002##
+28/01/2024 09:55:57 | 201.108.175.49  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='A220Z78513868'
+28/01/2024 09:55:57 | 201.108.175.49  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='3'
+28/01/2024 09:55:57 | 201.108.175.49  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+28/01/2024 09:55:57 | 201.108.175.49  |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
+28/01/2024 09:55:57 | 201.108.175.49  |   Usuario anonimo    |        getAll        | Becas_festivos       | SELECT * FROM becas_festivos
+28/01/2024 09:56:14 | 201.108.175.49  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('A220Z78513868', 'C', '2024-02-06', 'D');
+28/01/2024 09:56:15 | 201.108.175.49  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('A220Z78513868', 'C', '2024-02-07', 'D');
+28/01/2024 09:56:15 | 201.108.175.49  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('A220Z78513868', 'C', '2024-02-08', 'D');
+28/01/2024 09:56:15 | 201.108.175.49  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('A220Z78513868', 'C', '2024-02-09', 'D');
+28/01/2024 09:56:15 | 201.108.175.49  |   Usuario anonimo    |       updateBy       | Becas_beneficiarios  | UPDATE becas_beneficiarios SET calendarizo = 1 WHERE matricula = 'A220Z78513868';
+28/01/2024 09:56:16 | 201.108.175.49  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 2
+)
+
+28/01/2024 09:59:53 | 201.108.175.49  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 0
+)
+
+28/01/2024 09:59:54 | 201.108.175.49  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => A220Z78513868
+    [txt_PASSW1] => Promo1002##
+)
+
+28/01/2024 09:59:54 | 201.108.175.49  |   index    |      auditar      |    Libreria G     | A220Z78513868 | Promo1002##
+28/01/2024 09:59:54 | 201.108.175.49  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='A220Z78513868'
+28/01/2024 09:59:54 | 201.108.175.49  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='3'
+28/01/2024 09:59:54 | 201.108.175.49  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+28/01/2024 09:59:54 | 201.108.175.49  |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
+28/01/2024 09:59:54 | 201.108.175.49  |   Usuario anonimo    |        getAll        | Becas_festivos       | SELECT * FROM becas_festivos
+28/01/2024 10:00:08 | 201.108.175.49  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('A220Z78513868', 'C', '2024-02-06', 'D');
+28/01/2024 10:00:08 | 201.108.175.49  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('A220Z78513868', 'C', '2024-02-07', 'D');
+28/01/2024 10:00:08 | 201.108.175.49  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('A220Z78513868', 'C', '2024-02-09', 'D');
+28/01/2024 10:00:08 | 201.108.175.49  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('A220Z78513868', 'C', '2024-02-08', 'D');
+28/01/2024 10:00:09 | 201.108.175.49  |   Usuario anonimo    |       updateBy       | Becas_beneficiarios  | UPDATE becas_beneficiarios SET calendarizo = 1 WHERE matricula = 'A220Z78513868';
+28/01/2024 10:00:09 | 201.108.175.49  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 2
+)
+
+28/01/2024 15:38:06 | 201.108.175.49  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 2
+)
+
+28/01/2024 15:38:08 | 201.108.175.49  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 0
+)
+
+28/01/2024 15:38:10 | 201.108.175.49  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => A220Z78513868
+    [txt_PASSW1] => Promo1002##
+)
+
+28/01/2024 15:38:10 | 201.108.175.49  |   index    |      auditar      |    Libreria G     | A220Z78513868 | Promo1002##
+28/01/2024 15:38:10 | 201.108.175.49  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='A220Z78513868'
+28/01/2024 15:38:10 | 201.108.175.49  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='3'
+28/01/2024 15:38:10 | 201.108.175.49  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+28/01/2024 15:38:10 | 201.108.175.49  |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
+28/01/2024 15:38:10 | 201.108.175.49  |   Usuario anonimo    |        getAll        | Becas_festivos       | SELECT * FROM becas_festivos
+28/01/2024 15:38:24 | 201.108.175.49  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('A220Z78513868', 'C', '2024-02-06', 'D');
+28/01/2024 15:38:24 | 201.108.175.49  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('A220Z78513868', 'C', '2024-02-07', 'D');
+28/01/2024 15:38:25 | 201.108.175.49  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('A220Z78513868', 'C', '2024-02-08', 'D');
+28/01/2024 15:38:25 | 201.108.175.49  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('A220Z78513868', 'C', '2024-02-09', 'D');
+28/01/2024 15:38:25 | 201.108.175.49  |   Usuario anonimo    |       updateBy       | Becas_beneficiarios  | UPDATE becas_beneficiarios SET calendarizo = 1 WHERE matricula = 'A220Z78513868';
+28/01/2024 15:38:25 | 201.108.175.49  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 2
+)

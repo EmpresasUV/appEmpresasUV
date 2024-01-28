@@ -250,6 +250,7 @@
                 msg: '¿Estas seguro que deseas enviar tu programación de alimentos?<br><br>Recuerda que no podrás realizar cambios después de éste paso.',
                 fn: function(r){
                     if (r){
+                        $.messager.alert("Guardando tu programación");
                         var aTipo = "";
                         var all_alimentos = calendar.getEvents();
                         $.each(all_alimentos, function(index, value) {
@@ -285,28 +286,6 @@
                 }
             });
 
-
-
-    /*
-            var isValid = true;
-            $('#FrmDATOS02').find(':input').each(function() {
-                if(this.className.substr(0, 6) == "easyui"){ //es un componente de easyui
-                    isValid = $('#FrmDATOS02').form('validate');
-                }else{ //es un elemento HTML5
-                    if(!chk_valid(this)){
-                        isValid = false;
-                    }
-                }
-            });
-            if (isValid){
-                document.getElementById("FrmDATOS02").action = "<?php echo $helper->url("Becas", "next_step"); ?>";
-                document.getElementById("FrmDATOS02").submit();
-                console.clear();
-            }else{
-
-                show_asistente("5", "<p align='center'><?=  LNG_NUCLEO_0036 ?></p>", 270, 230);
-            }
-    */
         });
         //# **************************************************** #
 
