@@ -20,6 +20,7 @@ class Becas_beneficiarios extends ModeloBase{
     private $n_alimentos;
     private $credencial;
     private $calendarizo;
+    private $estado;
     private $table;
 
     /* ***************************************************************************
@@ -52,6 +53,10 @@ class Becas_beneficiarios extends ModeloBase{
     /* Setters y Getters para la propiedad [ Calendarizo ] */
     public function getCalendarizo(){ return $this->calendarizo; }
     public function setCalendarizo($calendarizo){ $this->calendarizo = $calendarizo; }
+
+    /* Setters y Getters para la propiedad [ Estado ] */
+    public function getEstado(){ return $this->estado; }
+    public function setEstado($estado){ $this->estado = $estado; }
 
 
     /* ***************************************************************************

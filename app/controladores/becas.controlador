@@ -132,6 +132,10 @@ class BecasControlador extends ControladorBase{
                         break;
 
                     case 2: //Confirmación de datos
+                        $this->view("_header_login", null);
+                        $this->view("becas/registro_paso_03", null);
+                        $this->view("_footer_login", null);
+
                         break;
                     
                     case 3: //Dirección
@@ -146,20 +150,77 @@ class BecasControlador extends ControladorBase{
     }
 
     /** ****************************************************** **/
-    public function check_becario(){
+    public function set_Alimento(){
         try {
             chkSesion();
             header('Content-Type: application/json; charset=UTF8');
             $xRespuesta = array();
 
+            //Comprobando la matricula
+            if(isset($_POST["matricula"]) && $_POST["matricula"] != ""){
+                //Comprobando el tipo de alimento
+                if(isset($_POST["tipo_alimento"]) && $_POST["tipo_alimento"] != ""){
+                    //Comprobando la fecha de entrega
+                    if(isset($_POST["fecha"]) && $_POST["fecha"] != ""){
+                        //Conectamos con el modelo de datos
+                        $programacion = new Becas_programacion($this->adapter); //Preparo la conexion con el modelo en la db
+                        $programacion->setId_matricula($_POST["matricula"]);
+                        $programacion->setTipo_alimento($_POST["tipo_alimento"]);
+                        $programacion->setFecha($_POST["fecha"]);
+                        $programacion->setEstado("D");
+                        $save = $programacion->saveData();
+                        if($save){
+                            $xRespuesta['code'] = 0;
+                        }else{
+                            $xRespuesta['code'] = 404;
+                        }
 
+                    }else{
+                        $xRespuesta['code'] = 404;
+                    }
+                }else{
+                    $xRespuesta['code'] = 404;
+                }
+            }else{
+                $xRespuesta['code'] = 404;
+            }
 
-            echo json_encode($xRespuesta['data']);
+            echo json_encode($xRespuesta);
+
         } catch (Exception $e) {
             mostrar_error($e);
         }
     }
 
+    /** ****************************************************** **/
+    public function set_Calendarizacion(){
+        try {
+            chkSesion();
+            header('Content-Type: application/json; charset=UTF8');
+            $xRespuesta = array();
+
+            //Comprobando la matricula
+            if(isset($_POST["matricula"]) && $_POST["matricula"] != ""){
+
+                //Registrando la calendarización del benediciario
+                $beneficiario = new Becas_beneficiarios($this->adapter); //Preparo la conexion con el modelo en la db
+                $beneficiario->setCalendarizo(1);
+                $update = $beneficiario->updateBy('matricula', $_POST["matricula"]);
+                if($update){
+                    $xRespuesta['code'] = 0;
+                }else{
+                    $xRespuesta['code'] = 404;
+                }
+            }else{
+                $xRespuesta['code'] = 404;
+            }
+
+            echo json_encode($xRespuesta);
+
+        } catch (Exception $e) {
+            mostrar_error($e);
+        }
+    }
 
 
 

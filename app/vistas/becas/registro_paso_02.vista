@@ -109,7 +109,7 @@
                                             <p style="padding-top: 10px;"> <strong>Tú Matricula</strong> </p>
                                             <div id="sMatrucula" style="text-align: center;font-size: 12px;font-weight: bold;color: green;"><?= $Becario["Matricula"] ?></div>
                                             <p style="padding-top: 10px;"> <strong>Tú Comedor</strong> </p>
-                                            <div id="sMatrucula" style="text-align: center;font-size: 12px;font-weight: bold;color: green;"><?= $Becario["Comedor"] ?></div>
+                                            <div id="sComedor" style="text-align: center;font-size: 12px;font-weight: bold;color: green;"><?= $Becario["Comedor"] ?></div>
                                         </div>
                                     </div>
                                 </div>
@@ -217,29 +217,6 @@
     //$("#txt_PASSW1").val(MyPASS);
     //$("#txt_PASSW2").val(MyPASS);
     //# **************************************************** #
-    $("#cmdREG01").click(function() {
-        show_progress("<?php echo LNG_NUCLEO_0015; ?>");
-        var isValid = true;
-        $('#FrmDATOS02').find(':input').each(function() {
-            if(this.className.substr(0, 6) == "easyui"){ //es un componente de easyui
-                isValid = $('#FrmDATOS02').form('validate');
-            }else{ //es un elemento HTML5
-                if(!chk_valid(this)){
-                    isValid = false;
-                }
-            }
-        });
-        if (isValid){
-            document.getElementById("FrmDATOS02").action = "<?php echo $helper->url("Becas", "next_step"); ?>";
-            document.getElementById("FrmDATOS02").submit();
-            console.clear();
-        }else{
-            $.messager.progress('close');
-            show_asistente("5", "<p align='center'><?=  LNG_NUCLEO_0036 ?></p>", 270, 230);
-        }
-
-    });
-    //# **************************************************** #
     document.addEventListener('DOMContentLoaded', function() {
         var Calendar = FullCalendar.Calendar;
         var Draggable = FullCalendar.Draggable;
@@ -264,6 +241,75 @@
             ServiciosADD();
         });
         //# **************************************************** #
+        $("#cmdREG01").click(function() {
+
+            $.messager.confirm({
+                ok:     'Sí, enviar',
+                cancel: 'Cancelar',
+                title: 'Enviar tu calendarización',
+                msg: '¿Estas seguro que deseas enviar tu programación de alimentos?<br><br>Recuerda que no podrás realizar cambios después de éste paso.',
+                fn: function(r){
+                    if (r){
+                        var aTipo = "";
+                        var all_alimentos = calendar.getEvents();
+                        $.each(all_alimentos, function(index, value) {
+                            //console.log($("#sMatrucula").text()+" | "+value.title+" | "+fDateYMD(value.start));
+                            if(value.title == "Desayuno"){ aTipo = "D" }else{ aTipo = "C" }
+                            $.ajax({
+                                method: "POST",
+                                async: false,
+                                url: "<?php echo $helper->url("Becas", "set_Alimento"); ?>",
+                                data: { //Parametros
+                                    matricula: $("#sMatrucula").text(),
+                                    tipo_alimento: aTipo,
+                                    fecha: fDateYMD(value.start)
+                                }                                
+                            });
+                        });
+                        //Registrando la calendarización
+                        $.ajax({
+                            method: "POST",
+                            async: false,
+                            url: "<?php echo $helper->url("Becas", "set_Calendarizacion"); ?>",
+                            data: { //Parametros
+                                matricula: $("#sMatrucula").text(),
+                            }
+                        }).done(function(respuesta) {
+                            $.messager.progress('close');
+                            document.getElementById("FrmDATOS02").action = "<?php echo $helper->url("Becas", "next_step"); ?>";
+                            document.getElementById("FrmDATOS02").submit();
+                        });
+
+                    }
+
+                }
+            });
+
+
+
+    /*
+            var isValid = true;
+            $('#FrmDATOS02').find(':input').each(function() {
+                if(this.className.substr(0, 6) == "easyui"){ //es un componente de easyui
+                    isValid = $('#FrmDATOS02').form('validate');
+                }else{ //es un elemento HTML5
+                    if(!chk_valid(this)){
+                        isValid = false;
+                    }
+                }
+            });
+            if (isValid){
+                document.getElementById("FrmDATOS02").action = "<?php echo $helper->url("Becas", "next_step"); ?>";
+                document.getElementById("FrmDATOS02").submit();
+                console.clear();
+            }else{
+
+                show_asistente("5", "<p align='center'><?=  LNG_NUCLEO_0036 ?></p>", 270, 230);
+            }
+    */
+        });
+        //# **************************************************** #
+
         $("#cmdAdd_DESAYUNO").click(function() {
             var allEvents = calendar.getEvents();
             var existe = false;
@@ -356,17 +402,33 @@
                         show_asistente("5", "<p align='center'>Los fines de semana no hay actividades alimenticias</p>", 270, 230);
                     }
 
-                    var allEvents = calendar.getEvents();
-                    $.each(allEvents, function(index, value) {
-                        if((value.title == info.draggedEl.innerText) && (new Date(value.start).toDateString() === new Date(info.date).toDateString())) {
-                            let nDia = semana[value.start.getDay()];
-                            let Dia = value.start.getDate();
-                            let nMes = meses[value.start.getMonth()+1];
-                            show_asistente("5", "<p align='center'>Ya tienes <strong>"+value.title+"</strong> programado para el día "+nDia+" "+Dia+" de "+nMes+".</p>", 270, 230);
-                            value.remove();
-                            ServiciosADD();
+                    var esFestivo = false;
+                    $.each(festivos, function(index, festivo) {
+                        if(festivo == fDateYMD(info.date)){
+                            esFestivo = true;
                         }
                     });
+
+                    if(esFestivo){
+                        show_asistente("5", "<p align='center'>Este día está marcado como <strong>día festivo</strong> intenta con otro día.</p>", 270, 230);
+                        value.remove();
+                        ServiciosADD();
+
+                    }else{
+
+                        var allEvents = calendar.getEvents();
+                        $.each(allEvents, function(index, value) {
+                            if((value.title == info.draggedEl.innerText) && (new Date(value.start).toDateString() === new Date(info.date).toDateString())) {
+                                let nDia = semana[value.start.getDay()];
+                                let Dia = value.start.getDate();
+                                let nMes = meses[value.start.getMonth()+1];
+                                show_asistente("5", "<p align='center'>Ya tienes <strong>"+value.title+"</strong> programado para el día "+nDia+" "+Dia+" de "+nMes+".</p>", 270, 230);
+                                value.remove();
+                                ServiciosADD();
+                            }
+                        });
+
+                    }
                 }
             },
             eventDragStart: function(info) {
@@ -400,27 +462,40 @@
                 }
             },
             eventDrop: function(info) { //Mueve el evento a otro día
-                $.each(GlobalsEvents, function(index, value) {
-                    if((value.title == info.event.title) && (new Date(value.start).toDateString() === new Date(info.event.start).toDateString())) {
-                        let nDia = semana[value.start.getDay()];
-                        let Dia = value.start.getDate();
-                        let nMes = meses[value.start.getMonth()+1];
-                        show_asistente("5", "<p align='center'>Ya tienes <strong>"+value.title+"</strong> programado para el día "+nDia+" "+Dia+" de "+nMes+".</p>", 270, 230);
-                        info.revert();
+                var esFestivo = false;
+                $.each(festivos, function(index, festivo) {
+                    if(festivo == fDateYMD(info.event.start)){
+                        esFestivo = true;
                     }
                 });
+
+                if(esFestivo){
+                    show_asistente("5", "<p align='center'>Este día está marcado como <strong>día festivo</strong> intenta con otro día.</p>", 270, 230);
+                    info.revert();
+                }else{
+
+                    $.each(GlobalsEvents, function(index, value) {
+                        if((value.title == info.event.title) && (new Date(value.start).toDateString() === new Date(info.event.start).toDateString())) {
+                            let nDia = semana[value.start.getDay()];
+                            let Dia = value.start.getDate();
+                            let nMes = meses[value.start.getMonth()+1];
+                            show_asistente("5", "<p align='center'>Ya tienes <strong>"+value.title+"</strong> programado para el día "+nDia+" "+Dia+" de "+nMes+".</p>", 270, 230);
+                            info.revert();
+                        }
+                    });
+                }
             },
             eventClick : function(info) {
                 document.getElementById("cmd_BORRAR").click();
                 GlobalDelE = info;
             },
-            viewDidMount : function(info) {
+            dayCellDidMount : function(info) {
                 //console.log(info);
                 $.each(festivos, function(index, festivo) {
-                    console.log(festivo);
-                    $('.fc-day[data-date="' + festivo + '"]').css('background', '#FFB6C1');
-                    $('.fc-day[data-date="' + festivo + '"]').removeClass("fc-day-future");
-                    $('.fc-day[data-date="' + festivo + '"]').addClass("fc-day-disabled");
+                    if(festivo == fDateYMD(info.date)){
+                        $('.fc-day[data-date="' + festivo + '"]').css('background', '#FFB6C1');
+                        $('.fc-day[data-date="' + festivo + '"] .fc-daygrid-day-number').html('<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-ban" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /><path d="M5.7 5.7l12.6 12.6" /></svg>');
+                    }
                 });
             },
             dateClick: function(info) {
@@ -428,30 +503,39 @@
                 let sDisponibles = $("#sDisponibles").html();
                 if(sDisponibles > 0){
                     //console.log(info);
-
-
-                    var allEvents = calendar.getEvents();
-                    $.each(allEvents, function(index, value) {
-                        if(value.start.getMonth() == info.date.getMonth()){
-                            alimentos_mes++;
+                    var esFestivo = false;
+                    $.each(festivos, function(index, festivo) {
+                        if(festivo == fDateYMD(info.date)){
+                            esFestivo = true;
                         }
                     });
-                    //console.log(alimentos_mes);
-                    if(alimentos_mes > becas_mes[info.date.getMonth()]){
-                        console.log("excede de "+becas_mes[info.date.getMonth()])
-                        //info.revert();
-                        show_asistente("10", "<p align='center'>¡Ups!, Solo puedes agendar "+becas_mes[info.date.getMonth()]+" alimentos en "+ meses[info.date.getMonth()] +".</p>", 270, 230);
 
+                    if(esFestivo){
+                        show_asistente("5", "<p align='center'>Este día está marcado como <strong>día festivo</strong> intenta con otro día.</p>", 270, 230);
                     }else{
-                        xDateNewEvent = info.date;
-                        let nDia = semana[info.date.getDay()];
-                        let Dia = info.date.getDate();
-                        let nMes = meses[info.date.getMonth()+1];
-                        $("#text-secondary").html("Selecciona el tipo de alimento que quieres agendar en tú calendario para el día <br><br><strong>"+nDia+" "+Dia+" de "+nMes+"</strong>.");
-                        document.getElementById("cmd_ALIMENTOS").click();
+
+                        var allEvents = calendar.getEvents();
+                        $.each(allEvents, function(index, value) {
+                            if(value.start.getMonth() == info.date.getMonth()){
+                                alimentos_mes++;
+                            }
+                        });
+                        //console.log(alimentos_mes);
+                        if(alimentos_mes > becas_mes[info.date.getMonth()]){
+                            console.log("excede de "+becas_mes[info.date.getMonth()])
+                            //info.revert();
+                            show_asistente("10", "<p align='center'>¡Ups!, Solo puedes agendar "+becas_mes[info.date.getMonth()]+" alimentos en "+ meses[info.date.getMonth()] +".</p>", 270, 230);
+
+                        }else{
+                            xDateNewEvent = info.date;
+                            let nDia = semana[info.date.getDay()];
+                            let Dia = info.date.getDate();
+                            let nMes = meses[info.date.getMonth()+1];
+                            $("#text-secondary").html("Selecciona el tipo de alimento que quieres agendar en tú calendario para el día <br><br><strong>"+nDia+" "+Dia+" de "+nMes+"</strong>.");
+                            document.getElementById("cmd_ALIMENTOS").click();
+                        }
+
                     }
-
-
                 }else{
                     show_asistente("12", "<p align='center'>¡Lamento decirlo!, pero parece que se agotó la disponibilidad.</p>", 270, 230);
                 }
@@ -478,11 +562,6 @@
         }
     }
 
-    $("#cmdREG01").click(function() {
-        var all_alimentos = calendar.getEvents();
-        $.each(all_alimentos, function(index, value) {
 
-        });
-    });
 </script>
 <!-- ## ********************************************* ## -->

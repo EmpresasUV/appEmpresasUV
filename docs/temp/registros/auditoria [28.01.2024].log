@@ -1,0 +1,19 @@
+
+28/01/2024 09:25:04 | 201.108.175.49  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 0
+)
+
+28/01/2024 09:25:06 | 201.108.175.49  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => A220Z78513868
+    [txt_PASSW1] => Promo1002##
+)
+
+28/01/2024 09:25:06 | 201.108.175.49  |   index    |      auditar      |    Libreria G     | A220Z78513868 | Promo1002##
+28/01/2024 09:25:06 | 201.108.175.49  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='A220Z78513868'
+28/01/2024 09:25:06 | 201.108.175.49  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='3'
+28/01/2024 09:25:06 | 201.108.175.49  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+28/01/2024 09:25:06 | 201.108.175.49  |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
+28/01/2024 09:25:06 | 201.108.175.49  |   Usuario anonimo    |        getAll        | Becas_festivos       | SELECT * FROM becas_festivos

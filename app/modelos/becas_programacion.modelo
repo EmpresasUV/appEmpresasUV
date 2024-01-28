@@ -9,13 +9,14 @@
 * @copyright 2024
 */
 
-class Becas_programacion_aux extends ModeloBase{
+class Becas_programacion extends ModeloBase{
     /* ***************************************************************************
     * Registrando las variables de la clase
     *************************************************************************** */
     private $id_matricula;
     private $tipo_alimento;
     private $fecha;
+    private $estado;
     private $table;
 
     /* ***************************************************************************
@@ -33,6 +34,10 @@ class Becas_programacion_aux extends ModeloBase{
     public function getFecha(){ return $this->fecha; }
     public function setFecha($fecha){ $this->fecha = $fecha; }
 
+    /* Setters y Getters para la propiedad [ Estado ] */
+    public function getEstado(){ return $this->estado; }
+    public function setEstado($estado){ $this->estado = $estado; }
+
 
     /* ***************************************************************************
     * @FUNCTION constructor de clase
@@ -42,7 +47,7 @@ class Becas_programacion_aux extends ModeloBase{
     public function __construct($adapter) {
         try {
 
-            $this->table = 'becas_programacion_aux';
+            $this->table = 'becas_programacion';
             parent::__construct($this->table, $adapter);
 
         } catch (Exception $e) {
