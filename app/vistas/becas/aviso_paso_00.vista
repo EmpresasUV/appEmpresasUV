@@ -1,0 +1,147 @@
+<?php
+/**
+ * @autor Rixio Danilo Iguarán Chourio.
+ * @cédula-profesional 12196442
+ * @correo-eletrónico atencion.clientes@obringolfo.com
+ * @denominacion OBRAS INFORMÁTICAS DEL GOLFO
+ * @empresa OBRINGOLFO S.A.S. DE C.V.
+ * @proyecto  goPAC.
+ * @copyright 2021
+ */
+
+?>
+
+    <!-- Page body TYPE -->
+    <body class="border-top-wide border-primary d-flex flex-column">
+    <script src="<?php echo PATH_JS; ?>/go_master.js"></script>
+    <!-- ## ********************************************* ## -->
+        <!-- Content -->
+        <div class="page page-center">
+            <div class="container container-tight py-4">
+                <div class="text-center mb-4">
+                    <a href="/" class="navbar-brand navbar-brand-autodark" style="margin-top: 50px;"><img src="<?php echo PATH_IMAGENES; ?>/logo_vertical.svg" height="150" alt="150"></a>
+                </div>
+                <div class="card card-md">
+                    <div class="card-body">
+                        <h2 class="h2 text-center mb-4"><?php echo LNG_SEGURIDAD_0001; ?></h2>
+                        <form name="FrmLOGIN" id="FrmLOGIN" method="post" autocomplete="off">
+                            <div class="mb-3">
+                                <label class="form-label required">
+                                    <?php echo LNG_SEGURIDAD_0002; ?>
+                                    <span class="form-help" data-bs-toggle="popover" data-bs-placement="top" data-bs-html="true"
+                                        data-bs-content="<?php echo LNG_SEGURIDAD_0021; ?> <p class='mb-0'><a href='#'><?php echo LNG_NUCLEO_0005; ?></a></p>">?
+                                    </span>
+                                </label>
+                                <input
+                                    id="txtUSUARIO"
+                                    name="txtUSUARIO"
+                                    type="text"
+                                    class="form-control"
+                                    placeholder="<?php echo LNG_SEGURIDAD_0015; ?>"
+                                    autocomplete="off"
+                                    pattern="[A-Za-z0-9]"
+                                    onkeyup="chk_valid(this);" onfocus="chk_valid(this);" onchange="chk_valid(this);"
+                                    required
+                                >
+                            </div>
+                            <div class="mb-2">
+                                <label class="form-label required">
+                                    <?php echo LNG_SEGURIDAD_0003; ?>
+                                    <span class="form-help" data-bs-toggle="popover" data-bs-placement="top" data-bs-html="true"
+                                        data-bs-content="<?php echo LNG_SEGURIDAD_0022; ?> <p class='mb-0'><a href='#'><?php echo LNG_NUCLEO_0005; ?></a></p>">?</span>
+                                    <span class="form-label-description">
+                                        <a  id="cmdRECUPERAR" name="cmdRECUPERAR" class="cursor-pointer" tabindex="-1"><?php echo LNG_SEGURIDAD_0006; ?></a>
+                                    </span>
+                                </label>
+                                <div class="input-group input-group-flat">
+                                    <input
+                                        id="txtSECRETO"
+                                        name="txtSECRETO"
+                                        type="password"
+                                        class="form-control"
+                                        placeholder="<?php echo LNG_SEGURIDAD_0016; ?>"
+                                        autocomplete="off"
+                                        pattern="(?=^.{16,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
+                                        onkeydown="chk_valid(this);" onfocus="chk_valid(this);" onchange="chk_valid(this);"
+                                        required
+                                    >
+                                    <span class="input-group-text">
+                                        <a id="cmdPASSWORD" name="cmdPASSWORD"  class="link-secondary cursor_pointer" title="<?php echo LNG_SEGURIDAD_0020; ?>" data-bs-toggle="tooltip" onclick="show_password('txtSECRETO', this);">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><circle cx="12" cy="12" r="2" /><path d="M22 12c-2.667 4.667 -6 7 -10 7s-7.333 -2.333 -10 -7c2.667 -4.667 6 -7 10 -7s7.333 2.333 10 7" /></svg>
+                                        </a>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="mb-2">
+                                <label class="form-check">
+                                    <input type="checkbox" class="form-check-input"/>
+                                    <span class="form-check-label"><?php echo LNG_SEGURIDAD_0014; ?></span>
+                                </label>
+                            </div>
+                            <div class="form-footer">
+                                <input type="button" id="cmdLOGIN" name="cmdLOGIN" class="btn btn-primary w-100" value="<?php echo LNG_SEGURIDAD_0004; ?>">
+                            </div>
+                        </form>
+                    </div>
+            </div>
+        </div>
+        <!-- Content -->
+    <!-- ## ********************************************* ## -->
+
+
+<script type="text/javascript">
+    //# ************************************************ #
+    $("#cmdLOGIN").click(function() {
+        show_progress("<?php echo LNG_NUCLEO_0015; ?>");
+        var isValid = true;
+        $('#FrmLOGIN').find(':input').each(function() {
+            isValid = chk_valid(this);
+        });
+        //console.log(isValid);
+        if (isValid){
+            $('#FrmLOGIN').form('submit', {
+                url: '<?php echo $helper->url("Usuarios", "logedin"); ?>',
+                success: function(datos){
+                    //console.log(datos);
+                    $.messager.progress('close');
+                    var jsonRCP = read_json(datos);
+                    switch (jsonRCP.estado) {
+                        case 0:
+                            goRedirect("Becas", "index");
+                        break
+                        case 1409:
+                            $.messager.alert('[1409] <?php echo LNG_SEGURIDAD_0009; ?>','<?php echo LNG_SEGURIDAD_0057; ?>','error');
+                        break
+                        case 1410:
+                            goRedirect("Usuarios", "iface_mconn");
+                        break
+                        case 1403:
+                            $.messager.alert('[1403] <?php echo LNG_SEGURIDAD_0009; ?>','<?php echo LNG_SEGURIDAD_0056; ?>','error');
+                        break
+                        case 1402:
+                            $.messager.alert('[1402] <?php echo LNG_SEGURIDAD_0009; ?>','<?php echo LNG_SEGURIDAD_0055; ?>','error');
+                        break
+                        case 1401:
+                            $.messager.alert('[1401] <?php echo LNG_SEGURIDAD_0009; ?>','<?php echo LNG_NUCLEO_0036; ?>','error');
+                        break
+                    }
+                }
+            });
+        }else{
+            $.messager.progress('close');
+        }
+
+        console.clear();
+    });
+    //# ************************************************ #
+    $("#cmdNUEVO").click(function() {
+        goRedirect("Usuarios", "iface_registrar");
+    });
+    //# ************************************************ #
+    $("#cmdRECUPERAR").click(function() {
+        goRedirect("Usuarios", "iface_recovery");
+    });
+    //# ************************************************ #
+    //# ************************************************ #
+</script>
+<!-- ## ********************************************* ## -->

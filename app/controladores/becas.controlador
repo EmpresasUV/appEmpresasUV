@@ -8,7 +8,8 @@
  * @proyecto  goPAC.
  * @copyright 2021
  */
-
+use setasign\Fpdi\Fpdi;
+use setasign\Fpdi\PdfReader;
 
 class BecasControlador extends ControladorBase{
     public $conectar;
@@ -100,7 +101,7 @@ class BecasControlador extends ControladorBase{
                                             "Periodo_Id" => $MyPeriodo[0]->id,
                                             "Periodo_I" => $MyPeriodo[0]->f_inicio,
                                             "Periodo_F" => $MyPeriodo[0]->f_final,
-                                            "Ruta_Credencial" => "/docs/becados/".$MyBeneficiario[0]->matricula."/credencial.jpg"
+                                            "Ruta_Credencial" => "/docs/becados/credencial.jpg" //"Ruta_Credencial" => "/docs/becados/".$MyBeneficiario[0]->matricula."/credencial.jpg"
                                         );
                                         //Cargamos la vista y enviamos el arreglo de datos
                                         $this->view("_header_login", null);
@@ -132,10 +133,164 @@ class BecasControlador extends ControladorBase{
                         break;
 
                     case 2: //Confirmación de datos
-                        $this->view("_header_login", null);
-                        $this->view("becas/registro_paso_03", null);
-                        $this->view("_footer_login", null);
+                        //Comprobando datos del formulario
+                        if(isset($_POST['txt_MATRICULA']) && ($_POST['txt_MATRICULA'] != '')) {
+                            $txt_MATRICULA = $_POST['txt_MATRICULA'];
+                            require_once(ROOT_DIR . 'app/librerias/php/fpdf/fpdf.php');
+                            require_once(ROOT_DIR . 'app/librerias/php/fpdi/autoload.php');
+                            //require_once(ROOT_DIR . "app/librerias/php/tcpdf/tcpdf.php");
 
+                            $beneficiario = new Becas_beneficiarios($this->adapter); //Preparo la conexion con el modelo en la db
+                            $MyBeneficiario = $beneficiario->getBy('matricula', $txt_MATRICULA); //busco la matricula en la db
+                            if(!empty($MyBeneficiario)){ //tenemos un beneficiario valido
+                                if($MyBeneficiario[0]->calendarizo == 1){ //El beneficiario programó su calendario
+
+                                    //Generar el PDF, con el calendario
+                                    $pdf = new Fpdi();
+
+                                    $pageCount = $pdf->setSourceFile(ROOT_DIR . 'docs/becados/pdf_modelo.pdf');
+                                    $pageId = $pdf->importPage(1, PdfReader\PageBoundaries::MEDIA_BOX);
+
+                                    $pdf->addPage();
+                                    $pdf->useImportedPage($pageId, 0, 0, 200);
+                                    $pdf->SetMargins(30, 30, 30);
+                                    //Asignando la fuente y color
+                                    $pdf->SetFont('Helvetica', '','8');
+                                    $Ytop = 57;
+
+                                    $pdf->SetTextColor(0, 0, 0);
+                                    ob_get_clean();
+                                    //Escribiendo la MATRICULA DEL BECARIO
+                                    $pdf->SetXY(30, $Ytop);
+                                    $pdf->Write(30, utf8_decode("Tú matricula: "));
+                                    $pdf->SetXY(80, $Ytop);
+                                    $pdf->Write(30, utf8_decode($MyBeneficiario[0]->matricula));
+
+                                    //Escribiendo el nombre del becario
+                                    $Ytop += 5;
+                                    $pdf->SetFont('Helvetica', '','8');
+                                    $pdf->SetXY(30, $Ytop);
+                                    $pdf->Write(30, utf8_decode("Tú nombre: "));
+                                    $pdf->SetXY(80, $Ytop);
+                                    $pdf->Write(30, utf8_decode($MyBeneficiario[0]->nombre));
+
+                                    //Escribiendo el apellido MATERNO
+                                    $Ytop += 5;
+                                    $pdf->SetXY(30, $Ytop);
+                                    $pdf->Write(30, utf8_decode("Alimentos programados: "));
+                                    $pdf->SetXY(80, $Ytop);
+                                    $pdf->Write(30, utf8_decode($MyBeneficiario[0]->n_alimentos." Alimentos"));
+
+                                    //Escribiendo el NOMBRE
+                                    $Ytop += 5;
+                                    $pdf->SetXY(30, $Ytop);
+                                    $pdf->Write(30, utf8_decode("Área que gestiona tu beca: "));
+                                    $pdf->SetXY(80, $Ytop);
+                                    $pdf->Write(30, utf8_decode($MyBeneficiario[0]->dependencia));
+
+                                    //Escribiendo el CORREO
+                                    $Ytop += 5;
+                                    $pdf->SetFont('Helvetica', '','8');
+                                    $pdf->SetXY(30, $Ytop);
+                                    $pdf->Write(30, utf8_decode("Tú correo de contacto: "));
+                                    $pdf->SetXY(80, $Ytop);
+                                    $pdf->Write(30, utf8_decode($MyBeneficiario[0]->correo));
+
+                                    //Escribiendo el TELEFONO
+                                    $nComedor = "";
+                                    switch ($MyBeneficiario[0]->id_comedor) {
+                                        case "1": //INGENIERÍA
+                                            $nComedor = "Comedor INGENIERÍA";
+                                        break;
+                                        case "2": //HUMANIDADES
+                                            $nComedor = "Comedor HUMANIDADES";
+                                        break;
+                                        case "3": //BIOLOGÍA
+                                            $nComedor = "Comedor KOMALLI";
+                                        break;
+                                        case "4": //ARTES
+                                            $nComedor = "Comedor UNIDAD DE ARTES";
+                                        break;
+                                        case "5": //ECONOMIA
+                                            $nComedor = "Comedor AJUIYAK TLAKUALLI";
+                                        break;
+                                        case "6": //TUXPAN
+                                            $nComedor = "Comedor TUXPAN";
+                                        break;
+                                    }
+                                    $Ytop += 5;
+                                    $pdf->SetXY(30, $Ytop);
+                                    $pdf->Write(30, utf8_decode("Comedor para entrega de alimentos: "));
+                                    $pdf->SetXY(80, $Ytop);
+                                    $pdf->Write(30, utf8_decode($nComedor));
+
+                                    auditar("Preparamos los desayunos en PDF");
+                                        try {
+                                        $desayunos = new Becas_programacion($this->adapter); //Preparo la conexion con el modelo en la db
+                                        $MyDesayunos = $desayunos->execSQL("SELECT * FROM becas_programacion WHERE id_matricula='".$txt_MATRICULA."' AND tipo_alimento='D' AND estado='D' ORDER BY fecha ASC"); //busco la matricula en la db
+                                        $FDesayunos = "";
+                                        if(!empty($MyDesayunos)){ //tenemos la programación
+                                            foreach($MyDesayunos as $xDesayuno){
+                                                $FDesayunos .= fecha_DMA($xDesayuno->fecha)." | ";
+                                            }
+                                        }else{
+                                            $FDesayunos = "No es posible acceder a la programación de tus desayunos en este momento.";
+                                        }
+                                        //$FDesayunos = "00/00/0000 | 00/00/0000 | 00/00/0000 | 00/00/0000 | 00/00/0000 | 00/00/0000 | 00/00/0000 | 00/00/0000 | 00/00/0000 | 00/00/0000 | 00/00/0000 | 00/00/0000 | 00/00/0000 | 00/00/0000 | 00/00/0000 | 00/00/0000 | 00/00/0000 | 00/00/0000 | 00/00/0000 | 00/00/0000 | 00/00/0000 | 00/00/0000 | 00/00/0000 | 00/00/0000 | 00/00/0000 | 00/00/0000 | 00/00/0000 | 00/00/0000 | 00/00/0000 | 00/00/0000 | 00/00/0000 | 00/00/0000 | 00/00/0000 | 00/00/0000 | 00/00/0000 | 00/00/0000 | 00/00/0000 | 00/00/0000 | 00/00/0000 | 00/00/0000 | 00/00/0000 | 00/00/0000 | ";
+
+                                    } catch (Exception $exception) {
+                                        auditar($exception->getMessage());
+                                    }
+                                    //Escribiendo los días de DESAYUNO
+                                    $Ytop += 40;
+                                    $pdf->SetXY(30, $Ytop);
+                                    $pdf->Write(5, utf8_decode($FDesayunos));
+
+                                    auditar("Preparamos las comidas en PDF");
+                                    try {
+                                        $comidas = new Becas_programacion($this->adapter); //Preparo la conexion con el modelo en la db
+                                        $MyComidas = $comidas->execSQL("SELECT * FROM becas_programacion WHERE id_matricula='".$txt_MATRICULA."' AND tipo_alimento='C' AND estado='D' ORDER BY fecha ASC"); //busco la matricula en la db
+                                        $FComidas = "";
+                                        if(!empty($MyComidas)){ //tenemos la programación
+                                            foreach($MyComidas as $xComida){
+                                                $FComidas .= fecha_DMA($xComida->fecha)." | ";
+                                            }
+                                        }else{
+                                            $FComidas = "No es posible acceder a la programación de tus comidas en este momento.";
+                                        }
+                                        //$FComidas = "00/00/0000 | 00/00/0000 | 00/00/0000 | 00/00/0000 | 00/00/0000 | 00/00/0000 | 00/00/0000 | 00/00/0000 | 00/00/0000 | 00/00/0000 | 00/00/0000 | 00/00/0000 | 00/00/0000 | 00/00/0000 | 00/00/0000 | 00/00/0000 | 00/00/0000 | 00/00/0000 | 00/00/0000 | 00/00/0000 | 00/00/0000 | 00/00/0000 | 00/00/0000 | 00/00/0000 | 00/00/0000 | 00/00/0000 | 00/00/0000 | 00/00/0000 | 00/00/0000 | 00/00/0000 | 00/00/0000 | 00/00/0000 | 00/00/0000 | 00/00/0000 | 00/00/0000 | 00/00/0000 | 00/00/0000 | 00/00/0000 | 00/00/0000 | 00/00/0000 | 00/00/0000 | 00/00/0000 | ";
+
+                                    } catch (Exception $exception) {
+                                        auditar($exception->getMessage());
+                                    }
+
+
+                                    //Escribiendo los días de COMIDAS
+                                    $Ytop += 60;
+                                    $pdf->SetXY(30, $Ytop);
+                                    $pdf->Write(5, utf8_decode($FComidas));
+
+                                    $pdf_path = ROOT_DIR . 'docs/becados/' . strtoupper($txt_MATRICULA);
+                                    auditar("Verificamos el directorio para ".$pdf_path);
+                                    // Checking whether file exists or not
+                                    if (!file_exists($pdf_path)) {
+                                        // Create a new file or direcotry
+                                        mkdir($pdf_path, 0777, true);
+                                    }
+
+                                    $pdf->Output($pdf_path . '/'.strtoupper($txt_MATRICULA).'_calendario.pdf', 'F');
+
+                                }
+                            }
+
+                            $this->view("_header_login", null);
+                            $this->view("becas/registro_paso_03", array("PDF_file" => '/docs/becados/'.strtoupper($txt_MATRICULA).'/'.strtoupper($txt_MATRICULA).'_calendario.pdf'));
+                            $this->view("_footer_login", null);
+                        }else{
+                            $this->view("_header_login", null);
+                            $this->view("becas/registro_paso_01", array("error" => "404", "error_msg" => "Tú matricula no es correcta.<br>Debes revisar."));
+                            $this->view("_footer_login", null);
+                        }
                         break;
                     
                     case 3: //Dirección
@@ -234,6 +389,18 @@ class BecasControlador extends ControladorBase{
 
             $this->view("_header_login", null);
             $this->view("becas/registro_paso_00", null);
+            $this->view("_footer_login", null);
+
+        } catch (Exception $e) {
+            mostrar_error($e);
+        }
+    }
+    /** ****************************************************** **/
+    public function aviso_calendario(){
+        try {
+
+            $this->view("_header_login", null);
+            $this->view("becas/aviso_paso_00", null);
             $this->view("_footer_login", null);
 
         } catch (Exception $e) {

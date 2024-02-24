@@ -1,0 +1,277 @@
+
+22/02/2024 07:23:01 |  187.189.83.36  |    Administrador     |        getAll        | Becas_comedores      | SELECT * FROM becas_comedores
+22/02/2024 07:27:04 |  187.189.83.36  |    Administrador     |        getAll        | Becas_comedores      | SELECT * FROM becas_comedores
+22/02/2024 07:35:48 |  187.189.83.36  |    Administrador     |        getAll        | Becas_comedores      | SELECT * FROM becas_comedores
+22/02/2024 07:41:05 |  187.189.83.36  |    Administrador     |        getAll        | Becas_comedores      | SELECT * FROM becas_comedores
+22/02/2024 07:47:04 |  187.189.83.36  |    Administrador     |        getAll        | Becas_comedores      | SELECT * FROM becas_comedores
+22/02/2024 07:47:04 |  187.189.83.36  |    Administrador     |        getAll        | Becas_comedores      | SELECT * FROM becas_comedores
+22/02/2024 07:48:25 |  187.189.83.36  |    Administrador     |        getAll        | Becas_comedores      | SELECT * FROM becas_comedores
+22/02/2024 07:48:25 |  187.189.83.36  |    Administrador     |        getAll        | Becas_comedores      | SELECT * FROM becas_comedores
+22/02/2024 07:48:37 |  187.189.83.36  |    Administrador     |        getAll        | Becas_comedores      | SELECT * FROM becas_comedores
+22/02/2024 07:48:37 |  187.189.83.36  |    Administrador     |        getAll        | Becas_comedores      | SELECT * FROM becas_comedores
+22/02/2024 07:48:48 |  187.189.83.36  |    Administrador     |        getAll        | Becas_comedores      | SELECT * FROM becas_comedores
+22/02/2024 07:48:48 |  187.189.83.36  |    Administrador     |        getAll        | Becas_comedores      | SELECT * FROM becas_comedores
+22/02/2024 07:49:34 |  187.189.83.36  |    Administrador     |        getAll        | Becas_comedores      | SELECT * FROM becas_comedores
+22/02/2024 08:44:52 |  187.189.83.36  |    Administrador     |        getAll        | Becas_comedores      | SELECT * FROM becas_comedores
+22/02/2024 08:48:45 |  187.189.83.36  |    Administrador     |        getAll        | Becas_comedores      | SELECT * FROM becas_comedores
+22/02/2024 08:51:53 |  187.189.83.36  |    Administrador     |        getAll        | Becas_comedores      | SELECT * FROM becas_comedores
+22/02/2024 08:56:40 |  187.189.83.36  |    Administrador     |        getAll        | Becas_comedores      | SELECT * FROM becas_comedores
+22/02/2024 09:08:42 |  187.189.83.36  |    Administrador     |        getAll        | Becas_comedores      | SELECT * FROM becas_comedores
+22/02/2024 09:09:18 |  187.189.83.36  |    Administrador     |        getAll        | Becas_comedores      | SELECT * FROM becas_comedores
+22/02/2024 09:10:14 |  187.189.83.36  |    Administrador     |        getAll        | Becas_comedores      | SELECT * FROM becas_comedores
+22/02/2024 09:16:12 |  187.189.83.36  |    Administrador     |        getAll        | Becas_comedores      | SELECT * FROM becas_comedores
+22/02/2024 11:09:36 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 0
+)
+
+22/02/2024 11:10:37 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => S22028192
+    [txt_PASSW1] => BeLx1VnmA0S8
+)
+
+22/02/2024 11:10:37 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | S22028192 | BeLx1VnmA0S8
+22/02/2024 11:10:37 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='S22028192'
+22/02/2024 11:11:41 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => S22028192
+    [txt_PASSW1] => BeLx1VnMA0S8
+)
+
+22/02/2024 11:11:41 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | S22028192 | BeLx1VnMA0S8
+22/02/2024 11:11:41 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='S22028192'
+22/02/2024 11:11:41 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='5'
+22/02/2024 11:11:41 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+22/02/2024 11:11:41 |  187.189.83.36  |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
+22/02/2024 11:11:41 |  187.189.83.36  |   Usuario anonimo    |        getAll        | Becas_festivos       | SELECT * FROM becas_festivos
+22/02/2024 11:25:00 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22028192', 'D', '2024-02-26', 'D');
+22/02/2024 11:25:00 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22028192', 'C', '2024-02-28', 'D');
+22/02/2024 11:25:00 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22028192', 'C', '2024-03-01', 'D');
+22/02/2024 11:25:00 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22028192', 'D', '2024-03-04', 'D');
+22/02/2024 11:25:00 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22028192', 'C', '2024-03-06', 'D');
+22/02/2024 11:25:00 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22028192', 'C', '2024-03-08', 'D');
+22/02/2024 11:25:00 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22028192', 'D', '2024-03-11', 'D');
+22/02/2024 11:25:01 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22028192', 'C', '2024-03-13', 'D');
+22/02/2024 11:25:01 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22028192', 'C', '2024-03-15', 'D');
+22/02/2024 11:25:01 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22028192', 'C', '2024-03-20', 'D');
+22/02/2024 11:25:01 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22028192', 'C', '2024-03-22', 'D');
+22/02/2024 11:25:01 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22028192', 'D', '2024-04-01', 'D');
+22/02/2024 11:25:01 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22028192', 'C', '2024-04-03', 'D');
+22/02/2024 11:25:01 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22028192', 'C', '2024-04-05', 'D');
+22/02/2024 11:25:02 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22028192', 'D', '2024-04-08', 'D');
+22/02/2024 11:25:02 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22028192', 'C', '2024-04-10', 'D');
+22/02/2024 11:25:02 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22028192', 'C', '2024-04-12', 'D');
+22/02/2024 11:25:02 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22028192', 'D', '2024-04-15', 'D');
+22/02/2024 11:25:02 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22028192', 'C', '2024-04-17', 'D');
+22/02/2024 11:25:02 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22028192', 'C', '2024-04-19', 'D');
+22/02/2024 11:25:02 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22028192', 'D', '2024-04-22', 'D');
+22/02/2024 11:25:02 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22028192', 'C', '2024-04-24', 'D');
+22/02/2024 11:25:03 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22028192', 'C', '2024-04-26', 'D');
+22/02/2024 11:25:03 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22028192', 'D', '2024-04-29', 'D');
+22/02/2024 11:25:03 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22028192', 'C', '2024-05-03', 'D');
+22/02/2024 11:25:03 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22028192', 'D', '2024-05-06', 'D');
+22/02/2024 11:25:03 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22028192', 'C', '2024-05-08', 'D');
+22/02/2024 11:25:03 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22028192', 'D', '2024-05-13', 'D');
+22/02/2024 11:25:03 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22028192', 'C', '2024-05-17', 'D');
+22/02/2024 11:25:04 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22028192', 'D', '2024-05-20', 'D');
+22/02/2024 11:25:04 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22028192', 'C', '2024-05-22', 'D');
+22/02/2024 11:25:04 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22028192', 'C', '2024-05-24', 'D');
+22/02/2024 11:25:04 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22028192', 'D', '2024-05-27', 'D');
+22/02/2024 11:25:04 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22028192', 'C', '2024-05-29', 'D');
+22/02/2024 11:25:04 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22028192', 'C', '2024-05-31', 'D');
+22/02/2024 11:25:04 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22028192', 'D', '2024-06-03', 'D');
+22/02/2024 11:25:04 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22028192', 'D', '2024-04-10', 'D');
+22/02/2024 11:25:05 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22028192', 'D', '2024-04-24', 'D');
+22/02/2024 11:25:05 |  187.189.83.36  |   Usuario anonimo    |       updateBy       | Becas_beneficiarios  | UPDATE becas_beneficiarios SET calendarizo = 1 WHERE matricula = 'S22028192';
+22/02/2024 11:25:05 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 2
+    [txt_MATRICULA] => S22028192
+)
+
+22/02/2024 11:25:05 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='S22028192'
+22/02/2024 11:25:05 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Preparamos los desayunos en PDF
+22/02/2024 11:25:05 |  187.189.83.36  |   Usuario anonimo    |       execSQL        | Becas_programacion   | SELECT * FROM becas_programacion WHERE id_matricula='S22028192' AND tipo_alimento='D' AND estado='D' ORDER BY fecha ASC
+22/02/2024 11:25:05 |  187.189.83.36  |   Usuario anonimo    |       execSQL        | Becas_programacion   | Filas: 15
+22/02/2024 11:25:05 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Preparamos las comidas en PDF
+22/02/2024 11:25:05 |  187.189.83.36  |   Usuario anonimo    |       execSQL        | Becas_programacion   | SELECT * FROM becas_programacion WHERE id_matricula='S22028192' AND tipo_alimento='C' AND estado='D' ORDER BY fecha ASC
+22/02/2024 11:25:05 |  187.189.83.36  |   Usuario anonimo    |       execSQL        | Becas_programacion   | Filas: 23
+22/02/2024 11:25:05 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Verificamos el directorio para C:/xampp/htdocs/appEmpresasUV/docs/becados/S22028192
+22/02/2024 11:57:00 |  200.68.169.28  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 2
+    [txt_MATRICULA] => S23015352
+)
+
+22/02/2024 11:57:00 |  200.68.169.28  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='S23015352'
+22/02/2024 11:57:00 |  200.68.169.28  |   index    |      auditar      |    Libreria G     | Preparamos los desayunos en PDF
+22/02/2024 11:57:00 |  200.68.169.28  |   Usuario anonimo    |       execSQL        | Becas_programacion   | SELECT * FROM becas_programacion WHERE id_matricula='S23015352' AND tipo_alimento='D' AND estado='D' ORDER BY fecha ASC
+22/02/2024 11:57:00 |  200.68.169.28  |   Usuario anonimo    |       execSQL        | Becas_programacion   | Filas: 36
+22/02/2024 11:57:00 |  200.68.169.28  |   index    |      auditar      |    Libreria G     | Preparamos las comidas en PDF
+22/02/2024 11:57:00 |  200.68.169.28  |   Usuario anonimo    |       execSQL        | Becas_programacion   | SELECT * FROM becas_programacion WHERE id_matricula='S23015352' AND tipo_alimento='C' AND estado='D' ORDER BY fecha ASC
+22/02/2024 11:57:00 |  200.68.169.28  |   Usuario anonimo    |       execSQL        | Becas_programacion   | Filas: 26
+22/02/2024 11:57:00 |  200.68.169.28  |   index    |      auditar      |    Libreria G     | Verificamos el directorio para C:/xampp/htdocs/appEmpresasUV/docs/becados/S23015352
+22/02/2024 13:41:47 | 200.68.169.155  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 2
+    [txt_MATRICULA] => S23015352
+)
+
+22/02/2024 13:41:47 | 200.68.169.155  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='S23015352'
+22/02/2024 13:41:47 | 200.68.169.155  |   index    |      auditar      |    Libreria G     | Preparamos los desayunos en PDF
+22/02/2024 13:41:47 | 200.68.169.155  |   Usuario anonimo    |       execSQL        | Becas_programacion   | SELECT * FROM becas_programacion WHERE id_matricula='S23015352' AND tipo_alimento='D' AND estado='D' ORDER BY fecha ASC
+22/02/2024 13:41:47 | 200.68.169.155  |   Usuario anonimo    |       execSQL        | Becas_programacion   | Filas: 36
+22/02/2024 13:41:47 | 200.68.169.155  |   index    |      auditar      |    Libreria G     | Preparamos las comidas en PDF
+22/02/2024 13:41:47 | 200.68.169.155  |   Usuario anonimo    |       execSQL        | Becas_programacion   | SELECT * FROM becas_programacion WHERE id_matricula='S23015352' AND tipo_alimento='C' AND estado='D' ORDER BY fecha ASC
+22/02/2024 13:41:47 | 200.68.169.155  |   Usuario anonimo    |       execSQL        | Becas_programacion   | Filas: 26
+22/02/2024 13:41:47 | 200.68.169.155  |   index    |      auditar      |    Libreria G     | Verificamos el directorio para C:/xampp/htdocs/appEmpresasUV/docs/becados/S23015352
+22/02/2024 13:42:41 |  200.68.169.28  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 2
+    [txt_MATRICULA] => S23015352
+)
+
+22/02/2024 13:42:41 |  200.68.169.28  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='S23015352'
+22/02/2024 13:42:41 |  200.68.169.28  |   index    |      auditar      |    Libreria G     | Preparamos los desayunos en PDF
+22/02/2024 13:42:41 |  200.68.169.28  |   Usuario anonimo    |       execSQL        | Becas_programacion   | SELECT * FROM becas_programacion WHERE id_matricula='S23015352' AND tipo_alimento='D' AND estado='D' ORDER BY fecha ASC
+22/02/2024 13:42:41 |  200.68.169.28  |   Usuario anonimo    |       execSQL        | Becas_programacion   | Filas: 36
+22/02/2024 13:42:41 |  200.68.169.28  |   index    |      auditar      |    Libreria G     | Preparamos las comidas en PDF
+22/02/2024 13:42:41 |  200.68.169.28  |   Usuario anonimo    |       execSQL        | Becas_programacion   | SELECT * FROM becas_programacion WHERE id_matricula='S23015352' AND tipo_alimento='C' AND estado='D' ORDER BY fecha ASC
+22/02/2024 13:42:41 |  200.68.169.28  |   Usuario anonimo    |       execSQL        | Becas_programacion   | Filas: 26
+22/02/2024 13:42:41 |  200.68.169.28  |   index    |      auditar      |    Libreria G     | Verificamos el directorio para C:/xampp/htdocs/appEmpresasUV/docs/becados/S23015352
+22/02/2024 13:43:27 |  201.108.3.57   |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 0
+)
+
+22/02/2024 14:14:17 | 187.189.216.183 |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 0
+)
+
+22/02/2024 14:14:49 | 187.189.216.183 |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => S22013251
+    [txt_PASSW1] => MOCC040101
+)
+
+22/02/2024 14:14:49 | 187.189.216.183 |   index    |      auditar      |    Libreria G     | S22013251 | MOCC040101
+22/02/2024 14:14:49 | 187.189.216.183 |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='S22013251'
+22/02/2024 14:15:06 | 187.189.216.183 |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => zS22013251
+    [txt_PASSW1] => MOCC040101
+)
+
+22/02/2024 14:15:06 | 187.189.216.183 |   index    |      auditar      |    Libreria G     | zS22013251 | MOCC040101
+22/02/2024 14:15:06 | 187.189.216.183 |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='zS22013251'
+22/02/2024 14:15:19 | 187.189.216.183 |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => S22013251
+    [txt_PASSW1] => MOCC040101
+)
+
+22/02/2024 14:15:19 | 187.189.216.183 |   index    |      auditar      |    Libreria G     | S22013251 | MOCC040101
+22/02/2024 14:15:19 | 187.189.216.183 |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='S22013251'
+22/02/2024 14:15:46 | 187.189.216.183 |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => S22013251
+    [txt_PASSW1] => Carlosedu1
+)
+
+22/02/2024 14:15:46 | 187.189.216.183 |   index    |      auditar      |    Libreria G     | S22013251 | Carlosedu1
+22/02/2024 14:15:46 | 187.189.216.183 |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='S22013251'
+22/02/2024 14:15:59 | 187.189.216.183 |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => S22013251
+    [txt_PASSW1] => MOCC040101
+)
+
+22/02/2024 14:15:59 | 187.189.216.183 |   index    |      auditar      |    Libreria G     | S22013251 | MOCC040101
+22/02/2024 14:15:59 | 187.189.216.183 |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='S22013251'
+22/02/2024 14:16:06 | 187.189.216.183 |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => S22013251
+    [txt_PASSW1] => MOCC040101
+)
+
+22/02/2024 14:16:06 | 187.189.216.183 |   index    |      auditar      |    Libreria G     | S22013251 | MOCC040101
+22/02/2024 14:16:06 | 187.189.216.183 |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='S22013251'
+22/02/2024 14:16:22 | 187.189.216.183 |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => S22013251
+    [txt_PASSW1] => MOCC040101
+)
+
+22/02/2024 14:16:22 | 187.189.216.183 |   index    |      auditar      |    Libreria G     | S22013251 | MOCC040101
+22/02/2024 14:16:22 | 187.189.216.183 |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='S22013251'
+22/02/2024 14:17:59 | 187.189.216.183 |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 0
+)
+
+22/02/2024 14:18:46 | 187.189.216.183 |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => S23015352
+    [txt_PASSW1] => C7ABtibgaT8y
+)
+
+22/02/2024 14:18:46 | 187.189.216.183 |   index    |      auditar      |    Libreria G     | S23015352 | C7ABtibgaT8y
+22/02/2024 14:18:46 | 187.189.216.183 |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='S23015352'
+22/02/2024 14:18:54 | 187.189.216.183 |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => S23015352
+    [txt_PASSW1] => C7ABtibgaT8y
+)
+
+22/02/2024 14:18:54 | 187.189.216.183 |   index    |      auditar      |    Libreria G     | S23015352 | C7ABtibgaT8y
+22/02/2024 14:18:54 | 187.189.216.183 |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='S23015352'
+22/02/2024 14:19:59 | 187.189.216.183 |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => S23015352
+    [txt_PASSW1] => C7ABtibgaT8y
+)
+
+22/02/2024 14:19:59 | 187.189.216.183 |   index    |      auditar      |    Libreria G     | S23015352 | C7ABtibgaT8y
+22/02/2024 14:19:59 | 187.189.216.183 |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='S23015352'
+22/02/2024 14:20:57 | 187.189.216.183 |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => S23015352
+    [txt_PASSW1] => C7ABtibgaT8y
+)
+
+22/02/2024 14:20:57 | 187.189.216.183 |   index    |      auditar      |    Libreria G     | S23015352 | C7ABtibgaT8y
+22/02/2024 14:20:57 | 187.189.216.183 |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='S23015352'
+22/02/2024 14:24:22 | 187.189.216.183 |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 0
+)
+
+22/02/2024 20:45:56 | 187.190.223.88  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 2
+    [txt_MATRICULA] => S23015352
+)
+
+22/02/2024 20:45:57 | 187.190.223.88  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='S23015352'
+22/02/2024 20:45:59 | 187.190.223.88  |   index    |      auditar      |    Libreria G     | Preparamos los desayunos en PDF
+22/02/2024 20:45:59 | 187.190.223.88  |   Usuario anonimo    |       execSQL        | Becas_programacion   | SELECT * FROM becas_programacion WHERE id_matricula='S23015352' AND tipo_alimento='D' AND estado='D' ORDER BY fecha ASC
+22/02/2024 20:45:59 | 187.190.223.88  |   Usuario anonimo    |       execSQL        | Becas_programacion   | Filas: 36
+22/02/2024 20:45:59 | 187.190.223.88  |   index    |      auditar      |    Libreria G     | Preparamos las comidas en PDF
+22/02/2024 20:45:59 | 187.190.223.88  |   Usuario anonimo    |       execSQL        | Becas_programacion   | SELECT * FROM becas_programacion WHERE id_matricula='S23015352' AND tipo_alimento='C' AND estado='D' ORDER BY fecha ASC
+22/02/2024 20:45:59 | 187.190.223.88  |   Usuario anonimo    |       execSQL        | Becas_programacion   | Filas: 26
+22/02/2024 20:45:59 | 187.190.223.88  |   index    |      auditar      |    Libreria G     | Verificamos el directorio para C:/xampp/htdocs/appEmpresasUV/docs/becados/S23015352

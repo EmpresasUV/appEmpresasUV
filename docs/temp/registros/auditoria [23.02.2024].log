@@ -1,0 +1,586 @@
+
+23/02/2024 09:09:24 | 187.188.227.238 |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 0
+)
+
+23/02/2024 09:10:14 | 187.188.227.238 |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => S22016376
+    [txt_PASSW1] => 5LHn3cFlZPTe
+)
+
+23/02/2024 09:10:14 | 187.188.227.238 |   index    |      auditar      |    Libreria G     | S22016376 | 5LHn3cFlZPTe
+23/02/2024 09:10:14 | 187.188.227.238 |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='S22016376'
+23/02/2024 09:10:14 | 187.188.227.238 |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='1'
+23/02/2024 09:10:14 | 187.188.227.238 |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+23/02/2024 09:10:14 | 187.188.227.238 |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
+23/02/2024 09:10:14 | 187.188.227.238 |   Usuario anonimo    |        getAll        | Becas_festivos       | SELECT * FROM becas_festivos
+23/02/2024 09:18:22 | 187.188.227.238 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22016376', 'C', '2024-02-27', 'D');
+23/02/2024 09:18:22 | 187.188.227.238 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22016376', 'C', '2024-02-28', 'D');
+23/02/2024 09:18:22 | 187.188.227.238 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22016376', 'C', '2024-02-29', 'D');
+23/02/2024 09:18:23 | 187.188.227.238 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22016376', 'C', '2024-02-26', 'D');
+23/02/2024 09:18:23 | 187.188.227.238 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22016376', 'C', '2024-03-04', 'D');
+23/02/2024 09:18:23 | 187.188.227.238 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22016376', 'C', '2024-03-06', 'D');
+23/02/2024 09:18:23 | 187.188.227.238 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22016376', 'C', '2024-03-05', 'D');
+23/02/2024 09:18:23 | 187.188.227.238 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22016376', 'C', '2024-03-07', 'D');
+23/02/2024 09:18:23 | 187.188.227.238 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22016376', 'C', '2024-03-08', 'D');
+23/02/2024 09:18:23 | 187.188.227.238 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22016376', 'C', '2024-03-01', 'D');
+23/02/2024 09:18:24 | 187.188.227.238 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22016376', 'C', '2024-03-11', 'D');
+23/02/2024 09:18:24 | 187.188.227.238 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22016376', 'C', '2024-03-12', 'D');
+23/02/2024 09:18:24 | 187.188.227.238 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22016376', 'C', '2024-03-13', 'D');
+23/02/2024 09:18:24 | 187.188.227.238 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22016376', 'C', '2024-03-14', 'D');
+23/02/2024 09:18:24 | 187.188.227.238 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22016376', 'C', '2024-03-15', 'D');
+23/02/2024 09:18:24 | 187.188.227.238 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22016376', 'C', '2024-03-19', 'D');
+23/02/2024 09:18:25 | 187.188.227.238 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22016376', 'C', '2024-03-20', 'D');
+23/02/2024 09:18:25 | 187.188.227.238 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22016376', 'C', '2024-03-21', 'D');
+23/02/2024 09:18:25 | 187.188.227.238 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22016376', 'C', '2024-03-22', 'D');
+23/02/2024 09:18:25 | 187.188.227.238 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22016376', 'C', '2024-04-01', 'D');
+23/02/2024 09:18:25 | 187.188.227.238 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22016376', 'C', '2024-04-02', 'D');
+23/02/2024 09:18:26 | 187.188.227.238 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22016376', 'C', '2024-04-03', 'D');
+23/02/2024 09:18:26 | 187.188.227.238 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22016376', 'C', '2024-04-04', 'D');
+23/02/2024 09:18:26 | 187.188.227.238 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22016376', 'C', '2024-04-05', 'D');
+23/02/2024 09:18:26 | 187.188.227.238 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22016376', 'C', '2024-04-08', 'D');
+23/02/2024 09:18:26 | 187.188.227.238 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22016376', 'C', '2024-04-09', 'D');
+23/02/2024 09:18:26 | 187.188.227.238 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22016376', 'C', '2024-04-10', 'D');
+23/02/2024 09:18:26 | 187.188.227.238 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22016376', 'C', '2024-04-11', 'D');
+23/02/2024 09:18:27 | 187.188.227.238 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22016376', 'C', '2024-04-12', 'D');
+23/02/2024 09:18:27 | 187.188.227.238 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22016376', 'C', '2024-04-15', 'D');
+23/02/2024 09:18:27 | 187.188.227.238 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22016376', 'C', '2024-04-17', 'D');
+23/02/2024 09:18:27 | 187.188.227.238 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22016376', 'C', '2024-04-16', 'D');
+23/02/2024 09:18:27 | 187.188.227.238 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22016376', 'C', '2024-04-18', 'D');
+23/02/2024 09:18:27 | 187.188.227.238 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22016376', 'C', '2024-04-19', 'D');
+23/02/2024 09:18:28 | 187.188.227.238 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22016376', 'C', '2024-04-22', 'D');
+23/02/2024 09:18:28 | 187.188.227.238 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22016376', 'C', '2024-04-23', 'D');
+23/02/2024 09:18:28 | 187.188.227.238 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22016376', 'C', '2024-04-24', 'D');
+23/02/2024 09:18:29 | 187.188.227.238 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22016376', 'C', '2024-04-25', 'D');
+23/02/2024 09:18:29 | 187.188.227.238 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22016376', 'C', '2024-04-26', 'D');
+23/02/2024 09:18:29 | 187.188.227.238 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22016376', 'C', '2024-04-29', 'D');
+23/02/2024 09:18:29 | 187.188.227.238 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22016376', 'C', '2024-04-30', 'D');
+23/02/2024 09:18:29 | 187.188.227.238 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22016376', 'C', '2024-05-02', 'D');
+23/02/2024 09:18:29 | 187.188.227.238 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22016376', 'C', '2024-05-03', 'D');
+23/02/2024 09:18:29 | 187.188.227.238 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22016376', 'C', '2024-05-06', 'D');
+23/02/2024 09:18:30 | 187.188.227.238 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22016376', 'C', '2024-05-07', 'D');
+23/02/2024 09:18:30 | 187.188.227.238 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22016376', 'C', '2024-05-08', 'D');
+23/02/2024 09:18:30 | 187.188.227.238 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22016376', 'C', '2024-05-09', 'D');
+23/02/2024 09:18:30 | 187.188.227.238 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22016376', 'C', '2024-05-13', 'D');
+23/02/2024 09:18:30 | 187.188.227.238 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22016376', 'C', '2024-05-14', 'D');
+23/02/2024 09:18:30 | 187.188.227.238 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22016376', 'C', '2024-05-16', 'D');
+23/02/2024 09:18:30 | 187.188.227.238 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22016376', 'C', '2024-05-17', 'D');
+23/02/2024 09:18:31 | 187.188.227.238 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22016376', 'C', '2024-05-20', 'D');
+23/02/2024 09:18:31 | 187.188.227.238 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22016376', 'C', '2024-05-21', 'D');
+23/02/2024 09:18:31 | 187.188.227.238 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22016376', 'C', '2024-05-22', 'D');
+23/02/2024 09:18:31 | 187.188.227.238 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22016376', 'C', '2024-05-23', 'D');
+23/02/2024 09:18:31 | 187.188.227.238 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22016376', 'C', '2024-05-24', 'D');
+23/02/2024 09:18:31 | 187.188.227.238 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22016376', 'C', '2024-05-27', 'D');
+23/02/2024 09:18:32 | 187.188.227.238 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22016376', 'C', '2024-05-28', 'D');
+23/02/2024 09:18:32 | 187.188.227.238 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22016376', 'C', '2024-05-29', 'D');
+23/02/2024 09:18:32 | 187.188.227.238 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22016376', 'C', '2024-05-30', 'D');
+23/02/2024 09:18:32 | 187.188.227.238 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22016376', 'C', '2024-05-31', 'D');
+23/02/2024 09:18:32 | 187.188.227.238 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22016376', 'C', '2024-06-03', 'D');
+23/02/2024 09:18:32 | 187.188.227.238 |   Usuario anonimo    |       updateBy       | Becas_beneficiarios  | UPDATE becas_beneficiarios SET calendarizo = 1 WHERE matricula = 'S22016376';
+23/02/2024 09:18:33 | 187.188.227.238 |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 2
+    [txt_MATRICULA] => S22016376
+)
+
+23/02/2024 09:18:33 | 187.188.227.238 |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='S22016376'
+23/02/2024 09:18:34 | 187.188.227.238 |   index    |      auditar      |    Libreria G     | Preparamos los desayunos en PDF
+23/02/2024 09:18:34 | 187.188.227.238 |   Usuario anonimo    |       execSQL        | Becas_programacion   | SELECT * FROM becas_programacion WHERE id_matricula='S22016376' AND tipo_alimento='D' AND estado='D' ORDER BY fecha ASC
+23/02/2024 09:18:34 | 187.188.227.238 |   Usuario anonimo    |       execSQL        | Becas_programacion   | Filas: 0
+23/02/2024 09:18:34 | 187.188.227.238 |   index    |      auditar      |    Libreria G     | Preparamos las comidas en PDF
+23/02/2024 09:18:34 | 187.188.227.238 |   Usuario anonimo    |       execSQL        | Becas_programacion   | SELECT * FROM becas_programacion WHERE id_matricula='S22016376' AND tipo_alimento='C' AND estado='D' ORDER BY fecha ASC
+23/02/2024 09:18:34 | 187.188.227.238 |   Usuario anonimo    |       execSQL        | Becas_programacion   | Filas: 62
+23/02/2024 09:18:34 | 187.188.227.238 |   index    |      auditar      |    Libreria G     | Verificamos el directorio para C:/xampp/htdocs/appEmpresasUV/docs/becados/S22016376
+23/02/2024 09:21:42 | 187.188.227.238 |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 0
+)
+
+23/02/2024 09:22:30 | 187.188.227.238 |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => S22016376
+    [txt_PASSW1] => 5LHn3cFlZPTe
+)
+
+23/02/2024 09:22:30 | 187.188.227.238 |   index    |      auditar      |    Libreria G     | S22016376 | 5LHn3cFlZPTe
+23/02/2024 09:22:30 | 187.188.227.238 |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='S22016376'
+23/02/2024 10:22:05 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 0
+)
+
+23/02/2024 10:22:53 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => S19013688
+    [txt_PASSW1] => ArBbxaq21KIV
+)
+
+23/02/2024 10:22:53 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | S19013688 | ArBbxaq21KIV
+23/02/2024 10:22:53 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='S19013688'
+23/02/2024 10:22:53 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='1'
+23/02/2024 10:22:53 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+23/02/2024 10:22:53 |  187.189.83.36  |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
+23/02/2024 10:22:53 |  187.189.83.36  |   Usuario anonimo    |        getAll        | Becas_festivos       | SELECT * FROM becas_festivos
+23/02/2024 10:25:41 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S19013688', 'D', '2024-02-26', 'D');
+23/02/2024 10:25:41 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S19013688', 'D', '2024-02-27', 'D');
+23/02/2024 10:25:41 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S19013688', 'D', '2024-02-28', 'D');
+23/02/2024 10:25:41 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S19013688', 'D', '2024-02-29', 'D');
+23/02/2024 10:25:41 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S19013688', 'D', '2024-03-01', 'D');
+23/02/2024 10:25:41 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S19013688', 'D', '2024-03-04', 'D');
+23/02/2024 10:25:41 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S19013688', 'D', '2024-03-05', 'D');
+23/02/2024 10:25:41 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S19013688', 'D', '2024-03-06', 'D');
+23/02/2024 10:25:41 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S19013688', 'D', '2024-03-07', 'D');
+23/02/2024 10:25:41 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S19013688', 'D', '2024-03-08', 'D');
+23/02/2024 10:25:41 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S19013688', 'D', '2024-03-11', 'D');
+23/02/2024 10:25:42 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S19013688', 'D', '2024-03-12', 'D');
+23/02/2024 10:25:42 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S19013688', 'D', '2024-03-13', 'D');
+23/02/2024 10:25:42 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S19013688', 'D', '2024-03-14', 'D');
+23/02/2024 10:25:42 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S19013688', 'D', '2024-03-15', 'D');
+23/02/2024 10:25:42 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S19013688', 'D', '2024-03-19', 'D');
+23/02/2024 10:25:42 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S19013688', 'D', '2024-03-20', 'D');
+23/02/2024 10:25:42 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S19013688', 'D', '2024-03-21', 'D');
+23/02/2024 10:25:42 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S19013688', 'D', '2024-03-22', 'D');
+23/02/2024 10:25:42 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S19013688', 'D', '2024-04-01', 'D');
+23/02/2024 10:25:42 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S19013688', 'D', '2024-04-02', 'D');
+23/02/2024 10:25:43 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S19013688', 'D', '2024-04-03', 'D');
+23/02/2024 10:25:43 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S19013688', 'D', '2024-04-04', 'D');
+23/02/2024 10:25:43 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S19013688', 'D', '2024-04-05', 'D');
+23/02/2024 10:25:43 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S19013688', 'D', '2024-04-08', 'D');
+23/02/2024 10:25:43 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S19013688', 'D', '2024-04-09', 'D');
+23/02/2024 10:25:43 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S19013688', 'D', '2024-04-10', 'D');
+23/02/2024 10:25:43 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S19013688', 'D', '2024-04-11', 'D');
+23/02/2024 10:25:43 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S19013688', 'D', '2024-04-12', 'D');
+23/02/2024 10:25:43 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S19013688', 'D', '2024-04-15', 'D');
+23/02/2024 10:25:43 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S19013688', 'D', '2024-04-16', 'D');
+23/02/2024 10:25:44 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S19013688', 'D', '2024-04-17', 'D');
+23/02/2024 10:25:44 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S19013688', 'D', '2024-04-18', 'D');
+23/02/2024 10:25:44 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S19013688', 'D', '2024-04-19', 'D');
+23/02/2024 10:25:44 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S19013688', 'D', '2024-04-22', 'D');
+23/02/2024 10:25:44 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S19013688', 'D', '2024-04-23', 'D');
+23/02/2024 10:25:44 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S19013688', 'D', '2024-04-24', 'D');
+23/02/2024 10:25:44 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S19013688', 'D', '2024-04-25', 'D');
+23/02/2024 10:25:44 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S19013688', 'D', '2024-04-26', 'D');
+23/02/2024 10:25:44 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S19013688', 'D', '2024-04-29', 'D');
+23/02/2024 10:25:45 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S19013688', 'D', '2024-04-30', 'D');
+23/02/2024 10:25:45 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S19013688', 'D', '2024-05-02', 'D');
+23/02/2024 10:25:45 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S19013688', 'D', '2024-05-03', 'D');
+23/02/2024 10:25:45 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S19013688', 'D', '2024-05-06', 'D');
+23/02/2024 10:25:45 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S19013688', 'D', '2024-05-07', 'D');
+23/02/2024 10:25:45 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S19013688', 'D', '2024-05-08', 'D');
+23/02/2024 10:25:45 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S19013688', 'D', '2024-05-09', 'D');
+23/02/2024 10:25:45 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S19013688', 'D', '2024-05-13', 'D');
+23/02/2024 10:25:45 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S19013688', 'D', '2024-05-14', 'D');
+23/02/2024 10:25:45 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S19013688', 'D', '2024-05-16', 'D');
+23/02/2024 10:25:46 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S19013688', 'D', '2024-05-17', 'D');
+23/02/2024 10:25:46 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S19013688', 'D', '2024-05-20', 'D');
+23/02/2024 10:25:46 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S19013688', 'D', '2024-05-21', 'D');
+23/02/2024 10:25:46 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S19013688', 'D', '2024-05-22', 'D');
+23/02/2024 10:25:46 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S19013688', 'D', '2024-05-23', 'D');
+23/02/2024 10:25:46 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S19013688', 'D', '2024-05-24', 'D');
+23/02/2024 10:25:46 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S19013688', 'D', '2024-05-27', 'D');
+23/02/2024 10:25:46 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S19013688', 'D', '2024-05-28', 'D');
+23/02/2024 10:25:46 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S19013688', 'D', '2024-05-29', 'D');
+23/02/2024 10:25:46 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S19013688', 'D', '2024-05-30', 'D');
+23/02/2024 10:25:47 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S19013688', 'D', '2024-05-31', 'D');
+23/02/2024 10:25:47 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S19013688', 'D', '2024-06-03', 'D');
+23/02/2024 10:25:47 |  187.189.83.36  |   Usuario anonimo    |       updateBy       | Becas_beneficiarios  | UPDATE becas_beneficiarios SET calendarizo = 1 WHERE matricula = 'S19013688';
+23/02/2024 10:25:47 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 2
+    [txt_MATRICULA] => S19013688
+)
+
+23/02/2024 10:25:47 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='S19013688'
+23/02/2024 10:25:47 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Preparamos los desayunos en PDF
+23/02/2024 10:25:47 |  187.189.83.36  |   Usuario anonimo    |       execSQL        | Becas_programacion   | SELECT * FROM becas_programacion WHERE id_matricula='S19013688' AND tipo_alimento='D' AND estado='D' ORDER BY fecha ASC
+23/02/2024 10:25:47 |  187.189.83.36  |   Usuario anonimo    |       execSQL        | Becas_programacion   | Filas: 62
+23/02/2024 10:25:47 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Preparamos las comidas en PDF
+23/02/2024 10:25:47 |  187.189.83.36  |   Usuario anonimo    |       execSQL        | Becas_programacion   | SELECT * FROM becas_programacion WHERE id_matricula='S19013688' AND tipo_alimento='C' AND estado='D' ORDER BY fecha ASC
+23/02/2024 10:25:47 |  187.189.83.36  |   Usuario anonimo    |       execSQL        | Becas_programacion   | Filas: 0
+23/02/2024 10:25:47 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Verificamos el directorio para C:/xampp/htdocs/appEmpresasUV/docs/becados/S19013688
+23/02/2024 10:37:06 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 0
+)
+
+23/02/2024 10:37:51 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => S23013750
+    [txt_PASSW1] => FLafo4PRHUIS
+)
+
+23/02/2024 10:37:51 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | S23013750 | FLafo4PRHUIS
+23/02/2024 10:37:51 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='S23013750'
+23/02/2024 10:38:50 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => S23013750
+    [txt_PASSW1] => FLafo4PRHUIS
+)
+
+23/02/2024 10:38:50 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | S23013750 | FLafo4PRHUIS
+23/02/2024 10:38:50 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='S23013750'
+23/02/2024 10:39:34 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => S23013750
+    [txt_PASSW1] => FLafo4PRHUlS
+)
+
+23/02/2024 10:39:34 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | S23013750 | FLafo4PRHUlS
+23/02/2024 10:39:34 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='S23013750'
+23/02/2024 10:39:34 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='1'
+23/02/2024 10:39:34 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+23/02/2024 10:39:34 |  187.189.83.36  |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
+23/02/2024 10:39:34 |  187.189.83.36  |   Usuario anonimo    |        getAll        | Becas_festivos       | SELECT * FROM becas_festivos
+23/02/2024 10:43:51 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23013750', 'D', '2024-02-26', 'D');
+23/02/2024 10:43:51 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23013750', 'D', '2024-02-27', 'D');
+23/02/2024 10:43:51 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23013750', 'D', '2024-02-28', 'D');
+23/02/2024 10:43:51 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23013750', 'D', '2024-02-29', 'D');
+23/02/2024 10:43:51 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23013750', 'D', '2024-03-04', 'D');
+23/02/2024 10:43:51 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23013750', 'D', '2024-03-05', 'D');
+23/02/2024 10:43:51 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23013750', 'D', '2024-03-06', 'D');
+23/02/2024 10:43:51 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23013750', 'D', '2024-03-07', 'D');
+23/02/2024 10:43:52 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23013750', 'C', '2024-03-08', 'D');
+23/02/2024 10:43:52 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23013750', 'D', '2024-03-11', 'D');
+23/02/2024 10:43:52 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23013750', 'D', '2024-03-12', 'D');
+23/02/2024 10:43:52 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23013750', 'D', '2024-03-13', 'D');
+23/02/2024 10:43:52 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23013750', 'D', '2024-03-14', 'D');
+23/02/2024 10:43:52 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23013750', 'C', '2024-03-15', 'D');
+23/02/2024 10:43:52 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23013750', 'D', '2024-03-19', 'D');
+23/02/2024 10:43:52 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23013750', 'D', '2024-03-20', 'D');
+23/02/2024 10:43:52 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23013750', 'D', '2024-03-21', 'D');
+23/02/2024 10:43:52 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23013750', 'C', '2024-03-22', 'D');
+23/02/2024 10:43:53 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23013750', 'C', '2024-03-01', 'D');
+23/02/2024 10:43:53 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23013750', 'D', '2024-04-01', 'D');
+23/02/2024 10:43:53 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23013750', 'D', '2024-04-02', 'D');
+23/02/2024 10:43:53 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23013750', 'D', '2024-04-03', 'D');
+23/02/2024 10:43:53 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23013750', 'D', '2024-04-04', 'D');
+23/02/2024 10:43:53 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23013750', 'C', '2024-04-05', 'D');
+23/02/2024 10:43:53 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23013750', 'D', '2024-04-08', 'D');
+23/02/2024 10:43:53 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23013750', 'D', '2024-04-09', 'D');
+23/02/2024 10:43:53 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23013750', 'D', '2024-04-10', 'D');
+23/02/2024 10:43:53 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23013750', 'D', '2024-04-11', 'D');
+23/02/2024 10:43:54 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23013750', 'C', '2024-04-12', 'D');
+23/02/2024 10:43:54 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23013750', 'D', '2024-04-15', 'D');
+23/02/2024 10:43:54 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23013750', 'D', '2024-04-16', 'D');
+23/02/2024 10:43:54 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23013750', 'D', '2024-04-17', 'D');
+23/02/2024 10:43:54 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23013750', 'D', '2024-04-18', 'D');
+23/02/2024 10:43:54 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23013750', 'C', '2024-04-19', 'D');
+23/02/2024 10:43:54 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23013750', 'D', '2024-04-22', 'D');
+23/02/2024 10:43:54 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23013750', 'D', '2024-04-23', 'D');
+23/02/2024 10:43:54 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23013750', 'D', '2024-04-24', 'D');
+23/02/2024 10:43:54 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23013750', 'D', '2024-04-25', 'D');
+23/02/2024 10:43:55 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23013750', 'C', '2024-04-26', 'D');
+23/02/2024 10:43:55 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23013750', 'D', '2024-04-29', 'D');
+23/02/2024 10:43:55 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23013750', 'D', '2024-04-30', 'D');
+23/02/2024 10:43:55 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23013750', 'D', '2024-05-02', 'D');
+23/02/2024 10:43:55 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23013750', 'C', '2024-05-03', 'D');
+23/02/2024 10:43:55 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23013750', 'D', '2024-05-06', 'D');
+23/02/2024 10:43:55 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23013750', 'D', '2024-05-07', 'D');
+23/02/2024 10:43:55 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23013750', 'D', '2024-05-08', 'D');
+23/02/2024 10:43:55 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23013750', 'D', '2024-05-09', 'D');
+23/02/2024 10:43:55 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23013750', 'D', '2024-05-13', 'D');
+23/02/2024 10:43:56 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23013750', 'D', '2024-05-14', 'D');
+23/02/2024 10:43:56 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23013750', 'D', '2024-05-16', 'D');
+23/02/2024 10:43:56 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23013750', 'C', '2024-05-17', 'D');
+23/02/2024 10:43:56 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23013750', 'D', '2024-05-20', 'D');
+23/02/2024 10:43:56 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23013750', 'D', '2024-05-21', 'D');
+23/02/2024 10:43:56 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23013750', 'D', '2024-05-22', 'D');
+23/02/2024 10:43:56 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23013750', 'D', '2024-05-23', 'D');
+23/02/2024 10:43:56 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23013750', 'C', '2024-05-24', 'D');
+23/02/2024 10:43:56 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23013750', 'D', '2024-05-27', 'D');
+23/02/2024 10:43:56 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23013750', 'D', '2024-05-28', 'D');
+23/02/2024 10:43:56 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23013750', 'D', '2024-05-29', 'D');
+23/02/2024 10:43:57 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23013750', 'D', '2024-05-30', 'D');
+23/02/2024 10:43:57 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23013750', 'C', '2024-05-31', 'D');
+23/02/2024 10:43:57 |  187.189.83.36  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23013750', 'D', '2024-06-03', 'D');
+23/02/2024 10:43:57 |  187.189.83.36  |   Usuario anonimo    |       updateBy       | Becas_beneficiarios  | UPDATE becas_beneficiarios SET calendarizo = 1 WHERE matricula = 'S23013750';
+23/02/2024 10:43:57 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 2
+    [txt_MATRICULA] => S23013750
+)
+
+23/02/2024 10:43:57 |  187.189.83.36  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='S23013750'
+23/02/2024 10:43:57 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Preparamos los desayunos en PDF
+23/02/2024 10:43:57 |  187.189.83.36  |   Usuario anonimo    |       execSQL        | Becas_programacion   | SELECT * FROM becas_programacion WHERE id_matricula='S23013750' AND tipo_alimento='D' AND estado='D' ORDER BY fecha ASC
+23/02/2024 10:43:57 |  187.189.83.36  |   Usuario anonimo    |       execSQL        | Becas_programacion   | Filas: 50
+23/02/2024 10:43:57 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Preparamos las comidas en PDF
+23/02/2024 10:43:57 |  187.189.83.36  |   Usuario anonimo    |       execSQL        | Becas_programacion   | SELECT * FROM becas_programacion WHERE id_matricula='S23013750' AND tipo_alimento='C' AND estado='D' ORDER BY fecha ASC
+23/02/2024 10:43:57 |  187.189.83.36  |   Usuario anonimo    |       execSQL        | Becas_programacion   | Filas: 12
+23/02/2024 10:43:57 |  187.189.83.36  |   index    |      auditar      |    Libreria G     | Verificamos el directorio para C:/xampp/htdocs/appEmpresasUV/docs/becados/S23013750
+23/02/2024 11:06:55 | 189.203.85.158  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 0
+)
+
+23/02/2024 11:07:16 | 189.203.85.158  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => S23014722
+    [txt_PASSW1] => lincestae10
+)
+
+23/02/2024 11:07:16 | 189.203.85.158  |   index    |      auditar      |    Libreria G     | S23014722 | lincestae10
+23/02/2024 11:07:16 | 189.203.85.158  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='S23014722'
+23/02/2024 11:07:18 |  189.199.71.5   |   index    |      auditar      |    Libreria G     | Array
+(
+)
+
+23/02/2024 11:07:43 | 189.203.85.158  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => S23014722
+    [txt_PASSW1] => Lincestae10
+)
+
+23/02/2024 11:07:43 | 189.203.85.158  |   index    |      auditar      |    Libreria G     | S23014722 | Lincestae10
+23/02/2024 11:07:43 | 189.203.85.158  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='S23014722'
+23/02/2024 11:08:03 | 189.203.85.158  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => S23014722
+    [txt_PASSW1] => Lincestae10
+)
+
+23/02/2024 11:08:03 | 189.203.85.158  |   index    |      auditar      |    Libreria G     | S23014722 | Lincestae10
+23/02/2024 11:08:03 | 189.203.85.158  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='S23014722'
+23/02/2024 11:08:19 | 189.203.85.158  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 0
+)
+
+23/02/2024 11:08:30 | 189.203.85.158  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => S23014722
+    [txt_PASSW1] => IKzwkqS3JYfn
+)
+
+23/02/2024 11:08:30 | 189.203.85.158  |   index    |      auditar      |    Libreria G     | S23014722 | IKzwkqS3JYfn
+23/02/2024 11:08:30 | 189.203.85.158  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='S23014722'
+23/02/2024 11:08:30 | 189.203.85.158  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='1'
+23/02/2024 11:08:30 | 189.203.85.158  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+23/02/2024 11:08:30 | 189.203.85.158  |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
+23/02/2024 11:08:30 | 189.203.85.158  |   Usuario anonimo    |        getAll        | Becas_festivos       | SELECT * FROM becas_festivos
+23/02/2024 11:12:03 | 189.203.85.158  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => S23014722
+    [txt_PASSW1] => IKzwkqS3JYfn
+)
+
+23/02/2024 11:12:03 | 189.203.85.158  |   index    |      auditar      |    Libreria G     | S23014722 | IKzwkqS3JYfn
+23/02/2024 11:12:03 | 189.203.85.158  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='S23014722'
+23/02/2024 11:12:03 | 189.203.85.158  |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='1'
+23/02/2024 11:12:03 | 189.203.85.158  |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+23/02/2024 11:12:03 | 189.203.85.158  |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
+23/02/2024 11:12:03 | 189.203.85.158  |   Usuario anonimo    |        getAll        | Becas_festivos       | SELECT * FROM becas_festivos
+23/02/2024 11:16:37 | 189.203.85.158  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23014722', 'D', '2024-04-01', 'D');
+23/02/2024 11:16:38 | 189.203.85.158  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23014722', 'D', '2024-04-02', 'D');
+23/02/2024 11:16:38 | 189.203.85.158  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23014722', 'D', '2024-04-03', 'D');
+23/02/2024 11:16:38 | 189.203.85.158  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23014722', 'D', '2024-04-04', 'D');
+23/02/2024 11:16:38 | 189.203.85.158  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23014722', 'D', '2024-04-08', 'D');
+23/02/2024 11:16:38 | 189.203.85.158  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23014722', 'D', '2024-04-15', 'D');
+23/02/2024 11:16:38 | 189.203.85.158  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23014722', 'D', '2024-04-22', 'D');
+23/02/2024 11:16:38 | 189.203.85.158  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23014722', 'D', '2024-04-09', 'D');
+23/02/2024 11:16:39 | 189.203.85.158  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23014722', 'D', '2024-04-16', 'D');
+23/02/2024 11:16:39 | 189.203.85.158  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23014722', 'D', '2024-04-23', 'D');
+23/02/2024 11:16:39 | 189.203.85.158  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23014722', 'D', '2024-04-10', 'D');
+23/02/2024 11:16:39 | 189.203.85.158  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23014722', 'D', '2024-04-17', 'D');
+23/02/2024 11:16:39 | 189.203.85.158  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23014722', 'D', '2024-04-24', 'D');
+23/02/2024 11:16:39 | 189.203.85.158  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23014722', 'D', '2024-04-11', 'D');
+23/02/2024 11:16:40 | 189.203.85.158  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23014722', 'D', '2024-04-18', 'D');
+23/02/2024 11:16:40 | 189.203.85.158  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23014722', 'D', '2024-04-25', 'D');
+23/02/2024 11:16:40 | 189.203.85.158  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23014722', 'D', '2024-04-29', 'D');
+23/02/2024 11:16:40 | 189.203.85.158  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23014722', 'D', '2024-04-30', 'D');
+23/02/2024 11:16:40 | 189.203.85.158  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23014722', 'D', '2024-05-06', 'D');
+23/02/2024 11:16:40 | 189.203.85.158  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23014722', 'D', '2024-05-07', 'D');
+23/02/2024 11:16:41 | 189.203.85.158  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23014722', 'D', '2024-05-08', 'D');
+23/02/2024 11:16:41 | 189.203.85.158  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23014722', 'D', '2024-05-09', 'D');
+23/02/2024 11:16:41 | 189.203.85.158  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23014722', 'D', '2024-05-13', 'D');
+23/02/2024 11:16:41 | 189.203.85.158  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23014722', 'D', '2024-05-14', 'D');
+23/02/2024 11:16:41 | 189.203.85.158  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23014722', 'D', '2024-05-20', 'D');
+23/02/2024 11:16:41 | 189.203.85.158  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23014722', 'D', '2024-05-21', 'D');
+23/02/2024 11:16:41 | 189.203.85.158  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23014722', 'D', '2024-05-22', 'D');
+23/02/2024 11:16:42 | 189.203.85.158  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23014722', 'D', '2024-05-23', 'D');
+23/02/2024 11:16:42 | 189.203.85.158  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23014722', 'D', '2024-05-27', 'D');
+23/02/2024 11:16:42 | 189.203.85.158  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23014722', 'D', '2024-05-28', 'D');
+23/02/2024 11:16:42 | 189.203.85.158  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23014722', 'D', '2024-05-29', 'D');
+23/02/2024 11:16:42 | 189.203.85.158  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23014722', 'D', '2024-05-30', 'D');
+23/02/2024 11:16:42 | 189.203.85.158  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23014722', 'D', '2024-02-26', 'D');
+23/02/2024 11:16:42 | 189.203.85.158  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23014722', 'D', '2024-02-27', 'D');
+23/02/2024 11:16:43 | 189.203.85.158  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23014722', 'D', '2024-02-28', 'D');
+23/02/2024 11:16:43 | 189.203.85.158  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23014722', 'D', '2024-02-29', 'D');
+23/02/2024 11:16:43 | 189.203.85.158  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23014722', 'D', '2024-03-04', 'D');
+23/02/2024 11:16:43 | 189.203.85.158  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23014722', 'D', '2024-03-05', 'D');
+23/02/2024 11:16:43 | 189.203.85.158  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23014722', 'D', '2024-03-06', 'D');
+23/02/2024 11:16:43 | 189.203.85.158  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23014722', 'D', '2024-03-07', 'D');
+23/02/2024 11:16:44 | 189.203.85.158  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23014722', 'D', '2024-03-11', 'D');
+23/02/2024 11:16:44 | 189.203.85.158  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23014722', 'D', '2024-03-12', 'D');
+23/02/2024 11:16:44 | 189.203.85.158  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23014722', 'D', '2024-03-13', 'D');
+23/02/2024 11:16:44 | 189.203.85.158  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23014722', 'D', '2024-03-14', 'D');
+23/02/2024 11:16:44 | 189.203.85.158  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23014722', 'D', '2024-03-19', 'D');
+23/02/2024 11:16:44 | 189.203.85.158  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23014722', 'D', '2024-03-20', 'D');
+23/02/2024 11:16:44 | 189.203.85.158  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23014722', 'D', '2024-03-21', 'D');
+23/02/2024 11:16:45 | 189.203.85.158  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23014722', 'D', '2024-05-02', 'D');
+23/02/2024 11:16:45 | 189.203.85.158  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23014722', 'D', '2024-05-16', 'D');
+23/02/2024 11:16:45 | 189.203.85.158  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23014722', 'D', '2024-06-03', 'D');
+23/02/2024 11:16:45 | 189.203.85.158  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23014722', 'D', '2024-05-03', 'D');
+23/02/2024 11:16:45 | 189.203.85.158  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23014722', 'D', '2024-05-17', 'D');
+23/02/2024 11:16:45 | 189.203.85.158  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23014722', 'D', '2024-05-24', 'D');
+23/02/2024 11:16:45 | 189.203.85.158  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23014722', 'D', '2024-05-31', 'D');
+23/02/2024 11:16:46 | 189.203.85.158  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23014722', 'D', '2024-04-05', 'D');
+23/02/2024 11:16:46 | 189.203.85.158  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23014722', 'D', '2024-04-12', 'D');
+23/02/2024 11:16:46 | 189.203.85.158  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23014722', 'D', '2024-04-19', 'D');
+23/02/2024 11:16:46 | 189.203.85.158  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23014722', 'D', '2024-04-26', 'D');
+23/02/2024 11:16:46 | 189.203.85.158  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23014722', 'D', '2024-03-01', 'D');
+23/02/2024 11:16:46 | 189.203.85.158  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23014722', 'D', '2024-03-08', 'D');
+23/02/2024 11:16:47 | 189.203.85.158  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23014722', 'D', '2024-03-15', 'D');
+23/02/2024 11:16:47 | 189.203.85.158  |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S23014722', 'D', '2024-03-22', 'D');
+23/02/2024 11:16:47 | 189.203.85.158  |   Usuario anonimo    |       updateBy       | Becas_beneficiarios  | UPDATE becas_beneficiarios SET calendarizo = 1 WHERE matricula = 'S23014722';
+23/02/2024 11:16:47 | 189.203.85.158  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 2
+    [txt_MATRICULA] => S23014722
+)
+
+23/02/2024 11:16:47 | 189.203.85.158  |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='S23014722'
+23/02/2024 11:16:47 | 189.203.85.158  |   index    |      auditar      |    Libreria G     | Preparamos los desayunos en PDF
+23/02/2024 11:16:47 | 189.203.85.158  |   Usuario anonimo    |       execSQL        | Becas_programacion   | SELECT * FROM becas_programacion WHERE id_matricula='S23014722' AND tipo_alimento='D' AND estado='D' ORDER BY fecha ASC
+23/02/2024 11:16:47 | 189.203.85.158  |   Usuario anonimo    |       execSQL        | Becas_programacion   | Filas: 62
+23/02/2024 11:16:47 | 189.203.85.158  |   index    |      auditar      |    Libreria G     | Preparamos las comidas en PDF
+23/02/2024 11:16:47 | 189.203.85.158  |   Usuario anonimo    |       execSQL        | Becas_programacion   | SELECT * FROM becas_programacion WHERE id_matricula='S23014722' AND tipo_alimento='C' AND estado='D' ORDER BY fecha ASC
+23/02/2024 11:16:47 | 189.203.85.158  |   Usuario anonimo    |       execSQL        | Becas_programacion   | Filas: 0
+23/02/2024 11:16:47 | 189.203.85.158  |   index    |      auditar      |    Libreria G     | Verificamos el directorio para C:/xampp/htdocs/appEmpresasUV/docs/becados/S23014722
+23/02/2024 11:18:31 | 189.203.85.158  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 0
+)
+
+23/02/2024 11:47:10 | 200.68.170.127  |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 0
+)
+
+23/02/2024 15:27:25 | 187.189.216.183 |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 0
+)
+
+23/02/2024 15:28:25 | 187.189.216.183 |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => S22013251
+    [txt_PASSW1] => jfryXvHGcTmJ
+)
+
+23/02/2024 15:28:25 | 187.189.216.183 |   index    |      auditar      |    Libreria G     | S22013251 | jfryXvHGcTmJ
+23/02/2024 15:28:25 | 187.189.216.183 |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='S22013251'
+23/02/2024 15:28:25 | 187.189.216.183 |   Usuario anonimo    |        getBy         | Becas_comedores      | SELECT * FROM becas_comedores WHERE id='2'
+23/02/2024 15:28:25 | 187.189.216.183 |   Usuario anonimo    |        getBy         | Becas_periodos       | SELECT * FROM becas_periodos WHERE estado='A'
+23/02/2024 15:28:25 | 187.189.216.183 |   Usuario anonimo    |        getAll        | Becas_mes            | SELECT * FROM becas_mes
+23/02/2024 15:28:25 | 187.189.216.183 |   Usuario anonimo    |        getAll        | Becas_festivos       | SELECT * FROM becas_festivos
+23/02/2024 15:32:56 | 187.189.216.183 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22013251', 'D', '2024-02-26', 'D');
+23/02/2024 15:32:56 | 187.189.216.183 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22013251', 'C', '2024-02-27', 'D');
+23/02/2024 15:32:56 | 187.189.216.183 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22013251', 'C', '2024-02-28', 'D');
+23/02/2024 15:32:56 | 187.189.216.183 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22013251', 'C', '2024-02-29', 'D');
+23/02/2024 15:32:56 | 187.189.216.183 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22013251', 'C', '2024-03-01', 'D');
+23/02/2024 15:32:57 | 187.189.216.183 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22013251', 'D', '2024-03-04', 'D');
+23/02/2024 15:32:57 | 187.189.216.183 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22013251', 'C', '2024-03-05', 'D');
+23/02/2024 15:32:57 | 187.189.216.183 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22013251', 'C', '2024-03-06', 'D');
+23/02/2024 15:32:57 | 187.189.216.183 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22013251', 'C', '2024-03-07', 'D');
+23/02/2024 15:32:57 | 187.189.216.183 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22013251', 'C', '2024-03-08', 'D');
+23/02/2024 15:32:57 | 187.189.216.183 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22013251', 'D', '2024-03-11', 'D');
+23/02/2024 15:32:58 | 187.189.216.183 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22013251', 'C', '2024-03-12', 'D');
+23/02/2024 15:32:58 | 187.189.216.183 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22013251', 'C', '2024-03-13', 'D');
+23/02/2024 15:32:58 | 187.189.216.183 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22013251', 'C', '2024-03-14', 'D');
+23/02/2024 15:32:58 | 187.189.216.183 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22013251', 'C', '2024-03-15', 'D');
+23/02/2024 15:32:58 | 187.189.216.183 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22013251', 'C', '2024-03-19', 'D');
+23/02/2024 15:32:58 | 187.189.216.183 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22013251', 'C', '2024-03-20', 'D');
+23/02/2024 15:32:58 | 187.189.216.183 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22013251', 'C', '2024-03-21', 'D');
+23/02/2024 15:32:59 | 187.189.216.183 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22013251', 'C', '2024-03-22', 'D');
+23/02/2024 15:32:59 | 187.189.216.183 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22013251', 'D', '2024-04-01', 'D');
+23/02/2024 15:32:59 | 187.189.216.183 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22013251', 'D', '2024-04-08', 'D');
+23/02/2024 15:32:59 | 187.189.216.183 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22013251', 'D', '2024-04-15', 'D');
+23/02/2024 15:32:59 | 187.189.216.183 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22013251', 'D', '2024-04-22', 'D');
+23/02/2024 15:32:59 | 187.189.216.183 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22013251', 'D', '2024-04-29', 'D');
+23/02/2024 15:32:59 | 187.189.216.183 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22013251', 'C', '2024-04-02', 'D');
+23/02/2024 15:33:00 | 187.189.216.183 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22013251', 'C', '2024-04-09', 'D');
+23/02/2024 15:33:00 | 187.189.216.183 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22013251', 'C', '2024-04-03', 'D');
+23/02/2024 15:33:00 | 187.189.216.183 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22013251', 'C', '2024-04-10', 'D');
+23/02/2024 15:33:00 | 187.189.216.183 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22013251', 'C', '2024-04-04', 'D');
+23/02/2024 15:33:00 | 187.189.216.183 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22013251', 'C', '2024-04-11', 'D');
+23/02/2024 15:33:00 | 187.189.216.183 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22013251', 'C', '2024-04-05', 'D');
+23/02/2024 15:33:00 | 187.189.216.183 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22013251', 'C', '2024-04-12', 'D');
+23/02/2024 15:33:01 | 187.189.216.183 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22013251', 'C', '2024-04-16', 'D');
+23/02/2024 15:33:01 | 187.189.216.183 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22013251', 'C', '2024-04-17', 'D');
+23/02/2024 15:33:01 | 187.189.216.183 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22013251', 'C', '2024-04-18', 'D');
+23/02/2024 15:33:01 | 187.189.216.183 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22013251', 'C', '2024-04-19', 'D');
+23/02/2024 15:33:01 | 187.189.216.183 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22013251', 'C', '2024-04-23', 'D');
+23/02/2024 15:33:01 | 187.189.216.183 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22013251', 'C', '2024-04-24', 'D');
+23/02/2024 15:33:01 | 187.189.216.183 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22013251', 'C', '2024-04-25', 'D');
+23/02/2024 15:33:02 | 187.189.216.183 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22013251', 'C', '2024-04-26', 'D');
+23/02/2024 15:33:02 | 187.189.216.183 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22013251', 'C', '2024-04-30', 'D');
+23/02/2024 15:33:02 | 187.189.216.183 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22013251', 'C', '2024-05-02', 'D');
+23/02/2024 15:33:02 | 187.189.216.183 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22013251', 'C', '2024-05-03', 'D');
+23/02/2024 15:33:02 | 187.189.216.183 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22013251', 'C', '2024-05-07', 'D');
+23/02/2024 15:33:02 | 187.189.216.183 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22013251', 'D', '2024-05-06', 'D');
+23/02/2024 15:33:02 | 187.189.216.183 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22013251', 'C', '2024-05-09', 'D');
+23/02/2024 15:33:03 | 187.189.216.183 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22013251', 'C', '2024-05-08', 'D');
+23/02/2024 15:33:03 | 187.189.216.183 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22013251', 'D', '2024-05-13', 'D');
+23/02/2024 15:33:03 | 187.189.216.183 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22013251', 'C', '2024-05-14', 'D');
+23/02/2024 15:33:03 | 187.189.216.183 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22013251', 'C', '2024-05-16', 'D');
+23/02/2024 15:33:04 | 187.189.216.183 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22013251', 'C', '2024-05-17', 'D');
+23/02/2024 15:33:04 | 187.189.216.183 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22013251', 'D', '2024-05-20', 'D');
+23/02/2024 15:33:04 | 187.189.216.183 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22013251', 'C', '2024-05-21', 'D');
+23/02/2024 15:33:04 | 187.189.216.183 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22013251', 'C', '2024-05-22', 'D');
+23/02/2024 15:33:04 | 187.189.216.183 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22013251', 'C', '2024-05-23', 'D');
+23/02/2024 15:33:04 | 187.189.216.183 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22013251', 'C', '2024-05-24', 'D');
+23/02/2024 15:33:04 | 187.189.216.183 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22013251', 'D', '2024-05-27', 'D');
+23/02/2024 15:33:05 | 187.189.216.183 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22013251', 'C', '2024-05-28', 'D');
+23/02/2024 15:33:05 | 187.189.216.183 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22013251', 'C', '2024-05-29', 'D');
+23/02/2024 15:33:05 | 187.189.216.183 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22013251', 'C', '2024-05-30', 'D');
+23/02/2024 15:33:05 | 187.189.216.183 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22013251', 'C', '2024-05-31', 'D');
+23/02/2024 15:33:05 | 187.189.216.183 |   Usuario anonimo    |       saveData       | Becas_programacion   | INSERT INTO becas_programacion(id_matricula, tipo_alimento, fecha, estado) VALUES('S22013251', 'D', '2024-06-03', 'D');
+23/02/2024 15:33:05 | 187.189.216.183 |   Usuario anonimo    |       updateBy       | Becas_beneficiarios  | UPDATE becas_beneficiarios SET calendarizo = 1 WHERE matricula = 'S22013251';
+23/02/2024 15:33:06 | 187.189.216.183 |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 2
+    [txt_MATRICULA] => S22013251
+)
+
+23/02/2024 15:33:06 | 187.189.216.183 |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='S22013251'
+23/02/2024 15:33:06 | 187.189.216.183 |   index    |      auditar      |    Libreria G     | Preparamos los desayunos en PDF
+23/02/2024 15:33:06 | 187.189.216.183 |   Usuario anonimo    |       execSQL        | Becas_programacion   | SELECT * FROM becas_programacion WHERE id_matricula='S22013251' AND tipo_alimento='D' AND estado='D' ORDER BY fecha ASC
+23/02/2024 15:33:06 | 187.189.216.183 |   Usuario anonimo    |       execSQL        | Becas_programacion   | Filas: 13
+23/02/2024 15:33:06 | 187.189.216.183 |   index    |      auditar      |    Libreria G     | Preparamos las comidas en PDF
+23/02/2024 15:33:06 | 187.189.216.183 |   Usuario anonimo    |       execSQL        | Becas_programacion   | SELECT * FROM becas_programacion WHERE id_matricula='S22013251' AND tipo_alimento='C' AND estado='D' ORDER BY fecha ASC
+23/02/2024 15:33:06 | 187.189.216.183 |   Usuario anonimo    |       execSQL        | Becas_programacion   | Filas: 49
+23/02/2024 15:33:06 | 187.189.216.183 |   index    |      auditar      |    Libreria G     | Verificamos el directorio para C:/xampp/htdocs/appEmpresasUV/docs/becados/S22013251
+23/02/2024 16:21:53 |  201.108.3.57   |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 0
+)
+
+23/02/2024 17:24:26 | 201.153.218.140 |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 0
+)
+
+23/02/2024 17:24:35 | 201.153.218.140 |   index    |      auditar      |    Libreria G     | Array
+(
+    [step] => 1
+    [txt_MATRICULA] => S21010846
+    [txt_PASSW1] => kuRnmWdFsEAL
+)
+
+23/02/2024 17:24:35 | 201.153.218.140 |   index    |      auditar      |    Libreria G     | S21010846 | kuRnmWdFsEAL
+23/02/2024 17:24:35 | 201.153.218.140 |   Usuario anonimo    |        getBy         | Becas_beneficiarios  | SELECT * FROM becas_beneficiarios WHERE matricula='S21010846'

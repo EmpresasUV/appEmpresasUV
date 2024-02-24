@@ -24,18 +24,13 @@
                     <div class="col-lg-8">
                         <div class="card">
                             <div class="card-header justify-content-center">
-                                <h3 class="card-title">Programa de becas alimentarias de la Universidad Veracruzana</h3>
+                                <h3 class="card-title">Gracias por realizar tu programación de alimentos.</h3>
                             </div>
-                            <div class="card-body">
-                                <!-- [BEGIN][FORMULARIO] -->
-                                <form id="FrmDATOS" name="FrmDATOS" method="post" autocomplete="off">
-                                    <input id="step" name="step" type="hidden" value="0" required="false" />
-
-                                    Descripción resumida del programa ó información relevante que mostrar al usuario. Descripción resumida del programa ó información relevante que mostrar al usuario. Descripción resumida del programa ó información relevante que mostrar al usuario. Descripción resumida del programa ó información relevante que mostrar al usuario. Descripción resumida del programa ó información relevante que mostrar al usuario. Descripción resumida del programa ó información relevante que mostrar al usuario. Descripción resumida del programa ó información relevante que mostrar al usuario.
-
-                                </form>
-                                <!-- [END][FORMULARIO] -->
-
+                            <div class="card-body" style="height: 500px;">
+                                <h1>Calendarización completada.</h1>
+                                <object data="<?= $PDF_file ?>" type="application/pdf" width="100%" height="90%">
+                                    <p>Como alternativa te incluimos el link <a href="<?= $PDF_file ?>"> al archivo PDF!</a></p>
+                                </object>
                             </div>
                             <div class="card-footer text-center">
                                 <a id="cmd_INICIO" href="#" class="btn btn-success">Iniciar registro</a>

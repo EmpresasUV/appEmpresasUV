@@ -85,6 +85,7 @@
                     <div class="col-lg-9">
                         <form id="FrmDATOS02" name="FrmDATOS02" class="card" method="post" autocomplete="off">
                             <input id="step" name="step" type="hidden" value="2" required="false" />
+                            <input id="txt_MATRICULA" name="txt_MATRICULA" type="hidden" value="<?= $Becario["Matricula"] ?>" required="false" />
                             <div class="card-header">
                                 <h3 class="card-title">Agenda tu calendario de alimentos programados</h3>
                             </div>

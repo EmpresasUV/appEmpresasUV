@@ -378,6 +378,18 @@ class VentasControlador extends ControladorBase{
 
      }
     /** ****************************************************** **/
+    public function estadisticas(){
+        try {
+
+            $this->view("_header_app", array(null));
+            $this->view("tpv/tpv_estadisticas", array(null));
+            $this->view("_footer_app", array(null));
+
+        } catch (Exception $e) {
+            mostrar_error($e);
+        }
+    }
+    /** ****************************************************** **/
 
    /**
      * CONTROL DE INTERFACES PARA EL USUARIO (Carga dinamica de interfaces)

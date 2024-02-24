@@ -1,0 +1,68 @@
+<?php
+/**
+ * @autor Rixio Danilo Iguarán Chourio.
+ * @cédula-profesional 12196442
+ * @correo-eletrónico atencion.clientes@obringolfo.com
+ * @denominacion OBRAS INFORMÁTICAS DEL GOLFO
+ * @empresa OBRINGOLFO S.A.S. DE C.V.
+ * @proyecto  goPAC.
+ * @copyright 2021
+ */
+
+
+class EstadisticasControlador extends ControladorBase{
+    public $conectar;
+    public $adapter;
+
+    /** ****************************************************** **/
+    public function __construct() {
+        try {
+
+            parent::__construct();
+            $this->conectar = new Conectar();
+            $this->adapter  = $this->conectar->conexion();
+
+        } catch (Exception $e) {
+            mostrar_error($e);
+        }
+    }
+    /** ****************************************************** **/
+    public function index(){
+        try { chkSesion();
+
+
+        } catch (Exception $e) {
+            mostrar_error($e);
+        }
+    }
+    /** ****************************************************** **/
+    public function get_Comedores(){
+        try { chkSesion();
+
+            header('Content-Type: application/json; charset=UTF8');
+            $xRespuesta = array();
+            $comedores = new Becas_comedores($this->adapter);
+            $xRespuesta['data'] = $comedores->getAll();
+            echo json_encode($xRespuesta['data']);
+
+        } catch (Exception $e) {
+            mostrar_error($e);
+        }
+    }
+    /** ****************************************************** **/
+    public function iface_configuraciones(){
+        try { chkSesion();
+
+            $this->view("_header_app", null); //Cargamos el header del sistema
+            $this->view("usuarios_configuraciones", null); //Cargamos la vista
+            $this->view("_footer_app", null); //Cargamos el footer del sistema
+
+        } catch (Exception $e) {
+            mostrar_error($e);
+        }
+    }
+    /** ****************************************************** **/
+    /** ****************************************************** **/
+    /** ****************************************************** **/
+}
+?>

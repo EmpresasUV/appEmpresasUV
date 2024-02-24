@@ -30,9 +30,21 @@
                                 <!-- [BEGIN][FORMULARIO] -->
                                 <form id="FrmDATOS" name="FrmDATOS" method="post" autocomplete="off">
                                     <input id="step" name="step" type="hidden" value="0" required="false" />
-
-                                    Descripción resumida del programa ó información relevante que mostrar al usuario. Descripción resumida del programa ó información relevante que mostrar al usuario. Descripción resumida del programa ó información relevante que mostrar al usuario. Descripción resumida del programa ó información relevante que mostrar al usuario. Descripción resumida del programa ó información relevante que mostrar al usuario. Descripción resumida del programa ó información relevante que mostrar al usuario. Descripción resumida del programa ó información relevante que mostrar al usuario.
-
+<p align="justify">
+El acceso a una comida digna es un derecho humano, y el programa de los Comedores Universitarios de la Universidad Veracruzana busca cumplirlo. Este programa sin fines de lucro apoyado por la Rectoría de la Universidad Veracruzana a través del Voluntariado UV inició en 2016 y con el apoyo de la Fundación de la Universidad Veracruzana, A.C. y el Fondo de Empresas de la Universidad Veracruzana A.C.; definen su objetivo como:
+</p><p style="margin-left: 100px;text-align: justify;">
+<cite>Ofrecer servicio de alimentación que proporcione comida higiénica, nutricionalmente balanceada a un precio accesible para beneficiar a la población estudiantil, la comunidad universitaria y el público en general, generando un mínimo impacto ambiental.</cite>
+</p><p>
+<strong>Los cuatro pilares de los comedores universitarios</strong>
+</p><p>
+Los Comedores Universitarios son diferentes a las cafeterías, ya que tienen los siguientes cuatro objetivos para garantizar una comida digna, balanceada, accesible, e higiénica:
+</p>
+<ol style="margin-left: 50px;text-align: justify;">
+    <li>Brindar accesibilidad económica para la alimentación (liga a página "Objetivo accesibilidad económica")</li>
+    <li>Ofrecer comida nutricionalmente balanceada para universitarios (liga a página "Comida nutricionalmente balanceada")</li>
+    <li>Manejar higiene en el manejo de la comida (Liga a página "Procesos de higiene en Comedores Universitarios")</li>
+    <li>Reducir el impacto ambiental (Liga a página "Sustentabilidad ambiental de comedores universitarios")</li>
+<ol>
                                 </form>
                                 <!-- [END][FORMULARIO] -->
 
